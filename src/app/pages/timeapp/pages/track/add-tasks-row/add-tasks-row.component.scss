@@ -1,0 +1,32 @@
+@import '../../../_shared/styles/scss/variables';
+
+.datatable {
+  &-additional {
+    padding: 20px;
+
+    ul {
+      margin: 0;
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 15px 0 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+
+      }
+    }
+
+    .__blue.mat-button {
+      padding: 0;
+      width: auto;
+      margin-right: 3px;
+    }
+  }
+}
+
+.list-inline {
+  font-family: $basicFont;
+  font-size: 13px;
+}

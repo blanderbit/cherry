@@ -1,0 +1,14 @@
+{
+    "upload": {
+        "drop": "Drop to upload to Cerri",
+        "uploadProgress": "Upload Progress",
+        "cancel": "Cancel",
+        "uploading": "Uploading",
+        "success": "Successfully upload",
+        "error": "Can't upload image",
+        "maxSize": "The image is too big, Max size is 4MB"
+    },
+    "action": {
+        "successfully-upload": "Photo(s) has been successfully updated"
+    }
+}

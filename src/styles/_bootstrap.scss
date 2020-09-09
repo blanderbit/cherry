@@ -1,0 +1,19 @@
+.sr-only {
+    display: none;
+    //visibility: hidden;
+}
+
+ngb-typeahead-window.dropdown-menu {
+    width: 100%;
+    position: relative;
+    border-color: transparent;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), -5px -5px 25px rgba(206, 218, 228, 0.7);
+    border-radius: 8px;
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+        text-decoration: none;
+        background-color: #e0e0e0;
+        color: inherit;
+    }
+}

@@ -1,0 +1,66 @@
+<div class="team-member-tile d-flex flex-column">
+    <div class="actions" *ngIf="showMenu">
+        <ng-container *ngIf="menuItemsList?.toArray()?.length">
+            <button *hasPermission="[permissionAction.DeleteMember, permissionAction.UpdateMemberRole]"
+                    class="material-menu-trigger"
+                    mat-button [matMenuTriggerFor]="animals">
+                <i class="icon-vertical-dots d-flex"></i>
+            </button>
+        </ng-container>
+
+        <mat-menu #animals="matMenu">
+            <ng-container *ngIf="project.creatorId !== member?.id">
+                <button mat-menu-item (click)="deleteMember()"
+                        *hasPermission="[permissionAction.DeleteMember]"
+                >
+                    {{'teamMemberAction.remove' | translate}}
+                </button>
+            </ng-container>
+
+            <ng-container *ngIf="project.creatorId !== member?.id && isHumanResource()">
+                <ng-container *hasPermission="permissionAction.UpdateMemberRole">
+                    <button mat-menu-item [matMenuTriggerFor]="rolesMenu">
+                        {{'teamMemberAction.changeRole' | translate}}
+                    </button>
+                </ng-container>
+            </ng-container>
+        </mat-menu>
+
+        <mat-menu #rolesMenu="matMenu">
+            <ng-template matMenuContent>
+                <div *ngFor="let item of roles" class="menu-item">
+                    <button (click)="updateMember(item)" mat-menu-item>{{item.name}}</button>
+                </div>
+            </ng-template>
+        </mat-menu>
+    </div>
+
+    <div class="w-100">
+        <div class="avatar">
+            <app-avatar [resource]="member"
+                        [showDeletedUserAvatar]="isDeletedResource"
+                        size="120"></app-avatar>
+        </div>
+    </div>
+    <div class="user-name m-t-20 text-overflow-ellipsis">
+        {{member.name}}
+    </div>
+    <div class="user-role" *hasPermission="permissionAction.ViewRoles">
+
+        <ng-container *ngIf="member?.id !== project.creatorId && !isDeletedResource">
+            {{(role?.name || 'resource.' + member.kind) | translate | titlecase}}
+        </ng-container>
+
+        <ng-container *ngIf="member?.id === project.creatorId ">
+            {{ 'resource.owner' | translate | titlecase}}
+        </ng-container>
+
+        <ng-container *ngIf="member?.id !== project.creatorId && isDeletedResource">
+            <div class="deleted-resource">
+                {{'resource.deleted' | translate | titlecase}}
+            </div>
+        </ng-container>
+    </div>
+    <div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <table>
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 25%;">
+            <col span="1" style="width: 25%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>{{"table.name" | translate}}</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td class="f-w-600 name text-overflow-ellipsis"><a
+                        [routerLink]="['/projects/', item.id]">{{item.name}}</a></td>
+                <td><a [href]="'/gantt/gp-gantt?projectId=' + item.id" target="_blank">{{"table.view" | translate}}</a>
+                </td>
+                <td><a [href]="'/gantt/gp-gantt?projectId=' + item.id + '&editable'"
+                        target="_blank">{{"table.edit" | translate}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

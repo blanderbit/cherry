@@ -1,0 +1,53 @@
+//$default-font-family: Roboto, 'Helvetica Neue', sans-serif;
+$default-font-family: 'Open Sans', sans-serif;
+
+@mixin font($size, $weight: normal, $family: $default-font-family) {
+    font-size: $size !important;
+    font-family: $family;
+    font-weight: $weight;
+}
+
+@for $i from 8 to 32 {
+    .sz-#{$i} {
+        @include font($i + px);
+    }
+
+    .sz-b-#{$i} {
+        @include font($i + px, 700);
+    }
+
+    .sz-l-#{$i} {
+        @include font($i + px, 100);
+    }
+
+    .f-z-#{$i} {
+        @include font($i + px);
+    }
+}
+
+
+.t-a-c {
+    text-align: center;
+}
+
+.t-a-l {
+    text-align: left;
+}
+
+.t-a-r {
+    text-align: right;
+}
+
+$font-weight: (400, 600, 700);
+
+@each $fw in $font-weight {
+    .f-w-#{$fw} {
+        font-weight: #{$fw} !important;
+    }
+}
+
+@for $lh from 0 to 32 {
+    .l-h-#{$lh} {
+        line-height: #{$lh}px !important;
+    }
+}

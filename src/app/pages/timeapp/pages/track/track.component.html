@@ -1,0 +1,11 @@
+<main class="w-100 position-relative">
+    <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+    <div class="main-content h-100 overflow-auto">
+        <app-track-header #header></app-track-header>
+
+        <div class="datatable">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,11 @@
+@import "../../../styles/core/variables";
+
+
+.trial-header {
+    text-align: center;
+    color: $color-text-black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 149, 9, 0.1);
+}

@@ -1,0 +1,14 @@
+@import '../../../styles/core/variables';
+
+:host {
+    display: flex;
+}
+
+.link-wrapper {
+    margin-left: 3px;
+
+    .link {
+        color: $control-color-blue;
+        cursor: pointer;
+    }
+}

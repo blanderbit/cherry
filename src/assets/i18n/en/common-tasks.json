@@ -1,0 +1,135 @@
+{
+    "startDate": "Start date",
+    "endDate": "End date",
+    "team&Effort": "Team & Effort",
+    "materialResources": "Material Resources",
+    "addTaskName": "Add task name",
+    "action": {
+        "successfully-created": "Task successfully created",
+        "successfully-updated": "Task successfully updated",
+        "successfully-deleted": "Successfully deleted",
+        "success-assignee": "Assignee successfully added",
+        "success-delete": "Assignee successfully deleted",
+        "create-error": "Can't create task",
+        "update-error": "Can't update task",
+        "delete-error": "Can't delete task",
+        "load-items-error": "Can't load tasks",
+        "not-found": "Task not found",
+        "project-delete-success": "Project successfully deleted",
+        "no-members": "Failed to get project members",
+        "error-assignee": "Can't add assignee",
+        "edit-time-success": "Time updated successfully",
+        "edit-time-error": "Failed to update time"
+    },
+    "statusType": {
+        "0": "Draft",
+        "1": "Requested",
+        "2": "In Progress",
+        "3": "Completed",
+        "4": "Archived",
+        "5": "Cancelled"
+    },
+    "priority": {
+        "High": "High priority",
+        "Urgent": "Urgent priority",
+        "Medium": "Medium priority",
+        "Low": "Low priority"
+    },
+    "activityType": {
+        "Userstory": "Userstory",
+        "Bug": "Bug",
+        "Task": "Task",
+        "Issue": "Issue"
+    },
+    "card": {
+        "project": "Project",
+        "assignee": "Assignee",
+        "description": "Description",
+        "taskType": "Task type",
+        "taskPriority": "Task priority",
+        "owner": "Owner",
+        "dependency": "Dependency",
+        "phase": "Phase",
+        "wbs": "WBS #"
+    },
+    "task-type": {
+        "0": {
+            "detail": "Task details",
+            "team&Effort": "Team & Effort",
+            "materialResources": "Material Resources"
+        },
+        "1": {
+            "detail": "Deliverable details",
+            "team&Effort": "Assignee",
+            "materialResources": "Material Resources"
+        }
+    },
+    "assignee": {
+        "add": "Add assignee",
+        "empty": "Who is working on this task?",
+        "email": "Email address",
+        "resources": "Material resource name",
+        "not-found": "Nothing was found",
+        "cancel": "Cancel",
+        "add-assignee": "Add",
+        "add-resource-assignee": "Add Now",
+        "placeholder": "Add name or email address",
+        "placeholder-resources": "Add name",
+        "add-resources": "Add resource"
+    },
+
+    "plan": {
+        "effort": "Plan effort",
+        "plannedEffort": "Planned effort",
+        "reportedTime": "Reported time",
+        "time": "Planned time",
+        "save": "Save",
+        "hrs": "hrs",
+        "min": "min",
+        "addTime": "Add time",
+        "actual": "Actual time",
+        "remaining": "Remaining time",
+        "placeholder": "Explain your progress...",
+        "timeApp": "Open in Time App",
+        "date": "Date",
+        "editTime": "Edit time",
+        "reported": "Reported",
+        "planned":"Planned",
+        "total": "Total:",
+        "thisWeek": "Цей тиждень"
+    },
+    "progress": {
+        "progress": "Progress",
+        "hoursCompleted": "Hours completed",
+        "workCompleted": "Work completed",
+        "initial": "Initial",
+        "planned": "Planned",
+        "eac": "Current",
+        "actual": "Actual/Reported",
+        "remaining": "Remaining",
+        "start": "Start",
+        "end": "End",
+        "effort": "Effort, hrs"
+    },
+    "dependency": {
+        "type": {
+            "0": "task",
+            "1": "deliverable"
+        },
+        "before": {
+            "0": "Start at the same time as",
+            "1": "Finish before",
+            "2": "Finish at the same time as",
+            "3": "Start after"
+        },
+        "after": {
+            "0": "",
+            "1": "starts",
+            "2": "",
+            "3": "finished"
+        }
+    },
+    "dependencies-dialog": {
+        "title": "Dependencies"
+    }
+}

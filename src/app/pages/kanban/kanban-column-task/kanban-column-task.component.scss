@@ -1,0 +1,26 @@
+@import '../../../../styles/core/variables';
+
+.kanban-column-task {
+    background: #FFFFFF;
+    box-shadow: -5px -5px 25px rgba(206, 218, 228, 0.7), 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 12px 15px;
+
+    // TODO: Remove after card implementation
+    min-height: 77px;
+
+    &:hover {
+        cursor: pointer;
+
+        .task-name {
+            color: $control-color-blue;
+        }       
+    }
+}
+
+.task-name {
+    color: $color-text-black;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}

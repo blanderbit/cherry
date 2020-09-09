@@ -1,0 +1,9 @@
+<div [formGroup]="form" (keydown)="onKeyDown($event)">
+    <app-form-control [title]="errors[fieldName]" hideError="true" hideTitle="true">
+        <input type="text"
+               [placeholder]="placeholder | translate"
+               [formControlName]="fieldName"
+               (keydown.enter)="apply($event)"
+               #input>
+    </app-form-control>
+</div>

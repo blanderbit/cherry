@@ -1,0 +1,59 @@
+<h1 class="color-dark f-w-600 text-uppercase f-z-14 l-h-16 m-t-25 m-b-15" *ngIf="items?.length">{{'comments' | translate}}</h1>
+
+<div class="task-comments-container d-flex flex-column w-100"
+     [class.flex-column-reverse]="manager.descending">
+    <div *ngFor="let item of items; let i = index; trackBy: trackBy">
+
+        <div class="w-100 d-flex divider m-t-20 m-b-25" *ngIf="dividerVisibilityMap[item.id] ">
+            <span class="text-center">{{dividerVisibilityMap[item.id] | daysAgo}}</span>
+        </div>
+
+        <div class="position-relative"
+             (mouseenter)="hoveredItem = item"
+             (mouseleave)="hoveredItem = null">
+            <app-task-comment [item]="item" [resources]="mentionResources" #comment></app-task-comment>
+
+            <ng-template [creatorId]="item?.resourceId"
+                         [hasPermission]="[permissionAction.UpdateComment, permissionAction.DeleteComment]"
+            >
+               <ng-container *ngIf="!hideActions">
+                   <button class="icon-container comment-actions"
+                           [class.menu-active]="menuShownForItem"
+                           [matMenuTriggerFor]="menu"
+                           (menuOpened)="menuShownForItem = item"
+                           (menuClosed)="menuShownForItem = null"
+                           *ngIf="comment.needCreate && (hoveredItem === item) || (menuShownForItem === item)"
+                   >
+                       <i class="icon-vertical-dots"></i>
+                   </button>
+               </ng-container>
+            </ng-template>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+                <ng-template matMenuContent>
+                    <ng-template [creatorId]="item?.resourceId" [hasPermission]="permissionAction.UpdateComment">
+                        <div class="menu-item">
+                            <button mat-menu-item
+                                    (click)="comment.editCommentAction.action(); setCommentInEditMode(comment)">
+                                <i class="icon-{{comment.editCommentAction.icon}} m-r-8"></i>
+                                <span>{{ comment.editCommentAction.title | translate}}</span>
+                            </button>
+                        </div>
+                    </ng-template>
+
+                    <ng-template [creatorId]="item?.resourceId" [hasPermissions]="permissionAction.DeleteComment">
+                        <div class="menu-item">
+                            <button
+                                mat-menu-item (click)="comment.deleteCommentAction.action()">
+                                <i class="icon-{{comment.deleteCommentAction.icon}} m-r-8"></i>
+                                <span>{{ comment.deleteCommentAction.title | translate}}</span>
+                            </button>
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </mat-menu>
+        </div>
+
+    </div>
+</div>
+

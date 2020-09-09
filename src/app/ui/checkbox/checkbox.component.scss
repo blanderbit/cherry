@@ -1,0 +1,55 @@
+@import '../../../styles/core/variables';
+
+input {
+    display: none;
+}
+
+.checkbox-wrapper {
+    &.disabled {
+        pointer-events: none;
+        //opacity: 0.5;
+
+        &.checkmark {
+            background-color: $grey;
+        }
+    }
+}
+
+.checkmark {
+    will-change: border-radius, width, height;
+
+    position: absolute;
+    //top: -10px;
+    left: 0;
+    border: 1px solid $color-text-grey;
+    transition: all 0.2s ease-in-out;
+
+    i {
+        color: transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+:host-context(.color-blue) {
+    input[value="true"] ~ .checkmark {
+        background-color: $control-color-blue;
+        border-color: $control-color-blue;
+
+    }
+}
+
+input[value="true"] ~ .checkmark {
+    background-color: $control-color-green;
+    transition: all 0.2s ease-in-out;
+    border-color: $control-color-green;
+
+    i {
+        color: white;
+        margin: 1px 0px;
+    }
+
+}
+

@@ -1,0 +1,27 @@
+@import '../../../common-projects/common-projects.component.scss';
+@import '../../../../styles/theme';
+
+.project-details-container {
+    padding: 30px 40px 0 40px;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-kanban {
+    color: $background;
+}
+
+.add-column-btn {
+    // width: 100px;
+}
+
+.cancel-add {
+
+}
+
+.material-menu-trigger {
+    width: 26px;
+    height: 26px;
+}

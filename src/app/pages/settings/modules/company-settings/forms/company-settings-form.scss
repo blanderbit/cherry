@@ -1,0 +1,49 @@
+@import '../../../../../../styles/core/variables';
+@import '../../../../../../styles/mixins/text.mixins';
+
+.form-container {
+    width: 100%;
+    position: relative;
+}
+
+app-select, input {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+:host {
+    ::ng-deep {
+        app-form-control {
+            width: 100%;
+
+            // TODO: fix size
+            height: 38px;
+
+            .field, input {
+                height: 100%;
+            }
+
+            color: $color-text-black;
+
+            .error {
+                @include text-overflow-ellipsis();
+            }
+        }
+
+        input {
+            color: $color-text-black !important;
+        }
+
+        app-datepicker, app-select {
+            font-size: 13px;
+            line-height: 18px;
+            color: $color-text-black;
+        }
+
+        .dropdown-toggle {
+            font-weight: 400;
+            color: $color-text-black;
+        }
+
+    }
+}

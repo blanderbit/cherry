@@ -1,0 +1,4 @@
+[submodule "Cloud_infrastructure"]
+	path = Cloud_infrastructure
+	url = ../Cloud_infrastructure
+

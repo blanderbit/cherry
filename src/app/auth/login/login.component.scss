@@ -1,0 +1,40 @@
+:host {
+    width: 500px;
+    min-height: 436px;
+}
+
+.logotype {
+    margin-bottom: 60px;
+}
+
+.login {
+    .title {
+        font-family: Open Sans, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+    }
+}
+
+.input-login {
+    padding: 9px 16px;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px solid rgba(196, 210, 221, 0.5);
+    border-radius: 4px;
+    width: 100%;
+}
+
+//.button-login {
+//    position: relative;
+//    background: #00A3FF;
+//    border-radius: 3px;
+//    padding: 16px 0;
+//    margin-top: 20px;
+//    //height: initial;
+//    height: 46px;
+//}

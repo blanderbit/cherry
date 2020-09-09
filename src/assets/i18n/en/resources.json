@@ -1,0 +1,12 @@
+{
+    "meta": {
+        "title": "Resources",
+        "description": "Resources description"
+    },
+    "side": {
+        "title": "resource",
+        "human": "Human Resources",
+        "material": "Material Resources",
+        "generic": "Generic Resources"
+    }
+}

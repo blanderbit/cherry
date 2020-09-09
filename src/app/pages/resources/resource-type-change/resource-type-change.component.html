@@ -1,0 +1,14 @@
+<!--TODO: Add translate-->
+
+<app-dialog>
+    <div class="header">{{"modal.confirm" | translate}}</div>
+    <ng-container ngProjectAs=".body">
+        <div class="body-title">
+          {{"modal.title" | translate}}
+        </div>
+    </ng-container>
+    <ng-container ngProjectAs=".actions">
+        <button class="default large" (click)="close()">{{"modal.no" | translate}}</button>
+        <button class="primary large" (click)="submit()">{{"modal.yes"| translate}}</button>
+    </ng-container>
+</app-dialog>

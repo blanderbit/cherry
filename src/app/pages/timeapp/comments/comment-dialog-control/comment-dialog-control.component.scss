@@ -1,0 +1,30 @@
+@import "../../../../../styles/core/variables";
+
+:host {
+    ::ng-deep {
+        label {
+            margin-top: 0 !important;
+        }
+
+        app-form-control {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+textarea {
+    min-height: 35px;
+    height: 35px;
+    max-height: 120px;
+    border-radius: 4px;
+    padding: 6px 16px;
+    resize: none;
+    &:focus{
+        border: 1px solid $control-color-blue;
+        box-shadow: none;
+    }
+    &:disabled {
+        resize: none;
+    }
+}
+

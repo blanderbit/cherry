@@ -1,0 +1,9 @@
+<div class="control" title="{{title | translate}}">
+    <div class="input-container">
+        <label *ngIf="title" [for]="title" class="title">{{title | translate }}</label>
+
+        <ng-content></ng-content>
+    </div>
+
+    <span class="error" *ngIf="!hideError">{{error || 'Error'}}</span>
+</div>

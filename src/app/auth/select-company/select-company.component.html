@@ -1,0 +1,36 @@
+<div class="select-company-container w-100 h-100 d-flex flex-column align-items-center">
+   <div class="h-100 d-flex flex-column">
+       <app-auth-loader *ngIf="loading; else content"></app-auth-loader>
+
+       <ng-template #content>
+           <h2>Select Organization to Login in</h2>
+
+           <div role="search" class="position-relative">
+               <input type="text"
+                      role="search"
+                      placeholder="Type Company Name"
+                      autofocus
+                      [formControl]="searchControl">
+               <i class="icon-search"></i>
+           </div>
+
+           <div class="scroll-container d-flex flex-column overflow-auto">
+               <div class="company-item d-flex align-items-center m-b-16 cursor-pointer"
+                    (click)="selectCompany(item)"
+                    *ngFor="let item of filteredItems; trackBy: trackBy">
+                   <div  class="d-flex overflow-hidden align-items-center flex-grow-1">
+                       <app-company-logo [companyId]="item.id" class="m-r-14"></app-company-logo>
+
+                       <div class="f-w-600 item-name color-black sz-16 l-h-18 text-overflow-ellipsis">
+                           {{item?.name}}
+                       </div>
+                   </div>
+
+                   <button class="w-auto" (click)="selectCompany(item)">
+                       <img src="../../../assets/img/go-to-company.png" alt="select company">
+                   </button>
+               </div>
+           </div>
+       </ng-template>
+   </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="content">
+    <h1 class="section-header">{{ "side-bar-menu.title" | translate }}</h1>
+    <ul>
+        <li *ngFor=" let item of sideBarMenu"
+            routerLink="/profile{{item.path}}"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}">
+           {{ item.name | translate}}
+        </li>
+    </ul>
+</div>

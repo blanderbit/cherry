@@ -1,0 +1,21 @@
+{
+    "setting": {
+        "newTask": "New task/deliverable for you",
+        "taskCompleted": "Task/deliverable completed (include assignment completed)",
+        "taskCancelled": "Task/deliverable cancelled",
+        "assigmentCompleted": "Assignment completed on your task/deliverable",
+        "assigmentDeleted": "Assignment deleted on your task/deliverable",
+        "yourAssigmentCompleted": "Your Assigment Completed",
+        "taskDeleted": "Task/deliverable deleted",
+        "newComment": "Comments on your task/deliverable",
+        "attachmentAdded": "Attachment added on your task/deliverable",
+        "projectInvitation": "Project invitations for you"
+    },
+    "action": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "successfully-updated": "Successfully updated",
+        "update-error": "Can't update"
+    },
+    "notifications": "Notifications"
+}

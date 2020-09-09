@@ -1,0 +1,8 @@
+<app-loader *ngIf="loading" class="absolute"></app-loader>
+
+<app-checkbox [disabled]="assignmentCompleteDisabled"
+              [checked]="isAssignmentCompleted"
+              [size]="size"
+              (isChecked)="complete($event)"
+              #checkboxRef
+></app-checkbox>

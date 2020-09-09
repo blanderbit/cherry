@@ -1,0 +1,79 @@
+@import "../../../../styles/core/variables";
+
+.header {
+    color: $control-color-red;
+    background: $background-light;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.body {
+    color: $color-text-black;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+ul {
+    li {
+        padding-left: 35px;
+        position: relative;
+        color: $color-text-black;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+
+        border: 1px solid $color-text-grey;
+        opacity: 0.5;
+
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    li:not(:last-of-type) {
+        color: $color-text-black;
+        line-height: 120%;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+button {
+    width: 47%;
+}
+
+::ng-deep .modal-copy-holidays-dialog {
+
+    .modal-dialog {
+        width: 550px;
+        max-width: 550px;
+
+        .button {
+            width: 230px;
+            height: 30px;
+        }
+
+        .button-confirm {
+            background: $control-color-red;
+        }
+        .button-cancel {
+            background: $color-text-grey-40;
+        }
+
+        .close align-self-center {
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+
+}

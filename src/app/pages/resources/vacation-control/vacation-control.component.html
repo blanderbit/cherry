@@ -1,0 +1,29 @@
+<span class="title">{{'form.time-off' | translate}}</span>
+
+<div [formGroup]="form">
+
+    <div class="form-group wrapper">
+        <label>{{'form.vacation' | translate}}</label>
+
+        <div class="input-control">
+            <input class=""
+                   formControlName="vacation"
+                   [placeholder]="'form.count' | translate">
+
+            <span>{{'form.days' | translate}}</span>
+        </div>
+    </div>
+
+    <div class="form-group wrapper">
+        <label>{{'form.illness' | translate}}</label>
+
+        <div class="input-control">
+            <input class=""
+                   formControlName="illness"
+                   [placeholder]="'form.count' | translate"/>
+
+            <span>{{'form.days' | translate}}</span>
+        </div>
+    </div>
+
+</div>

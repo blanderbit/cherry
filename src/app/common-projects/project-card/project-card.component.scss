@@ -1,0 +1,189 @@
+@import "../../../styles/core/variables";
+
+:host {
+    ::ng-deep {
+        .status {
+            display: inline-flex;
+            min-width: 70px;
+            width: unset;
+        }
+
+        app-avatar:not(:first-of-type) {
+            margin-left: -5px !important;
+        }
+
+        app-project-status {
+            .status {
+                max-height: 18px;
+                min-height: 18px;
+            }
+        }
+    }
+}
+
+.card {
+    width: 257px;
+    height: 185px;
+    margin-right: 19px;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 2px rgba(72, 80, 86, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    transition: 0.2s ease-out;
+
+    &.control-disabled {
+        opacity: 0.7;
+    }
+
+    //box-sizing: content-box;
+
+    .card-body {
+        padding: 15px 13px 12px 16px;
+        height: 100%;
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+
+        //.favorite {
+        //    width: 20px;
+        //}
+        h2 {
+            min-width: 0;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+    }
+
+    .img {
+        min-width: 40px;
+        max-width: 40px;
+        height: 40px;
+        //background-color: lightgreen;
+        margin-right: 12px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+        span {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 18px;
+        }
+    }
+
+    .card-text {
+        width: 76px;
+        height: 18px;
+        font-weight: bold;
+        font-size: 10px;
+        color: white;
+        padding: 3px 10px;
+    }
+
+    .text-title {
+        h2 {
+            width: 142px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 18px;
+            overflow: hidden;
+            height: 18px;
+            text-overflow: ellipsis;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #738C99;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    &:hover {
+        transition: 0.2s ease-in;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 2px 15px rgba(72, 80, 86, 0.2);
+        border-radius: 4px;
+    }
+
+    ::ng-deep .team-image {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+:host {
+    ::ng-deep {
+        .slider.slider-horizontal {
+            width: 100%;
+        }
+
+        .slider.slider-horizontal .slider-track {
+            height: 6px;
+        }
+
+        .members .avatar-stack-wrapper .stack-item {
+
+            img, .avatar-content {
+                border: 1px solid white;
+            }
+        }
+
+        .members .avatar-stack-wrapper .stack-item:not(:first-child) {
+            margin-left: -7px !important;
+        }
+    }
+}
+.assignee-icon{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    min-width: 34px;
+    min-height: 34px;
+    border-radius: 50%;
+    border: 1px dashed #738c99;
+    color: #738c99;
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover{
+        border: 1px dashed $control-color-blue;
+        color: $control-color-blue;
+    }
+}
+.project-progress {
+    mv-slider {
+        width: calc(100% - 35px);
+    }
+
+    .value {
+        //margin-left: 10px;
+        width: 35px;
+    }
+}
+
+//.progress {
+//    .slider {
+//        width: calc(100% - 35px);
+//    }
+//
+//    .progress-value {
+//        width: 35px;
+//    }
+//}
+//
+//:host {
+//    ::ng-deep {
+//        mv-slider {
+//            width: 100%;
+//        }
+//    }
+//}

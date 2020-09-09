@@ -1,0 +1,392 @@
+@import './_shared/styles/scss/variables';
+
+::ng-deep .timeapp {
+    @import 'bulma-calendar';
+    .content-navigation i.icon-timesheets{
+        font-size: 22px;
+    }
+    input[type=checkbox] {
+        background-color: initial;
+        border-radius: initial;
+        border: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+
+        &:checked {
+            background-color: initial;
+        }
+    }
+
+    .wrapper  {
+        .centralcol, app-track-shell
+        {
+            flex: 1;
+            display: flex;
+        }
+    }
+
+    .check-element {
+        width: 39px;
+        height: 20px;
+        background: $blue;
+        border-radius: 12.339px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        &:after {
+            content: '';
+            background: #fff;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            left: 2px;
+            top: 2px;
+            display: block;
+            position: absolute;
+        }
+        &.__rightactive {
+            &:after {
+                left: auto;
+                right: 2px;
+            }
+        }
+    }
+
+    .bell-icon {
+        &.__active {
+            .icon-bell {
+                position: relative;
+                font-size: 18px;
+                width: auto;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 9px;
+                    height: 9px;
+                    top: -2px;
+                    right: 3px;
+                    display: block;
+                    background: $red;
+                    border-radius: 50%;
+                }
+            }
+        }
+        i {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            font-style: normal;
+            position: absolute;
+            margin: 5px 0 0 0;
+            color: #7696A0;
+        }
+    }
+
+    .btn-main {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 15px;
+        background: $blue;
+        color: #fff;
+        border-radius: 4px;
+        display: inline-block;
+        padding: 0 40px;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all .4s;
+        font-family: $basicFont;
+        border: none;
+        &:hover{
+            color: #fff;
+            background: darken($blue, 20%);
+        }
+        &[disabled]{
+            color: #fff;
+            background: lighten($blue, 20%);
+            span{
+                color: #fff !important;
+            }
+        }
+        &.btn-cancel{
+            background: #C1CBD1;
+        }
+    }
+    .__blue{
+        color: $blue;
+    }
+    .__dark{
+        color: $dark;
+    }
+
+    .main-content{
+        .mat-slide-toggle-bar
+        {
+            height: 20px;
+            border-radius: 10px;
+            background: $blue;
+        }
+        .mat-slide-toggle-label
+        {
+            margin: 0 10px;
+        }
+        .mat-slide-toggle-thumb
+        {
+            width: 14px;
+            height: 14px;
+            background-color: #fff;
+        }
+        .mat-slide-toggle-thumb-container
+        {
+            top: 3px;
+            left: 3px;
+            height: 16px;
+            width: 16px;
+        }
+        .mat-slide-toggle.mat-checked {
+            .mat-slide-toggle-bar
+            {
+                background: $blue;
+            }
+            .mat-slide-toggle-thumb
+            {
+                background-color: #fff;
+            }
+        }
+    }
+
+    .row.small-gutter {
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+    .row.small-gutter > [class^="col-"],
+    .row.small-gutter > [class*=" col-"] {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .row.middle-gutter {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .row.middle-gutter > [class^="col-"],
+    .row.middle-gutter > [class*=" col-"] {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .mat-option{
+        background: #FFFFFF;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-size: 13px;
+        line-height: 18px;
+        color: $grey_icon;
+        .mat-button
+        {
+            padding: 0 2px;
+            min-width: 10px;
+            &:hover{
+                background: transparent !important;
+            }
+            .mat-button-wrapper
+            {
+                color: $blue;
+                text-decoration: underline;
+            }
+        }
+        .no-result-text-opt
+        {
+            text-align: center;
+            font-size: 14px;
+            line-height: 23px;
+            color: $grey_icon;
+            padding: 22px 30px 13px 30px;
+        }
+        .no-result-text-btn
+        {
+            font-size: 12px;
+
+            .mat-button-wrapper
+            {
+                font-size: 12px;
+            }
+        }
+        &.no-result-text{
+            height: auto;
+        }
+    }
+    .mat-autocomplete-panel:not([class*=mat-elevation-z])
+    {
+        box-shadow: -1px 1px 18px rgba(0, 0, 0, 0.14756);
+        border: 1px solid rgba(49, 65, 73, 0.0001);
+    }
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background
+    {
+        background: $blue;
+    }
+
+    .__color_bg_time-app {
+        background: #EC374A;
+        color: #EC374A;
+    }
+    .__color_text_caledar
+    {
+        color: $green;
+    }
+    .__color_bg_calendar
+    {
+        background: $green !important;
+        color: $green !important;
+        .leftcol-header a{
+            color: $green !important;
+        }
+    }
+    .checkbox-styled {
+        position: relative;
+        input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+        }
+
+        label {
+            position: relative;
+            display: inline-block;
+            padding-left: 22px;
+        }
+
+        label::before,
+        label::after {
+            position: absolute;
+            content: "";
+            display: inline-block;
+        }
+
+        label::before {
+            height: 15px;
+            width: 15px;
+            border: 1px solid rgba(115, 140, 153, 0.4);
+            left: 0px;
+            top: 3px;
+            border-radius: 2px;
+        }
+
+        label::after {
+            height: 5px;
+            width: 10px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(-45deg);
+            left: 3px;
+            top: 7px;
+        }
+
+        input[type="checkbox"] + label::after {
+            content: none;
+        }
+
+        input[type="checkbox"]:checked + label::after {
+            content: "";
+            background: $grey_icon;
+        }
+
+        /*Adding focus styles on the outer-box of the fake checkbox*/
+        input[type="checkbox"]:checked + label::before {
+            background: $grey_icon;
+            border-color: $grey_icon;
+        }
+    }
+
+    .mat-button{
+        &:active, &:focus{
+            outline: none !important;
+        }
+    }
+    .mat-button:hover, .mat-stroked-button:hover, .mat-stroked-button.cdk-focused {
+        .mat-button-focus-overlay, .mat-ripple {
+            display: none !important;
+        }
+    }
+
+    .add-new {
+        color: #fff;
+        background: #00A3FF;
+        line-height: 24px !important;
+        font-size: 13px;
+        font-family: $basicFont;
+        font-weight: bold;
+        text-transform: capitalize;
+        padding: 0 16px;
+        min-width: 150px;
+
+        ::ng-deep.mat-button-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            i {
+                line-height: 13px;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .list-inline {
+        font-family: $basicFont;
+        font-size: 13px;
+    }
+
+    .__color_text_time-app {
+        color: #EC374A;
+    }
+
+    .leftcol-menu ul li a i {
+        font-family: $basicFont;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .bell-icon.__active .icon-bell:after {
+        background: #00A3FF;
+    }
+
+    .leftcol-menu-settings {
+        display: none !important;
+    }
+
+    .project-actions-btn {
+        height: 24px;
+        color: #738C99;
+        line-height: 16px;
+        font-family: $basicFont;
+        width: auto;
+
+        .mat-button-focus-overlay,
+        .mat-button-ripple {
+            display: none;
+        }
+
+        &:hover i,
+        &:focus i {
+            color: #00A3FF;
+        }
+
+        &:focus i{
+            color: #00A3FF;
+            background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+            border-radius: 3px;
+        }
+    }
+
+    .popupBackdropClass {
+        background: rgba(0,0,0,.288);
+    }
+    .cdk-overlay-backdrop-showing {
+        &:not(.popupBackdropClass) {
+            opacity: 0;
+        }
+    }
+
+}

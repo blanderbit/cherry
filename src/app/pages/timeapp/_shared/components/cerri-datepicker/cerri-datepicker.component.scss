@@ -1,0 +1,95 @@
+$basicFont: 'Open Sans', sans-serif;
+
+.custom-datepicker {
+    position: relative;
+    line-height: 100%;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background-color ;
+
+    &:hover {
+        .calendar-icon {
+            background-image: url('../../../../../../assets/images/calendar-blue.svg');
+        }
+    }
+
+    &.open {
+        background-color: rgba(218, 239, 250, 0.6);
+        .calendar-icon {
+            background-image: url('../../../../../../assets/images/calendar-blue.svg');
+        }
+    }
+
+    .dropdown.show {
+        .calendar-icon {
+            background-image: url('../../../../../../assets/images/calendar-blue.svg');
+
+        }
+
+
+    }
+
+    #dropdown {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        transition: 0.5s ease;
+        text-align: center;
+
+        .select {
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    .dropdown-menu {
+        padding: 0;
+        border: none;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+    }
+
+    &__input {
+        width: 100%;
+        padding: 8px 15px;
+        border: 1px solid #D4DDE2;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-family: $basicFont;
+        font-size: 14px;
+        color: #485056;
+    }
+
+    &__calendar {
+        width: 261px;
+        overflow: hidden;
+        padding: 8px;
+
+        background: white;
+        border: 1px solid rgba(49, 65, 73, 0.0001);
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .calendar-icon {
+        height: 20px;
+        width: 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        background-image: url('../../../../../../assets/images/calendar.svg');
+    }
+}

@@ -1,0 +1,17 @@
+@import "../../../styles/core/_variables.scss";
+
+i.icon-calendar-upcoming {
+    position: absolute;
+    right: 6px;
+    top: 3px;
+    z-index: 1;
+    color: $color-text-grey;
+}
+
+.form-control {
+    max-width: 60%;
+}
+
+button.large {
+    padding: 6px 70px;
+}

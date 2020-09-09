@@ -1,0 +1,161 @@
+{
+    "meta": {
+        "title": "Налаштування",
+        "description": "Опис профілю"
+    },
+    "user": {
+        "create": "Створити Користувача",
+        "delete": "Delete User",
+        "edit": "Редагувати Користувача",
+        "new": "Новий Користувач",
+        "deleteError": "Не вдалося видалити користувача",
+        "deleteSuccess": "Користувача успішно видалено",
+        "createSuccess": "Користувач успішно створений",
+        "createFail": "Не вдалося створити користувача",
+        "updateSuccess": "Користувач успішно редагований",
+        "updateFail": "Не вдалося редагувати користувача"
+    },
+    "profile": {
+        "change": "Змінити фото",
+        "create": "Створити",
+        "save": "Зберегти",
+        "edit": "Рудагувати профіль",
+        "email": "Електронна адреса",
+        "error": "Неможливо завантажити профіль",
+        "first-name": "Ім'я",
+        "invalid": "Будь ласка, заповніть форму",
+        "last-name": "Прізвище",
+        "title": "Налаштування профілю",
+        "subtitle": "Інформація про користувача",
+        "password": "Пароль",
+        "confirmPassword": "Підтвердити пароль",
+        "phone": "Контактний телефон",
+        "phone-placeholder": "Додати номер",
+        "submit": "Зберегти",
+        "update": "Профіль успішно збережено",
+        "userName": "Ім'я користувача",
+        "role": "Роль"
+    },
+    "roles": {
+        "Admin": "Адміністратор",
+        "User": "Користувач",
+        "Project Manager": "Керівник проекту"
+    },
+    "profile-settings": {
+        "title": "Налаштування профілю",
+        "subtitle": "Інформація про користувача",
+        "change": "Змінити фото",
+        "first-name": "Ім'я",
+        "last-name": "Прізвище",
+        "email": "Електронна адреса",
+        "password": "Password",
+        "change-password": "Змінити пароль",
+        "phone": "Контактний телефон",
+        "phone-placeholder": "Додати номер",
+        "submit": "Зберегти зміни",
+        "change-language": "Змінити мову",
+        "language": "Мова успішно змінена",
+        "update": "Профіль успішно збережено",
+        "invalid": "Будь ласка, заповніть форму",
+        "error": "Неможливо завантажити профіль"
+    },
+    "side": {
+        "title": "Налаштування",
+        "users": "Користувачі",
+        "subscriptionAndLicenses": "Підписки та ліцензії",
+        "companySettings": "Налаштування компанії",
+        "general": "Головні налаштування",
+        "holidays-policy": "Відпускна політика",
+        "holidays": "Вихідні",
+        "locations": "Розміщення",
+        "resources-info": "Типи ресурсів і ставка",
+        "resourceTypesAndRates": "Типи ресурсів і ставка",
+        "timeOffTypes": "Типи відгулів",
+        "profileSettings": "Налаштування профілю",
+        "notifications": "Сповіщення",
+        "skills": "Навички",
+        "apps": "Програми та додатки"
+    },
+    "table": {
+        "name": "Ім'я користувача",
+        "id": "Ідентифікатор",
+        "email": "Електрона адреса",
+        "admin": "Адмін"
+    },
+    "action": {
+        "permission": "У вас немає дозволів на виконання цієї дії",
+        "existing": "Користувач з таким ім'ям вже існує",
+        "existingEmail": "Користувач з такою електронною поштою вже існує",
+        "error-1006": "Неможливо видалити адміністратора",
+        "error-1010": "Неможливо видалити користувача. Користувач призначений до проєкту",
+        "error-1009": "Неможливо видалити користувача. Користувач призначений для завдання",
+        "successfully-deleted": "Користувач успішно видалений"
+    },
+    "validation": {
+        "email": {
+            "required": "Електронна адреса обов'язкова",
+            "email": "Неправильна електронна адреса"
+        },
+        "userName": {
+            "required": "Ім'я користувача обов'язкове",
+            "minlength": "Ім'я користувача мін довжина 3 символа",
+            "maxlength": "Ім'я користувача  довжина 50 символів"
+        },
+        "firstName": {
+            "required": "Ім'я обов'язкове",
+            "minlength": "Ім'я мін довжина 3 символа",
+            "maxlength": "Ім'я макс довжина 50 символів"
+        },
+        "lastName": {
+            "required": "Прізвище обов'язкове",
+            "minlength": "Прізвище мін довжина 3 символа",
+            "maxlength": "Прізвище макс довжина 50 символів"
+        },
+        "password": {
+            "required": "Пароль обов'язковий",
+            "minlength": "Пароль повинен містити щонайменше 6 символів",
+            "maxlength": "Пароль макс довжина 50 символів",
+            "pattern": "Пароль повинен містити велику літеру, цифру та символ # $ ^ + = ! * ( ) @ % &"
+        },
+        "confirmNewPassword": {
+            "required": "Підтверження пароля обовязкове",
+            "minlength": "Підтверження пароля повинен містити щонайменше 6 символів",
+            "maxlength": "Підтверження пароля макс довжина 50 символів",
+            "mustMatch": "Підтверження пароля та пароль не збігаються",
+            "pattern": "Пароль повинен містити щонайменше 6 символів, комбінацію великих і малих літер, одне число та один символ"
+        }
+
+    },
+    "subscription": {
+        "subscription-details": "Subscription details(ua)",
+        "status": "Status(ua)",
+        "trial": "Trial(ua)",
+        "active": "Active(ua)",
+        "license-usage": "License usage(ua)",
+        "manage-users": "Manage users(ua)",
+        "modify-subscription": "Modify subscription(ua)",
+        "modify": "Modify(ua)",
+        "expiration-date": "Expiration date(ua)",
+        "payment-method": "Payment method(ua)",
+        "payment-term": "Payment term(ua)",
+        "add-card": "Add card(ua)",
+        "billing-details": "Billing details(ua)",
+        "billing-information": "Billing information(ua)",
+        "no-billing-information": "No billing information(ua)",
+        "billing-contact": "Billing contact(ua)",
+        "billed-monthly": "Billed monthly(ua)",
+        "billed-annually": "Billed annually(ua)",
+        "add-billing": "Add(ua)",
+        "automatically-renew": "Automatically renews(ua)",
+        "upgrade": "Upgrade(ua)",
+        "upgrade-subscription": "Upgrade subscription(ua)",
+        "renew": "Renew(ua)",
+        "renewal-date": "Renewal date(ua)",
+        "invoice-history": "Invoice history(ua)",
+        "choose-a-plan": "Choose a plan(ua)",
+        "choose-plan-description": "We offer a flexible payment plan. When you upgrade from the free plan in Cerri, you will be billed monthly or annually depending on the plan you select. You can add and remove users at anytime.(ua)",
+        "no-payment-term": "No payment term(ua)",
+        "no-billing-information": "No billing information(ua)",
+        "no-billing-contact": "No billing contact(ua)"
+    }
+}

@@ -1,0 +1,71 @@
+<div class="create-company w-100 h-100 d-flex flex-wrap justify-content-center" *ngIf="!isCompanyCreated">
+    <div class="w-100">
+        <nav class="w-100">
+            <img src="../../../assets/img/logo.png" alt="Cerri" class="logotype">
+            <a [href]="aboutCerriUrl" target="_blank" class="f-w-600 color-blue align-self-start">About Cerri?</a>
+        </nav>
+    </div>
+
+    <form class="w-100 d-flex flex-column" [formGroup]="form" (submit)="apply($event)">
+        <h2 class="color-dark m-b-25">
+            Create Company
+        </h2>
+
+        <h6 class="m-b-30 text-center">
+            Please app your Company name and logo to continue. You’ll be able to change this later in the setting.
+        </h6>
+
+        <div class="error-container m-t-0 m-b-30" *ngIf="invalid && form.touched">
+            Please, add company name and accept Subscription Agreement to proceed
+        </div>
+
+        <div class="create-company-form m-b-30 d-flex align-items-center">
+            <input type="file" class="d-none"
+                   [accept]="accept" #fileInput (change)="onImageSelect($event)"
+            >
+
+            <button class="add-image m-l-20 m-r-12 p-0" type="button" (click)="fileInput.click()">
+                <img [src]="logo" *ngIf="logo; else logoPlaceholder" alt="company logo">
+                <ng-template #logoPlaceholder>
+                    <div class="add-icon-container">
+                        <span>
+                            <i class="icon-plus d-inline-flex"></i>
+                        </span>
+                    </div>
+                </ng-template>
+            </button>
+
+            <input type="text"
+                   placeholder="Add company name"
+                   class="border-0 company-name sz-16 l-h-18 f-w-600 color-dark"
+                   formControlName="name"
+            >
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div>
+                <div class="row pt-2 pl-3 d-flex align-items-center m-b-15">
+                    <app-checkbox size="14"
+                                  class="color-blue"
+                                  formControlName="acceptTerms"
+                                  [borderRadius]="12"
+                                  [iconSize]="9"
+                                  [disabled]="false"
+                    ></app-checkbox>
+                    <span class="pl-2 f-z-13">
+                        <span>I accept </span>
+                        <a [href]="subscriptionAgreementUrl" target="_blank">Subscription Agreement</a>
+                    </span>
+                </div>
+
+                <button type="submit" class="d-flex justify-content-center align-items-center"
+                        [disabled]="loading">
+                    <span class="loading-spinner" *ngIf="loading"></span>
+                    <span class="m-l-10 m-r-10">Create Company</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<app-account-was-created-placeholder *ngIf="isCompanyCreated"></app-account-was-created-placeholder>

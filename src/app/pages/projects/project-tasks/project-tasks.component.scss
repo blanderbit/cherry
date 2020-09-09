@@ -1,0 +1,75 @@
+@import '../../../../styles/core/variables';
+@import '../../../ui/ag-grid/ag-grid.component';
+
+$section-header-size: 32px;
+
+.ag-cell-value {
+    width: 100%;
+}
+
+:host ::ng-deep {
+    app-add-task-inline {
+        margin-bottom: 11px;
+        display: block;
+    }
+
+    .table-wrapper {
+        //overflow: hidden;
+        height: calc(100% - #{$section-header-size});
+    }
+}
+::ng-deep{
+    app-no-rows-overlay .task-overlay h3{
+        font-size: 14px !important;
+        margin-top: 45px !important;
+        line-height: 120% !important;
+        font-weight: normal !important;
+    }
+}
+.section-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    button {
+        width: 150px;
+        margin: 4px;
+        overflow: hidden;
+
+        .icon-plus {
+            font-size: 9px;
+        }
+    }
+
+    .add-task-icon {
+        transform: scale(1.3);
+    }
+
+    .button-add {
+        display: flex;
+        justify-content: space-between;
+        //padding: 3px 16px;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    .export-csv {
+        padding: 4px 16px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+}
+
+::ng-deep .ag-theme-material .ag-icon-checkbox-checked {
+    color: $control-color-blue;
+}
+
+::ng-deep .ag-row.ag-row-hover {
+    cursor: pointer;
+}
+
+::ng-deep {
+    .ag-row-selected {
+        background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+    }
+}

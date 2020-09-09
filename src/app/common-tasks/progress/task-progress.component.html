@@ -1,0 +1,67 @@
+<div class="progress-container">
+    <p class="f-w-600 text-uppercase progress-title f-z-14 l-h-16 m-y-25">{{'progress.progress' | translate }}</p>
+
+    <div class="task-progress d-flex flex-wrap m-t-20" *ngIf="item">
+        <div class="d-flex hours-completed flex-wrap">
+            <div class="m-r-20 f-w-600 l-h-18 sz-13 color-grey">
+                {{"progress.hoursCompleted" | translate}}
+            </div>
+            <mv-slider [value]="progress" [min]="0" [max]="100" [enabled]="false"
+                       class="m-r-8"
+            ></mv-slider>
+            <div class="f-w-600 sz-13 l-h-20 color-dark">{{progress}}%</div>
+        </div>
+
+        <div class="d-flex flex-wrap">
+            <div class="m-r-20 f-w-600 l-h-18 sz-13 color-grey">
+                {{"progress.workCompleted" | translate}}
+            </div>
+
+            <mv-slider class="m-r-8"
+                       [value]="workCompleted"
+                       [min]="0" [max]="100"
+                       [class.disabled]="isDisabled"
+                       (valueChange)="onWorkCompletedChange($event)"
+                       (slideStop)="onWorkCompleteSlideStop($event)"
+            ></mv-slider>
+            <div class="f-w-600 sz-13 l-h-20 color-dark">{{workCompleted}}%</div>
+        </div>
+    </div>
+
+    <div class="progress-table-container w-100">
+        <table class="w-100 progress-table m-t-20">
+            <tr class="progress-table-header">
+                <th></th>
+                <th>{{"progress.initial" | translate}}</th>
+                <th>{{"progress.planned" | translate}}</th>
+                <th>{{"progress.eac" | translate}}</th>
+                <th>{{"progress.actual" | translate}}</th>
+                <th>{{"progress.remaining" | translate}}</th>
+            <tr>
+                <td class="color-grey l-h-18">{{"progress.start" | translate}}</td>
+                <td>{{item?.initialStartDate | localDate}}</td>
+                <td>{{item?.plannedStartDate | localDate}}</td>
+                <td>{{item?.currentStartDate | localDate}}</td>
+                <td>{{item?.actualStartDate | localDate}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="color-grey l-h-18">{{"progress.end" | translate}}</td>
+                <td>{{item?.initialEndDate | localDate}}</td>
+                <td>{{item?.plannedEndDate | localDate}}</td>
+                <td>{{item?.currentEndDate | localDate}}</td>
+                <td>{{item?.actualEndDate | localDate}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="color-grey l-h-18">{{"progress.effort" | translate}}</td>
+                <td></td>
+                <td>{{item?.plannedTime | toHours}}</td>
+                <td>{{item?.currentTime | toHours}}</td>
+                <td>{{item?.actualTime | toHours}}</td>
+                <td>{{item?.remainingTime | toHours}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>

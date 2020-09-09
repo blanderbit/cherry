@@ -1,0 +1,93 @@
+$default-font-family: 'Open Sans', sans-serif;
+$font-family-roboto: 'Open Sans', sans-serif;
+
+$color-primary: #3f61b5;
+$color-primary-50: rgba(63, 81, 181, 0.5);
+
+
+$material-background: rgba(218, 239, 250, 0.6);
+// Body
+$body-color-bg: #fff;
+$body-color-text: #444;
+
+// Toolbar
+$toolbar-height: 56px;
+
+// Sidebar
+$sidebar-width: 64px;
+
+// Footer
+$footer-height: 49px;
+
+$transition-all: all 0.15s ease-out;
+
+$border-color: #424242;
+$grey: #e0e0e0;
+$preview-background: #212121;
+
+$icon-border-color-gray: #BBCCD9;
+$icon-bg-hover-blue:  rgba(218, 239, 250, 0.6);
+
+$control-color-grey: #C4D2DD;
+$control-color-blue: #00A3FF;
+$control-color-green: #00B48D;
+$control-color-purple: #643C93;
+$control-color-red: #EC374A;
+$control-color-orange: #FF9409;
+
+$color-red-dark: #AE0C1D;
+/*$control-color-pink: #880e4f;
+$control-color-purple: #4a148c;
+$control-color-brown: #3e2723;*/
+
+$color-icon-grey: #DADADA;
+
+$background-light: #F6F6F8;
+$color-grey-light: #F6F6F8;
+$grey-background:  rgba(196, 210, 221, 0.5);
+
+$color-text-grey: #738c99;
+$color-grey-text-80: rgba(115, 140, 153, 0.8);
+
+$color-text-grey-80: linear-gradient(0deg, rgba(115, 140, 153, 0.8), rgba(115, 140, 153, 0.8)), #FFFFFF;;
+$color-text-grey-40: linear-gradient(0deg, rgba(115, 140, 153, 0.4), rgba(115, 140, 153, 0.4)), #FFFFFF;;
+$color-text-black: #485056;
+$color-text-dark: #314149;
+
+$project-bg: #37515E;
+
+
+//region screen size variables
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-sm-max: 991px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+$screen: "screen";
+$extra-small-only: "#{$screen} and (max-width: #{$screen-xs-max})";
+$small-only: "#{$screen} and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
+$small-down: "#{$screen} and (max-width: #{$screen-sm-max})";
+$medium-up: "#{$screen} and (min-width: #{$screen-md-min})";
+$medium-down: "#{$screen} and (max-width: #{$screen-md-max})";
+$medium-only: "#{$screen} and (min-width: #{$screen-md-min}) and (max-width:#{$screen-md-max})";
+$large-up: "#{$screen} and (min-width: #{$screen-lg-min})";
+//endregion
+
+//svg-icons
+$icon-path: '/assets/svg/';
+$icon-path-files: '/assets/files/';
+$icon-path-images: '/assets/images/';
+$trash: 'trash.svg';
+$preview: 'preview.svg';
+$download: 'download-attachment.svg';
+$attach-file-menu: 'attach-file.svg';
+$attach-file-vector: 'Vector.svg';
+$add-from-link: 'link-icon.svg';
+$locate-file: 'Locate.svg';
+$close: 'close-button.svg';
+$list: 'list.svg';
+$list-on-click: 'list-on-click.svg';
+$grid: 'grid.svg';
+$grid-on-click: 'Group.svg';

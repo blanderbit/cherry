@@ -1,0 +1,19 @@
+<div class="wrapper h-100">
+    <app-navigation-bar></app-navigation-bar>
+
+    <div class="left-menu" [ngClass]="{'collapsed': !leftMenuVisible}">
+        <div class="overflow-container mr-0">
+            <router-outlet name="sideBar"></router-outlet>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="arrow" (click)="toggleLeftMenu()" [ngClass]="{'hide': leftMenuVisible}">
+            <i class="icon-arrow"></i>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+
+    <realtime-frame *ngIf="realtimeFrame"></realtime-frame>
+</div>

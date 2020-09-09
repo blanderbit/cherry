@@ -1,0 +1,35 @@
+
+<div class="d-flex align-items-center select-container w-100 h-100 cursor-pointer"
+     tabindex="0"
+
+     (click)="menu.open()"
+     (keydown.enter)="menu.open()"
+     [class.menu-disabled]="disabled">
+
+    <menu [items]="menuOptions"
+          #menu
+          (checked)="onItemSelect($event)"
+          [container]="container"
+          [class.dropdown-caret]="showCaret"
+          [placement]="placement"
+          [class.isOpened]="menu.opened"
+          (openStateChange)="onOpenChange($event)">
+
+        <ng-container>
+            <div class="menu-value">
+                <ng-container *ngIf="selectedItemTemplate; else defaultTemplate"
+                              [ngTemplateOutlet]="selectedItemTemplate"
+                              [ngTemplateOutletContext]="{$implicit: selectedItem}"
+                ></ng-container>
+
+                <ng-template #defaultTemplate>
+                    {{selectedItem ? (selectedItem.title | translate) : (placeholder || 'Not selected') | translate}}
+                </ng-template>
+
+                <ng-content></ng-content>
+            </div>
+        </ng-container>
+
+    </menu>
+
+</div>

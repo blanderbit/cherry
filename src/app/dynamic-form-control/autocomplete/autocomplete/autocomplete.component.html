@@ -1,0 +1,25 @@
+<div class="w-100 h-100 dropdown-caret" appClickOutside (clickOutside)="isActive = false"
+     (click)="disabled ? null : input.focus()">
+    <input
+        type="text"
+        class="dropdown-caret"
+        [disabled]="disabled"
+        (blur)="onTouched()"
+        [placeholder]="placeholder | translate"
+        [ngbTypeahead]="search"
+        (focus)="focus$.next($event.target.value); isActive = true"
+        (click)="click$.next($event.target.value); isActive = true"
+        (selectItem)="onChange($event)"
+        [inputFormatter]="formatter"
+        [resultFormatter]="formatter"
+        [container]="container"
+        [resultTemplate]="itemTemplate"
+        #input
+        #instance="ngbTypeahead"
+    />
+
+    <div *ngIf="input.value && (!items ||  !items.length) && isActive">
+        <ng-content></ng-content>
+    </div>
+
+</div>

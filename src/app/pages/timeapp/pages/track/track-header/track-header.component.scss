@@ -1,0 +1,240 @@
+@import '../../../_shared/styles/scss/variables';
+@import '../../../../../../styles/core/variables';
+
+.header-bottom-date {
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.header-bottom-subdate {
+    display: flex;
+    line-height: 27px;
+
+    .current-date {
+        font-size: 20px;
+        font-weight: 600;
+        color: #314149;
+    }
+
+    .date-nav-buttons {
+        button {
+            width: initial;
+            height: initial;
+        }
+    }
+
+    .prev-btn,
+    .next-btn {
+        ::ng-deep .mat-button-wrapper {
+            height: 24px;
+            width: 24px;
+            background: #FFFFFF;
+            border: 1px solid #D9E0E3;
+            border-radius: 3px;
+            vertical-align: middle;
+            color: #738C99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:after {
+                content: none;
+            }
+        }
+    }
+
+    .prev-btn {
+        ::ng-deep.mat-button-wrapper {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: none;
+        }
+    }
+
+    .next-btn {
+        ::ng-deep .mat-button-wrapper {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    .picker-wrap {
+        margin: 0 15px;
+
+        ::ng-deep button {
+            width: 24px;
+            height: 24px;
+            .mat-button-wrapper {
+                height: 24px;
+                width: 24px;
+                border: none;
+                display: flex;
+
+                .mat-icon  {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    .mode-select {
+        ::ng-deep #dropdown {
+            width: 84px;
+            background: #F6F6F8;
+            border-radius: 3px;
+            border: 1px solid #D9E0E3;
+            color: #738C99;
+
+            height: 24px;
+            font-size: 12px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+        }
+    }
+}
+
+.header-export-pp
+{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    .popup-wrapper.__rightpopup
+    {
+        right: 43px;
+        padding: 6px;
+    }
+}
+
+.btn-inpopup.mat-button
+{
+    padding: 5px 9px;
+    font-size: 11px;
+    line-height: 15px;
+    &:hover{
+        background: rgba(218, 239, 250, 0.6);
+        border-radius: 3px;
+        color: #0095EA;
+    }
+}
+
+.project-actions-btn {
+    height: 24px;
+    color: #738C99;
+    line-height: 16px;
+    font-family: $basicFont;
+    background-color: transparent;
+    .mat-button-focus-overlay,
+    .mat-button-ripple {
+        display: none;
+    }
+
+    &:hover i,
+    &:focus i {
+        color: #00A3FF;
+    }
+
+    &:focus i{
+        color: #00A3FF;
+        background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+        border-radius: 3px;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider {
+            background-color: #2196F3;
+        }
+        &:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        &:checked + .slider:before {
+            transform: translate(22px, -50%);
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        //background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 24px;
+        background-color: #2196F3;
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 0;
+        top: 50%;
+        transform: translate(3px, -50%);
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+    }
+}
+
+.switch-mode {
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    color: #738C99;
+
+    .checked {
+        color: #00A3FF;
+    }
+
+    .switch {
+        margin: 0 10px;
+    }
+}
+::ng-deep{
+    .time-input:disabled, .row-disabled .time-input, .row-disabled input.mat-input-element{
+        border: 1px solid #e0e0e0;
+        background: #F6F6F8;
+    }
+
+    .timeapp-icon-comment{
+        transition: color 0.1s linear;
+        font-size: 17px;
+        &:hover{
+            color: $control-color-blue;
+        }
+    }
+
+    .time-input:focus{
+        border: 1px solid  $control-color-blue !important;
+    }
+
+    .hide-top-border {
+        border-top: 1px solid transparent;
+        &:after{
+            background: transparent !important;
+        }
+    }
+
+    .custom-datepicker i.calendar-icon{
+        height: 24px !important;
+        width: 24px !important;
+    }
+
+}

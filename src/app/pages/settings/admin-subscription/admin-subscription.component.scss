@@ -1,0 +1,89 @@
+@import '../../../../styles/core/variables';
+
+:host {
+    height: 100%;
+}
+
+.link {
+    font-size: 13px;
+    line-height: 23px;
+    cursor: pointer;
+}
+
+h1 {
+    color: $color-text-dark;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color: $color-text-dark;
+    margin-bottom: 25px;
+
+}
+
+p {
+    font-size: 13px;
+    line-height: 23px;
+    color: $color-text-black;
+    margin-bottom: 15px;
+}
+
+.admin-subscription-container {
+    padding: 0;
+    margin: 0;
+    .container {
+        margin-left: 0;
+        padding: 30px 40px;
+    }
+}
+
+.grid-table {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px #ececec solid ;
+    & div {
+        padding: 0 0 5px 15px;
+
+    }
+    .subtext {
+         color: $color-text-grey;
+         font-size: small;
+     }
+
+}
+
+.item-cont {
+    width: 80px;
+    height: 20px;
+    border-radius: 3px;
+    background-color: #EC374A;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 3px 10px;
+    line-height: 11px;
+    p {
+        color: white;
+    }
+}
+
+.trial {
+    background-color: $control-color-orange;
+}
+
+.active {
+    background-color: $control-color-green;
+}
+
+.expired {
+    background-color: $control-color-red;
+}
+
+.plan-card {
+    width: 250px;
+    height: 400px;
+}
+

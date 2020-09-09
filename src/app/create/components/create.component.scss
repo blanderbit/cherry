@@ -1,0 +1,139 @@
+@import "../../../styles/core/variables";
+
+::ng-deep {
+    .create-dialog {
+        .modal-dialog {
+            max-width: 100% !important;
+            margin: 0;
+        }
+
+        .modal-content {
+            height: 100vh !important;
+
+            app-form-control {
+                height: 68px;
+
+                .error {
+                    height: 17px;
+                }
+            }
+        }
+    }
+}
+
+.modal-header {
+    margin: 0;
+    padding: 0;
+    border: none;
+    justify-content: flex-end;
+
+    button {
+        width: 60px;
+        margin: 0;
+        padding: 60px;
+        outline: none;
+        border: none;
+        color: rgba(115, 140, 153, 0.8);
+    }
+}
+
+.modal-body {
+    margin: 0 auto;
+}
+
+.new-entity {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.type-container {
+    display: flex;
+    flex-direction: row;
+
+    .form-radio {
+        font-family: Open Sans;
+        display: inline-block;
+        font-style: normal;
+        width: auto;
+        margin: 15px 0;
+
+        &:not(:first-child) {
+            margin-left: 15px;
+        }
+    }
+
+}
+
+.name {
+    padding: 10px 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    color: #314149;
+    border-radius: 4px;
+    border: 1px solid #00A3FF;
+    //width: 575px;
+    margin-right: 50px;
+
+    &:focus,
+    &:active {
+        caret-color: #00A3FF;
+    }
+}
+
+.create {
+    //width: 215px;
+    //height: auto;
+    padding: 7px 37px;
+    white-space: nowrap;
+}
+
+.select-date {
+    display: flex;
+    margin: 15px 0 20px;
+
+    p {
+        padding-right: 50px;
+        padding-left: 10px;
+        margin-bottom: 0;
+    }
+
+    .date-picker-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        // height: 28px;
+
+        app-datepicker {
+            min-height: 35px;
+        }
+    }
+}
+
+.description {
+    width: 100%;
+
+    .title {
+        width: 100%;
+        border: none;
+        max-height: 400px;
+        color: #738C99;
+        outline: none;
+        resize: none;
+    }
+}
+
+.m-b-17 {
+    margin-bottom: 17px;
+}
+
+.flex-shrink-2 {
+    flex-shrink: 2;
+}
+
+.status-container {
+    margin-left: auto;
+}

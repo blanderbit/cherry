@@ -1,0 +1,34 @@
+{
+    "new-item": "Create a New Project",
+    "description-placeholder": "Enter description",
+    "start-date-placeholder": "Start date",
+    "end-date-placeholder": "End date",
+    "status": "Status",
+    "project": {
+        "name": "Waterfall (Standart)"
+    },
+    "kanban-project": {
+        "name": "Agile (Kanban)"
+    },
+    "errors": {
+        "name": {
+            "required": "Name is required",
+            "minlength": "Minimum field length is 3 characters",
+            "maxlength": "Maximum field length is 256 characters"
+        },
+        "startDate": {
+            "required": "Start date is required",
+            "dateSequenceError": "Start date must be less than end date"
+        },
+        "endDate": {
+            "required": "End date is required"
+        },
+        "description": {
+            "maxlength": "Maximum field length is 2048 characters"
+        }
+    },
+    "action": {
+        "successfully-created": "The project has been successfully created",
+        "create-error": "Failed create project"
+    }
+}

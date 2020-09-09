@@ -1,0 +1,13 @@
+<button class="add-task color-blue text-center m-b-8" type="button" (click)="addTaskInProgress = true">
+    <i class="icon-plus d-block"></i>
+</button>
+
+<app-kanban-column-task class="d-block" *ngIf="addTaskInProgress">
+    <app-create-kanban-task (hide)="addTaskInProgress = false"></app-create-kanban-task>
+</app-kanban-column-task>
+
+
+<ng-container *ngFor="let item of items"
+              [ngTemplateOutlet]="itemTemplate"
+              [ngTemplateOutletContext]="{$implicit: item}"
+></ng-container>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="items && items.length">
+    <h3 class="resource-title">{{title | translate}}</h3>
+    <div class="d-flex flex-wrap">
+        <app-team-member-tile *ngFor="let user of items"
+                              [member]="user"
+                              [roles]="roles"
+                              [role]="getRole(user)"
+                              [project]="project"
+        ></app-team-member-tile>
+    </div>
+</ng-container>

@@ -1,0 +1,10 @@
+{
+    "meta": {
+        "title": "Error"
+    },
+    "error": {
+        "title": "We can’t seem to find the page you’re looking for.",
+        "description": "This page could be private. If someone shared this link with you, they might have to invite you to the project or give you the rights to see this page.",
+        "return-link": "Ok then, take me home"
+    }
+}

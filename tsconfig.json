@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"],
+      "@ng-bootstrap/*": ["../node_modules/@ng-bootstrap/*"],
+      "ngx-bootstrap-slider/*": ["../node_modules/ngx-bootstrap-slider/*"],
+      "environment": ["src/environments/environment"],
+      "meta": ["src/app/meta/meta", "dist/meta"],
+      "config": ["src/app/config/index"],
+      "notifier": ["src/app/notifier/index"],
+      "create": ["src/app/create/index"],
+      "components": ["src/app/components/index"],
+      "loader": ["src/app/ui/loader/index"],
+      "grid": ["src/app/ui/ag-grid/index"],
+      "tags-input": ["src/app/ui/tags-input/index"],
+      "date": ["src/app/date/index"],
+      "form-control": ["src/app/form-control/index"],
+      "dynamic-form-control": ["src/app/dynamic-form-control/index"],
+      "autocomplete": ["src/app/dynamic-form-control/autocomplete/index"],
+      "sentry": ["projects/sentry/src/public-api"],
+      "tasks": ["projects/tasks/src/public-api"],
+      "communication": ["projects/communication/src/public-api"],
+      "platform-file-loader": ["projects/platform-file-loader/src/public-api"],
+      "cookie-storage": ["projects/cookie-storage/src/public-api"],
+      "translate": ["projects/translate/src/public-api"],
+      "menu": ["projects/menu/src/public-api"],
+      "permissions": ["src/app/permissions/index"]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2016", "dom"]
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  }
+}

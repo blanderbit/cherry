@@ -1,0 +1,188 @@
+@import '../../../../styles/core/variables';
+@import '../details-wrapper/project-details-container.component';
+
+textarea {
+  overflow: hidden;
+  box-sizing: content-box;
+  border: none;
+  resize: none;
+  padding-left: 0;
+
+  &[disabled] {
+    background: inherit;
+  }
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll !important;
+  height: calc(100vh - 280px);
+}
+
+.user-details,
+.selector-item {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.selectors {
+  .datepicker {
+    //margin-left: 30px;
+  }
+
+  .start-date {
+    margin-right: 45px;
+  }
+}
+
+.section-header {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #314149;
+  padding: 25px 0;
+  text-transform: capitalize;
+}
+
+.general {
+  padding-top: 11px;
+}
+
+.section-row {
+  //justify-content: space-between;
+  color: rgba(115, 140, 153, 0.8);
+}
+
+.user-details {
+  margin-right: auto;
+  font-weight: 600;
+
+  p {
+    color: #314149;
+    margin-bottom: 0;
+    align-self: center;
+    padding-left: 12px;
+  }
+}
+
+.selectors {
+  color: #738C99;
+
+  .selector-item {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 30px;
+    align-items: center;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .value {
+      padding-left: 10px;
+    }
+  }
+
+  .selector-item:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.add-section {
+  border: none;
+  display: flex;
+  align-items: center;
+
+  .section-header {
+    color: $icon-border-color-gray;
+  }
+}
+
+.add-section .select-section {
+  width: 296px;
+  position: fixed;
+  background-color: #fff;
+
+  &.hide-select {
+    display: none !important;
+  }
+
+  .show-select {
+    display: block;
+  }
+
+
+}
+
+.datepicker {
+  p.title {
+    margin-bottom: 0;
+  }
+
+  .color-red p.title {
+    color: $color-text-grey;
+  }
+}
+
+#dropdownBasic1 {
+  width: 100%;
+  height: 36px;
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(115, 140, 153, 0.8);
+  border: 1px solid $control-color-blue;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+.dropdown-menu {
+  font-size: 14px !important;
+  color: #485056 !important;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), -5px -5px 25px rgba(206, 218, 228, 0.7);
+  border-radius: 8px;
+  width: 100%;
+
+  .dropdown-item {
+    padding: 10px 16px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $icon-bg-hover-blue !important;
+      color: $control-color-blue !important;
+    }
+  }
+}
+
+.text-date {
+  margin: 0 0 0 10px;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: $color-text-black;
+}
+
+.title {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+::ng-deep ngb-datepicker {
+  top: 40px !important;
+}
+
+@media #{$small-down} {
+  .selectors {
+    .start-date {
+      margin-right: 20px;
+    }
+  }
+}

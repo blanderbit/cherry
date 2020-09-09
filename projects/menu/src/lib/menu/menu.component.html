@@ -1,0 +1,28 @@
+<div ngbDropdown  class="d-inline-block"  [autoClose]="true" [placement]="placement" (openChange)="onOpenChange($event)" [container]="container">
+
+    <button
+        [class.open]="dropdown.isOpen()"
+        tabindex="-1" type="button" id="dropdown" class="m-0 " ngbDropdownToggle #btn (focus)="btn.blur()">
+        <ng-content class="content"></ng-content>
+        <!-- <i class="icon-arrow-down select"></i>a -->
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="dropdown p-y-5">
+        <ng-container *ngIf="items?.length; else noOptions">
+            <button type="button" ngbDropdownItem
+
+                    *ngFor="let item of items" (click)="check(item);"
+                    [class.highlight]="highlightSelected && currentElement === item"
+            ><i class="icon-{{item?.icon}} custom"></i>
+                <!--            <i class="icon-{{item.icon}} icon"></i>-->
+                <span>{{item.title | translate}}</span>
+
+
+            </button>
+        </ng-container>
+        <ng-template #noOptions>
+            <div class="sz-13 color-grey w-100 text-center">{{noOptionsPlaceholder}}</div>
+        </ng-template>
+    </div>
+
+</div>

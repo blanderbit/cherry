@@ -1,0 +1,181 @@
+@import '../../../../../../styles/core/variables';
+
+h1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: bold;
+
+    color: $color-text-dark;
+
+    margin-bottom: 5px;
+    margin-top: 0 !important;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-text-dark;
+
+}
+
+.policy-name {
+    margin-top: 40px;
+    text-transform: capitalize;
+    color: $color-text-dark;
+
+}
+
+.name-input {
+    font-size: 13px;
+    line-height: 18px;
+    height: 36px;
+
+    &:disabled {
+        background: $color-grey-light;
+        border: 1px solid $grey;
+    }
+}
+
+.copy-from {
+    font-size: 13px;
+    line-height: 18px;
+    color: $control-color-blue;
+    font-weight: bold;
+    display: flex;
+    margin-left: 14px;
+    cursor: pointer;
+
+    i.icon-copy {
+        margin-right: 8px;
+    }
+}
+
+.add-holidays {
+    margin-top: 25px;
+    color: $color-text-dark;
+
+}
+
+.description {
+    font-size: 13px;
+    line-height: 23px;
+    color: $color-text-dark;
+
+}
+
+.arrow-img {
+    width: 16px;
+    height: 16px;
+}
+
+.button-container {
+    margin-top: 29px;
+
+    .new-holiday-header {
+
+        margin-top: 20px;
+
+        .new-holiday {
+
+            width: auto;
+            font-size: 13px;
+            line-height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+    }
+
+    .icon-plus {
+        margin-left: 30px;
+    }
+}
+
+:host ::ng-deep {
+    app-navigation-back {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .prev-btn,
+    .next-btn {
+
+        height: 24px;
+        width: 24px;
+        background: #FFFFFF;
+        border: 1px solid #D9E0E3;
+        border-radius: 3px;
+        vertical-align: middle;
+        color: #738C99;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+
+        &:after {
+            content: none;
+        }
+
+    }
+
+    .prev-btn {
+
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+        margin-left: 12px;
+
+    }
+
+    .selected-year {
+        color: $color-text-grey;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 600;
+
+    }
+
+    .year {
+        font-weight: 600;
+        color: $color-text-dark;
+    }
+
+    .next-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+    }
+}
+
+.date-nav-buttons {
+    button {
+        width: initial;
+        height: initial;
+    }
+}
+
+.year-select {
+    position: relative;
+
+    .arrow-left, .arrow-right {
+        position: absolute;
+    }
+
+    .arrow-left {
+        left: 5px;
+        transform: rotate(90deg);
+    }
+
+    .arrow-right {
+        right: 5px;
+        transform: rotate(-90deg);
+    }
+}
+
+button {
+    max-width: 250px;
+}

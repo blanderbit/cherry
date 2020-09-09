@@ -1,0 +1,55 @@
+{
+    "company-settings": "Company Settings",
+    "title": "Holidays",
+    "edit": "Edit",
+    "add": "Add Holidays",
+    "name": "Holidays Name",
+    "name-placeholder": "Enter name",
+    "country": "Country",
+    "date": "Date",
+    "copy-from": "Copy from",
+    "new-holiday": "Add holidays",
+    "this-year": "This year",
+    "header": {
+        "company-header": "Company Settings / Holidays Policy / ",
+        "policy-name": "Holidays Policy Name",
+        "add-holidays": "Add holidays",
+        "selected-year": "Selected year: ",
+        "back-navigation": "Back to Holidays Policy list",
+        "copy": "Copy this list to ",
+        "description": ""
+    },
+    "action": {
+        "successfully-created": "Holidays successfully created",
+        "successfully-updated": "Holidays successfully updated",
+        "successfully-deleted": "Holidays successfully deleted",
+        "create-error": "Can't create holidays",
+        "update-error": "Can't update holidays",
+        "delete-error": "Can't delete holidays",
+        "load-items-error": "Can't load holidays",
+        "copying-success": "Copied successfully",
+        "copying-error": "Failed to copy",
+        "cancel": "Cancel",
+        "save": "Save",
+        "add": "Add"
+
+    },
+    "errors": {
+        "name": {
+            "required": "Field is required",
+            "minlength": "Minimum field length is 2 characters",
+            "maxlength": "Maximum field length is 50 characters"
+        },
+        "date": {
+            "required": "Field is required"
+        }
+    },
+    "confirm-dialog": {
+        "title": "Copy Holidays from",
+        "description-first": "Are you sure want to copy Holidays from ",
+        "description-second": "? This action will rewrite all added holidays from ",
+        "reject": "Cancel, Keep Added Holidays",
+        "confirm": "Yes, Copy Holidays"
+    },
+    "details.no-rows": "No holidays"
+}

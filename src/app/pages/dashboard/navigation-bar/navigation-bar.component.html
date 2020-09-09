@@ -1,0 +1,120 @@
+<div class="wrapper">
+    <div class="navigation-theme">
+        <div class="content">
+            <div class="icon-top">
+                <i *ngIf="iconName; else imageContainer" [ngClass]="iconName" class="theme-color"></i>
+                <ng-template #imageContainer>
+                    <img class="image top" src="{{settingPath}}" alt="">
+                </ng-template>
+            </div>
+            <div *ngFor="let menu of topMenu">
+                <a (click)="open(menu.name)" class="icon-menu">
+                    <i class="{{menu.icon}} "></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <ng-container *hasPermission="PermissionsSystemLevelAction.ViewSettingsApp">
+                <ng-container *ngFor="let menu of downMenu">
+                    <a routerLink="{{ menu.link }}"
+                       class="icon-menu">
+                        <i *ngIf="menu.icon; else imageTop" class="{{menu.icon}}"></i>
+                        <ng-template #imageTop>
+                            <img class="image" src="{{menu.image}}" alt="{{menu.name}}">
+                        </ng-template>
+                    </a>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="unreadMessage | async as workUnreadMessage">
+
+                <div>
+                    <a (click)="open('notification'); openedNotifications = true"
+                       class="icon-menu">
+                        <div class="circle-icon"
+                             [class.notifications-color]="workUnreadMessage?.data"
+                        ></div>
+                        <div class="container-number-icon">
+                            <div class="number-icon">
+                                {{workUnreadMessage?.data ? workUnreadMessage?.data : '' }}
+                            </div>
+                        </div>
+                        <i class="icon-notification"></i>
+                    </a>
+                </div>
+            </ng-container>
+
+            <div class="company-logo-wrapper cursor-pointer">
+                <app-company-logo size="34"
+                                  (click)="open('companies')"
+                ></app-company-logo>
+
+                <div class="tooltip_right text-no-wrap">{{'companies.switch-company' | translate}}</div>
+            </div>
+
+            <div
+                class="d-inline-block avatar"
+                ngbDropdown
+                container="body"
+                placement="top-left">
+
+                <app-avatar
+                    ngbDropdownToggle
+                    size="34"
+                    [avatarUrl]="profileService.avatar$ | async"
+                    [acronym]="getAcronym"
+                    class="cursor-pointer"
+                ></app-avatar>
+
+                <div
+                    ngbDropdownMenu
+                    aria-labelledby="dropdownManual">
+                    <button
+                        ngbDropdownItem
+                        routerLink="{{ profile.link }}"
+                        class="profile"
+                        *hasPermission="PermissionsSystemLevelAction.ViewProfile">
+                        <div>
+                            <i class="icon-edit-profile l-h-16"></i>
+                            <span>{{'profile.edit' | translate}}</span>
+                        </div>
+                    </button>
+                    <button
+                        ngbDropdownItem
+                        (click)="logout()"
+                        class="logout color-red">
+                        <div>
+                            <i class="icon-logout"></i>
+                            <span class="f-w-600">{{'profile.logout' | translate}}</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="menu-wrapper"
+        [ngSwitch]="chosenBlock"
+        [ngClass]="{'visible': chosenBlock}"
+    >
+        <div class="shadow-container" (click)="close()"></div>
+
+        <app-navigation (hide)="close()" *ngSwitchCase="'navigation'"></app-navigation>
+
+        <app-search (stateChange)="close()" *ngSwitchCase="'search'"></app-search>
+
+        <app-companies (hide)="close()" *ngSwitchCase="'companies'"></app-companies>
+
+        <!-- <app-help (stateChange)="changeState()" *ngSwitchCase="'help'"></app-help>
+
+        <app-settings (stateChange)="changeState()" *ngSwitchCase="'settings'"></app-settings> -->
+
+        <app-notification
+            (stateChange)="close()"
+            *ngSwitchCase="'notification'"
+            [items]="items"
+            (scroll)="loadPaginationData()"
+        ></app-notification>
+    </div>
+</div>

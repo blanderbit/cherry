@@ -1,0 +1,38 @@
+<form class="kanban-column d-flex flex-column" [formGroup]="form">
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="m-b-10">
+            <div class="sz-16 font-weight-bold l-h-18 d-inline-block m-r-5 color-black"
+                 [contentEditable]="true"
+                 (keydown.enter)="columnName.blur()"
+                 #columnName
+                 formControlName="name"
+            >
+            </div>
+            <span class="sz-14 l-h-18">{{item?.taskCards?.length}}</span>
+        </div>
+
+        <div class="d-flex align-items-center m-b-8">
+            <i class="icon-add-time d-inline-flex color-grey m-r-5"></i>
+            <span class="color-grey">{{actualTime}}/{{plannedTime}}&nbsp;h</span>
+
+            <button class="material-menu-trigger m-l-5" [matMenuTriggerFor]="menu">
+                <i class="icon-vertical-dots"></i>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editName()" type="button">
+                    {{'column.edit-name' | translate}}
+                </button>
+                <button mat-menu-item (click)="deleteItem()" type="button">
+                    {{'column.remove' | translate}}
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+
+    <!-- <button class="add-task color-blue text-center m-b-8" type="button" (click)="addTask()">
+        <i class="icon-plus"></i>
+    </button> -->
+
+    <ng-content select=".tasks"></ng-content>
+</form>

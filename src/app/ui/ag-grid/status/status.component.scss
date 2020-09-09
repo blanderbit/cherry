@@ -1,0 +1,33 @@
+@import '../../../../styles/core/variables';
+
+:host {
+    margin-right: auto;
+}
+
+.InProgress {
+    color: $control-color-blue;
+    background: #CCEDFF;
+}
+.Requested {
+    background-color: #FFE7D6;
+    color: $control-color-orange;
+}
+.Late,
+.Canceled {
+    background-color: #FBD0D5;
+    color: $control-color-red;
+}
+
+.Completed {
+    background-color: #CCF0E8;
+    color: $control-color-green;
+}
+
+.Draft, .Archived {
+    background-color: rgba(196, 210, 221, 0.5);
+    color: $color-text-grey;
+}
+
+.status {
+    font-weight: 600 !important;
+}

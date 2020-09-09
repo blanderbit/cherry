@@ -1,0 +1,64 @@
+@import "../../../styles/core/variables";
+
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-container {
+    width: 560px;
+    max-width: 100%;
+}
+
+.select-company-container {
+    background-color: #fff;
+
+    h2 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 60px;
+    }
+
+    div[role="search"] {
+        margin-bottom: 16px;
+
+        .icon-search {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 16px;
+            //color: $control-color-grey;
+            color: $icon-border-color-gray;
+        }
+    }
+
+    .company-item {
+        background: #FFFFFF;
+        box-shadow: 0 2px 2px rgba(72, 80, 86, 0.2);
+        border-radius: 4px;
+        padding: 20px 40px 20px 20px;
+
+        .item-name {
+            max-width: 410px;
+        }
+
+        .company-name {
+            max-width: 350px;
+        }
+
+        button {
+            width: auto;
+            background-color: #fff;
+            display: flex;
+            padding: 5px;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+}

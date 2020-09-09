@@ -1,0 +1,21 @@
+@import '../../../styles/core/variables';
+
+::ng-deep {
+    app-task-dependency {
+        word-break: break-all;
+    }
+}
+
+.header {
+    width: 100%;
+}
+
+.dependency {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+
+    .index {
+        margin-right: 5px;
+    }
+}

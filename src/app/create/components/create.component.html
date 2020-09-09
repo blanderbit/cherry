@@ -1,0 +1,91 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="close()" tabindex="-1">
+        <i class="icon-close-button"></i>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" class="container" (submit)="submit($event)">
+
+        <ng-container *ngIf="!hideTypeCheckboxes">
+            <div *ngIf="alias === ALIAS.Tasks" class="type-container m-b-5">
+                <app-radio-button label="task.name" class="m-r-45" [value]="TaskType.Task"
+                                  [formControlName]="TypeKey"></app-radio-button>
+                <app-radio-button label="deliverable.name" [value]="TaskType.Deliverable"
+                                  [formControlName]="TypeKey"></app-radio-button>
+            </div>
+
+            <div *ngIf="alias === ALIAS.Projects" class="type-container m-b-5">
+                <app-radio-button label="project.name" class="m-r-45" [value]="ProjectType.Waterfall"
+                                  [formControlName]="TypeKey"></app-radio-button>
+                <app-radio-button label="kanban-project.name" [value]="ProjectType.Agile"
+                                  [formControlName]="TypeKey"></app-radio-button>
+            </div>
+        </ng-container>
+
+        <div class="new-entity">
+            <div class="w-100 flex-grow-1 flex-shrink-2">
+                <app-form-control error="{{errors.name | translate }}" class="w-100 d-flex align-items-start">
+                    <input autofocus class="name" type="text" [placeholder]="newItemTranslate | translate"
+                           tabindex="1"
+                           formControlName="name">
+                </app-form-control>
+
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="select-date">
+                        <div class="date-picker-container">
+                            <app-form-control [error]="errors.startDate || errors.endDate">
+                                <div class="datepicker d-flex">
+                                    <app-datepicker *ngIf="type !== TaskType.Deliverable"
+                                                    class="m-r-30"
+                                                    formControlName="startDate"
+                                                    placeholder="start-date-placeholder"
+                                                    [maxDate]="formValue?.endDate"
+                                                    [error]="errors.startDate"
+                                    ></app-datepicker>
+
+                                    <app-datepicker formControlName="endDate"
+                                                    tabindex="1"
+                                                    placeholder="end-date-placeholder"
+                                                    [minDate]="formValue?.startDate"
+                                                    [error]="errors.endDate"
+                                    ></app-datepicker>
+                                </div>
+                            </app-form-control>
+                        </div>
+                    </div>
+
+
+                    <div class="d-flex status-container align-items-center">
+                        <span class="m-r-20">{{'status' | translate}}</span>
+                        <app-project-status-dropdown *ngIf="alias === ALIAS.Projects"
+                                                     [options]="projectStatusOptions"
+                                                     formControlName="status">
+                        </app-project-status-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-l-50 flex-grow-1 flex-shrink-1 align-self-start m-t-5">
+                <button type="submit" tabindex="2"
+                        class="create primary m-b-16">{{newItemTranslate | translate}}</button>
+            </div>
+        </div>
+
+
+        <div class="description">
+            <app-form-control error="{{errors.description | translate }}">
+                <textarea name="description"
+                          tabindex="1"
+                          placeholder="{{'description-placeholder' | translate}}"
+                          class="title form-control color-black"
+                          cdkTextareaAutosize
+                          cdkAutosizeMinRows="4"
+                          cdkAutosizeMaxRows="12"
+                          formControlName="description">
+                </textarea>
+            </app-form-control>
+        </div>
+    </form>
+</div>
+
+<app-loader *ngIf="loading" class="absolute"></app-loader>

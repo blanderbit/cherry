@@ -1,0 +1,15 @@
+<app-form-control hideError="true" class="change-state">
+    <app-select [options]="options"
+                [value]="value"
+                [showCaret]="true"
+                class="{{ ProjectStatus[value] }}"
+                [onItemClick]="onProjectStatusSelect"
+                [translationPrefix]="'status'"
+    >
+        <ng-template let-item>
+            <span class="status project-status {{ ProjectStatus[item?.value] }} justify-content-between">
+                {{ ('status.' + item?.value) | translate}}
+            </span>
+        </ng-template>
+    </app-select>
+</app-form-control>

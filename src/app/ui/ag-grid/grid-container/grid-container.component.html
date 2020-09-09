@@ -1,0 +1,19 @@
+<div class="h-100 w-100 d-flex flex-column justify-content-end">
+    <ag-grid-angular class="ag-theme-material custom-style h-100"
+                     *noSSR
+                     [rowData]="rowData"
+                     [suppressNoRowsOverlay]="!showNoRowsOverlay"
+                     [gridOptions]="gridOptions"
+                     [defaultColDef]="defaultColDef"
+                     [icons]="icons"
+                     [columnDefs]="columnDefs"
+                     [editType]="editType"
+                     [noRowsOverlayComponentParams]="noRowsParams"
+                     (cellMouseOut)="cellMouseOut($event)"
+                     (gridReady)="onGridReady($event)"
+                     (cellClicked)="onCellClicked($event)"
+                     [class.cursor]="cursorEvent"
+    ></ag-grid-angular>
+
+    <app-paginator></app-paginator>
+</div>

@@ -1,0 +1,79 @@
+@import "../core/_variables.scss";
+
+[class^="icon-"] {
+    border: none;
+    font-size: 18px;
+    line-height: 18px;
+
+    .button {
+        color: #738C99;
+
+        &:hover {
+            color: $control-color-blue;
+            cursor: pointer;
+        }
+    }
+}
+
+span.icon-cont {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    border: 1px dashed $icon-border-color-gray;
+    color: $icon-border-color-gray;
+    border-radius: 50%;
+    font-weight: 600;
+
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.size-xs {
+        width: 28px;
+        height: 28px;
+    }
+
+    &.size-s {
+        width: 30px;
+        height: 30px;
+    }
+
+    &.size-m {
+        width: 32px;
+        height: 32px;
+    }
+
+    &.size-l {
+        width: 34px;
+        height: 34px;
+    }
+
+    &.size-xl {
+        width: 40px;
+        height: 40px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within {
+        border-color: $control-color-blue;
+        color: $control-color-blue;
+    }
+
+    &:active,
+    &:focus,
+    &:focus-within {
+        background-color: $icon-bg-hover-blue;
+    }
+}
+
+.placeholder-datepicker {
+    color: #738C99;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: 'Open Sans', sans-serif;
+}

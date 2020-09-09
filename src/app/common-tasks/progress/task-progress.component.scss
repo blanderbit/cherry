@@ -1,0 +1,61 @@
+@import "../../../styles/core/variables";
+
+.hours-completed {
+    margin-right: 7%;
+}
+
+.progress-container {
+    width: 100%;
+}
+
+.progress-table-container {
+    overflow: auto;
+}
+
+.progress-title {
+    color: #314149;
+}
+
+mv-slider.disabled {
+    pointer-events: none;
+
+    ::ng-deep {
+        div[role="slider"] {
+            display: none;
+        }
+    }
+}
+
+.progress-table {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    min-width: 600px;
+    overflow: hidden;
+
+    .progress-table-header {
+        background-color: #F6F6F8;
+
+        th {
+            padding: 10px 0;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 600;
+            color: $color-text-grey;
+        }
+    }
+
+    tr:not(.progress-table-header) {
+        border-bottom: 1px solid $control-color-grey;
+
+        td {
+            padding: 12px 0;
+            line-height: 100%;
+            color: $color-text-black;
+            font-size: 13px;
+
+            &:not(:first-of-type) {
+                font-size: 12px;
+            }
+        }
+    }
+}

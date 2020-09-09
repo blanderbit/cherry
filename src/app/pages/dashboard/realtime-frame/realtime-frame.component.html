@@ -1,0 +1,13 @@
+<table style="width:100%">
+    <tr>
+        <th>Type</th>
+        <th>Message</th>
+        <th>Internal</th>
+    </tr>
+
+    <tr *ngFor="let message of messages">
+        <td [title]="message.type">{{message.type}}</td>
+        <td [title]="message.payload | json">{{message.payload | json}}</td>
+        <td>{{message.internal}}</td>
+    </tr>
+</table>

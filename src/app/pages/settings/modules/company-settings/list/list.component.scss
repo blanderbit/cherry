@@ -1,0 +1,125 @@
+@import '../../../../../../styles/core/variables';
+
+:host {
+    height: 100%;
+
+}
+
+.link {
+    font-size: 13px;
+    line-height: 23px;
+}
+
+.create-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 16px;
+    margin-top: 17px;
+    font-style: normal;
+    min-width: 180px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+
+    .icon-plus {
+        margin-left: 10px;
+        line-height: 12px;
+        font-size: 12px;
+    }
+}
+
+a.edit {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+
+h1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: bold;
+
+    color: $color-text-dark;
+
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color: $color-text-dark;
+
+    margin-bottom: 25px;
+
+}
+
+p, div {
+    font-size: 13px;
+    line-height: 23px;
+    color: $color-text-black;
+
+    margin-bottom: 15px;
+}
+
+:host ::ng-deep{
+    .ag-row{
+        border: none;
+
+        .ag-cell{
+            border-top:1px solid #e2e2e2 ;
+        }
+        &:hover,  &:hover + .ag-row{
+            .ag-cell{
+                border-top:1px solid transparent ;
+            }
+        }
+    }
+}
+.company-settings-container {
+    padding: 30px 40px 0 40px;
+}
+
+
+.create-component {
+    display: flex;
+    transition-property: max-height, min-height;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    flex-shrink: 0;
+    //max-height: 80px;
+
+    &.hidden {
+        overflow: hidden;
+        max-height: 0;
+        visibility: hidden;
+    }
+
+    .form {
+        flex-grow: 1;
+    }
+
+    .form-actions {
+        margin-top: 24px;
+        display: flex;
+        padding-left: 15px;
+        align-items: center;
+        text-transform: uppercase;
+
+        .cancel-button {
+            margin-left: 10px;
+            background-color: $control-color-grey;
+        }
+
+        button {
+            outline: none;
+            padding: 4px 15px;
+            font-size: 12px;
+            line-height: 16px;
+            min-width: 70px;
+        }
+
+    }
+}

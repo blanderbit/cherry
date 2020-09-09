@@ -1,0 +1,31 @@
+<app-trial-notification></app-trial-notification>
+
+<div class="home-container">
+    <h1 class="title">{{'hello' | translate}} {{profile | userName}}</h1>
+    <div class="apps-container">
+        <div *ngFor="let app of items" class="app-item">
+            <ng-container>
+
+                <app-item-component
+                    [allowNavigation]="true"
+                    [disabled]="isAppDisabled(app,_profileProvider.profile.apps )"
+                    translatePrefix="apps"
+                    [app]="app.name">
+
+                </app-item-component>
+
+            </ng-container>
+        </div>
+    </div>
+    <div class="placeholder-container">
+        <div class="divider"></div>
+        <h4 class="placeholder-title">{{'recentActivity' | translate}}</h4>
+        <img src="assets/img/dashboard-placeholder.svg" alt="">
+        <pre class="placeholder-description">
+            {{'description'| translate}}
+        </pre>
+        <button
+            *hasPermission="permissionActions.CreateProject"
+            routerLink="/projects">{{'createProject' | translate}}</button>
+    </div>
+</div>

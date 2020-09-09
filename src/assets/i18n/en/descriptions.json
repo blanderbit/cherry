@@ -1,0 +1,9 @@
+{
+    "action": {
+        "successfully-updated": "Description successfully updated",
+        "update-error": "Can't update description",
+        "load-items-error": "Can't load description"
+    },
+    "save": "Save",
+    "description": "Description"
+}

@@ -1,0 +1,16 @@
+{
+    "6": "Can't set date on weekend day",
+    "413": "File size is too large",
+    "1001": "Too many login attempts. Try again in 5 minutes",
+    "1008": "Email already registered",
+    "1023": "Email already confirmed",
+    "2001": "Task has assignments with reported time",
+    "3202": "User is not project manager of project",
+    "3004": "Project has tasks with reported time",
+    "3209": "Can't remove user with reported time",
+    "3404": "Can't set start date earlier then minimum task start date within project",
+    "3409": "Can't change role for user with created tasks",
+    "5004": "Can't be deleted. Project has tasks",
+    "5502": "User is not manager of project",
+    "6001": "Can't edit project while it is locked by another user"
+}

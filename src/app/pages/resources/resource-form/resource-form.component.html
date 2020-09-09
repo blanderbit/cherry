@@ -1,0 +1,67 @@
+<form [formGroup]="form" (submit)="apply($event)">
+    <div class="header m-b-0">
+        <div>
+            <span class="name">{{needCreate ? ('form.title' | translate) : (item | userName)}}</span>
+            <app-select formControlName="status"
+                        class="status status-control status_{{resourceKind | lowercase}}"
+                        [ngClass]="'status-' + form.get('status').value"
+                        [options]="ResourceStatuses"></app-select>
+        </div>
+
+        <div class="buttons">
+            <button class="default large" type="button" (click)="cancel()">{{"form.cancel" | translate }}</button>
+
+            <ng-container *hasPermission="permissions.deleteResource">
+                <button class="danger large" type="button" (click)="deleteItem(item)"
+                        *ngIf="canRemove"
+                >
+                    {{"form.remove" | translate }}
+                </button>
+            </ng-container>
+
+            <button class="primary large" type="submit"
+                    [disabled]="!form?.dirty">{{"form.submit" | translate }}</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div
+            [class.flex-grow-1]="!showAccess"
+            class="mr-auto">
+            <app-navigation-back class="m-t-5 m-b-40"></app-navigation-back>
+
+            <app-cloud-upload *ngIf="canUpload"
+                              [showOverlay]="false"
+                              [disable]="!!avatarUpdateDisabled"
+                              [updateFiles]="false"
+                              [acceptFile]="acceptFile"
+                              (filesChanged)="handleFileChanged($event)">
+                <div class="select-photo">
+                    <img class="profile-img"
+                         *ngIf="needCreate"
+                         [class.cursor-default]="!!avatarUpdateDisabled"
+                         [src]="imagePreview || '../../../../assets/svg/image-select-photo.svg'">
+
+                    <app-avatar class="profile-img"
+                                size="120"
+                                *ngIf="!needCreate"
+                                [class.cursor-default]="!!avatarUpdateDisabled"
+                                [resource]="item"
+                    ></app-avatar>
+
+                    <span class="change-btn" *ngIf="!avatarUpdateDisabled">{{ "form.selectPhoto" | translate }}</span>
+                </div>
+            </app-cloud-upload>
+
+            <ng-container *ngFor="let field of formControls;" [dynamicField]="field" [group]="form"></ng-container>
+        </div>
+
+        <app-access-setting
+            *ngIf="showAccess"
+            [form]="form"
+            [humanResource]="item"
+        ></app-access-setting>
+    </div>
+
+</form>
+
+<app-loader class="absolute" *ngIf="loading"></app-loader>

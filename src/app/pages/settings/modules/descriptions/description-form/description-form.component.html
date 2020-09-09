@@ -1,0 +1,15 @@
+<form [formGroup]="form" (submit)="apply($event)">
+    <span class="title">{{lang.name}}</span>
+
+    <app-form-control error="{{errors.description | translate }}">
+                <textarea name="description"
+                          [placeholder]='"description" | translate '
+                          class="form-control"
+                          cdkTextareaAutosize="true"
+                          formControlName="description">
+                </textarea>
+    </app-form-control>
+
+    <button type="submit" [disabled]="loading || !valueChanged"
+            class="primary large">{{'save' | translate}}</button>
+</form>

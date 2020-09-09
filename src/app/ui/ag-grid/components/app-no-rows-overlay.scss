@@ -1,0 +1,32 @@
+@import "../../../../styles/core/variables";
+
+:host {
+    width: 100%;
+    height: 100%
+}
+
+.overlay {
+    padding: 10%
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px
+}
+
+
+.task-overlay {
+    h3 {
+        font-size: 14px !important;
+        margin-top: 45px !important;
+        line-height: 120% !important;
+        font-weight: normal !important;
+        color: $color-text-black;
+    }
+}
+
+img {
+    max-height: 100%;
+    object-fit: contain
+}

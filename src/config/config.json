@@ -1,0 +1,32 @@
+{
+    "version": 0,
+    "http": {
+        "auth": "/api/auth",
+        "attachments": "/api/a",
+        "users": "/api/u",
+        "resources": "/api/r",
+        "projects": "/api/p",
+        "tasks": "/api/t",
+        "assignments": "/api/assignments",
+        "settings": "/api/s",
+        "permissions": "/api/pr",
+        "realtime": "/api/rt",
+        "translate": "/api/translate",
+        "notifications": "/api/n",
+        "identity": "/api/i",
+        "companies": "/api/c",
+        "kanban": "/api/k"
+    },
+    "ws": {
+        "url": "/api/realtime",
+        "protocol": "wss"
+    },
+    "authentication": {
+        "redirect": "/",
+        "login": "/auth/login"
+    },
+    "sentry": {
+        "enable": false,
+        "dsn": "https://8fc84f52de144940b61995ef82864331@sentry.io/1548969"
+    }
+}

@@ -1,0 +1,2 @@
+<app-task-dependency *ngIf="items[0]" [dependency]="items[0]"></app-task-dependency>
+<span class="link-wrapper" *ngIf="items.length > 1">...<span class="link" (click)="openDependencies()">+{{items.length - 1}}</span></span>

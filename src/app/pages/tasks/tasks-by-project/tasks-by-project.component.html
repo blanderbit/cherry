@@ -1,0 +1,34 @@
+<app-loader *ngIf="loading" class="absolute"></app-loader>
+<div class="wrapper p-b-0">
+    <ng-content></ng-content>
+    <div class="header-content">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="f-w-600 header-title text-overflow-ellipsis">{{ header | translate}}</h3>
+
+            <menu class="menu" [items]="menuItems">
+                <ng-container>
+                    <i class="icon-vertical-dots"></i>
+                </ng-container>
+            </menu>
+
+        </div>
+        <div class="task-inline-container">
+            <app-add-task-inline *hasPermission="[permissionAction.CreateTask, permissionAction.CreateDeliverable]"
+                                 [autoAssign]="false"
+                                 [projectId]="projectId">
+            </app-add-task-inline>
+        </div>
+
+    </div>
+
+    <div class="content-list p-x-0">
+        <app-grid-container [rowData]="items"
+                            [options]="gridOptions"
+                            [noRowsParams]="noRowsParams"
+                            [colDefs]="columnDefs"
+                            [getNavigationQueryParams]="getNavigationQueryParams"
+        ></app-grid-container>
+    </div>
+
+
+</div>

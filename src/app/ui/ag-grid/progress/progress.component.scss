@@ -1,0 +1,17 @@
+.progress {
+    //background: #00A3FF;
+    border-radius: 8px;
+    height: 4px;
+    margin-top: 20px;
+}
+
+::ng-deep.progress {
+    background: rgba(0, 163, 255, 0.2);
+    border-radius: 10px;
+    height: 5px;
+}
+
+::ng-deep.progress-bar {
+    background: #00A3FF !important;
+    border-radius: 8px;
+}

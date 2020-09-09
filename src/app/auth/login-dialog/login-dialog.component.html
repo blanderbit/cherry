@@ -1,0 +1,33 @@
+<app-dialog title="{{'login-dialog.already-met' | translate}}">
+    <form class="body" [formGroup]="form" (submit)="apply($event)" #formGroup>
+        <h6 class="text-center m-b-25">
+            Looks like you already have an account. Please Sign in.
+        </h6>
+
+        <app-form-control [title]="'login.email'" error="{{errors.email}}">
+            <input type="text"
+                   placeholder='{{"emailPlaceholder" | translate}}'
+                   (focus)="resetControlStatus($event)"
+                   class="input-login"
+                   formControlName="email">
+        </app-form-control>
+
+        <app-form-control [title]="'login.password'" error="{{errors.password}}">
+            <input type="password"
+                   placeholder='{{"login.password" | translate}}'
+                   (focus)="resetControlStatus($event)"
+                   class="input-login"
+                   inputTypeToggle
+                   formControlName="password">
+        </app-form-control>
+
+        <div class="w-100 actions text-center">
+            <button type="submit" [disabled]="loading" class="d-flex justify-content-center align-items-center w-100 m-b-16 m-t-20">
+                <span class="loading-spinner" *ngIf="loading"></span>
+                <span class="m-l-10 m-r-10"> {{"login.login" | translate}}</span>
+            </button>
+
+            <a class="color-blue f-w-600" [routerLink]="forgotPasswordUrl">Forgot password?</a>
+        </div>
+    </form>
+</app-dialog>

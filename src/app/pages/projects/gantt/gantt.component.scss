@@ -1,0 +1,42 @@
+@import '../../../../styles/core/variables';
+
+.container {
+    padding-top: 40px;
+}
+
+table {
+    table-layout:fixed;
+    width: 100%;
+    margin: 0 auto;
+
+    td,
+    th {
+        padding: 10px 20px;
+        height: 48px;
+    }
+
+    th {
+        color: $color-text-black;
+    }
+
+    tr {
+        border-bottom: 1px solid $color-text-grey;
+    }
+
+    td {
+        color: $color-text-grey;
+        text-align: center;
+    }
+
+    .name {
+        text-align: left;
+    }
+
+    tbody tr:hover {
+        background: rgba(218, 239, 250, 0.6);
+
+        .name {
+            color: $control-color-blue;
+        }
+    }
+}

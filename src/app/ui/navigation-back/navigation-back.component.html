@@ -1,0 +1,6 @@
+<div class="navigation-back d-flex align-sef-start f-w-600 f-s-12 l-h-16 color-grey cursor-pointer"
+     (click)="navigateBack()"
+     [routerLink]="useNativeNavigation ? link : './'">
+    <i class="icon-navigation-arrow m-r-10"></i>
+    <span>{{text | translate}}</span>
+</div>

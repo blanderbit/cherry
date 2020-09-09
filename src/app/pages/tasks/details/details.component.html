@@ -1,0 +1,11 @@
+<div class="task-details-container d-flex flex-column position-relative">
+    <app-loader class=absolute *ngIf="loading"></app-loader>
+
+    <h1 class="m-y-0 text-overflow-ellipsis">{{project?.name}}</h1>
+
+    <app-navigation-back class="m-t-5 m-b-35" [useHistory]="true" #navigator></app-navigation-back>
+
+    <div class="h-100">
+        <app-task-details (navigateBack)="navigator.navigateBack()"></app-task-details>
+    </div>
+</div>

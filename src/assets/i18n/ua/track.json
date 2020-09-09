@@ -1,0 +1,57 @@
+{
+    "side.title": "час",
+    "side.subtitle": "Розклад",
+
+    "confirm-dialog": {
+        "reject": "Відмінити",
+        "confirm": "Зберегти"
+    },
+    "comments-dialog": {
+        "reject": "Скасувати",
+        "submit": "Надіслати"
+    },
+    "actions": {
+        "add": "Додати",
+        "assigned": "назначені мені",
+        "tasks": "завдань",
+        "new-row": "Новий запис"
+    },
+    "action": {
+        "successfully-created": "Завдання успішно створено",
+        "successfully-deleted": "Завдання успішно видалено",
+        "create-error": "Неможливо створити завдання",
+        "comments-success": "Успішно оновлено",
+        "comments-error": "Не вдалося оновити"
+    },
+    "add-task": {
+        "title": "Нове завдання",
+        "task-name": "Назва завдання",
+        "project": "Проєкт",
+        "placeholders": {
+            "name": "Добавте назву завдання",
+            "project": "Виберіть проєкт",
+            "startDate": "Початкова дата",
+            "endDate": "Кінцева дата"
+        }
+    },
+    "errors": {
+        "name": {
+            "required": "Ім'я обов'язкове",
+            "minlength": "Мінімальна довжина поля - 3 символи",
+            "maxlength": "Максимальна довжина поля - 256 символів"
+        },
+        "projectId": {
+            "required": "Проєкт обов'язаковий"
+        },
+        "currentStartDate": {
+            "required": "Початкова дата обов'язкова",
+            "dateSequenceError": "Дата початку повинна бути меншою, ніж кінцева дата"
+        },
+        "currentEndDate": {
+            "required": "Кінцева дата обов'язкова"
+        }
+    },
+    "change-status": {
+        "status-changed": "Статус змінено"
+    }
+}

@@ -1,0 +1,107 @@
+<div class="datatable-main">
+    <app-track-current-days-list></app-track-current-days-list>
+
+    <ng-container *ngIf="dateInEditableRange">
+        <app-add-tasks-row [items]="items"
+                           (tasksCreated)="handleCreatedTasks($event)"
+                           (createNewTask)="createNewTask = !createNewTask">
+        </app-add-tasks-row>
+
+        <app-search-task [addedItems]="items" *ngIf="createNewTask" (onSelect)="onTasksCreate($event)"></app-search-task>
+    </ng-container>
+
+    <ng-container *ngIf="items?.length || isCreateNewActive">
+        <div class="datatable-rows"
+             appClickOutside
+             [isOpen]="!!selectedId"
+             (clickOutside)="toggleTaskSelectState()">
+
+            <app-search-task [addedItems]="items" *ngIf="isCreateNewActive"></app-search-task>
+
+            <div class="datatable-row" *ngFor="let item of items"
+                 [ngClass]="{'__checked': item.taskId === selectedId || item.taskId == hoveredId}"
+                 (click)="toggleTaskSelectState(item)"
+                 (mouseenter)="handleHover(item)"
+                 (mouseleave)="hoveredId = null">
+                <div class="datatable-row-wrapper">
+                    <div class="row no-gutters">
+                        <div class="col-xl-11 col-lg-10 col-md-9 col-sm-12 col-xs-12">
+                            <div class="datatable-row-title overflow-auto" *ngIf="tasks[item?.taskId] as task">
+                                <div (click)="$event.stopPropagation()"></div>
+                                <div class="d-flex fist-row overflow-hidden"
+                                     [ngClass]="{'row-disabled': taskDisabled(item.taskId)}">
+                                    <app-checkbox #checkboxComponent
+                                                  [disabled]="taskDisabled(item.taskId)"
+                                                  [checked]="isAssignmentCompleted(item)"
+                                                  (isChecked)="updateStatus($event, item, checkboxComponent)"
+                                                  size="20"
+                                                  class="pr-2">
+                                    </app-checkbox>
+                                    <div class="w-100 overflow-hidden">
+                                        <a [routerLink]="['/', routes.Tasks, task.id]"
+                                           [queryParams]="{projectId: task?.projectId}"
+                                           target="_blank">
+                                            <strong class="text-overflow-ellipsis pr-2">{{task?.name || ''}}</strong>
+                                        </a>
+
+                                        <div class="datatable-row-desc pr-2 text-overflow-ellipsis"
+                                             *ngIf="projects[task?.projectId] as project">
+                                            {{project?.name || ''}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-2 col-sm-2 col-xs-3 col-md-3">
+                            <div class="row datatable-row-info no-gutters">
+                                <div class="col-sm-7" [ngClass]="{'row-disabled': isCompleted(item)
+                                || !isReadyForEdit()}">
+                                    <app-manual-time-input
+                                           class="time-app-input"
+                                           #input
+                                           [disabled]="timeEditDisabled(item.taskId, item.date)"
+                                           [value]="item.time"
+                                           (valueChange)="updateTaskTime(item, input.value)"
+                                           (keyup.enter)="input.triggerBlur()"></app-manual-time-input>
+                                </div>
+                                <div class="col-sm-5">
+                                        <button *ngIf="(item?.taskId === hoveredId && actionsShown) || item?.comment"
+                                                type="button"
+                                                mat-button
+                                                (click)="$event.stopPropagation(); openCommentPopup(item, tasks[item?.taskId])"
+                                                class="datatable-row-comment comment-day">
+                                            <span class="timeapp-icon-comment"></span>
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button *ngIf="actionsShown && !isCompleted(item)" type="button" mat-button [disabled]="loading"
+                            class="bg-transparent datatable-row-delete"
+                            (click)="$event.stopPropagation(); deleteItem(item, $event)">
+                        <span class="timeapp-icon-trash"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="datatable-empty" *ngIf="!items?.length && !isCreateNewActive">
+        <span class="datatable-empty-icon"></span>
+        <p>
+            No time entries for this day
+        </p>
+    </div>
+
+    <div class="datatable-footer" [class.hide-top-border]="isLastElementHovered()">
+        <div class="row">
+            <div class="col-xl-11 col-lg-10 col-md-9 datatable-desc text-right">
+                <span>Daily Totals:</span>
+            </div>
+            <div class="col-auto datatable-total">
+                <strong class=" datatable-total-text">{{dailyTotal | viewTime}}</strong>
+            </div>
+        </div>
+    </div>
+</div>

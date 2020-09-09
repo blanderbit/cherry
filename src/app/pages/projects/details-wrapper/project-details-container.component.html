@@ -1,0 +1,115 @@
+<div class="container project-details-container h-100 position-relative">
+
+    <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+    <form [formGroup]="form" *ngIf="item"
+          class="change-name-form h-100 d-flex flex-column">
+        <div class="header m-t-25">
+            <img src="assets/images/{{item.type === Type.Agile ? 'kanban' : 'project'}}-icon.svg" width="24"
+                 alt="project icon" class="m-r-10">
+
+            <div class="project-name text-overflow-ellipsis f-w-600 p-0 p-r-8 mr-1 my-1"
+                 formControlName="name"
+                 [hasEditPermission]="[permissionAction.UpdateProject]"
+                 [contentEditable]="isProjectActive"
+                 #taskName
+                 (keydown.enter)="taskName.blur()">
+            </div>
+            <div class="project-id text-overflow-ellipsis"> #{{projectId}}</div>
+            <app-project-status-dropdown [options]="statuses"
+                                         class="change-state"
+                                         formControlName="status"
+                                         [project]="item"
+                                         [hasEditPermission]="[permissionAction.UpdateProjectStatus]"
+                                         [disableIf]="!statuses.length">
+            </app-project-status-dropdown>
+
+            <div class="d-flex justify-content-start align-items-center">
+                <app-avatars-stack [ids]="membersIds"
+                                   avatarSize="28"
+                                   showCount="8"
+                                   *hasPermission="permissionAction.ViewMembers"
+                                   [gutter]="6"
+                                   [hideRemainedAvatarsCount]="true">
+                </app-avatars-stack>
+
+                <span class="icon-cont size-xs cursor-pointer"
+                      *hasPermission="permissionAction.AddMember"
+                      [class.control-disabled-grey]="!isProjectActive"
+                      (click)="addMember()">
+                    <i class="icon-profile"></i>
+                </span>
+            </div>
+
+            <div class="cont">
+                <ng-container *ngIf="item.type === Type.Waterfall">
+                    <ng-template [hasPermission]="permissionAction.ReviewGanttPlan">
+                        <div class="gant-url" *ngIf="item?.status !== Status.Archived">
+                            <a [href]="'/gantt/gp-gantt?projectId=' + item?.id + '&editable'" target="_blank"
+                               class="sz-12 l-h-16 d-flex justify-content-center align-items-center">
+                                <span class="icon-cont project-type-icon gantt">
+                                    <i class="icon-gantt"></i>
+                                </span>
+                                <span class="f-w-600 color-dark f-z-16">{{"details.gantt" | translate }}</span>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+                <ng-container *ngIf="item.type === Type.Agile">
+                    <div class="gant-url" *ngIf="item?.status !== Status.Archived">
+                        <a [href]="'/kanban/gp-kanban?projectId=' + item?.id + '&editable'" target="_blank"
+                           class="sz-12 l-h-16 d-flex justify-content-center align-items-center">
+                            <span class="icon-cont project-type-icon kanban">
+                                <i class="icon-kanban"></i>
+                            </span>
+                            <span class="f-w-600 color-dark f-z-16">{{"details.kanban" | translate }}</span>
+                        </a>
+                    </div>
+                </ng-container>
+
+                <menu class="menu" [items]="menuItems" *ngIf="menuItems?.length">
+                    <ng-container>
+                        <i class="icon-vertical-dots"></i>
+                    </ng-container>
+                </menu>
+            </div>
+        </div>
+
+        <app-navigation-back class="m-t-5 m-b-25"></app-navigation-back>
+
+        <div class="content h-0 flex-grow-1">
+
+            <div class="navigation">
+                <a class="list-item " routerLink="." routerLinkActive="active"
+                   [routerLinkActiveOptions]="{exact: true}">{{ "details.details" | translate}}</a>
+                <a class="list-item"
+                   *hasPermission="permissionAction.ViewTasksByProject"
+                   [routerLink]="['./', routes.Tasks]"
+                   routerLinkActive="active">
+                    {{ "details.tasks" | translate}}
+                </a>
+                <a class="list-item"
+                   *hasPermission="permissionAction.ViewMembers"
+                   [routerLink]="['./', routes.Team]"
+                   routerLinkActive="active">
+                    {{ "details.team" | translate}}
+                </a>
+                <a class="list-item"
+                   *hasPermission="permissionAction.ViewMembers"
+                   [routerLink]="['./', routes.Files]"
+                   routerLinkActive="active">
+                    {{ "details.files" | translate}}
+                </a>
+            </div>
+
+            <div class="details position-relative overflow-auto w-100">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+<app-files-selected></app-files-selected>

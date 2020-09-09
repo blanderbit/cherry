@@ -1,0 +1,48 @@
+<div class="calendar">
+  <div class="calendar-nav">
+    <div class="calendar-nav__previous-month" *ngIf="viewMode === 'month'">
+      <button class="button is-text" 
+        (click) = "changeNavMonth(-1)"
+        [disabled] = "!canChangeNavMonth(-1)">
+          <img src="assets/images/arrow_left.svg" alt="prev">
+      </button>
+    </div>
+    <div class="calendar-nav__title">{{getNavTitle()}}</div>
+    <div class="calendar-nav__next-month" *ngIf="viewMode === 'month'">
+      <button class="button is-text"
+        (click) = "changeNavMonth(1)"
+        [disabled] = "!canChangeNavMonth(1) ">
+          <img src="assets/images/arrow_right.svg" alt="next">
+      </button>
+    </div>
+  </div>
+  <div class="calendar-container">
+    <div class="calendar-header" *ngIf="viewMode === 'month'">
+      <div class="calendar-date"
+        *ngFor = "let day of weekDaysHeaderArr">
+        {{day}}
+      </div>
+    </div>
+    <div class="calendar-body" *ngIf="viewMode === 'month'">
+
+      <div *ngFor = "let day of gridArr" class="calendar-date"
+           [class.is-disabled] = "!day.available || isAfterMaxDay(day)"
+           [class.is-selected] = "isSelected(day)"
+           [class.is-today] = "isToday(day)"
+      >
+        <button *ngIf = "day.value !== 0" class="date-item" (click)="selectDay(day)">{{day.value}}</button>
+        <button *ngIf = "day.value === 0" class="date-item"></button>
+      </div>
+
+    </div>
+
+    <div class="calendar-body calendar-body-year" *ngIf="viewMode === 'year'">
+
+      <div *ngFor = "let month of monthsArr" class="calendar-date" [class.is-selected] = "isSelectedMonth(month)">
+        <button class="date-item" (click) = "selectMonth(month)">{{month.value}}</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

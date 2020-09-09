@@ -1,0 +1,278 @@
+@font-face {
+    font-family: "icons";
+    src: url("./icons.eot?ffedecec58d3da27121504eac4a56c95?#iefix") format("embedded-opentype"),
+url("./icons.woff2?ffedecec58d3da27121504eac4a56c95") format("woff2"),
+url("./icons.woff?ffedecec58d3da27121504eac4a56c95") format("woff"),
+url("./icons.ttf?ffedecec58d3da27121504eac4a56c95") format("truetype"),
+url("./icons.svg?ffedecec58d3da27121504eac4a56c95#icons") format("svg");
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add-time:before {
+    content: "\f101";
+}
+.icon-all-tasks:before {
+    content: "\f102";
+}
+.icon-archive1:before {
+    content: "\f103";
+}
+.icon-arrow-down:before {
+    content: "\f104";
+}
+.icon-arrow-up:before {
+    content: "\f105";
+}
+.icon-arrow:before {
+    content: "\f106";
+}
+.icon-attach-file:before {
+    content: "\f107";
+}
+.icon-auth-loader:before {
+    content: "\f108";
+}
+.icon-calendar-upcoming:before {
+    content: "\f109";
+}
+.icon-calendar:before {
+    content: "\f10a";
+}
+.icon-check-mark:before {
+    content: "\f10b";
+}
+.icon-checkbox-check-mark:before {
+    content: "\f10c";
+}
+.icon-checked:before {
+    content: "\f10d";
+}
+.icon-circle-checked:before {
+    content: "\f10e";
+}
+.icon-close-button:before {
+    content: "\f10f";
+}
+.icon-Cloud:before {
+    content: "\f110";
+}
+.icon-column:before {
+    content: "\f111";
+}
+.icon-columns:before {
+    content: "\f112";
+}
+.icon-copy:before {
+    content: "\f113";
+}
+.icon-date-circle:before {
+    content: "\f114";
+}
+.icon-date:before {
+    content: "\f115";
+}
+.icon-Delegated:before {
+    content: "\f116";
+}
+.icon-Delegated1:before {
+    content: "\f117";
+}
+.icon-delete:before {
+    content: "\f118";
+}
+.icon-download-attachment:before {
+    content: "\f119";
+}
+.icon-download:before {
+    content: "\f11a";
+}
+.icon-edit-profile:before {
+    content: "\f11b";
+}
+.icon-edit:before {
+    content: "\f11c";
+}
+.icon-exclamation:before {
+    content: "\f11d";
+}
+.icon-filter-results:before {
+    content: "\f11e";
+}
+.icon-foreign:before {
+    content: "\f11f";
+}
+.icon-gantt-icon:before {
+    content: "\f120";
+}
+.icon-gantt:before {
+    content: "\f121";
+}
+.icon-generic-resources:before {
+    content: "\f122";
+}
+.icon-grid:before {
+    content: "\f123";
+}
+.icon-hide-password:before {
+    content: "\f124";
+}
+.icon-hide:before {
+    content: "\f125";
+}
+.icon-home:before {
+    content: "\f126";
+}
+.icon-human-resources:before {
+    content: "\f127";
+}
+.icon-icon-empty:before {
+    content: "\f128";
+}
+.icon-icons:before {
+    content: "\f129";
+}
+.icon-image-select-photo:before {
+    content: "\f12a";
+}
+.icon-info:before {
+    content: "\f12b";
+}
+.icon-kanban-icon:before {
+    content: "\f12c";
+}
+.icon-kanban-project:before {
+    content: "\f12d";
+}
+.icon-kanban:before {
+    content: "\f12e";
+}
+.icon-list:before {
+    content: "\f12f";
+}
+.icon-little-table-grid:before {
+    content: "\f130";
+}
+.icon-loader:before {
+    content: "\f131";
+}
+.icon-logout:before {
+    content: "\f132";
+}
+.icon-material-resources:before {
+    content: "\f133";
+}
+.icon-my-task:before {
+    content: "\f134";
+}
+.icon-navigation-arrow:before {
+    content: "\f135";
+}
+.icon-navigation:before {
+    content: "\f136";
+}
+.icon-notification:before {
+    content: "\f137";
+}
+.icon-path:before {
+    content: "\f138";
+}
+.icon-planner:before {
+    content: "\f139";
+}
+.icon-plus:before {
+    content: "\f13a";
+}
+.icon-preview:before {
+    content: "\f13b";
+}
+.icon-printer:before {
+    content: "\f13c";
+}
+.icon-priority:before {
+    content: "\f13d";
+}
+.icon-profile:before {
+    content: "\f13e";
+}
+.icon-project-archived:before {
+    content: "\f13f";
+}
+.icon-project-green:before {
+    content: "\f140";
+}
+.icon-project-task:before {
+    content: "\f141";
+}
+.icon-projects:before {
+    content: "\f142";
+}
+.icon-question:before {
+    content: "\f143";
+}
+.icon-resources:before {
+    content: "\f144";
+}
+.icon-search:before {
+    content: "\f145";
+}
+.icon-select-arrow-down:before {
+    content: "\f146";
+}
+.icon-settings:before {
+    content: "\f147";
+}
+.icon-share:before {
+    content: "\f148";
+}
+.icon-show-completed-tasks:before {
+    content: "\f149";
+}
+.icon-show-password:before {
+    content: "\f14a";
+}
+.icon-star-empty:before {
+    content: "\f14b";
+}
+.icon-star:before {
+    content: "\f14c";
+}
+.icon-task-type:before {
+    content: "\f14d";
+}
+.icon-tasks:before {
+    content: "\f14e";
+}
+.icon-time-small:before {
+    content: "\f14f";
+}
+.icon-timeapp:before {
+    content: "\f150";
+}
+.icon-timesheet:before {
+    content: "\f151";
+}
+.icon-timesheets:before {
+    content: "\f152";
+}
+.icon-trash:before {
+    content: "\f153";
+}
+.icon-upload:before {
+    content: "\f154";
+}
+.icon-user:before {
+    content: "\f155";
+}
+.icon-vertical-dots:before {
+    content: "\f156";
+}

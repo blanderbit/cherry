@@ -1,0 +1,54 @@
+<div class="form-inline cursor-pointer w-100"
+     tabindex="1"
+     (keydown.escape)="$event.stopPropagation(); $event.preventDefault()"
+     (keydown.enter)="d.open()"
+     #wrapper
+     [ngClass]="{invalid: error, isOpened:d.isOpen(), disabled: d.disabled}"
+>
+    <div class="form-group">
+        <div [class.showIcon]="showIcon" class="input-group">
+            <input class="form-control"
+                   name="dp"
+                   container="body"
+                   ngbDatepicker
+                   #d="ngbDatepicker"
+                   #input
+                   (closed)="wrapper.focus();"
+                   [dayTemplate]="dayTemplate"
+                   [formControl]="control"
+                   [navigation]="'arrows'"
+                   [showWeekNumbers]="showWeekNumbers"
+                   [positionTarget]="container"
+                   [minDate]="min"
+                   [maxDate]="max">
+
+            <span class="span-container" #container>
+                <div *ngIf="!custom.children.length" class="datepicker" (click)="d.toggle();">
+
+                    <span [ngClass]="{'placeholder-datepicker': !control.value}" class="">
+                        {{control.value ? (control.value | date) : (placeholder | translate)}}
+                    </span>
+
+                    <span class="icon-cont size-l d-flex justify-content-center align-items-center"
+                          *ngIf="showIcon">
+                        <i class="{{icon}} f-z-15"></i>
+                    </span>
+                </div>
+
+                <div class="datepicker" (click)="d.toggle();" #custom>
+                    <ng-content></ng-content>
+                </div>
+               </span>
+        </div>
+    </div>
+</div>
+
+<ng-template #dayTemplate let-date let-focused="focused">
+    <div class="custom-day d-flex justify-content-center align-items-center h-100"
+         [class.focused]="focused"
+         [class.faded]="isHovered(date) || (this.highlightWeek && isWithinWeek(date))"
+         (mouseenter)="hoveredDate = date"
+         (mouseleave)="hoveredDate = null">
+        {{date.day}}
+    </div>
+</ng-template>

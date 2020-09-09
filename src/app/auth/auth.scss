@@ -1,0 +1,73 @@
+@import '../../styles/core/variables';
+
+h2 {
+    text-align: center;
+    color: $color-text-dark;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+h6 {
+    font-size: 14px;
+    line-height: 150%;
+    color: $color-text-black;
+}
+
+a {
+    color: #007bff;
+}
+
+button[type="submit"] {
+    height: 46px;
+    padding: 0;
+    border-radius: 3px;
+    background-color: $control-color-blue;
+
+    &:disabled {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #00A3FF;
+        cursor: default;
+    }
+}
+
+.wrapper {
+    //padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form {
+    background: #FFFFFF;
+    box-shadow: 0 2px 2px rgba(72, 80, 86, 0.2);
+    border-radius: 4px;
+    padding: 40px 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.error-message {
+    color: $control-color-red;
+}
+
+.error-container {
+    width: 100%;
+    padding: 15px 0;
+    margin: 10px 0;
+    background-color:rgba(236, 55, 74, 0.1);
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.reg-link {
+    color: $control-color-blue !important;
+    font-weight: 600;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+:host {
+    font-size: 11px;
+    height: 20px;
+    line-height: 15px;
+    padding: 0 12px;
+    background: #00A3FF;
+    border-radius: 4px;
+    color: #fff;
+    margin-right: 10px;
+    transition: all 0.12s ease-out;
+
+    /*display: inline-block;*/
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+:host .ng2-tag-input-remove {
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    height: 22px;
+    width: 22px;
+    line-height: 22px;
+    margin-left: 6px;
+    margin-right: -6px;
+    text-align: center;
+}
+
+:host.ng2-tag-input-item-selected {
+    color: white;
+    background: #0d8bff;
+}
+
+:host.ng2-tag-input-item-selected .ng2-tag-input-remove {
+    background: white;
+    color: #0d8bff;
+}

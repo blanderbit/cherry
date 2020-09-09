@@ -1,0 +1,22 @@
+{
+    "hello": "Привіт,",
+    "recentActivity":"Недавня активність",
+    "createProject": "Створити проєкт",
+    "description":"You are on your home page now. When you will create your first project and\ntasks, start to collaborate with the teammates you will see here your recent\nactivities, recently accessed projects, active tasks, statistics and others",
+    "apps": {
+        "access": "Доступ до додатків",
+        "time": "Час",
+        "project": "Проєкт",
+        "gantt": "Ґант",
+        "kanban": "Канбан",
+        "resource": "Ресурс",
+        "calendar": "Календар",
+        "task": "Завдання"
+    },
+    "trial": {
+        "trial-days": "Ваша безплатна активація - 14 днів пробної версії.",
+        "cancelled-in": "Ваша підписка буде скасована через",
+        "days-on": "днів ",
+        "upgrade": "Оновити"
+    }
+}

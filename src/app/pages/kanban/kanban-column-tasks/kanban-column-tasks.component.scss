@@ -1,0 +1,15 @@
+.add-task {
+    background: #FFFFFF;
+    box-shadow: -5px -5px 25px rgba(206, 218, 228, 0.5);
+    border-radius: 4px;
+    height: 24px;
+
+    i {
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+
+app-kanban-column-task:not(:last-of-type) {
+    margin-bottom: 8px;
+}

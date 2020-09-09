@@ -1,0 +1,46 @@
+<div class="filter-container">
+
+    <div class="header d-flex">
+        <span class="icon-cont" (click)="isFilter=true" [ngClass]="isFilter ? 'active': '' "><i
+            class="icon-column"></i></span>
+
+        <!--        <span class="icon-cont"  (click)="isFilter=false" [ngClass]="!isFilter ? 'active': '' "><i class="icon-columns"></i></span>-->
+    </div>
+
+    <!--    <pre>-->
+    <!--        {{columnDefs | json}}-->
+    <!--    </pre>-->
+    <!--    <div (click)="hide()">Hide</div>-->
+    <!--    <div (click)="show()">Show</div>-->
+    <div class="filter-body">
+        <!--        <div *ngIf="isFilter">-->
+        <!--            <input name="filter" [value]="filter" placeholder="Search" (keyup)="onSubmit($event)"/>-->
+        <!--            <button class="btn clear" (click)="clear()">Cancel</button>-->
+        <!--        </div>-->
+
+        <!--        *ngIf="!isFilter"-->
+
+        <div class="columns-cont">
+            <div class="d-flex align-items-center f-w-600 m-b-10">
+                <input id="all"
+                       [checked]="isAllColumnsVisible"
+                       (click)="selectAll()"
+                       class="custom-checkbox" type="checkbox">
+                <label for="all"> Select All</label>
+
+            </div>
+
+            <!--            [ngClass]="visibleColumns.includes(column) ? 'show-checked' : '' "-->
+            <div *ngFor="let column of columns" class="d-flex align-items-center m-b-10 select-cont">
+
+                <input id=" {{getColumnHeader(column)}}"
+                       [checked]="checkedColumns.includes(column)"
+                       (click)="toggleColumnVisibility(column)"
+                       class="custom-checkbox" type="checkbox">
+                <label for=" {{getColumnHeader(column)}}"> {{getColumnHeader(column)}}</label>
+
+            </div>
+            <button class="btn apply" (click)="apply()">Apply</button>
+        </div>
+    </div>
+</div>

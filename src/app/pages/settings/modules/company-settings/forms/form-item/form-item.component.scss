@@ -1,0 +1,37 @@
+@import '../../../../../../../styles/core/variables';
+@import '../../../../../../../styles/mixins/text.mixins';
+
+:host {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    .form-container-control {
+        display: flex;
+        font-size: 13px;
+        line-height: 18px;
+
+        background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+
+        padding: 15px 10px 17px 10px;
+    }
+
+    .label {
+        padding: 0 10px;
+
+        @include text-overflow-ellipsis();
+
+        font-size: 12px;
+        line-height: 16px;
+        color: $color-text-grey;
+        font-weight: 600;
+
+        margin-bottom: 8px;
+    }
+
+    span.label:empty .form-container-control {
+        margin-bottom: 0;
+    }
+
+}

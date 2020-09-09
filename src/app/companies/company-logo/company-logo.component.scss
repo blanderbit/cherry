@@ -1,0 +1,75 @@
+@import "../../../styles/core/variables";
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.default-logo {
+    background-color: $control-color-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+
+    img {
+        width: 70%;
+    }
+}
+
+.add-image {
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+
+    .icon-plus-box {
+        width: 50%;
+        height: 50%;
+        background: linear-gradient(0deg, rgba(196, 210, 221, 0.5), rgba(196, 210, 221, 0.5)), #FFFFFF;
+        border-radius: 50%;
+        z-index: 1;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.add-icon-container {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    width: 40px;
+    border-radius: 5px;
+    border: 1px dashed rgba(196, 210, 221, 0.5);
+    transition: all 0.2s ease;
+
+    .hover-text {
+        visibility: hidden;
+        position: absolute;
+        bottom: -1.5em;
+        color: $control-color-blue;
+    }
+
+    &:hover {
+        border: 1px dashed $control-color-blue;
+
+        .icon-plus-box {
+            background: $control-color-blue !important;
+        }
+
+        .hover-text {
+            visibility: visible;
+        }
+    }
+}

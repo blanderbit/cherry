@@ -1,0 +1,177 @@
+@import "../../../styles/core/variables";
+
+$wrapper-padding: 60px;
+
+:host {
+    height: 100%;
+}
+
+::ng-deep .members-dialog .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+}
+
+::ng-deep .members-dialog .modal-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    padding: $wrapper-padding 0 $wrapper-padding 0;
+    width: 600px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.member-role {
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.0857143px;
+    font-weight: 600;
+
+    color: $color-text-grey;
+    display: inline-block;
+}
+
+i.icon-arrow-down {
+    color: $color-text-grey;
+    line-height: 18px;
+    padding-top: 4px;
+    font-size: 18px;
+    display: inline-block;
+    padding-left: 3px;
+
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.header {
+    white-space: nowrap;
+    margin: 0 auto 8px auto;
+}
+
+
+:host ::ng-deep .suggestions {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 78%;
+    overflow: auto;
+
+    .suggestion-item {
+        cursor: pointer;
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 0 2px 2px rgba(72, 80, 86, 0.2);
+        border-radius: 4px;
+        padding: 16px;
+        margin: 0 2px 8px 2px;
+        justify-content: space-between;
+
+
+        &:hover, &:focus-within, &.item-selected {
+            background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6)), #FFFFFF;
+
+            .user-name, .email, i.icon-arrow-down {
+                color: $control-color-blue;
+            }
+
+        }
+
+        &:last-of-type {
+            margin-bottom: 2px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        .email {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .user-select {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: linear-gradient(0deg, rgba(115, 140, 153, 0.4), rgba(115, 140, 153, 0.4)), #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.selected {
+                background: $control-color-blue;
+            }
+
+            i {
+                font-size: 10px;
+                line-height: 0;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media not all and (min-resolution: .001dpcm) {
+    @supports (-webkit-appearance:none) {
+        :host ::ng-deep .suggestions {
+            .suggestion-item {
+                padding: 31px;
+            }
+        }
+    }
+}
+
+    .actions {
+        button {
+            width: 140px;
+        }
+    }
+
+    .close {
+        width: 30px;
+        padding: 0;
+        margin: 0;
+        color: rgba(115, 140, 153, 0.8);
+        outline: none;
+        position: absolute;
+        top: $wrapper-padding - 3px;
+        right: $wrapper-padding - 7px;
+    }
+
+    .search-icon {
+        display: block;
+        position: absolute;
+        top: 55%;
+        right: 0;
+        transform: translate(-50%, -50%);
+        color: rgba(115, 140, 153, 0.8);
+    }
+
+    .placeholder {
+        font-size: 14px;
+        text-align: center;
+        opacity: 0.7;
+        font-weight: 600;
+    }
+

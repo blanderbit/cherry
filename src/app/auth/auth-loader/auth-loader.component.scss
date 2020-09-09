@@ -1,0 +1,59 @@
+div {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+svg g:last-of-type {
+    animation: flying-rocket 1s infinite;
+}
+
+:host {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center !important;
+
+    .wrapper {
+        height: 100vh;
+        background: #F6F6F8;
+        display: -webkit-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .logotype {
+            margin-bottom: 60px;
+        }
+    }
+}
+
+.auth-loader {
+    width: 500px;
+    height: 326px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 20px 0;
+    z-index: 1;
+}
+
+@keyframes flying-rocket {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

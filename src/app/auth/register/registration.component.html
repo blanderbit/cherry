@@ -1,0 +1,40 @@
+<div class="auth-form position-relative overflow-hidden">
+    <div class="w-100" *ngIf="!showVerification" @slideInFromRight>
+        <h2 class="m-b-20">{{"register.title" | translate}}</h2>
+        <form [formGroup]="form" (submit)="submitBtn.focus(); apply($event)" class="w-100">
+            <app-form-control [title]="'register.email'" [titleSize]="14" error="{{errors.email}}">
+                <input type="text"
+                       autofocus
+                       placeholder='{{"register.email-placeholder" | translate}}'
+                       class="input-email"
+                       (focus)="resetControlStatus($event)"
+                       formControlName="email">
+            </app-form-control>
+
+            <button type="submit" class="m-t-30 d-flex justify-content-center align-items-center"
+                    [disabled]="loading" #submitBtn>
+                <span class="loading-spinner" *ngIf="loading"></span>
+                <span class="m-l-10 m-r-10">{{"register.continue" | translate}}</span>
+            </button>
+        </form>
+
+        <div class="text-center m-t-16 f-z-13">
+            {{"register.have-account" | translate}}
+            <a class="reg-link" [routerLink]="loginUrl">
+                {{"register.log-in" | translate}}
+            </a>
+        </div>
+    </div>
+
+    <ng-container *ngIf="showVerification">
+        <ng-container *noSSR>
+            <app-verify-email [title]="'Please verify you email'" @slideInFromRight>
+                Instructions for your account verification have been sent to
+                <span class="f-w-600">{{email}}</span>.
+                Once you verify your email
+                address, you and your team can get started with your Cerri Free trial!
+            </app-verify-email>
+        </ng-container>
+    </ng-container>
+</div>
+

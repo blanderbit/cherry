@@ -1,0 +1,57 @@
+:host {
+    width: 100%;
+    max-width: 400px;
+    display: inline-block;
+
+    .title {
+        display: inline-block;
+        margin: 10px 0;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+
+        label {
+            margin: 0;
+        }
+
+        .input-control {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+            input {
+                max-width: 55px;
+                margin: 3px 5px;
+            }
+        }
+    }
+
+    .custom-control {
+        display: flex;
+        padding-left: 0;
+        align-items: center;
+        label{
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+    }
+    ::ng-deep{
+        app-checkbox .icon-checkbox-check-mark{
+            margin: 1px 1px;
+            font-size: 10px !important;
+            line-height: 10px;
+            height: 10px;
+            top: 40% !important;
+            left: 45% !important;
+        }
+    }
+}
+

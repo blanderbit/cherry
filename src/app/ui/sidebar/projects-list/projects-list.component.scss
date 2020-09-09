@@ -1,0 +1,110 @@
+@import '../../../../styles/core/variables';
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // TODO: Remove commented styles after testing
+    //::ng-deep.dropdown-toggle {
+    //    padding: 0;
+    //    max-width: 130px;
+    //    display: flex;
+    //}
+    //
+    //::ng-deep.dropdown-toggle::after {
+    //    display: none;
+    //}
+
+    //::ng-deep.dropdown-menu {
+    //    min-width: 130px;
+    //    border: none;
+    //
+    //    &.show {
+    //        border-radius: 8px;
+    //        margin: 0;
+    //        padding: 6px 0;
+    //    }
+    //}
+
+    //.dropdown-element {
+    //    padding: 12px 15px;
+    //    margin: 0;
+    //    font-style: normal;
+    //    font-weight: normal;
+    //    font-size: 11px;
+    //    line-height: 15px;
+    //    color: #738C99;
+    //    border: none;
+    //
+    //    &:hover {
+    //        background: rgba(218, 239, 250, 0.6);
+    //        border-radius: 3px;
+    //        color: #00A3FF;
+    //        cursor: pointer;
+    //    }
+    //}
+}
+
+//.all-projects {
+//    .drop-menu {
+//        display: flex;
+//        justify-content: space-between;
+//        margin-bottom: 22px;
+//
+//        p {
+//            display: flex;
+//        }
+//    }
+//}
+
+.filter {
+    height: 30px;
+}
+
+.icon-search {
+    position: absolute;
+    right: 20px;
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+
+    color: $color-text-grey;
+}
+
+ul {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.project {
+    color: #314149;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+
+    .projects-list-item {
+        box-sizing: border-box;
+        flex-shrink: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 12px 15px;
+        width: calc(100% + 3px);
+        outline: none;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover {
+            color: #00A3FF;
+            background-color: rgba(218, 239, 250, 0.6);
+        }
+    }
+}
+
+input {
+    padding: 4px 28px 4px 5px;
+}
+

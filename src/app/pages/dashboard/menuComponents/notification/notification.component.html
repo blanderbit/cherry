@@ -1,0 +1,36 @@
+<div class="card-content">
+    <div class="go-back">
+        <div class="arrow">
+            <span
+                class="arrow"
+                (click)="stateChange.emit()">
+                <i class="icon-arrow l-h-5"></i>
+            </span>
+            <span class="text-go-back">{{ "notifications" | translate }}</span>
+        </div>
+        <div>
+            <span
+                class="mark-all-as-read color-blue"
+                (click)="markAllItemsAsRead()">
+                Mark all as read
+            </span>
+        </div>
+    </div>
+
+    <div class="container"
+         infinite-scroll
+         [scrollWindow]="false"
+         (scrolled)="onScrollToBottom()">
+
+        <div
+            class="content"
+            *ngFor="let item of items"
+            [class.isRead]="!item.isRead">
+            <div
+                class="notification-item"
+                (click)="markItemAsRead(item)">
+                <app-link-task [item]="item"></app-link-task>
+            </div>
+        </div>
+    </div>
+</div>

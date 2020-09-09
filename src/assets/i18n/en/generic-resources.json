@@ -1,0 +1,48 @@
+{
+    "list": {
+        "title": "Generic resources",
+        "create": "New Generic Resource",
+        "search": "Find resource..."
+    },
+    "table": {
+        "name": "Name",
+        "status": "Status",
+        "code": "Resource id"
+    },
+    "form": {
+        "title": "New Generic Resource",
+        "remove": "Remove",
+        "cancel": "Cancel",
+        "submit": "Save",
+        "statusOptions": {
+            "0": "Active",
+            "1": "Inactive"
+        },
+        "name": "Generic Resource Name",
+        "code": "Generic Resource ID",
+        "internalRate": "Const(internal) rate",
+        "billableRate": "Billable rate(default)",
+        "errors": {
+            "name": {
+                "required": "First name is required",
+                "minlength": "Minimum field length is 3 characters",
+                "maxlength": "Maximum field length is 50 characters"
+            },
+            "code": {
+                "required": "Resource ID is required",
+                "maxlength": "Maximum Resource ID length is 30 characters"
+            }
+        }
+    },
+    "action": {
+        "successfully-created": "Generic resource successfully created",
+        "successfully-updated": "Generic resource successfully updated",
+        "successfully-deleted": "Generic resource successfully deleted",
+        "create-error": "Can't create generic resource",
+        "update-error": "Can't update generic resource",
+        "delete-error": "Can't delete generic resource",
+        "load-items-error": "Can't load generic resources"
+    },
+    "details.no-rows": "No generic resources yet",
+    "navigation-back": "Back to resources list"
+}

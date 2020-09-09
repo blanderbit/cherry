@@ -1,0 +1,22 @@
+<tag [text]="tag.name || tag"
+     [index]="index"
+     [selected]="selectedTag === index"
+     (tagRemoved)="_removeTag($event)"
+     *ngFor="let tag of tags; let index = index">
+</tag>
+
+<div class="input-container dropdown-caret" (click)="click$.next('')">
+    <input
+        id="typeahead-focus"
+        type="text"
+        [placeholder]="placeholder | translate"
+        [ngbTypeahead]="search"
+        (focus)="focus$.next($event.target.value)"
+        (focusout)="focusout$.next($event.target.value)"
+        (selectItem)="onTagSelect($event, input)"
+        [inputFormatter]="formatter"
+        [resultFormatter]="formatter"
+        #instance="ngbTypeahead"
+        #input
+    />
+</div>

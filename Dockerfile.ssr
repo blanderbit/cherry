@@ -1,0 +1,17 @@
+FROM node:8-alpine
+
+# run before build
+# npm run build:universal
+# npm run generate:prerender
+# npm run test:ssr
+# mkdir -p app && cp -a dist dist-server static ./server.js app
+
+WORKDIR /app
+# Copy dependency definitions
+COPY ./app /app
+
+# Expose the port the app runs in
+EXPOSE 4000
+
+# Serve the app
+CMD ["npm", "start"]

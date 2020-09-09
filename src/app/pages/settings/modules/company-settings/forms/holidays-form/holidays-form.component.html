@@ -1,0 +1,24 @@
+<div class="d-flex m-t-10 form-container" [formGroup]="form">
+
+    <app-form-item class="item" label="{{'name' | translate}}">
+        <app-form-control [error]="errors.name">
+            <input class="p-y-9"
+                   type="text"
+                   placeholder="{{'name-placeholder' | translate}}"
+                   formControlName="name"/>
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'date' | translate}}">
+        <app-form-control class="form-control field-control"
+                          [hideError]="true"
+                          [error]="errors.date">
+            <app-datepicker formControlName="date"
+                            placeholder="date"
+                            [icon]="'icon-calendar-upcoming'"
+                            class="datepicker-control"
+                            [showIcon]="true"
+            ></app-datepicker>
+        </app-form-control>
+    </app-form-item>
+</div>

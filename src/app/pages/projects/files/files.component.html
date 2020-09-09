@@ -1,0 +1,216 @@
+<ng-container *ngIf="isProjectActive">
+    <ng-container *hasPermission="permissionAction.AttachFileToProject">
+        <app-cloud-upload
+            #cloud
+            [showOverlay]="true"
+            [updateFiles]="true"
+            [multipleLoaderFiles]="true"
+            [acceptFile]="acceptFile">
+            <span #context></span>
+        </app-cloud-upload>
+
+        <div class="d-none"
+             DragNDrop
+             [context]="context"
+             [cloud]="cloud">
+        </div>
+    </ng-container>
+</ng-container>
+
+<div class="filter-change-view-component d-flex justify-content-end align-items-center m-b-15">
+
+    <div class="sort-by-name d-flex" [matMenuTriggerFor]="menu">
+        <div class="d-none"
+             [class.d-flex]="sortFilesByName">
+            SORT BY NAME
+        </div>
+
+        <div class="d-none"
+             [class.d-flex]="!sortFilesByName">
+            SORT BY DATE
+        </div>
+
+        <img src="./assets/images/icon-arrow-down.svg" class="link-icon-image">
+    </div>
+
+    <mat-menu #menu="matMenu" xPosition="after" class="sort-project-attachment-menu">
+        <ng-template matMenuContent>
+            <ng-template [hasPermission]="permissionAction.AttachLinkToTask">
+                <div class="menu-item">
+                    <button mat-menu-item class="p-l-5" (click)="sortFilesBy(sortCases.name)">
+                        <span>{{ 'Sort by name' | translate}}</span>
+                    </button>
+                </div>
+            </ng-template>
+
+            <ng-template [hasPermission]="permissionAction.AttachFileToTask">
+                <div class="menu-item">
+                    <button mat-menu-item class="p-l-5" (click)="sortFilesBy(sortCases.date)">
+                        <span>{{ 'Sort by date' | translate}}</span>
+                    </button>
+                </div>
+            </ng-template>
+        </ng-template>
+    </mat-menu>
+
+    <div class="view-list-grid color-grey ripple m-l-22">
+        <i class="icon"
+           (click)="displayItemsStyle=!displayItemsStyle"
+           [ngClass]="displayItemsStyle ? 'icon-grid' : 'icon-list'"></i>
+
+    </div>
+</div>
+
+<div class="file-attachments-container d-flex justify-content-between align-items-center flex-wrap"
+     [class.grid]="!displayItemsStyle">
+
+    <ng-container *ngIf="isProjectActive">
+        <div class="file-attachments-tile file-upload-section d-flex flex-column justify-content-center"
+             [class.list]="displayItemsStyle"
+             *hasPermission="[permissionAction.AttachFileToProject, permissionAction.AttachLinkToProject]"
+        >
+
+            <div class="link-icon" *hasPermission="permissionAction.AttachLinkToProject">
+                <div class="link-icon-image" (click)="addLink()"></div>
+            </div>
+
+            <ng-container *hasPermission="permissionAction.AttachFileToProject">
+                <div class="avatar-cloud-inner d-flex justify-content-center ">
+                    <div class="avatar-cloud">
+                        <object type="image/svg+xml" data="./assets/files/cloud-white.svg"
+                                class="avatar-cloud-image"></object>
+                    </div>
+                </div>
+                <div class="task-name-drag d-flex justify-content-center">
+                    <div class="w-50 color-grey m-l-8">
+                        <p class="m-b-0"><em>Attach file</em> or</p>
+                        <p class="m-b-0">Drag & Drop</p>
+                    </div>
+                </div>
+                <div class="button-upload d-flex justify-content-center m-b-16">
+                    <input type="file" #fileInput class="d-none" (change)="onFileSelected($event)" multiple>
+                    <button class="upload-button" (click)="fileInput.click()">Upload</button>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <ng-container *ngFor="let item of items; let i = index; trackBy: trackByItem">
+        <ng-template [hasPermission]="permissionAction.ViewAttachments"
+                     [membersIds]="membersIds"
+                     [creatorId]="item.creatorId">
+            <div class="file-attachments-tile d-flex flex-column box-shadow"
+                 [class.list]="displayItemsStyle"
+                 [class.active]="i == hoveredItem"
+                 (mouseleave)="setHoveredItem(i, false)"
+                 (mouseenter)="setHoveredItem(i, true)"
+                 (dblclick)="preview(item)"
+                 [class.selected]="item?.selected"
+            >
+                <div class="d-flex avatar">
+                    <div class="d-none"
+                         [class.d-block]="item?.active || i == hoveredItem || item.selected"
+                    >
+                        <div class="fileCheckboxContainer"
+                             *hasPermission="[permissionAction.DownloadProjectAttachment, permissionAction.DeleteAttachmentFromProject]">
+                            <app-checkbox [checked]="item.selected"
+                                          (isChecked)="changeSelectedItem($event, item); setSelectedItem(i, $event)"
+                                          [borderRadius]="5"
+                                          size="18"
+                                          class="mb-auto color-blue checkmark">
+                            </app-checkbox>
+                        </div>
+                    </div>
+                    <div
+                        class="file-attachment-image-container d-flex align-items-center justify-content-center"
+                        [class.selected]="item.selected"
+                    >
+                        <img class="file-attachment-image"
+                             [src]="(!item?.load && loader) || item?.svgVideo || item?.link || ''"
+                             ImageLoadDirective
+                             [item]="item"
+                             [index]="i"
+                             [class.file-attachment-image-file]="item?.isFile"
+                             (changeItem)="changeItem($event)"/>
+
+                    </div>
+
+                    <button class="actions-button">
+                        <i class="icon-vertical-dots"
+                           [matMenuTriggerFor]="menu"
+                           (onMenuClose)="onDropdownToggle(false, i, item)"
+                           (onMenuOpen)="onDropdownToggle(true, i, item)"
+                           [class.d-block]="item?.active || i == hoveredItem">
+                        </i>
+                    </button>
+
+                    <mat-menu #menu="matMenu" xPosition="after" class="attachment-item-menu">
+                        <ng-template matMenuContent>
+                            <ng-template [hasPermission]="permissionAction.DownloadProjectAttachment"
+                                         [membersIds]="membersIds"
+                                         [creatorId]="item.creatorId">
+                                <div class="menu-item">
+                                    <button mat-menu-item (click)="download()">
+                                        <i class="icon-download m-r-8"></i>
+                                        <span>{{ 'download' | translate}}</span>
+                                    </button>
+                                </div>
+                            </ng-template>
+
+                            <ng-template [hasPermission]="permissionAction.PreviewProjectAttachment"
+                                         [membersIds]="membersIds"
+                                         [creatorId]="item.creatorId">
+                                <div class="menu-item">
+                                    <button mat-menu-item (click)="preview(itemPending)">
+                                        <i class="icon-preview m-r-8"></i>
+                                        <span>{{ 'preview' | translate}}</span>
+                                    </button>
+                                </div>
+                            </ng-template>
+
+                            <ng-template [hasPermission]="permissionAction.DeleteAttachmentFromProject"
+                                         [membersIds]="membersIds"
+                                         [creatorId]="item.creatorId">
+                                <div class="menu-item" *ngIf="isProjectActive">
+                                    <button mat-menu-item (click)="delete()">
+                                        <i class="icon-delete m-r-8"></i>
+                                        <span>{{ 'delete' | translate}}</span>
+                                    </button>
+                                </div>
+                            </ng-template>
+                        </ng-template>
+                    </mat-menu>
+                </div>
+
+                <div class="file-attachments-body" [class.selected]="item.selected">
+
+                    <div class="file-name m-t-8 text-overflow-ellipsis d-flex justify-content-center">
+                        <div
+                            class="file-attachment-name">
+                            {{(item?.nameOriginal || item?.name || '')}}
+                        </div>
+                    </div>
+
+                    <div
+                        class="task-name m-t-6 m-b-16 text-overflow-ellipsis d-flex justify-content-center flex-column">
+
+                        <div class="file-attachment-name m-b-2 d-flex justify-content-center cursor-pointer"
+                             *hasPermission="permissionAction.ViewTasksByProject">
+
+                            <a
+                                [routerLink]="['/', routes.Tasks, item?.taskId || '']"
+                                [queryParams]="{projectId: item?.projectId || ''}"
+                                class="text-overflow-ellipsis"
+                            >
+                                {{ nameOfTask(item?.taskId) }}
+                            </a>
+                        </div>
+                        <div class="file-attachment-time d-flex justify-content-center">
+                            {{(item?.uploadTime || '') | date: 'MMM dd, yyyy h:mm'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+</div>

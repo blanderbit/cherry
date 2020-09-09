@@ -1,0 +1,161 @@
+{
+    "meta": {
+        "title": "Settings",
+        "description": "Profile description"
+    },
+    "user": {
+        "create": "Create User",
+        "delete": "Delete User",
+        "edit": "Edit User",
+        "new": "New User",
+        "deleteError": "Failed to create user",
+        "deleteSuccess": "User successfully removed",
+        "createSuccess": "User successfully created",
+        "createFail": "Failed to create user",
+        "updateSuccess": "User successfully updated",
+        "updateFail": "Failed to update user"
+    },
+    "profile": {
+        "change": "Change",
+        "create": "Create",
+        "save": "Save",
+        "edit": "Edit profile",
+        "email": "Email",
+        "error": "The profile cannot be loaded",
+        "first-name": "First Name",
+        "invalid": "Please fill the form correctly",
+        "last-name": "Last Name",
+        "title": "Profile Settings",
+        "subtitle": "User details",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "phone": "Mobile phone",
+        "phone-placeholder": "Add number",
+        "submit": "Submit",
+        "update": "The profile updated successfully",
+        "userName": "Username",
+        "role": "Role"
+    },
+    "roles": {
+        "Admin": "Admin",
+        "User": "User",
+        "Project Manager": "Project Manager"
+    },
+    "profile-settings": {
+        "title": "Profile Settings",
+        "subtitle": "User details",
+        "change": "Change",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "change-password": "Change Password",
+        "phone": "Mobile phone",
+        "phone-placeholder": "Add number",
+        "submit": "Submit changes",
+        "change-language": "Change Language",
+        "language": "Language changes successfully",
+        "update": "The profile updated successfully",
+        "invalid": "Please fill the form correctly",
+        "error": "The profile cannot be loaded"
+    },
+    "side": {
+        "title": "Settings",
+        "users": "Users",
+        "subscriptionAndLicenses": "Subscription and Licenses",
+        "companySettings": "Company Settings",
+        "general": "General",
+        "holidays-policy": "Holidays policy",
+        "holidays": "Holidays",
+        "locations": "Locations",
+        "resources-info": "Resource Types And Rates",
+        "resourceTypesAndRates": "Resource Types And Rates",
+        "timeOffTypes": "Time-off types",
+        "profileSettings": "Profile Settings",
+        "notifications": "Notifications",
+        "skills": "Skills",
+        "apps": "Apps & Plugins"
+    },
+    "table": {
+        "name": "User Name",
+        "id": "ID",
+        "email": "Email",
+        "admin": "Admin"
+    },
+    "action": {
+        "permission": "You don't have permissions to perform this action",
+        "existing": "User with such username already exists",
+        "existingEmail": "User with such email already exists",
+        "error-1006": "Can't delete root admin",
+        "error-1010": "Can't delete user. User is assigned to project",
+        "error-1009":"Can't delete user. User is assigned to task",
+        "successfully-deleted": "User deleted successfully"
+    },
+    "validation": {
+        "email": {
+            "required": "Email is required",
+            "email": "Invalid email"
+        },
+        "userName": {
+            "required": "Username is required",
+            "minlength": "Username min length is 3 signs",
+            "maxlength": "Username max length is 50 signs"
+        },
+        "firstName": {
+            "required": "First name is required",
+            "minlength": "First name min length is 3 signs",
+            "maxlength": "First name max length is 50 signs"
+        },
+        "lastName": {
+            "required": "Last name is required",
+            "minlength": "Last name min length is 3 signs",
+            "maxlength": "Last name max length is 50 signs"
+        },
+        "password": {
+            "required": "Password is required",
+            "minlength": "Password min length is 6 signs",
+            "maxlength": "Password max length is 50 signs",
+            "pattern": "Password should contain a capital letter, a number and a symbol # $ ^ + = ! * ( ) @ % &"
+        },
+        "confirmNewPassword": {
+            "required": "Confirm password is required",
+            "minlength": "Confirm password min length is 6 signs",
+            "maxlength": "Confirm password max length is 50 signs",
+            "mustMatch": "Confirm password doesn't match",
+            "pattern": "Password must contain at least 6 characters, a combination of upper and lowercase letters, one number and one symbol"
+        }
+
+    },
+    "subscription": {
+        "subscription-details": "Subscription details",
+        "status": "Status",
+        "trial": "Trial",
+        "active": "Active",
+        "license-usage": "License usage",
+        "manage-users": "Manage users",
+        "modify-subscription": "Modify subscription",
+        "modify": "Modify",
+        "expiration-date": "Expiration date",
+        "payment-method": "Payment method",
+        "payment-term": "Payment term",
+        "add-card": "Add card",
+        "billing-details": "Billing details",
+        "billing-information": "Billing information",
+        "no-billing-information": "No billing information",
+        "billing-contact": "Billing contact",
+        "billed-monthly": "Billed monthly",
+        "billed-annually": "Billed annually",
+        "add-billing": "Add",
+        "automatically-renew": "Automatically renews",
+        "upgrade": "Upgrade",
+        "upgrade-subscription": "Upgrade subscription",
+        "renew": "Renew",
+        "renewal-date": "Renewal date",
+        "invoice-history": "Invoice history",
+        "choose-a-plan": "Choose a plan",
+        "choose-plan-description": "We offer a flexible payment plan. When you upgrade from the free plan in Cerri, you will be billed monthly or annually depending on the plan you select. You can add and remove users at anytime.",
+        "no-payment-term": "No payment term",
+        "no-billing-information": "No billing information",
+        "no-billing-contact": "No billing contact"
+    }
+}

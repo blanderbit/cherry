@@ -1,0 +1,60 @@
+<app-avatar
+    [size]="34"
+    [resource]="initiatorId"
+></app-avatar>
+
+<div class="notification-text">
+
+    <span class="name">
+        {{ name }}
+    </span>
+
+    <span class="text-subject "> {{ message | translate }} </span>
+
+    <ng-container *ngIf="!ifProjectInvitation">
+
+    <span class="text-task color-blue">
+        <ng-container
+            *ngIf="!inActiveLinks">
+
+                <a [routerLink]="['/', routes.Tasks, payload.taskId || '']"
+                   [queryParams]="{projectId: payload.projectId ||''}"
+                >
+                    {{ taskName }}
+                </a>
+        </ng-container>
+
+        <ng-container
+            *ngIf="inActiveLinks">
+                <span>
+                    {{ taskName  }}
+                </span>
+
+        </ng-container>
+    </span>
+
+        <span class="text-subject"> {{'in' | translate}}</span>
+
+    </ng-container>
+
+
+    <ng-container *ngIf="!inActiveLinks">
+    <span class="text-source color-blue">
+        <a [routerLink]="['/', routes.Projects, payload.projectId || '']">
+            {{ payload.projectName }}
+        </a>
+    </span>
+    </ng-container>
+
+    <ng-container *ngIf="inActiveLinks">
+        <span class="text-source color-blue">
+            <a>
+                {{ payload.projectName }}
+            </a>
+        </span>
+    </ng-container>
+
+    <span class="text-subject"> {{'project' | translate}} </span>
+
+    <p class="notification-date">{{item.timestamp | date}}</p>
+</div>

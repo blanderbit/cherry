@@ -1,0 +1,40 @@
+@import "../core/variables";
+@import "../mixins/color.mixins";
+
+button {
+    width: 100%;
+    height: unset;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+
+    @include colorize();
+
+    &.small {
+        padding: 2px 10px;
+        font-size: 10px;
+        // override bootstrap
+        font-weight: bold;
+    }
+
+    &.medium {
+        padding: 3px 16px;
+        font-size: 13px;
+    }
+
+    &.large {
+        padding: 6px 16px;
+        font-size: 13px;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        filter: grayscale(20%);
+    }
+
+    &.inline {
+        white-space: nowrap;
+    }
+}

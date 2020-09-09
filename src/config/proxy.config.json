@@ -1,0 +1,26 @@
+{
+    "version": 0,
+    "http": {
+        "auth": "https://platformv1.azurewebsites.net/api/auth",
+        "attachments": "https://platformv1.azurewebsites.net/api/a",
+        "users": "https://platformv1.azurewebsites.net/api/u",
+        "resources": "https://platformv1.azurewebsites.net/api/r",
+        "tasks": "https://platformv1.azurewebsites.net/api/t",
+        "projects": "https://platformv1.azurewebsites.net/api/p",
+        "assignments": "https://platformv1.azurewebsites.net/api/assignments",
+        "settings": "https://platformv1.azurewebsites.net/api/s",
+        "permissions": "https://platformv1.azurewebsites.net/api/pr",
+        "notifications": "https://platformv1.azurewebsites.net/api/n",
+        "identity": "https://platformv1.azurewebsites.net/api/i",
+        "companies": "https://platformv1.azurewebsites.net/api/c",
+        "kanban": "https://platformv1.azurewebsites.net/api/k"
+    },
+    "authentication": {
+        "login": "https://platformv1.azurewebsites.net/auth/login",
+        "redirect": "/"
+    },
+    "sentry": {
+        "enable": false,
+        "dsn": "https://8fc84f52de144940b61995ef82864331@sentry.io/1548969"
+    }
+}

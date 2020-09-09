@@ -1,0 +1,16 @@
+<div class="datatable-additional">
+    <ul class="list-inline">
+        <li>
+            <button type="button" mat-button class="btn-main add-new"
+                    (click)="addNew()" [disabled]="false">
+                {{"actions.new-row" | translate}} <i class="icon-plus"></i>
+            </button>
+        </li>
+        <li class="f-w-600 sz-13 l-h-18" *ngIf="availableTasks?.length">
+            <span class="cursor-pointer color-blue" (click)="addAllTasks()">
+             {{"actions.add" | translate}} {{availableTasks?.length}} {{"actions.tasks" | translate}}
+            </span>
+            <span class="color-black">{{"actions.assigned" | translate}}</span>
+        </li>
+    </ul>
+</div>

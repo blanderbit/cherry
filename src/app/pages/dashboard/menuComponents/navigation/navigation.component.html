@@ -1,0 +1,32 @@
+<div class="card-content">
+    <div class="go-back">
+        <span class="arrow" (click)="onHide()">
+            <i class="icon-arrow l-h-0"></i>
+        </span>
+        <span class="text-go-back">{{ "navigation.switch-to" | translate }}</span>
+    </div>
+
+    <div class="card-menu">
+        <a routerLink="/home" class="menu-item menu-icon-home">
+            <span class="home">
+                <i class="icon-home"></i>
+                </span>
+            <p class="title">
+                Home
+            </p>
+        </a>
+        <ng-container *ngFor="let item of menu">
+            <ng-container *hasPermission="item.permissionAction">
+                <a class="menu-item" *ngIf="!item.hidden"
+                   [routerLink]="item.link"
+                   [queryParams]="item.queryParams"
+                   (click)="onHide()">
+                <span class="{{item.icon}}">
+                    <i class="icon-{{ item.icon }}"></i>
+                </span>
+                    <p class="title">{{item.title | translate }}</p>
+                </a>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

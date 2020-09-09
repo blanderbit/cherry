@@ -1,0 +1,12 @@
+<app-sidebar [navigationData]="data">
+    <app-projects-list class="h-100 m-t-20 overflow-auto"
+                       *ngIf="isProjectsListShown"
+                       (projectsLoaded)="projectsLoaded($event)"
+                       disableFilter="true"
+                       [defaultParams]="projectsListParams"
+                       [getRouterLink]="getRouterLink"
+                       [getQueryParams]="getQueryParams"
+                       [filterByStatus]="projectStatus.InProgress"
+                       queryParamsHandling="merge"
+    ></app-projects-list>
+</app-sidebar>

@@ -1,0 +1,41 @@
+@import "../../../../styles/core/variables";
+
+.controls {
+    display: flex;
+    flex-direction: row;
+
+    input {
+        flex-grow: 2;
+    }
+
+    select {
+        margin-left: 5px;
+        flex-grow: 1;
+    }
+}
+
+app-select {
+    border-radius: 4px;
+    height: auto;
+    border: 1px solid $grey;
+    background: #FFFFFF;
+    font-size: 13px;
+    line-height: 18px;
+    min-width: 95px;
+    margin-left: 10px;
+    min-height: 35px;
+
+}
+
+:host ::ng-deep {
+    .menu-value {
+        font-weight: normal;
+        color: $color-text-black;
+        padding-left: 15px;
+    }
+
+    .dropdown-menu {
+        max-height: 200px;
+        margin-bottom: 12px;
+    }
+}

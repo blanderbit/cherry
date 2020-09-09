@@ -1,0 +1,66 @@
+<div [formGroup]="form" class="w-100" (ngSubmit)="apply($event)">
+    <input type="text" class="w-100" placeholder="Enter task name">
+
+    <app-form-control [error]="errors.currentStartDate" [hideError]="true">
+        <div class="d-flex">
+
+            <!-- <ng-container *hasPermission="permissionAction.ViewTaskDates"> -->
+            <div class="datepicker block">
+                <!-- [hasEditPermission]="permissionAction.UpdateTaskDates" -->
+                <!-- [disableIf]="startDateDisabled" -->
+                <app-datepicker formControlName="currentStartDate" [maxDate]="formRawValue?.currentEndDate"
+                    [showIcon]="true" (click)="datepickerComponent.open()" [error]="errors.currentStartDate"
+                    #datepickerComponent class="p-t-6 cursor-pointer p-b-10">
+                    <div class="d-flex align-items-center">
+                        <div class="date-image"></div>
+                        <div>
+                            <p class="title">{{"startDate" | translate}}</p>
+                            <p class="text-date">{{formRawValue.currentStartDate | date}}</p>
+                        </div>
+                    </div>
+                </app-datepicker>
+            </div>
+
+            <div class="datepicker block">
+                <!-- [hasEditPermission]="permissionAction.UpdateTaskDates" -->
+                <!-- [disableIf]="taskEditDisabled || taskControlEditDisabled" -->
+                <app-datepicker [minDate]="formValue?.currentStartDate" formControlName="currentEndDate"
+                    class="p-b-10 cursor-pointer" #datepickerComponent (click)="datepickerComponent.open()"
+                    [error]="errors.currentEndDate" #endDate>
+                    <div class="d-flex align-items-center">
+
+                        <div class="date-image"></div>
+                        <div>
+                            <p class="title">{{"endDate" | translate}}</p>
+                            <p class="text-date" [highlightEnabled]="shouldTaskBeHighlighted(item?.status)"
+                                [appHighlightOverdueDate]="formRawValue?.currentEndDate">
+                                {{formRawValue?.currentEndDate | date}}</p>
+                        </div>
+                    </div>
+                </app-datepicker>
+            </div>
+            <!-- </ng-container> -->
+
+
+        </div>
+    </app-form-control>
+
+    <!-- <ng-container *hasPermission="permissionAction.CreateAssignments"> -->
+    <!-- [class.disabled]="isAddAssigneeDisabled" -->
+    <!-- *ngIf="active" -->
+    <!-- (click)="addAssignee()" -->
+    <button class="add-assignee d-flex align-self-center align-items-center p-0" (click)="addAssignee()">
+
+        <span class="add-icon d-flex justify-content-center align-items-center">
+            <i class="icon-profile f-z-14 l-h-14"></i>
+        </span>
+
+        <span class="title color-grey">{{'Who is working on this task?' | translate }}</span>
+    </button>
+    <!-- </ng-container> -->
+
+    <div class="actions d-flex">
+        <button class="default medium m-r-10 text-right color-grey" type="button" (click)="hideCreateTask()">Cancel</button>
+        <button class="primary medium" type="submit">Create task</button>
+    </div>
+</div>

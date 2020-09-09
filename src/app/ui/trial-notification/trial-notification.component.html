@@ -1,0 +1,16 @@
+<div class="trial-header row no-gutters p-2" *ngIf="isOpen">
+    <div class="col-10 offset-1 f-z-13 f-w-600">
+        {{'trial.trial-days' | translate}}
+        {{'trial.cancelled-in' | translate}} {{daysRemaining}}
+        {{'trial.days-on' | translate}} {{expirationTime | moment: 'DD MMM, YYYY'}}
+<!--        <a class="link px-1 color-blue" (click)="onUpgradeClick()">-->
+<!--            {{'trial.upgrade' | translate}}-->
+<!--        </a>-->
+    </div>
+    <div class="col-1 ">
+        <button style="background-color: transparent; width: unset" class="color-grey"
+                (keydown.enter)="closeTrialPanel()">
+            <i class="icon-close-button cursor-pointer f-z-15" (click)="closeTrialPanel()"></i>
+        </button>
+    </div>
+</div>

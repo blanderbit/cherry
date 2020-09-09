@@ -1,0 +1,42 @@
+<div class="auth-form overflow-hidden">
+    <div class="login position-relative w-100" @slideInFromLeft>
+
+        <h2 class="title">{{"login.title" | translate}}</h2>
+        <form [formGroup]="form" (submit)="submitBtn.focus(); apply($event)">
+            <app-form-control [title]="'login.email'" [titleSize]="14" error="{{errors.email}}">
+                <input type="text"
+                       placeholder='{{"emailPlaceholder" | translate}}'
+                       class="input-login"
+                       (focus)="resetControlStatus($event)"
+                       formControlName="email">
+            </app-form-control>
+
+            <app-form-control [title]="'login.password'" [titleSize]="14" error="{{errors.password}}">
+                <input type="password"
+                       placeholder='{{"login.password" | translate}}'
+                       class="input-login"
+                       formControlName="password"
+                       (focus)="resetControlStatus($event)"
+                       inputTypeToggle
+                >
+            </app-form-control>
+
+            <div class="t-a-r">
+                <a class="d-inline-block f-z-13 m-t-10 reg-link" [routerLink]="forgotPasswordUrl">
+                    {{'login.forgotPassword' | translate}}
+                </a>
+            </div>
+
+            <button #submitBtn type="submit" class="m-t-20 d-flex justify-content-center align-items-center"
+                    [disabled]="loading">
+                <span class="loading-spinner" *ngIf="loading"></span>
+                <span class="m-l-10 m-r-10"> {{"login.login" | translate}}</span>
+            </button>
+
+            <div class="f-z-13 t-a-c m-t-15 color-black">{{'login.noHaveAccount' | translate}}
+                <a [routerLink]="signUpUrl" class="color-blue f-w-600">{{'login.createNow' | translate}}</a>
+            </div>
+
+        </form>
+    </div>
+</div>

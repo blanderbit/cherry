@@ -1,0 +1,18 @@
+<div class="datatable-header">
+    <div class="row">
+        <div class="col-12 datatable-dates not-week-mode">
+            <div class="container-fluid">
+                <div class="row datatable-dates">
+                    <div class="col cursor-pointer" *ngFor="let day of listData"
+                         routerLink="."
+                         routerLinkActive="active"
+                         [class.item-disabled]="ifAfterToday(day)"
+                         [queryParams]="day.queryParams">
+                        <strong class="text-no-wrap">{{day?.date | date: 'E, MMM dd'}}</strong>
+                        <div class="text-no-wrap">{{day?.totalTime | viewTime}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

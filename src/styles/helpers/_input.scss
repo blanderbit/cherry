@@ -1,0 +1,105 @@
+@import "border";
+@import "../core/_variables.scss";
+
+input {
+    border: none;
+    @include border(bottom);
+
+    &.bg-trans {
+        background: transparent;
+    }
+}
+
+.form-control {
+    position: relative;
+    font-size: 1em;
+
+    label {
+        user-select: none;
+    }
+
+    input {
+        width: 100%;
+        transition: $transition-all;
+
+        &:focus, &:active {
+            border-color: $color-primary;
+
+            & ~ label {
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 16px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+}
+
+.auth-form {
+    background: $grey;
+}
+
+textarea,
+input {
+    &:read-only {
+        background: #F6F6F8;
+    }
+}
+
+select,
+textarea,
+input,
+.input {
+    border: 1px solid $grey;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px;
+    color: #000;
+    font-weight: 500;
+    transition: 0.3s ease;
+    outline: none;
+    background-color: #fff;
+
+    &:active,
+    &:focus,
+    &.focus {
+        border-color: #00A3FF;
+        caret-color: #00A3FF;
+    }
+
+    &:focus {
+        color: #000;
+    }
+
+    &:disabled {
+        background: $grey;
+        border: $grey;
+    }
+
+    ~ .error {
+        display: block;
+        visibility: hidden;
+        font-size: 12px;
+        color: red;
+    }
+
+    &.ng-invalid.ng-touched {
+        border: 1px solid red;
+
+        ~ .error {
+            visibility: visible;
+        }
+
+        ~ label {
+            color: red;
+        }
+    }
+
+    &.auto-width {
+        width: auto;
+    }
+}
+

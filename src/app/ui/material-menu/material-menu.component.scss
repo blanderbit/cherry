@@ -1,0 +1,88 @@
+@import "../../../styles/core/variables";
+
+button {
+    min-width: 0px;
+    line-height: 36px;
+    padding: 5px 12px 4px;
+    outline: none;
+    color: inherit;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: transparent;
+    i{
+        font-size: inherit;
+        line-height: inherit;
+    }
+}
+
+
+.icon-container {
+    &:active, &[aria-expanded="true"] {
+        background-color: rgba(218, 239, 250, 0.6);
+
+        i {
+            color: $control-color-blue;
+        }
+    }
+
+    &:hover {
+        i {
+            color: $control-color-blue;
+        }
+    }
+
+}
+
+
+::ng-deep {
+
+    .mat-menu-panel {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+        min-height: auto !important;
+    }
+
+
+    .mat-menu-content:not(:empty) {
+        color: $color-text-grey;
+        border: none;
+        background: #fff;
+        border-radius: 8px;
+        padding: 7px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+
+        button.mat-menu-item {
+            color: $color-text-grey;
+            display: flex;
+            width: 100%;
+            border-radius: 3px;
+            margin: 0 auto;
+            padding-left: 9px;
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 18px;
+            height: 30px;
+
+            &:after {
+                content: none;
+            }
+
+            &:hover, &-highlighted {
+                background: rgba(218, 239, 250, 0.6);
+                color: $control-color-blue;
+            }
+        }
+
+    }
+
+    .menu-item {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .inner-menu{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+}

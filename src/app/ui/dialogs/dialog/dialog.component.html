@@ -1,0 +1,25 @@
+<div class="dialog-container position-relative">
+    <app-loader *ngIf="loading" class="absolute"></app-loader>
+    <div class="dialog-header d-flex justify-content-center align-items-center position-relative text-overflow-ellipsis">
+        <div class="dialog-title color-black sz-18 l-h-25 f-w-600 text-center"
+             *ngIf="title; else customHeader">
+            {{title | translate}}
+        </div>
+        <ng-template #customHeader>
+            <ng-content select=".header"></ng-content>
+        </ng-template>
+
+        <button *ngIf="showCloseBtn"
+                type="button"
+                class="close align-self-center"
+                (click)="close()">
+            <i class="icon-close-button"></i>
+        </button>
+    </div>
+    <div class="dialog-body d-flex flex-column">
+        <ng-content select=".body"></ng-content>
+    </div>
+    <div class="dialog-actions d-flex justify-content-between align-items-center">
+        <ng-content select=".actions"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<section class="attachments" [class.d-none]="!items?.length">
+
+    <p class="task-section-title">{{'attachments' | translate}}</p>
+
+    <div class="task-attachments-container d-flex justify-content-between align-items-center flex-wrap">
+        <ng-container *ngFor="let attachment of items; let i = index">
+            <ng-template [hasPermission]="permissionAction.ViewAttachments"
+                         [membersIds]="membersIds"
+                         [creatorId]="attachment.creatorId">
+                <div class="file-attachment-container d-flex position-relative justify-content-between"
+                     [class.active]="i == hoveredItem"
+                     (mouseleave)="setHoveredItem(i, false)"
+                     (mouseenter)="setHoveredItem(i, true)"
+                     (dblclick)="preview(attachment)"
+                >
+                    <div class="d-flex">
+                        <div class="file-attachment-image-container d-flex align-items-center justify-content-center">
+                            <img class="file-attachment-image"
+                                 [src]="(attachment && !attachment.load && loader) || (attachment && attachment.svgVideo) || (attachment && attachment.link) || ''"
+                                 ImageLoadDirective
+                                 [item]="attachment"
+                                 [index]="i"
+                                 [class.file-attachment-image-file]="attachment && attachment.isFile"
+                                 (changeItem)="changeItem($event)"/>
+                        </div>
+                        <div class="file-attachment-detail d-flex flex-column justify-content-between">
+                            <div
+                                    class="file-attachment-name text-overflow-ellipsis">{{ attachment?.nameOriginal || attachment?.name || '' }}</div>
+                            <div
+                                    class="file-attachment-time">{{ (attachment?.uploadTime || '') | date: 'MMM dd, yyyy h:mm' }} </div>
+                        </div>
+                    </div>
+
+
+                    <i class="icon-vertical-dots d-none"
+                       [matMenuTriggerFor]="menu"
+                       (onMenuClose)="onDropdownToggle(false, i, attachment)"
+                       (onMenuOpen)="onDropdownToggle(true, i, attachment)"
+                       [class.isOpened]="dropdownShown"
+                       [class.d-block]="attachment?.active || i == hoveredItem">
+                    </i>
+
+                </div>
+
+                <mat-menu #menu="matMenu" xPosition="after" class="attachment-item-menu" style="display: none">
+                    <ng-template matMenuContent>
+                        <ng-template [hasPermission]="permissionAction.DownloadTaskAttachment"
+                                     [membersIds]="membersIds"
+                                     [creatorId]="attachment.creatorId">
+                            <div class="menu-item">
+                                <button mat-menu-item (click)="download(itemPending)">
+                                    <i class="icon-download m-r-8"></i>
+                                    <span>{{ 'download' | translate}}</span>
+                                </button>
+                            </div>
+                        </ng-template>
+
+                        <ng-template [hasPermission]="permissionAction.DownloadTaskAttachment"
+                                     [membersIds]="membersIds"
+                                     [creatorId]="attachment.creatorId">
+                            <div class="menu-item">
+                                <button mat-menu-item (click)="preview(itemPending)">
+                                    <i class="icon-preview m-r-8"></i>
+                                    <span>{{ 'preview' | translate}}</span>
+                                </button>
+                            </div>
+                        </ng-template>
+
+                        <ng-template [hasPermission]="permissionAction.DeleteAttachmentFromTask"
+                                     [membersIds]="membersIds"
+                                     [creatorId]="attachment.creatorId">
+                            <div class="menu-item" *ngIf="!hideDeleteAction">
+                                <button mat-menu-item (click)="delete(itemPending)">
+                                    <i class="icon-delete m-r-8"></i>
+                                    <span>{{ 'delete' | translate}}</span>
+                                </button>
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                </mat-menu>
+
+            </ng-template>
+        </ng-container>
+
+    </div>
+    <div class="w-100 d-flex divider m-t-20"></div>
+</section>

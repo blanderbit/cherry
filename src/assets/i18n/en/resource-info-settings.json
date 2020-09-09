@@ -1,0 +1,46 @@
+{
+    "company-settings": "Company Settings",
+    "title": "Resource Types and Rates",
+    "edit": "Edit",
+    "add": "Add Resource Types and Rates",
+    "name": "Resource type",
+    "name-placeholder": "Type name",
+    "rate": "Billable rate (default)",
+    "rate-placeholder": "Type rate",
+    "currency": "Currency",
+    "currency-placeholder": "Select currency",
+    "header": {
+        "description": ""
+    },
+    "action": {
+        "successfully-created": "Resource Types and Rates successfully created",
+        "successfully-updated": "Resource Types and Rates successfully updated",
+        "successfully-deleted": "Resource Types and Rates successfully deleted",
+        "create-error": "Can't create Resource Types and Rates",
+        "update-error": "Can't update Resource Types and Rates",
+        "delete-error": "Can't delete Resource Types and Rates",
+        "load-items-error": "Can't load Resource Types and Rates",
+        "cancel": "Cancel",
+        "save": "Save",
+        "add": "Add"
+
+    },
+    "errors": {
+        "name": {
+            "required": "Field is required",
+            "minlength": "Minimum field length is 2 characters",
+            "maxlength": "Maximum field length is 50 characters"
+        },
+        "rate": {
+            "required": "Field is required",
+            "min": "Min value - 0",
+            "max": "Max value - 999999"
+        },
+        "currency": {
+            "required": "Field is required"
+        }
+    },
+    "details": {
+        "no-rows": "No resource types"
+    }
+}

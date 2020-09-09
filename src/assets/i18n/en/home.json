@@ -1,0 +1,26 @@
+{
+    "meta": {
+        "title": "Home",
+        "description": "Profile description"
+    },
+    "hello": "Hello,",
+    "recentActivity":"Recent Activity",
+    "createProject": "Create Project",
+    "description":"You are on your home page now. When you will create your first project and\ntasks, start to collaborate with the teammates you will see here your recent\nactivities, recently accessed projects, active tasks, statistics and others",
+    "apps": {
+        "access": "App Access",
+        "time": "Time",
+        "project": "Project",
+        "gantt": "Gantt",
+        "kanban": "Kanban",
+        "resource": "Resource",
+        "calendar": "Calendar",
+        "task": "Task"
+    },
+    "trial": {
+        "trial-days": "Your activated free - 14 days Trial.",
+        "cancelled-in": "Your subscription will be cancelled in",
+        "days-on": "days on",
+        "upgrade": "Оновити"
+    }
+}

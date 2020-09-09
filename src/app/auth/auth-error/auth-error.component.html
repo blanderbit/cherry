@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="error-container overflow-hidden">
+        <div @slideInFromRight>
+            <img class="error-icon" src="../../../assets/img/error/auth-error.png"/>
+
+            <div class="h-auto">
+                <span class="title d-block">{{'authError.somethingWrong' | translate}}</span>
+                <span>{{'authError.errorOccurred' | translate}}</span>
+
+                <button class="button-back primary large f-z-14" (click)="goBack()">
+                    <i class="icon-navigation-arrow f-z-12 m-r-10 d-flex"></i>
+                    {{'authError.goBack' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

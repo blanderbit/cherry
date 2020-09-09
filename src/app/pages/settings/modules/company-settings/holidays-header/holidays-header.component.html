@@ -1,0 +1,44 @@
+<h1 class="company-header">{{'header.company-header' | translate}} {{item?.name}}</h1>
+
+<app-navigation-back [text]="'header.back-navigation' | translate"
+                     [useHistory]="true"
+                     [link]="holidaysUrl"
+></app-navigation-back>
+
+<div class="d-flex">
+    <div style="max-width: 585px" class="flex-grow-1">
+        <h4 class="policy-name">{{'header.policy-name' | translate}}</h4>
+        <input #input [value]="item?.name" (blur)="updateItem(input.value)" class="color-black name-input " type="text">
+    </div>
+    <div style="width: 310px; margin-left: 16px">
+        <h4 class="policy-name">{{'country' | translate}}</h4>
+        <input [value]="item?.countryName" disabled="true" class="color-black name-input " type="text">
+    </div>
+</div>
+<!--<h4 class="add-holidays">{{'header.add-holidays' | translate}}</h4>
+<a class="description">{{'header.description'| translate}}</a>-->
+<div class="button-container">
+    <div class="d-flex align-items-center m-l-8 m-r-0">
+        <span class="selected-year">{{'header.selected-year' | translate}} <span class="year">{{year}}</span></span>
+        <button type="button" (click)="goToPrevYear()" class="prev-btn">
+            <img class="arrow-img" src="assets/images/arrow_left.svg" alt="prev">
+        </button>
+        <button type="button" (click)="goToNextYear()" class="next-btn">
+            <img class="arrow-img" src="assets/images/arrow_right.svg" alt="prev">
+        </button>
+
+    </div>
+    <div class="d-flex new-holiday-header">
+        <button class="primary new-holiday large text-overflow-ellipsis" (click)="parent.showCreateForm()">
+        <span class=" text-overflow-ellipsis">
+            {{'new-holiday' | translate}}
+        </span>
+            <i class="icon-plus sz-12 l-h-12"></i>
+        </button>
+        <span (click)="onCopyHolidaysClick()"
+              *ngIf="showCopyButton"
+              class="copy-from align-items-center"><i
+            class="icon-copy"></i> {{'header.copy' | translate}} {{currentYear}}</span>
+    </div>
+
+</div>

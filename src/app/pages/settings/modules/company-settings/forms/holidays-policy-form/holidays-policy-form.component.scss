@@ -1,0 +1,53 @@
+@import '../../../../../../../styles/core/variables';
+
+.item {
+
+    &:nth-of-type(1) {
+        width: 70%;
+    }
+
+    &:nth-of-type(2) {
+        width: 30%;
+    }
+}
+
+.d-none {
+    display: none;
+}
+:host ::ng-deep {
+    app-form-item:nth-child(2) .form-container-control {
+        padding-right: 90px;
+    }
+    app-form-control, app-autocomplete-control{
+        height: 30px !important;
+        font-size: 13px;
+        line-height: 18px;
+    }
+    app-form-item .form-container-control{
+        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+    }
+    app-autocomplete-control{
+        .dropdown-menu{
+            padding-left: 6px;
+            padding-right: 6px;
+
+            .dropdown-item{
+                border-radius: 3px;
+            }
+
+            .dropdown-item.active{
+                color: $control-color-blue;
+                background: rgba(218, 239, 250, 0.6);
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    app-form-item .dropdown-menu {
+        button.dropdown-item {
+            font-size: 14px !important;
+        }
+    }
+}

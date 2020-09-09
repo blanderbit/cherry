@@ -1,0 +1,38 @@
+<div class="d-flex form-container" [formGroup]="form">
+
+    <app-form-item class="item" label="{{'name' | translate}}">
+        <app-form-control [error]="errors.name">
+            <input class="p-y-9" type="text" alt=""
+                   placeholder="{{'name-placeholder' | translate}}"
+                   formControlName="name"/>
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'address' | translate}}">
+        <app-form-control [error]="errors.address">
+            <input class="p-y-9" type="text" alt=""
+                   placeholder="{{'address-placeholder' | translate}}"
+                   formControlName="address"/>
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'country' | translate}}">
+        <app-form-control [error]="errors.countryId">
+            <app-autocomplete-control [provider]="countriesProvider"
+                                      class="w-100"
+                                      formControlName="countryId"
+                                      placeholder="country-placeholder"
+            ></app-autocomplete-control>
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'holidays-policy' | translate}}">
+        <app-form-control [error]="errors.holidayPolicyId">
+            <app-autocomplete-control [provider]="holidaysPolicyProvider"
+                                      class="w-100"
+                                      formControlName="holidayPolicyId"
+                                      placeholder="holidays-policy-placeholder"
+            ></app-autocomplete-control>
+        </app-form-control>
+    </app-form-item>
+</div>

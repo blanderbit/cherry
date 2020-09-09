@@ -1,0 +1,69 @@
+<div class="wrapper">
+    <div class="content">
+        <h2 [routerLink]="titleUrl ? titleUrl : null"
+            [queryParams]="queryParams"
+            [class.cursor-pointer]="titleUrl"
+            title="{{'side.title' | translate}}"
+            queryParamsHandling="''"
+            class="theme-color"
+        >{{"side.title" | translate}}</h2>
+
+        <ng-content select=".create-button"></ng-content>
+    </div>
+
+    <div class="content-navigation">
+
+        <ng-container *ngTemplateOutlet="itemsTemplate; context: {$implicit: navigation}"></ng-container>
+
+    </div>
+
+    <ng-content></ng-content>
+</div>
+
+
+<ng-template let-items let-active="active" #itemsTemplate>
+    <ng-container *ngFor="let item of items">
+
+        <ng-container *ngIf="toNavigationItem(item)?.permissionAction; else itemWithoutPermission">
+            <ng-container *noForbiddenPermission="toNavigationItem(item)?.permissionAction">
+                <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+            </ng-container>
+        </ng-container>
+
+        <ng-template #itemWithoutPermission>
+            <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+        </ng-template>
+
+        <ng-template #itemTemplate>
+            <ng-container *hasChildRoute="toNavigationItem(item)">
+                <div class="item text-overflow-ellipsis"
+                     title="{{item?.title | translate}}"
+                     #rla="routerLinkActive"
+                     (click)="toNavigationItem(item)?.onClick ? toNavigationItem(item).onClick($event) : null"
+                     [routerLink]="item?.url"
+                     [skipLocationChange]="toNavigationItem(item)?.skipLocationChange != null ? toNavigationItem(item).skipLocationChange : false"
+                     [routerLinkActive]="toNavigationItem(item)?.routerLinkActive || DEFAULT_ACTIVE_LINK_CLASS"
+                     [queryParamsHandling]="toNavigationItem(item)?.queryParamsHandling"
+                     [queryParams]="toNavigationItem(item)?.queryParams"
+                >
+
+                <span *ngIf="item?.icon" class="sidebar-icon">
+                    <i  class="{{item && item.icon}}"></i>
+                    <img *ngIf="toNavigationItem(item)?.iconUrl;"
+                         src="../../../../assets/svg/{{toNavigationItem(item)?.iconUrl}}" alt="">
+                </span>
+
+                    <div class="text">{{item?.title | translate}}</div>
+
+                    <div class="side-divider"></div>
+                </div>
+
+                <div class="p-l-15" *ngIf="item?.navigation && rla.isActive">
+                    <ng-container
+                        *ngTemplateOutlet="itemsTemplate; context: {$implicit: item.navigation, active: rla.isActive}"></ng-container>
+                </div>
+            </ng-container>
+        </ng-template>
+    </ng-container>
+</ng-template>
+

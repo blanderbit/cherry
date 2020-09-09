@@ -1,0 +1,22 @@
+{
+    "new-task": "Додати завдання",
+    "startDate": "Дата початку",
+    "endDate": "Дата кінця",
+    "add": "Добавити",
+    "task": "Завдання",
+    "delivery": "Предмет доставки",
+    "addTaskName": "Добавити ім'я завдання",
+    "new-deliverable":"Додати предмет доставки",
+
+    "project": "Проэкт",
+    "cancel": "Відмінити",
+    "action": {
+        "successfully-created": "Успішно створено",
+        "successfully-updated": "Успішно оновлено",
+        "successfully-deleted": "Успішно видалено",
+        "create-error": "Неможливо створити",
+        "update-error": "Не вдається оновити",
+        "delete-error": "Неможливо видалити"
+
+    }
+}

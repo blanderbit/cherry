@@ -1,0 +1,30 @@
+{
+    "version": 0,
+    "http": {
+        "auth": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/auth",
+        "attachments": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/a",
+        "users": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/u",
+        "resources": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/r",
+        "tasks": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/t",
+        "projects": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/p",
+        "assignments": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/assignments",
+        "settings": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/s",
+        "permissions": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/pr",
+        "realtime": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/rt",
+        "notifications": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/n",
+        "identity": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/i",
+        "companies": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/c",
+        "kanban": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/k"
+    },
+    "ws": {
+        "url": "wss://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/api/realtime"
+    },
+    "authentication": {
+        "login": "https://cerri-dev-rvknmqdxoag2bl.westeurope.cloudapp.azure.com/auth/login",
+        "redirect": "/"
+    },
+    "sentry": {
+        "enable": false,
+        "dsn": "https://8fc84f52de144940b61995ef82864331@sentry.io/1548969"
+    }
+}

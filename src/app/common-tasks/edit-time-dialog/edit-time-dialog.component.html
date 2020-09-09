@@ -1,0 +1,38 @@
+<form (submit)="submit($event)" class="position-relative">
+    <app-loader class="absolute" *ngIf="loading"></app-loader>
+
+    <app-dialog title="{{'plan.editTime' | translate}}">
+        <div class="body d-flex flex-wrap">
+            <app-form-control class="position-relative m-b-20 form-control">
+                <app-datepicker #datepicker [showWeekNumbers]="true"
+                                [highlightWeek]="true"
+                                (dateSelect)="onDateSelect($event)">
+
+                    <div>
+                        {{params?.from ? (params.from | localDate) + ' - ' + (params.to | localDate) : 'plan.thisWeek' | translate}}
+                    </div>
+                </app-datepicker>
+                <i (click)="triggerClick()" class="icon-calendar-upcoming"></i>
+
+            </app-form-control>
+
+            <div class="d-flex">
+                <app-weekday *ngFor="let item of weekDates; let l = last"
+                             [item]="item"
+                             [class.m-r-8]="!l"
+                             [disabled]="isAddTimeDisabled(item)">
+                </app-weekday>
+            </div>
+        </div>
+
+        <div class="actions d-flex justify-content-between">
+            <button class="default large m-r-10" type="button" (click)="ngbModal.dismissAll()">
+                {{"assignee.cancel" | translate }}
+            </button>
+            <button class="large primary" type="submit" [disabled]="loading || submitDisabled">
+                {{"plan.save" | translate}}
+            </button>
+        </div>
+    </app-dialog>
+
+</form>

@@ -1,0 +1,233 @@
+@import "../../../styles/core/variables";
+
+:host {
+    width: 100%;
+    height: 36px;
+}
+
+.add-task-container {
+    font-size: 13px;
+    line-height: 13px;
+    background: rgba(218, 239, 250, 0.6);
+    padding: 12px 15px;
+    height: 36px;
+    display: flex;
+    font-weight: 600;
+    color: $control-color-blue;
+    align-items: center;
+    cursor: pointer;
+
+    &.create-new {
+        padding: 0px 15px;
+        height: 100%;
+        cursor: default;
+    }
+
+    .add-container {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .task-name-input {
+        height: 28px;
+        font-size: 13px;
+        line-height: 13px;
+        border: 1px solid transparent;
+        background: transparent;
+        color:$color-grey-text-80 !important;
+        &.ng-valid {
+            font-weight: 600;
+            color: $color-text-black !important;
+        }
+
+        &:focus-within {
+            font-weight: normal;
+            background: white;
+            border: 1px solid $control-color-blue;
+        }
+    }
+
+    .icon-plus {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .add-task-text {
+        margin-left: 8px;
+    }
+
+    .add-form-container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding-bottom: 1px;
+        padding-top: 1px;
+
+        .task-name-input {
+            max-width: 350px;
+        }
+
+        .app-datepicker {
+            margin-left: 20px;
+            color: $color-grey-text-80;
+            font-weight: normal;
+            font-size: 13px;
+            height: 28px !important;
+            line-height: 13px;
+            app-datepicker{
+                height: 28px;
+            }
+
+
+        }
+
+
+        .app-select {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .app-autocomplete-control {
+            margin-left: 20px;
+        }
+
+        .button.primary, .button.secondary {
+            min-width: 70px;
+            width: auto;
+            height: 24px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            margin-left: auto;
+        }
+
+        .secondary {
+            background: $control-color-grey;
+        }
+
+        .button.primary {
+            margin-left: 8px;
+        }
+    }
+}
+
+input.ng-invalid {
+    border: 1px solid $grey;;
+}
+
+:host ::ng-deep {
+    app-autocomplete-control {
+        &.ng-valid{
+            .dropdown-caret{
+                input.dropdown-caret {
+                    color: $color-text-black;
+                }
+            }
+        }
+
+        .dropdown-item {
+            line-height: 18px;
+            height: 26px !important;
+        }
+
+        .dropdown-caret {
+
+            input.dropdown-caret {
+                border: 1px solid transparent !important;
+                background: transparent !important;
+                color: $color-grey-text-80;
+                height: 28px;
+
+            }
+
+            &:after {
+                display: none;
+            }
+
+            &:focus-within {
+                input.dropdown-caret {
+                    border: 1px solid $control-color-blue !important;
+                    background: white !important;
+
+                }
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+
+    }
+    #dropdown.open{
+        background: transparent !important;
+    }
+    app-select menu {
+        padding: 7px 26px 7px 16px;
+        border-radius: 3px;
+        height: 28px;
+        border: 1px solid transparent;
+        transition: all 0.3s;
+
+        &.isOpened {
+            border: 1px solid $control-color-blue;
+            background: white;
+
+            &.dropdown-caret:after {
+                display: block;
+            }
+        }
+
+        &.dropdown-caret:after {
+            display: none;
+        }
+
+        .dropdown-menu {
+            margin-left: 26px;
+            margin-top: 7px;
+        }
+
+        #dropdown:active, #dropdown:focus-within {
+            background: transparent;
+        }
+
+    }
+
+    app-datepicker {
+        &.ng-valid {
+            .text-date {
+                color: $color-text-black;
+            }
+        }
+        .form-inline {
+            padding: 7px 17px 7px 15px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.3s;
+
+            &.isOpened {
+                background: white;
+                border: 1px solid $control-color-blue;
+            }
+        }
+
+    }
+}
+
+.app-select {
+    app-select {
+    }
+    ::ng-deep {
+        #dropdown {
+            font-weight: normal !important;
+            font-size: 13px !important;
+            line-height: 13px !important;
+            color: $color-grey-text-80 !important;
+        }
+
+        .ng-valid #dropdown{
+            color: $color-text-black !important;
+        }
+    }
+}
+
+

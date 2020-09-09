@@ -1,0 +1,392 @@
+<div class="container task-details-container d-flex justify-content-center align-items-center h-100">
+
+    <!--    <app-loader *ngIf="!loadingHandler && loading" class="absolute"></app-loader>-->
+
+    <ng-container *ngIf="isProjectActive">
+        <ng-container *hasPermission="permissionAction.AttachFileToTask">
+            <div class="d-none"
+                 DragNDrop
+                 [context]="context"
+                 [cloud]="cloud">
+            </div>
+
+            <app-cloud-upload
+                #cloud
+                [showOverlay]="true"
+                [updateFiles]="true"
+                [multipleLoaderFiles]="true"
+                [acceptFile]="acceptFile">
+                <span #context></span>
+            </app-cloud-upload>
+        </ng-container>
+    </ng-container>
+
+    <form *ngIf="item?.project"
+          class="card-task w-100  d-flex flex-column h-100 overflow-hidden"
+          [formGroup]="form"
+          [hasEditPermission]="isTypeTask ? permissionAction.UpdateTask : permissionAction.UpdateDeliverable"
+          [disableIf]="taskEditDisabled"
+          [class.task-completed]="assignments.allAssignmentsCompleted && taskCompleted"
+    >
+        <div class="header container position-relative">
+            <div class="header-content">
+                <div class="d-flex justify-content-between w-100">
+                    <div class="d-flex align-items-start f-z-12 l-h-16 color-grey">
+                        <div class="project text-overflow-ellipsis m-r-40">
+                            <span class="m-r-10">{{"card.project" | translate}}</span>
+                            <a class="f-z-14 l-h-18 color-black"
+                               routerLink="/projects/{{item?.projectId}}">{{item?.project?.name | titlecase}}</a>
+                        </div>
+
+                        <ng-container *hasPermission="permissionAction.ViewTaskPhases">
+                            <div class="phase m-r-40" *ngIf="item?.phaseName">
+                                <span class="m-r-10">{{'card.phase' | translate}}</span>
+                                <span class="color-black">
+                                {{item?.phaseName}}
+                                </span>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *hasPermission="permissionAction.ViewTaskWBS">
+                            <div class="wbs l-h-18" *ngIf="item?.wbs">
+                                <span class="m-r-10">{{'card.wbs' | translate}}</span>
+                                <span class="color-black">{{item?.wbs}}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="icons color-grey m-l-30">
+                        <button style="background-color: transparent; width: unset" class="m-r-20 color-grey"
+                                [disabled]="!isProjectActive || !isTaskActive"
+                                *hasPermission="isTypeTask ? permissionAction.DeleteTask : permissionAction.DeleteDeliverable"
+                                (click)="deleteItem(item)"
+                        >
+                            <i class="icon-delete"></i>
+                        </button>
+
+                        <button style="background-color: transparent; width: unset" class="color-grey"
+                                (keydown.enter)="navigateOnTaskClosed()"
+                        >
+                            <i class="icon-close-button cursor-pointer" (click)="navigateOnTaskClosed()"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="p-y-20 d-flex justify-content-between">
+
+                    <div class="task d-flex">
+                        <div class="icon-deliverable m-r-10" *ngIf="item?.type == TaskType.Deliverable"></div>
+
+                        <div contentEditable="true"
+                             class="color-dark m-r-5  name text-overflow-ellipsis"
+                             formControlName="name"
+                             #taskName
+                             [disabled]="taskControlEditDisabled"
+                             [class.task-completed]="assignments.assignmentCompleted"
+                             (keydown.enter)="taskName.blur()"
+                        ></div>
+                        <div class="number color-grey l-h-18 flex-shrink-0 control-disabled">#{{item?.id}}</div>
+                    </div>
+
+                    <app-form-control error="{{errors.activityTypeId}}" [hideError]="true">
+                        <app-select [options]="taskStatuses"
+                                    formControlName="status"
+                                    [showCaret]="true"
+                                    class="{{TaskStatus[formValue.status] | lowercase}}"
+                                    [disableIf]="!taskStatuses.length || taskStatusEditDisabled"
+                                    [hasEditPermission]="isTypeTask ? permissionAction.UpdateTaskStatus: permissionAction.UpdateDeliverableStatus"
+                                    [translationPrefix]="'statusType'">
+                            <ng-template let-item>
+
+                                <span *ngIf="item" class="menu-status" [ngClass]="TaskStatus[item.value] | lowercase">
+                                    {{item?.title | translate}}</span>
+                            </ng-template>
+                        </app-select>
+                    </app-form-control>
+                </div>
+            </div>
+        </div>
+
+        <div class="content container h-100 d-flex flex-column">
+            <div class="card-task-overflow" #scroll
+                 infinite-scroll
+                 [scrollWindow]="false"
+                 [immediateCheck]="true"
+                 [infiniteScrollDisabled]="infiniteScrollDownDisabled"
+                 [infiniteScrollDistance]="3"
+                 [infiniteScrollThrottle]="0"
+                 [infiniteScrollUpDistance]="scrollDistance"
+                 (scrolledUp)="onScrollUp($event)"
+                 (scrolled)="onScroll($event)">
+
+                <div class="task-section-title m-t-0">{{getTranslateByType('detail') | translate}}</div>
+                <div class="detail-wrapper d-flex flex-lg-nowrap flex-wrap">
+                    <div class="detail-wrapper-block  p-0 type-section" *ngIf="isTypeTask">
+                        <div class="block" *hasPermission="permissionAction.ViewActivityType">
+                            <app-form-control error="{{errors.activityTypeId}}" [hideError]="true">
+                                <app-select [options]="taskActivityTypes"
+                                            formControlName="activityTypeId"
+                                            [autoSelectFirstItem]="false"
+                                            [disableIf]="taskControlEditDisabled"
+                                            [hasEditPermission]="permissionAction.ChangeTaskActivityType"
+                                            class="menu-select">
+                                    <ng-template let-item>
+                                        <div *ngIf="!formRawValue?.activityTypeId; else selectedTaskType"
+                                             class="d-flex align-items-center">
+                                                <span class="icon-cont size-s m-r-10">
+                                                    <i class="icon-task-type"></i>
+                                                </span>
+                                            <p class="title p-t-0">{{"card.taskType" | translate}}</p>
+                                        </div>
+                                        <ng-template #selectedTaskType>
+
+                                            <div class="f-w-400 f-z-12 l-h-14 d-flex align-items-center">
+
+                                                <span class="icon-cont size-s m-r-10">
+                                                    <i class="icon-task-type"></i>
+                                                </span>
+                                                <div *ngIf="item"
+                                                     class="d-flex flex-column align-items-start justify-content-between">
+                                                    <p class="title p-t-0">{{"card.taskType" | translate}}</p>
+                                                    <div class="d-flex">
+                                                        <p class="m-b-0 f-z-14 l-h-18">{{ item?.title | translate}}</p>
+                                                        <i class="icon-arrow-down type"></i>
+                                                    </div>
+                                                </div>
+                                                <i *ngIf="isTaskActive" (click)="deleteTaskType($event)"
+                                                   class="icon-close-button"></i>
+                                            </div>
+                                        </ng-template>
+                                    </ng-template>
+                                </app-select>
+                            </app-form-control>
+                        </div>
+
+                        <ng-container *hasPermission="permissionAction.ViewPriority">
+                            <div class="block" *ngIf="isTypeTask">
+                                <app-form-control [error]="errors.priorityId" [hideError]="true">
+                                    <app-select [options]="taskPriorities"
+                                                [autoSelectFirstItem]="false"
+                                                [hasEditPermission]="permissionAction.ChangeTaskPriority"
+                                                [disableIf]="taskControlEditDisabled"
+                                                formControlName="priorityId"
+                                                class="menu-select priorities">
+                                        <ng-template let-item>
+                                            <div *ngIf="!formRawValue?.priorityId; else selectedPriority"
+                                                 class="d-flex align-items-center">
+                                                <span class="icon-cont size-s f-z-14 l-h-14 m-r-10">
+                                                    <i class="icon-priority"></i>
+                                                </span>
+                                                <p class="title p-t-0">{{"card.taskPriority" | translate}}</p>
+                                            </div>
+                                            <ng-template #selectedPriority>
+
+                                                <div class="f-w-400 f-z-12 l-h-14 d-flex align-items-center">
+                                                     <span class="icon-cont size-s f-z-14 l-h-14 m-r-10">
+                                                        <i class="icon-priority"></i>
+                                                     </span>
+                                                    <div *ngIf="item"
+                                                         class="item-cont flex-column d-flex align-items-start justify-content-between"
+                                                         [ngClass]="priorityClass(item?.class)">
+                                                        <div class="d-flex">
+                                                            <p class="m-b-0  selectedTaskTyp l-h-18">{{item?.title | translate}}</p>
+                                                            <i class="icon-arrow-down type"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <i *ngIf="isTaskActive" (click)="deletePriority($event)"
+                                                       class="icon-close-button"></i>
+                                                </div>
+                                            </ng-template>
+                                        </ng-template>
+                                    </app-select>
+                                </app-form-control>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="detail-wrapper-block date-select">
+                        <app-form-control [error]="errors.currentStartDate" [hideError]="true">
+
+                            <ng-container *hasPermission="permissionAction.ViewTaskDates">
+                                <div class="datepicker block" *ngIf="isTypeTask">
+                                    <app-datepicker formControlName="currentStartDate"
+                                                    [maxDate]="formRawValue?.currentEndDate"
+                                                    [showIcon]="true"
+                                                    #datepickerComponent
+                                                    (click)="datepickerComponent.open()"
+                                                    class="p-t-6 cursor-pointer p-b-10"
+                                                    [hasEditPermission]="isTypeTask ? permissionAction.UpdateTaskDates : permissionAction.UpdateDeliverableDate"
+                                                    [disableIf]="startDateDisabled"
+                                                    [error]="errors.currentStartDate"
+                                    >
+                                        <div class="d-flex align-items-center">
+                                            <div class="date-image"></div>
+                                            <div>
+                                                <p class="title">{{"startDate" | translate}}</p>
+                                                <p class="text-date">{{formRawValue.currentStartDate | date}}</p>
+                                            </div>
+                                        </div>
+                                    </app-datepicker>
+                                </div>
+
+                                <div class="datepicker block">
+                                    <app-datepicker [minDate]="isTypeTask && formValue?.currentStartDate"
+                                                    formControlName="currentEndDate"
+                                                    [hasEditPermission]="isTypeTask ? permissionAction.UpdateTaskDates : permissionAction.UpdateDeliverableDate"
+                                                    class="p-b-10 cursor-pointer"
+                                                    #datepickerComponent
+                                                    (click)="datepickerComponent.open()"
+                                                    [disableIf]="taskEditDisabled || taskControlEditDisabled"
+                                                    [error]="errors.currentEndDate"
+                                                    #endDate>
+                                        <div class="d-flex align-items-center">
+
+                                            <div class="date-image"></div>
+                                            <div>
+                                                <p class="title">{{"endDate" | translate}}</p>
+                                                <p class="text-date"
+                                                   [highlightEnabled]="shouldTaskBeHighlighted(item?.status)"
+                                                   [appHighlightOverdueDate]="formRawValue?.currentEndDate"
+                                                >{{formRawValue?.currentEndDate | date}}</p>
+                                            </div>
+                                        </div>
+                                    </app-datepicker>
+                                </div>
+                            </ng-container>
+
+
+                        </app-form-control>
+                    </div>
+
+                    <div
+                            [class.w-100]="!isTypeTask"
+                            [class.d-inline-flex]="!isTypeTask" class="detail-wrapper-block p-x-0">
+                        <div class="owner p-t-10 block m-b-17" *ngIf="isTypeTask">
+                            <p class="text-overflow-ellipsis m-b-0">
+                                <span class="m-r-12 f-z-12 l-h-16 color-grey"> {{"card.owner" | translate}}</span>
+                                <span class="color-black f-z-14 l-h-18">
+                                    {{item?.creator | userName}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="owner p-t-5 d-inline-flex  block " *ngIf="!isTypeTask">
+                            <p class="text-overflow-ellipsis m-b-0">
+                                        <span
+                                                class="m-r-12 f-z-12 l-h-16 color-grey"> {{"card.owner" | translate}}</span>
+                                <span class="f-z-14 color-black l-h-18">
+                                    {{item?.creator | userName}}
+                                    </span>
+                            </p>
+                        </div>
+
+                        <ng-template [hasPermission]="permissionAction.ViewTaskDependencies">
+                            <ng-container *ngIf="item?.dependentOn?.length">
+                                <div
+                                        class="block p-t-7"
+                                        [class.m-l-40]="!isTypeTask"
+                                >
+                                    <span class="m-r-12 f-z-12 l-h-16 color-grey">
+                                        {{"card.dependency" | translate}}
+                                    </span>
+                                    <app-task-dependencies [task]="item" class="m-r-10"></app-task-dependencies>
+                                </div>
+                            </ng-container>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <div class="w-100 d-flex divider m-t-16"></div>
+
+                <div class="">
+                        <app-task-assignments
+                                class="m-b-25 d-block"
+                                [task]="item"
+                                #assignments
+                                title="team&Effort"
+                                [projectId]="item?.projectId">
+                        </app-task-assignments>
+
+                        <app-task-assignments
+                                class="m-b-25 d-block"
+                                [task]="item"
+                                [projectId]="item?.projectId"
+                                [materialResources]="true"
+                                title="materialResources"
+                        ></app-task-assignments>
+
+
+                    <section class="description">
+                        <p class="task-section-title">{{"card.description" | translate}}</p>
+
+                        <app-form-control error="{{errors.description}}" class="m-b-10">
+                        <textarea [disabled]="isTaskActive || taskEditDisabled || taskControlEditDisabled"
+                                  [class.control-disabled]="!isTaskActive || taskEditDisabled || taskControlEditDisabled"
+                                  formControlName="description"
+                                  autosize
+                                  minRows="2"
+                                  maxRows="5"
+                                  class="input-description color-grey l-h-22 f-z-13"
+                                  placeholder="No description provided...">
+                        </textarea>
+                        </app-form-control>
+                    </section>
+
+                    <div class="w-100 d-flex divider"></div>
+
+
+
+                        <app-task-attachments
+                            #attachments
+                            [hideDeleteAction]="!isProjectActive"
+                            [item]="item"
+                            class="m-b-10">
+                        </app-task-attachments>
+
+
+
+                    <ng-template [hasPermission]="permissionAction.ViewTaskProgress"
+                                 *ngIf="isTypeTask">
+                        <section>
+                            <app-task-progress [item]="item"
+                                               [disabled]="workCompletedEditDisabled"
+                            ></app-task-progress>
+                        </section>
+                    </ng-template>
+                </div>
+
+                <div #commentsContainer class="p-b-20" *ngIf="scrollContainer">
+                    <app-task-comments #commentsComponent
+                                       [task]="item"
+                                       [hideActions]="!isProjectActive"
+                                       *hasPermission="permissionAction.ViewComments"
+                    ></app-task-comments>
+                </div>
+
+            </div>
+
+            <div class="position-relative p-x-15">
+                <div class="comments-navigation d-flex justify-content-center align-items-end"
+                     *hasPermission="permissionAction.ViewComments">
+
+                    <ng-container *ngIf="commentsComponent?.items?.length">
+                        <span class="m-b-8" (click)="toLastComments()"
+                              *ngIf="!taskCommentsManager.atTheBottom; else scrollToTop">
+                            Jump to last comment
+                         </span>
+                        <ng-template #scrollToTop>
+                            <span class="m-b-8" (click)="toFirstComments()">Jump to top</span>
+                        </ng-template>
+                    </ng-container>
+                </div>
+
+                <ng-container *ngIf="isProjectActive">
+                    <app-comment-input [task]="item"
+                                       *hasPermission="permissionAction.CreateComment">
+                    </app-comment-input>
+                </ng-container>
+            </div>
+        </div>
+    </form>
+</div>

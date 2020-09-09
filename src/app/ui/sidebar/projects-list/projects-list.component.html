@@ -1,0 +1,61 @@
+<div class="all-projects position-relative p-x-15">
+    <app-loader *ngIf="loading" class="absolute" style="top: 40px"></app-loader>
+    <div class="filter d-flex align-items-center justify-content-between">
+        <app-select [options]="filters"
+                    *ngIf="!search"
+                    placement="bottom-left"
+                    [formControl]="filterControl"
+                    [disabled]="disableFilter">
+            <ng-template let-item>
+                <div class="wrap d-flex align-items-center">
+                    <span class="current text-overflow-ellipsis" [ngClass]="search ? 'hide-text' : ''">
+                        {{item?.title | translate | uppercase}}
+                    </span>
+                    <span class="icon p-t-3"><i class="icon-arrow-down arrow-icon m-l-8 sz-16 color-blue"></i></span>
+                </div>
+            </ng-template>
+        </app-select>
+
+        <div class="search w-100" role="search">
+            <input type="text"
+                   [class.d-none]="!search"
+                   [formControl]="searchControl"
+                   autofocus
+                   tabindex="1"
+                   (blur)="hideInput()"
+                   placeholder="Search"
+                   #inputSearch/>
+        </div>
+
+        <i class="icon-search" (click)="showSearch(inputSearch);" [class.control-disabled]="search"></i>
+    </div>
+</div>
+
+<ul class="project d-flex align-items-start flex-column h-100"
+    infinite-scroll
+    #scrollContainer
+    [scrollWindow]="false"
+    (scrolled)="onScrollToBottom()">
+
+    <ng-container *ngIf="!itemTemplate; else customTemplate">
+
+        <li class="projects-list-item text-overflow-ellipsis d-flex align-items-center"
+            *ngFor="let project of items;"
+            [routerLink]="getRouterLink(project)"
+            [queryParams]="getQueryParams(project)"
+            routerLinkActive="active-link"
+            [queryParamsHandling]="queryParamsHandling"
+        >
+            <img src="assets/images/{{project.type === projectType.Agile ? 'kanban' : 'project'}}-icon.svg" alt="" width="15" class="m-r-10">
+            <span>{{project?.name}}</span>
+        </li>
+
+    </ng-container>
+
+    <ng-template #customTemplate>
+        <ng-container *ngFor="let item of items">
+            <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
+        </ng-container>
+    </ng-template>
+</ul>
+

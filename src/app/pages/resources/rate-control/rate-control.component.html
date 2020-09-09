@@ -1,0 +1,17 @@
+<div [formGroup]="form" class="controls">
+    <input type="number"
+           formControlName="value"
+           class=""
+    >
+
+    <app-select
+        formControlName="currency"
+        [showCaret]="true"
+        [container]="null"
+        [placement]="'top-left'"
+        [placeholder]="'Select...'"
+        [options]="menuItems$ | async">
+
+    </app-select>
+
+</div>

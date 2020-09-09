@@ -1,0 +1,12 @@
+<div class="t-a-c" @slideInFromRight>
+    <img src="../../../assets/img/error/link-expired.png" class="m-b-10" height="110" width="182"/>
+
+    <ng-content></ng-content>
+
+    <button class="m-t-30 d-flex justify-content-center align-items-center" type="submit"
+            [disabled]="loading"
+            (click)="onResend.emit($event)">
+        <span class="loading-spinner" *ngIf="loading"></span>
+        <span class="m-l-10 m-r-10">{{buttonText | translate}}</span>
+    </button>
+</div>

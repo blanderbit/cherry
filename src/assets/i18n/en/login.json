@@ -1,0 +1,97 @@
+{
+    "emailPlaceholder": "name@company.com",
+    "login": {
+        "title": "Login to Cerri",
+        "login": "Log In",
+        "email": "Email address",
+        "password": "Password",
+        "invalid": "Username or password is incorrect",
+        "noHaveAccount": "Don't have an account?",
+        "createNow": "Create now",
+        "forgotPassword": "Forgot password?"
+    },
+    "forgotPassword": {
+        "title": "Forgot your password?",
+        "email": "Email address",
+        "submit": "Send Me Instructions",
+        "rememberPassword": "Remember your password?",
+        "tryLogin": "Try logging in",
+        "instructionsSent": "Instructions sent!",
+        "emailInstructions": "Instructions for resetting your password have been sent to",
+        "emailDidntReceive": "Didn't receive the email yet?",
+        "checkSpam": "Please check your spam folder, or",
+        "emailResend": "resend email"
+    },
+    "resetPassword": {
+        "title": "Reset your password",
+        "resetMyPassword": "Reset My Password",
+        "successful-reset": "Successful password reset!",
+        "description": "You can now use your new password to log in to your account",
+        "login": "Log in",
+        "password-hist": "Password must be 8 characters or longer",
+        "newPassword": "New password",
+        "confirmNewPassword": "Confirm new password"
+    },
+    "register": {
+        "title": "Create your Cerri profile",
+        "email": "Email address",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "password": "Password",
+        "email-placeholder": "name@company.com",
+        "password-placeholder": "Create password",
+        "password-hint": "Password must be 8 character or longer",
+        "continue": "Continue",
+        "accept": "I accept",
+        "terms-of-use": "Terms of Use",
+        "and": "and",
+        "privacy-policy": "Privacy Policy",
+        "subscribe-text": "I want to subscribe to the newsletter",
+        "you-sign-up": "You're signing up as",
+        "have-account": "Already have an account?",
+        "log-in": "Log in",
+        "invalid": "Email is incorrect",
+        "email-resent": "Verification email has been resent",
+        "invitation-link-resent": "Invitation link has been resent",
+        "failed-resend-email": "Failed to resend the verification email",
+        "failed-resend-invitation-link": "Failed to resend the invitation link"
+    },
+    "login-dialog": {
+        "already-met": "Hey there, we’ve already met!"
+    },
+    "authError": {
+        "errorOccurred": "An error occurred, please try again later.",
+        "somethingWrong": "Something went wrong",
+        "goBack": "Go Back"
+    },
+    "errors": {
+        "userName": {
+            "required": "Email address is required",
+            "minlength": "Username must have minimum 3 symbols",
+            "maxlength": "Username must have maximum 50 symbols"
+        },
+        "password": {
+            "required": "Password is required",
+            "minlength": "Password must be at least 8 characters",
+            "maxlength": "Password must have maximum 50 characters",
+            "pattern": "Password should contains lowercase letters, uppercase letters, numbers and symbols"
+        },
+        "confirmPassword": {
+            "mustMatch": "Password must match"
+        },
+        "email": {
+            "required": "Email address is required",
+            "pattern": "Email is invalid"
+        },
+        "firstName": {
+            "required": "Please enter your first name",
+            "minlength": "First name must have minimum 3 symbols",
+            "maxlength": "First name must have maximum 50 symbols"
+        },
+        "lastName": {
+            "required": "Please enter your last name",
+            "minlength": "Last name must have minimum 3 symbols",
+            "maxlength": "Last name must have maximum 50 symbols"
+        }
+    }
+}

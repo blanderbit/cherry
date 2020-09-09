@@ -1,0 +1,158 @@
+<div class="datatable-main h-100">
+    <div class="table-overflow position-relative h-100">
+        <table class="position-relative" mat-table [dataSource]="weekItems" multiTemplateDataRows>
+            <ng-container [matColumnDef]="columns.Name" sticky>
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let item"
+                    [ngClass]="{'hovered': item.taskId === hoveredId}">
+                    <div class="datatable-row-title d-flex align-items-center text-overflow-ellipsis"
+                         *ngIf="tasks[item?.taskId] as task">
+                        <app-checkbox [checked]="isAssignmentCompleted(item)"
+                                      [disabled]="taskDisabled(item.taskId)"
+                                      #checkboxComponent
+                                      (isChecked)="changeStatus($event, item)"
+                                      size="20"
+                                      class="mb-auto">
+                        </app-checkbox>
+
+                        <div class="m-l-10 pr-2 text-left" style="max-width: 350px;">
+
+                            <a target="_blank" class="text-overflow-ellipsis"
+                               [queryParams]="{projectId: task?.projectId}"
+                               [routerLink]="['/', routes.Tasks, task.id]">
+                                <strong>{{task?.name}}</strong>
+                            </a>
+                            <div class="datatable-row-desc "
+                                 *ngIf="projects[task?.projectId] as project">{{project?.name || ''}}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                    <div class="datatable-cell daily-totals color-grey">Daily Totals:</div>
+                </td>
+            </ng-container>
+
+            <!--            generate 7 time inputs-->
+            <ng-container *ngFor="let column of daysColumns;">
+                <ng-container [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef [ngClass]="{'isActive': isActiveDate(weekDates[column]),
+                        'isDisabled':isAfterTodayMoment(weekDates[column])}">
+                        <strong>{{weekDates[column] | date: 'E'}}</strong>
+                        {{weekDates[column] | date: 'MMM dd'}}
+                    </th>
+                    <td mat-cell *matCellDef="let item;" (click)="$event.stopPropagation();">
+                        <app-manual-time-input
+                            #input
+                            class="time-input time-app-input m-auto"
+                            [value]="item.times[column]?.time"
+                            (click)="$event.stopPropagation();"
+                            [disabled]="timeEditDisabled(item.taskId, item.times[column].date)"
+                            (keyup.enter)="input.triggerBlur()"
+                            (valueChange)="updateTaskTime(item.times[column], input.value)"
+                        ></app-manual-time-input>
+                    </td>
+                    <td mat-footer-cell *matFooterCellDef>
+                        <div class="color-black sz-14 l-h-16 f-w-600">
+                            {{weekTotalsList[column] | viewTime}}
+                        </div>
+                    </td>
+                </ng-container>
+            </ng-container>
+
+            <ng-container matColumnDef="total">
+                <th class="total-header" mat-header-cell *matHeaderCellDef>
+                    Total
+                </th>
+                <td [ngClass]="{'row-disabled': isAssignmentCompleted(item)}" mat-cell *matCellDef="let item;"
+                    (click)="$event.stopPropagation();">
+                    <div class="color-black sz-14 l-h-16 f-w-600 text-center">
+                        {{item.dayTotal | viewTime}}
+                    </div>
+                </td>
+                <td mat-footer-cell *matFooterCellDef>
+                    <div class="datatable-total">
+                        <strong>{{totalWeekView | viewTime}}</strong>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="comment">
+                <th mat-header-cell class="comment-header" *matHeaderCellDef
+                    [ngStyle]="{'max-width': '22px', 'min-width': '22px'}"></th>
+                <td mat-cell *matCellDef="let item;" [ngStyle]="{'max-width': '22px'}"
+                    [ngClass]="{'row-disabled': isTaskCompleted(item)}">
+                    <div class="">
+                        <button *ngIf="(item.taskId === hoveredId && actionsShown) || hasComment(item)"
+                                type="button"
+                                mat-button
+                                (click)="$event.stopPropagation(); openCommentPopup(item.times, tasks[item?.taskId])"
+                                class="datatable-row-comment mr-auto">
+                            {{item?.task?.id}}<span class="timeapp-icon-comment comments-button"></span>
+                        </button>
+                    </div>
+
+                </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef class="delete-column-header"
+                    [ngStyle]="{'max-width': '25px',  'min-width': '25px'}"></th>
+                <td mat-cell *matCellDef="let item;" class="delete-column" [ngStyle]="{'max-width': '25px'}"
+                    [ngClass]="{'row-disabled': isTaskCompleted(item)}">
+                    <div class="">
+                        <button *ngIf="item.taskId === hoveredId && actionsShown" type="button" mat-button
+                                class="bg-transparent delete-row"
+                                (click)="$event.stopPropagation(); deleteTimes(item)">
+                            <span class="timeapp-icon-trash"></span>
+                        </button>
+                    </div>
+                </td>
+                <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+            <ng-container matColumnDef="secondHeader" sticky>
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="10" class="">
+                    <ng-container *ngIf="dateInEditableRange">
+                        <app-add-tasks-row (tasksCreated)="handleCreatedTasks($event)"
+                                           [items]="items"
+                                           (createNewTask)="createNewTask = !createNewTask"
+                        ></app-add-tasks-row>
+                    </ng-container>
+                </th>
+            </ng-container>
+
+            <ng-container matColumnDef="thirdHeader" sticky>
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="displayedColumns.length" class="">
+                    <ng-container *ngIf="dateInEditableRange">
+                        <app-search-task [addedItems]="weekItems" *ngIf="createNewTask"
+                                         (onSelect)="onTasksCreate($event)"></app-search-task>
+                    </ng-container>
+                </th>
+            </ng-container>
+
+            <ng-container matColumnDef="noData" sticky>
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="displayedColumns.length" class="datatable-empty">
+                    <span class="datatable-empty-icon"></span>
+                    <p>
+                        No time entries for this week
+                    </p>
+                </th>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-header-row *matHeaderRowDef="[columns.SecondHeader]; sticky: true"></tr>
+            <tr mat-header-row *matHeaderRowDef="[columns.ThirdHeader];" [class.d-none]="!createNewTask"></tr>
+            <tr mat-header-row *matHeaderRowDef="[columns.NoData];"
+                [class.d-none]="weekItems.length || createNewTask">
+            </tr>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                (mouseenter)="handleHoverWeekItem(row)"
+                [ngClass]="{'row-disabled': taskDisabled(row.taskId)}"
+                (mouseleave)="hoveredId = null">
+            </tr>
+            <tr [class.hide-top-border]="isLastElementHovered()" mat-footer-row
+                *matFooterRowDef="displayedColumns"></tr>
+        </table>
+    </div>
+</div>

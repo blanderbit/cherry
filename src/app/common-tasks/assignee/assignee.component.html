@@ -1,0 +1,177 @@
+<section [class.d-none]="isHideResourcesComponent">
+    <p class="f-w-600 team-title text-uppercase f-z-14 l-h-16 m-y-25">
+        {{ title | translate }}
+    </p>
+
+    <div class="d-flex align-items-start justify-content-start assignee-list flex-wrap">
+        <div class="d-flex flex-wrap w-100 align-items-center l-h-16 m-b-25"
+             *ngIf="!materialResources && !hideTimeReport && task?.assignments?.length">
+
+            <ng-container *hasPermission="permissionAction.ViewTaskCardActualTime">
+                <span class="title">{{"plan.reportedTime" | translate}}</span>
+
+                <span class="m-r-40">
+            {{task?.actualTime | timeToString}}
+            </span>
+            </ng-container>
+
+            <ng-container *hasPermission="permissionAction.ViewTaskCardPlannedTime">
+                <span class="title">{{"plan.effort" | translate }}</span>
+                <span class="m-r-12">
+            {{task?.plannedTime | timeToString}}
+        </span>
+            </ng-container>
+
+            <ng-template [hasPermission]="permissionAction.UpdateAssignmentPlanEffort">
+            <span [class.hidden]="!(items?.length && this.active)"
+                  class="plan-effort-btn cursor-pointer color-blue d-flex align-items-center"
+                  (click)="addEffort()">
+                <i class="icon-edit m-r-5  l-h-13 sz-13 "></i>
+                <span class="sz-14 l-h-16">Edit</span>
+            </span>
+            </ng-template>
+        </div>
+
+        <ng-template [hasPermission]="permissionAction.ViewAssignments">
+            <ng-container *hasPermission="permissionAction.CreateAssignments">
+                <div *ngIf="active" class="add-assignee d-flex align-self-center align-items-center"
+                     [class.disabled]="isAddAssigneeDisabled"
+                     (click)="addAssignee()">
+            <span class="add-icon d-flex justify-content-center align-items-center">
+                <i [ngClass]="{'icon-material-resources': materialResources, 'icon-profile': !materialResources}"
+                   class="icon-profile f-z-14 l-h-14">
+                </i>
+            </span>
+                    <span class="title">{{addAssigneeButtonTitleName | translate }}</span>
+                </div>
+            </ng-container>
+
+            <div *ngFor="let item of filteredItems; let i = index; trackBy: trackById" class="summary-wrapper">
+                <div class="d-flex p-y-5 align-items-center">
+
+                    <ng-container *ngIf="changeAssignmentStatusAvailable">
+                        <ng-container *ngIf="item.resourceId === resourceId; else notOwnAssignmentStatus">
+                            <ng-template [noForbiddenPermission]="permissionAction.UpdateAssignmentStatus">
+                                <ng-template [ngTemplateOutlet]="assignmentStatusCheckboxRef"></ng-template>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-template #notOwnAssignmentStatus>
+                            <ng-template [hasPermission]="permissionAction.UpdateAssignmentStatus"
+                                         [creatorId]="creatorId"
+                                         [membersIds]="[item.resourceId]">
+                                <ng-template [ngTemplateOutlet]="assignmentStatusCheckboxRef"></ng-template>
+                            </ng-template>
+                        </ng-template>
+
+                        <ng-template #assignmentStatusCheckboxRef>
+                            <app-assignee-completed-status [assignment]="item"
+                                                           [task]="task"
+                                                           [projectStatus]="task.project.status"
+                                                           class="m-r-14">
+                            </app-assignee-completed-status>
+                        </ng-template>
+                    </ng-container>
+
+                    <app-user-summary
+                            class="d-table-cell"
+                            [removeDisabled]="isAssigneeRemoveDisabled(item)"
+                            [removable]="isAssigneeRemovable(item)"
+                            [gutter]="8"
+                            [success]="item.status === assignmentStatus.Completed"
+                            (remove)="deleteItem(item)"
+                            [user]="getUserFromResources(item?.resourceId)" [avatarSize]="35">
+                        <div class="f-z-13 l-h-18 f-w-500 plan-buttons"
+                             *ngIf="isTypeTask"
+                             [class.color-red]="item?.plannedTime > 0 && item?.plannedTime < item?.actualTime">
+                            <ng-container *ngIf="item.resourceId === resourceId; else notOwnTimes">
+                                <ng-template [noForbiddenPermission]="permissionAction.ViewAssignmentPlannedTime">
+                                    <span>{{item?.actualTime | timeToString : false}}</span>
+                                    <span class="m-r-3 m-l-3">of</span>
+                                </ng-template>
+
+                                <ng-template [noForbiddenPermission]="permissionAction.ViewAssignmentActualTime">
+                                    <span>{{item?.plannedTime | timeToString : false}}</span>
+                                </ng-template>
+                            </ng-container>
+
+                            <ng-template #notOwnTimes>
+                                <ng-template [hasPermission]="permissionAction.ViewAssignmentPlannedTime"
+                                             [creatorId]="creatorId"
+                                             [membersIds]="[item.resourceId]">
+                                    <span>{{item?.actualTime | timeToString : false}}</span>
+                                    <span class="m-r-3 m-l-3">of</span>
+                                </ng-template>
+
+                                <ng-template [hasPermission]="permissionAction.ViewAssignmentActualTime"
+                                             [creatorId]="creatorId"
+                                             [membersIds]="[item.resourceId]">
+                                    <span>{{item?.plannedTime | timeToString : false}}</span>
+                                </ng-template>
+                            </ng-template>
+                            <br/>
+                        </div>
+                    </app-user-summary>
+                </div>
+
+                <div class="time-container d-flex color-blue">
+                    <ng-container *ngIf="isAddTimeVisible(item) && isTypeTask">
+                        <ng-container *ngIf="item.resourceId === resourceId; else notOwnAddTimeButton">
+                            <ng-template [noForbiddenPermission]="permissionAction.CreateActualTime">
+                                <ng-template [ngTemplateOutlet]="addTimeButtonRef"></ng-template>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-template #notOwnAddTimeButton>
+                            <ng-template [hasPermission]="permissionAction.CreateActualTime"
+                                         [creatorId]="creatorId"
+                                         [membersIds]="[item.resourceId]">
+                                <ng-template [ngTemplateOutlet]="addTimeButtonRef"></ng-template>
+                            </ng-template>
+                        </ng-template>
+
+                        <ng-template #addTimeButtonRef>
+                            <a (click)="addTime(item)"
+                               class="
+                            add-time
+                            align-items-center m-r-12">
+                                <i class="icon-add-time m-r-5 l-h-0 sz-16"></i>
+                                {{'plan.addTime' | translate}}
+                            </a>
+                        </ng-template>
+
+
+                        <ng-container *ngIf="item.resourceId === resourceId; else notOwnEditTimeButton">
+                            <ng-template [noForbiddenPermission]="permissionAction.UpdateActualTime">
+                                <ng-template [ngTemplateOutlet]="editTimeButtonRef"></ng-template>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-template #notOwnEditTimeButton>
+                            <ng-template [hasPermission]="permissionAction.UpdateActualTime"
+                                         [creatorId]="creatorId"
+                                         [membersIds]="[item.resourceId]">
+                                <ng-template [ngTemplateOutlet]="editTimeButtonRef"></ng-template>
+                            </ng-template>
+                        </ng-template>
+
+                        <ng-template #editTimeButtonRef>
+                            <a (click)="editTime(item)" [class.hidden]="!item?.actualTime"
+                               class="
+                           edit-time
+                           align-items-center">
+                                <i class="icon-edit m-r-5 l-h-0 sz-15"></i>
+                                {{'plan.editTime' | translate}}
+                            </a>
+                        </ng-template>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+
+</section>
+
+<div class="w-100 d-flex divider m-t-10"
+     [hidden]="isHideResourcesComponent"></div>

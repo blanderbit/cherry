@@ -1,0 +1,47 @@
+{
+    "meta": {
+        "title": "Профіль",
+        "description": "Опис профілю"
+    },
+    "profile-settings": {
+        "title": "Налаштування профілю",
+        "subtitle": "Інформація про користувача",
+        "change": "Змінити фото",
+        "first-name": "Ім'я",
+        "last-name": "Прізвище",
+        "email": "Електронна адреса",
+        "password": "Password",
+        "change-password": "Змінити пароль",
+        "phone": "Контактний телефон",
+        "phone-placeholder": "Додати номер",
+        "submit": "Зберегти зміни",
+        "language-preferences": "Налаштування мови",
+        "language": "Мова успішно змінена",
+        "updateSuccess": "Профіль успішно збережено",
+        "updateFail": "Не вдалося зберегти профіль",
+        "invalid": "Будь ласка, заповніть форму",
+        "error": "Неможливо завантажити профіль"
+    },
+    "side-bar-menu": {
+        "title": "Профіль",
+        "profileSettings": "Налаштування профілю",
+        "notifications": "Сповіщення",
+        "apps": "Програми та додатки",
+        "logout": "Вихід"
+    },
+    "validation": {
+        "firstName": {
+            "required": "Ім'я обов'язкове",
+            "minlength": "Ім'я мін довжина 3 символа",
+            "maxlength": "Ім'я макс довжина 50 символів"
+        },
+        "lastName": {
+            "required": "Прізвище обов'язкове",
+            "minlength": "Прізвище мін довжина 3 символа",
+            "maxlength": "Прізвище макс довжина 50 символів"
+        }
+    },
+    "error": {
+        "file-oversize": "Файл надто великий"
+    }
+}

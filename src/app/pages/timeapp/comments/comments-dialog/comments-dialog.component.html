@@ -1,0 +1,31 @@
+<app-dialog class="position-relative" [loading]="loading || commentsLoading">
+    <ng-container ngProjectAs=".header">
+        <div class="w-100 text-overflow-ellipsis">
+            <span class="timeapp-icon-comment"></span> {{dialogConfig?.task?.name}}
+        </div>
+    </ng-container>
+
+    <ng-container ngProjectAs=".body">
+        <div class="body d-flex flex-column">
+            <ng-container *ngFor="let item of items">
+                <app-comment-dialog-control
+                    [item]="item"
+                    [showDayName]="showDayName"
+                    [disabled]="editDisabled(item)"
+                ></app-comment-dialog-control>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <ng-container ngProjectAs=".actions">
+        <button class="default large" (click)="close()">
+            {{'comments-dialog.reject' | translate}}
+        </button>
+        <button class="primary large"
+                type="submit"
+                [disabled]="submitDisabled"
+                (click)="submit($event)">
+            {{'comments-dialog.submit' | translate}}
+        </button>
+    </ng-container>
+</app-dialog>

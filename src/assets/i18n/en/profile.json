@@ -1,0 +1,47 @@
+{
+    "meta": {
+        "title": "Profile",
+        "description": "Profile description"
+    },
+    "profile-settings": {
+        "title": "Profile Settings",
+        "subtitle": "User details",
+        "change": "Change",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "change-password": "Change Password",
+        "phone": "Mobile phone",
+        "phone-placeholder": "Add number",
+        "submit": "Submit changes",
+        "language-preferences": "Language preferences",
+        "language": "Language changed successfully",
+        "updateSuccess": "The profile updated successfully",
+        "updateFail": "Profile update failed",
+        "invalid": "Please fill the form correctly",
+        "error": "The profile cannot be loaded"
+    },
+    "side-bar-menu": {
+        "title": "Profile",
+        "profileSettings": "Profile Settings",
+        "notifications": "Notifications",
+        "apps": "Apps & Plugins",
+        "logout": "Logout"
+    },
+    "validation": {
+        "firstName": {
+            "required": "First name is required",
+            "minlength": "First name min length is 3 signs",
+            "maxlength": "Last name max length is 50 signs"
+        },
+        "lastName": {
+            "required": "Last name is required",
+            "minlength": "Last name min length is 3 signs",
+            "maxlength": "Last name max length is 50 signs"
+        }
+    },
+    "error": {
+        "file-oversize": "File is too large"
+    }
+}

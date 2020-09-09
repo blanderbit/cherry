@@ -1,0 +1,52 @@
+@import "../../../styles/core/variables";
+
+.message {
+    position: relative;
+
+    &:not(:last-of-type) {
+        margin-bottom: 15px;
+    }
+}
+
+.p-12 {
+    padding: 12px;
+}
+
+.edit {
+    border: 1px solid $control-color-blue;
+    border-radius: 4px;
+    position: relative;
+
+    .edit-padding {
+        padding: 7px 12px 11px 12px;
+    }
+}
+
+textarea {
+    resize: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    line-height: 23px;
+}
+
+button {
+    width: auto;
+}
+
+:host {
+    ::ng-deep {
+        .user-info {
+            display: flex;
+        }
+
+        .user-name {
+            color: $color-text-dark;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 18px;
+        }
+
+    }
+}

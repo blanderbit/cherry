@@ -1,0 +1,12 @@
+<app-dialog>
+    <div class="header">{{'dependencies-dialog.title' | translate}}</div>
+
+    <ng-container ngProjectAs=".body">
+        <div class="body">
+            <div class="dependency" *ngFor="let item of config; let i = index">
+                <span class="index">{{i + 1}}.</span>
+                <app-task-dependency [dependency]="item"></app-task-dependency>
+            </div>
+        </div>
+    </ng-container>
+</app-dialog>

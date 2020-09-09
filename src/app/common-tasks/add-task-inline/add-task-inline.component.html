@@ -1,0 +1,69 @@
+<div class="add-task-container"
+     [class.create-new]="showCreateNew"
+     tabindex="1"
+     (click)="show()"
+>
+    <div class="add-container" *ngIf="!showCreateNew">
+        <i class="icon-plus"></i>
+        <span class="add-task-text">{{"new-task"| translate }}</span>
+    </div>
+    <form [formGroup]="form" (submit)="apply($event)" class="add-form-container" *ngIf="showCreateNew">
+        <app-form-control [hideError]="true" error="{{errors.name}}">
+            <input [autofocus]="true"
+                   class="task-name-input"
+                   formControlName="name"
+                   type="text"
+                   #input
+                   (blur)="onBlur(input)"
+                   [placeholder]="(isDeliverable? 'new-deliverable':'addTaskName') | translate">
+        </app-form-control>
+
+        <app-form-control [class.d-none]="isDeliverable"
+            [hideError]="true" class="app-datepicker" error="{{errors.currentStartDate}}">
+            <app-datepicker formControlName="currentStartDate"
+                            title="startDate"
+                            #startDate
+                            [maxDate]="endDate.control.value"
+                            #startDate>
+                    <span
+                        class="text-date">
+                        {{startDate.control.value ? (startDate.control.value | date)
+                        : 'startDate' | translate }}</span>
+            </app-datepicker>
+        </app-form-control>
+
+        <app-form-control class="app-datepicker" [hideError]="true" error="{{errors.currentStartDate}}">
+            <app-datepicker formControlName="currentEndDate"
+                            title="endDate"
+                            [minDate]="!isDeliverable && startDate.control.value"
+                            #endDate>
+                    <span
+                        class="text-date">{{endDate.control.value ?
+                        (endDate.control?.value| date) : 'endDate' | translate}}
+                    </span>
+            </app-datepicker>
+        </app-form-control>
+
+        <app-form-control
+            *ngIf="!_projectId"
+            [hideError]="true" class="app-autocomplete-control" error="{{errors.projectId}}">
+            <app-autocomplete-control
+                [placeholder]="'project' | translate"
+                formControlName="projectId"
+                [provider]="projectsProvider"></app-autocomplete-control>
+        </app-form-control>
+
+        <app-form-control class="app-select " [hideError]="true" error="{{errors.type}}">
+            <app-select formControlName="type"
+                        [showCaret]="true"
+                        [container]="null"
+                        [autoSelectFirstItem]="true"
+                        [options]="menuOptions"></app-select>
+        </app-form-control>
+
+
+        <button class="secondary button" type="button"
+                (click)="cancel($event)">{{"cancel" | translate}}</button>
+        <button type="submit" [disabled]="form.invalid" class="primary button">{{"add" | translate}}</button>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+}
+
+form {
+    width: 100%;
+}
+
+.title {
+    font-size: 18px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+
+button {
+    width: auto;
+    align-items: end;
+    margin: 10px 0;
+    left: 100%;
+    position: relative;
+    transform: translateX(-100%);
+}

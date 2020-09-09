@@ -1,0 +1,175 @@
+
+@import '../../../../styles/core/variables';
+@import "../../../../styles/mixins/disabled.mixin";
+
+input {
+    height: 26px;
+    padding: 4px 0;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 15px;
+}
+
+:host {
+    width: 100%;
+
+    ::ng-deep.dropdown-toggle {
+        margin: 0 !important;
+    }
+
+    ::ng-deep .datepicker {
+
+        .title {
+            width: 100px;
+        }
+
+        span.icon-cont {
+            margin-right: 12px;
+        }
+
+        .showIcon{
+            padding: 0 !important;
+        }
+    }
+}
+
+
+.date-image {
+    height: 30px;
+    width: 30px;
+    display: inline-grid;
+    margin-right: 12px;
+
+    &:hover:after {
+        background-color: $control-color-blue;
+
+    }
+
+    &:after {
+        mask-image: url("../../../../assets/svg/date-circle.svg");
+        mask-repeat: no-repeat;
+        mask-position: top 50% right 0;
+        background-color: $color-text-grey;
+        mask-size: 30px;
+        content: '';
+    }
+}
+
+
+.block {
+    display: flex;
+
+    .title {
+        font-size: 12px;
+        line-height: 12px;
+        color: #738C99;
+        // padding-top: 3px;
+        margin: 0 12px 0 0;
+        font-weight: normal;
+    }
+
+
+    ::ng-deep {
+        .menu-value,
+        .text-date {
+            margin: 0;
+            font-size: 14px;
+            line-height: 18px;
+            color: $color-text-black;
+        }
+
+        .menu-value {
+            min-width: 200px;
+            padding: 5px;
+        }
+    }
+}
+
+.datepicker {
+    width: 50%;
+}
+
+.actions {
+    button {
+        height: 24px;
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    button[type="button"] {
+        line-height: 15px;
+        background-color: #fff;
+        padding-right: 0;
+        max-width: 50%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.add-assignee {
+    cursor: pointer;
+    color: rgba(119, 141, 161, 0.7);
+    padding: 5px;
+    // width: 285px;
+    // flex-basis: 285px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    font-weight: normal;
+
+
+    .add-icon {
+
+        // width: 35px;
+        // height: 35px
+        flex-shrink: 0;
+
+        width: 25px;
+        height: 25px;
+
+        border-radius: 50%;
+        border: 1px dashed $color-text-grey;
+        color: $color-text-grey;
+        margin-right: 8px;
+        position: relative;
+
+        i {
+            font-weight: 600;
+            font-size: 14px;
+            margin: 2px 2px 0;
+        }
+    }
+
+    .title {
+        white-space: nowrap;
+        // font-size: 14px;
+        // line-height: 19px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &:hover {
+        .add-icon {
+            color: $control-color-blue;
+            border: 1px dashed $control-color-blue;
+        }
+
+        .title {
+            color: $control-color-blue;
+        }
+    }
+
+    &.disabled {
+        //cursor: default;
+        //user-select: none;
+        @include disabled();
+
+        span.title {
+            color: $control-color-grey;
+        }
+
+        .add-icon {
+            color: $control-color-grey;
+        }
+    }
+}

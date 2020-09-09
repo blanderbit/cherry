@@ -1,0 +1,14 @@
+<div ngbDropdown (openChange)="toggled($event)">
+
+  <button type="button" id="dropdown" class="m-0" ngbDropdownToggle>
+    <ng-content class="content"></ng-content>
+  </button>
+
+  <div ngbDropdownMenu aria-labelledby="dropdown p-y-5">
+    <button type="button" ngbDropdownItem *ngFor='let item of items' (click)="check(item); ">
+      <i class="icon-{{item?.icon}} custom"></i>
+      <span>{{item.title}}</span>
+    </button>
+  </div>
+
+</div>

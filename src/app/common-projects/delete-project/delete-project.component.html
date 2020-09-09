@@ -1,0 +1,18 @@
+<app-dialog>
+    <div
+        class="header text-overflow-ellipsis"> {{"delete.delete" | translate}} {{project?.name}} {{"delete.project" | translate}}</div>
+    <ng-container ngProjectAs=".body">
+
+        <div class="body-description">
+            {{project.members.length}} {{"delete.description" | translate}}
+        </div>
+        <div class="body-title">{{"delete.title" | translate}}</div>
+        <ul class="body-list">
+            <li *ngFor="let i of [0,1,2]">{{("delete.list." + i) | translate}}</li>
+        </ul>
+    </ng-container>
+    <ng-container ngProjectAs=".actions">
+        <button class="default large" (click)="close()">{{"delete.cancel" | translate}}</button>
+        <button class="danger large" (click)="submit()">{{"delete.confirm" | translate}}</button>
+    </ng-container>
+</app-dialog>

@@ -1,0 +1,17 @@
+ <img src="../../../assets/img/verify-email.png" alt="verify email">
+
+    <h2 class="w-100 m-t-10 m-b-25">
+        {{title}}
+    </h2>
+
+    <div class="text-center">
+        <ng-content></ng-content>
+    </div>
+
+    <div class="text-center m-t-20 resend-email">
+        <div>
+            Didn't receive the email yet?
+        </div>
+        Please check your spam folder, or
+        <a class="f-w-600 color-blue cursor-pointer" (click)="resend($event)">resend email.</a>
+    </div>

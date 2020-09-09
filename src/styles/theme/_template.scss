@@ -1,0 +1,14 @@
+.#{$view} {
+
+    .navigation-theme {
+        background: $background;
+    }
+
+    .theme-color {
+        color: $background;
+    }
+
+    .notifications-color {
+        background: $notification;
+    }
+}

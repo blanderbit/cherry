@@ -1,0 +1,134 @@
+$basicFont: 'Open Sans', sans-serif;
+$grey_icon: #738C99;
+$blue: #00A3FF;
+
+.calendar {
+    min-width: 100%;
+    max-width: 100%;
+    background: none;
+    font-family: $basicFont;
+
+    .calendar-nav {
+        padding: 11px 8px 0;
+        background: none;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #738C99;
+        font-weight: 700;
+        justify-content: stretch;
+        display: flex;
+        margin: 5% calc(33% / 7 - 16px) 4px;
+
+        .calendar-nav-title {
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+
+    .calendar-nav-next-month,
+    .calendar-nav-previous-month {
+        .button {
+            padding: 0 5px;
+            box-shadow: none;
+            background-color: transparent;
+
+            svg {
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #738C99;
+                font-weight: 600;
+
+                width: 8px;
+                height: 16px;
+                outline: none;
+            }
+        }
+    }
+
+    .calendar-nav-previous-month {
+        margin-left: 8px;
+    }
+
+    .calendar-header {
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 100%;
+        text-align: center;
+        color: #314149;
+        padding: 0 0 6px;
+
+        .calendar-date {
+            padding-top: 0;
+            color: #314149;
+        }
+    }
+
+    .calendar-body {
+        padding: 0;
+
+        .calendar-date {
+            padding: 0 1px;
+            max-width: 24px;
+            max-height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .date-item {
+                padding: 0;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 15px;
+                text-align: center;
+                color: #485056;
+                border: none;
+                background: transparent;
+                width: 24px;
+                height: 26px;
+                transition: none;
+            }
+
+            &.is-today {
+                border-color: transparent;
+
+                .date-item {
+                    color: #00A3FF;
+                    background: rgba(218, 239, 250, 0.6);
+                    border-radius: 2px;
+                    border-color: transparent;
+                }
+            }
+
+            &.is-selected {
+                border-color: transparent;
+
+                .date-item {
+                    color: #fff;
+                    background: $blue;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+
+
+    .calendar-body-year {
+        padding: 0 5px;
+
+        .calendar-date {
+            max-width: 25%;
+            padding-top: 7.14286%;
+            padding-bottom: 7.14286%;
+            width: 25%;
+            min-width: 25%;
+        }
+
+        .date-item {
+            text-transform: uppercase;
+        }
+    }
+}

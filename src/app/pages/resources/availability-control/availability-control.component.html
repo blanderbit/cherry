@@ -1,0 +1,23 @@
+<span class="title">{{'form.availability' | translate}}</span>
+
+<div *ngFor="let day of Days" class="wrapper" [formGroup]="getFormGroup(day)">
+
+    <div class="custom-control  custom-checkbox">
+        <app-checkbox
+            class="color-blue"
+            [borderRadius]="8"
+            size="16"
+            [id]="'day' + day"  formControlName="enabled"></app-checkbox>
+<!--        <input type="checkbox" class="custom-control-input" [id]="'day' + day" formControlName="enabled">-->
+        <label class=""
+               [for]="'day' + day">{{('form.day.' + day) | translate}}</label>
+    </div>
+
+    <div class="input-control">
+        <input class="hours"
+               formControlName="time"
+               [placeholder]="'form.count' | translate"/>
+        <span>{{'form.hrs' | translate}}</span>
+    </div>
+
+</div>

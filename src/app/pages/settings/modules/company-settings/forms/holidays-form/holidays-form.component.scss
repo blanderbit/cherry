@@ -1,0 +1,71 @@
+@import '../../../../../../../styles/core/variables';
+
+
+.item {
+    &:nth-of-type(1) {
+        width: 70%;
+    }
+
+    &:nth-of-type(2) {
+        width: 30%;
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.app-form-control:has(app-datepicker) {
+    padding: 0;
+    background-color: red;
+}
+
+app-form-control {
+    height: 36px !important;
+}
+
+.form-control {
+    height: 36px;
+}
+
+:host ::ng-deep {
+    .field-control {
+        .field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            div {
+                width: 100%;
+            }
+        }
+    }
+
+    .datepicker-control {
+        .span-container, .form-group, .input-group {
+            width: 100%;
+        }
+
+        .datepicker {
+            width: 100%;
+            justify-content: flex-start;
+
+            .icon-cont {
+                border: none;
+                order: 2;
+                height: auto;
+                width: auto;
+                margin-left: auto;
+                margin-right: 10px !important;
+
+                i {
+                    font-size: 20px !important;
+                    color: $color-text-grey;
+                    line-height: 20px !important;
+                }
+            }
+        }
+    }
+}
+
+

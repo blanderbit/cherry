@@ -1,0 +1,172 @@
+@import '../../../styles/core/variables';
+
+input {
+    display: none !important;
+}
+
+.faded {
+    background-color: $control-color-blue;
+    color: #fff;
+}
+
+.input-group.showIcon {
+    padding-right: 40px;
+}
+
+.button-transparent {
+    background: transparent;
+    outline: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.custom-day {
+    border-radius: 2px;
+}
+
+.disabled {
+    pointer-events: none;
+    //user-select: none;
+}
+
+:host {
+    height: 100%;
+    display: flex;
+
+    ::ng-deep.dropdown-menu.show {
+        //margin-top: 40px;
+    }
+}
+
+::ng-deep ngb-datepicker {
+    font-family: "Open-Sans light";
+    width: 291px;
+    border-radius: 8px !important;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+
+    [ngbDatepickerDayView] {
+        width: 34px !important;
+        height: 24px !important;
+        font-size: 13px !important;
+        line-height: 12px !important;
+    }
+
+    .ngb-dp-day.disabled * {
+        color: $color-text-grey;
+        opacity: 0.8;
+        font-weight: normal;
+    }
+
+    .bg-primary {
+        background-color: #00A3FF !important;
+    }
+
+    .ngb-dp-month {
+        width: 291px !important;
+    }
+
+    .ngb-dp-header {
+        background-color: #fff !important;
+
+        .ngb-dp-month-name {
+            color: #738C99;
+            font-weight: bold;
+            background-color: #fff !important;
+            font-size: 13px;
+            line-height: 16px;
+            text-transform: uppercase;
+            padding-top: 5px;
+        }
+    }
+
+    .ngb-dp-arrow {
+
+        button {
+            color: #738C99;
+            width: 28px;
+            height: 28px;
+        }
+
+        span {
+            width: 7px;
+            height: 7px;
+            border-right-width: 2px;
+            border-top-width: 2px;
+        }
+    }
+
+    .ngb-dp-weekdays {
+        background: #F8F8F7 !important;
+        border: none;
+    }
+
+    .ngb-dp-week {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ngb-dp-week .ngb-dp-weekdays .bg-light {
+        width: 291px !important;
+    }
+
+    .ngb-dp-day,
+    .ngb-dp-week-number,
+    .ngb-dp-weekday {
+        width: 34px !important;
+        height: 24px;
+        font-style: normal;
+        font-size: 13px;
+        line-height: 12px;
+    }
+
+    .ngb-dp-weekday {
+        color: #48505A;
+        font-weight: 800;
+        padding-top: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .ngb-dp-week-number, .btn-light {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ngb-dp-day {
+        font-weight: 600;
+    }
+
+    .ngb-dp-today {
+        background: rgba(218, 239, 250, 0.6);
+    }
+
+    .btn-light:hover {
+        color: #fff;
+        background-color: #00A3FF;
+        //border-color: rgba(218, 239, 250, 0.6);
+    }
+}
+
+.datepicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon-cont {
+        position: absolute;
+        right: 0;
+    }
+}
+
+.form-inline.invalid {
+    color: red;
+
+    .icon-cont {
+
+        color: red;
+        border-color: red;
+    }
+}

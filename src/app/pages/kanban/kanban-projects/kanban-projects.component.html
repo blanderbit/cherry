@@ -1,0 +1,51 @@
+<app-loader *ngIf="loading" class="absolute"></app-loader>
+
+<div class="d-flex flex-column w-100 p-t-30 p-x-40 p-b-0">
+
+    <div class="component-header m-b-15">
+        <h1 class="m-y-0">{{ "side.kanban-all" | translate  }}</h1>
+
+
+        <div class="d-flex align-items-center">
+            <div (click)="toggleCardView()" class="icon-wrapper ripple">
+                <span class="size-xl color-grey view-icon ">
+                    <i class="" [ngClass]="isCardView ? 'icon-list' : 'icon-grid'"></i>
+                </span>
+            </div>
+
+            <!--            <ng-container *hasPermission="permissionAction.UpdateProject">-->
+            <menu class="ml-1" [items]="menuItems">
+                <ng-container>
+                    <i class="icon-vertical-dots"></i>
+                </ng-container>
+            </menu>
+            <!--            </ng-container>-->
+        </div>
+    </div>
+
+    <app-grid-container *ngIf="!isCardView; else gridView"
+                        [@enterAnimation]
+                        [redirectToDetails]="true"
+                        [rowData]="items">
+
+    </app-grid-container>
+
+    <ng-template #gridView>
+        <div class="d-flex flex-column w-100 h-0 flex-grow-1">
+            <div class="card-container overflow-auto d-flex flex-wrap flex-grow-1" [@enterAnimation]>
+                <div class="no-content" [ngClass]="items && !items?.length ? 'display' : 'hide'">
+                    <div class="place-holder"></div>
+                    <h3>{{ "details.no-content" | translate }}</h3>
+                </div>
+
+                <app-project-card *ngFor="let project of items || []"
+                                  [project]="project"
+                ></app-project-card>
+
+            </div>
+
+            <app-paginator *ngIf="items && items?.length"></app-paginator>
+        </div>
+    </ng-template>
+
+</div>

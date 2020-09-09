@@ -1,0 +1,37 @@
+:host {
+    display: inline-block;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+
+    .icon-cont {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border: 1px dashed #BBCCD9;
+        color: #BBCCD9;
+        border-radius: 50%;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+            border-color: #00A3FF;
+            color: #00A3FF;
+        }
+    }
+}

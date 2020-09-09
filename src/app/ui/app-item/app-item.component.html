@@ -1,0 +1,15 @@
+<div
+    [routerLink]="getLink(app)"
+
+    [class.pointer-events-none]="!allowNavigation || disabled || !getLink(app)"
+    class="app-container">
+    <div
+        class="icon-container {{app.toLocaleLowerCase()}}"
+        [class.disabled]="disabled"
+
+    >
+        <i class="icon-{{getIcon(app)}}"></i>
+    </div>
+
+    {{translatePrefix + '.' + app | translate}}
+</div>  

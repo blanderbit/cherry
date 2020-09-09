@@ -1,0 +1,40 @@
+    <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+<h1 class="f-w-600 m-b-35">Notifications</h1>
+
+<form class="settings-form" [formGroup]="form">
+    <table class="notifications-table">
+        <tr>
+            <th class="title-column l-h-18">Tasks</th>
+            <th class="checkbox-column l-h-18">Web</th>
+            <th class="checkbox-column l-h-18">Email</th>
+        </tr>
+
+        <tr *ngFor="let setting of taskSettingKeys" [formArrayName]="setting">
+            <td>{{'setting.' + setting | translate}}</td>
+            <td><input type="checkbox" formControlName="0"></td>
+            <td><input type="checkbox" formControlName="1"></td>
+        </tr>
+    </table>
+
+    <div class="divider m-t-15 m-b-15"></div>
+
+    <table class="notifications-table">
+        <tr>
+            <th class="title-column l-h-18">Projects</th>
+            <th class="checkbox-column l-h-18">Web</th>
+            <th class="checkbox-column l-h-18">Email</th>
+        </tr>
+
+        <tr *ngFor="let setting of projectSettingKeys" [formArrayName]="setting">
+            <td>{{'setting.' + setting | translate}}</td>
+            <td><input type="checkbox" formControlName="0"></td>
+            <td><input type="checkbox" formControlName="1"></td>
+        </tr>
+    </table>
+
+    <div class="buttons-container">
+        <button class="medium default" (click)="cancel()" [disabled]="!form.dirty">{{'action.cancel' | translate}}</button>
+        <button class="medium primary" (click)="save()">{{'action.save' | translate}}</button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+<div class="modal-preview">
+
+
+    <div class="modal-header">
+        <h4 class="modal-title
+         text-overflow-ellipsis
+         m-l-10" id="modal-title">{{item.nameOriginal || item.name}}</h4>
+        <div class="modal-actions">
+
+            <a *ngIf="item.taskId"
+               class="icon-locate m-l-10 cursor-pointer"
+               [routerLink]="['/', routes.Tasks, item?.taskId]"
+               [queryParams]="{projectId: item?.projectId}"
+               target="_blank"
+            >
+            </a>
+
+            <ng-template [hasPermission]="previewPermissions.downloadAction">
+                <i class="icon-download m-l-10 cursor-pointer" (click)="downloadFile()"></i>
+            </ng-template>
+
+            <ng-template [hasPermission]="previewPermissions.deleteAction">
+                <i *ngIf="!hideDeleteAction" class="icon-delete m-l-10 cursor-pointer" (click)="deleteFile()"></i>
+            </ng-template>
+            <i class="icon-close m-l-10 cursor-pointer" (click)="modal.dismiss('Cross click')"></i>
+        </div>
+    </div>
+    <div class="modal-body d-flex justify-content-center">
+
+        <img class="file-attachment-image"
+             *ngIf="image"
+             [src]="(item && item.link) || ''"
+             ImageLoadDirective
+             [item]="item"
+             [class.file-attachment-image-file]="item && item.isFile"
+        />
+        <video *ngIf="video" controls width="80%">
+            <source
+                [src]="(item && item.link) || ''"
+                ImageLoadDirective
+                [item]="item"
+                [class.file-attachment-image-file]="item && item.isFile"
+                type="{{item.mimeType}}"
+            >
+        </video>
+    </div>
+</div>

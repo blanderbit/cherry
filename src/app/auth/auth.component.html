@@ -1,0 +1,9 @@
+<div class="auth-container w-100 h-100 d-flex flex-column justify-content-center align-items-center" @skipInitialAnimation>
+    <!--    <app-loader *ngIf="loading" class="absolute"></app-loader>-->
+    <!--    <app-auth-loader *ngIf="true" class="position-absolute"></app-auth-loader>-->
+    <div class="text-center" [class.d-none]="!showLogo">
+        <img src="../../../assets/img/logo.png" alt="Cerri" class="logotype">
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

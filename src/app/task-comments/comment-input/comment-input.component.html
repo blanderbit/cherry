@@ -1,0 +1,56 @@
+<form class="comments w-100 d-flex flex-column" [formGroup]="form" (ngSubmit)="apply($event)">
+    <app-cloud-upload
+        #cloud
+        [showOverlay]="true"
+        [updateFiles]="true"
+        [multipleLoaderFiles]="true"
+        [acceptFile]="acceptFile">
+        <span #context></span>
+    </app-cloud-upload>
+    <div class="message-input position-relative d-flex">
+        <input type="file" #fileInput class="d-none" (change)="onFileSelected($event)" multiple>
+
+        <button
+            type="button"
+            [disabled]="disabled"
+            [matMenuTriggerFor]="menu"
+            class="attach-file d-flex">
+            <i class="icon-attach-file-vector"></i>
+        </button>
+
+        <mat-menu #menu="matMenu" xPosition="after" class="attachment-menu">
+            <ng-template matMenuContent>
+                <ng-template [hasPermission]="permissionAction.AttachLinkToTask">
+                    <div class="menu-item">
+                        <button mat-menu-item (click)="attachLink()">
+                            <i class="icon-addLink m-r-8"></i>
+                            <span>{{ 'Add file from link' | translate}}</span>
+                        </button>
+                    </div>
+                </ng-template>
+
+                <ng-template [hasPermission]="permissionAction.AttachFileToTask">
+                    <div class="menu-item">
+                        <button mat-menu-item (click)="attachFile()">
+                            <i class="icon-attach-file-menu m-r-8"></i>
+                            <span>{{ 'Upload file from your device' | translate}}</span>
+                        </button>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </mat-menu>
+
+        <div class="w-100">
+
+            <app-mentions-input class="mentions-input"
+                                formControlName="text"
+                                [placeholder]="'form.commentPlaceholder'"
+                                (send)="onSendMessage($event)"
+                                [resources]="resources"
+                                (focus)="toggleFocusState()"
+                                (paste)="handlePaste($event)">
+            </app-mentions-input>
+
+        </div>
+    </div>
+</form>

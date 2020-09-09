@@ -1,0 +1,7 @@
+<label class="radio-button f-w-600 sz-14 l-h-16">
+    <span class="label d-block" [class.color-blue]="radio.checked">
+        {{label | translate}}
+    </span>
+    <input type="radio" name="radio" [value]="value" #radio [formControl]="control">
+    <span class="check-mark"></span>
+</label>

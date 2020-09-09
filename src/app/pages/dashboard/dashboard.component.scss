@@ -1,0 +1,122 @@
+$active-route-mark-width: 3px;
+
+.wrapper {
+    display: flex;
+
+    .menu-wrapper {
+        background-color: #fff;
+    }
+}
+
+.overflow-container {
+    margin-right: $active-route-mark-width;
+    background: #F6F6F8;
+    //overflow: hidden;
+    height: 100%;
+    border-right: 1px solid rgba(196, 210, 221, 0.5);
+}
+
+.icon-arrow {
+    line-height: 0;
+}
+
+.left-menu {
+    //background: #F6F6F8;
+    //border-right: 1px solid rgba(196, 210, 221, 0.5);
+    display: flex;
+    flex-direction: column;
+    max-width: 215px;
+    min-width: 215px;
+    transition-property: max-width, min-width;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    overflow: visible;
+
+    ::ng-deep * {
+        visibility: visible;
+        transition-property: visibility;
+        transition-duration: .25s;
+        transition-timing-function: ease-in-out;
+    }
+
+    &.collapsed {
+        max-width: 20px;
+        min-width: 20px;
+        background: #F6F6F8;
+        border-right: 1px solid rgba(196, 210, 221, 0.5);
+
+        ::ng-deep * {
+            visibility: hidden;
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    overflow: auto;
+}
+
+.arrow {
+    z-index: 110;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px #ccc;
+    margin-left: -15px;
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .25s ease-in-out;
+    cursor: pointer;
+
+    &.hide {
+        transform: rotate(-180deg);
+    }
+
+    i {
+        font-size: 0.6em;
+        transform: rotate(180deg);
+        //margin-bottom: 3px;
+    }
+}
+
+:host-context(body.home) {
+    .left-menu {
+        display: none !important;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
+
+::ng-deep .active-link {
+    position: relative;
+    color: #00A3FF;
+    background-color: rgba(218, 239, 250, 0.6);
+    //border-right: 3px solid #00A3FF;
+    //border-radius: 3px;
+    width: calc(100%);
+    overflow: visible;
+
+    .side-divider {
+        width: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: -4px;
+        border: 1.5px solid transparent;
+        background-color: #00A3FF;
+        color: black;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+
+
+realtime-frame {
+    width: 300px;
+}

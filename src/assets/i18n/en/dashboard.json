@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "title": "Dashboard",
+        "description": "Dashboard description"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "text": "Angular template",
+        "not-found": "Not found"
+    },
+    "search": {
+        "placeholder": "Search Cerri",
+        "text": "Type something to search the projects, tasks, people and attachments"
+    },
+    "navigation": {
+        "switch-to": "Switch to",
+        "tasks": "Task",
+        "timesheet": "Time",
+        "projects": "Project",
+        "gantt": "Gantt",
+        "calendar": "Calendar",
+        "resources": "Resource",
+        "kanban": "Kanban"
+    },
+    "companies": {
+        "add": "Add new company",
+        "switch-company": "Switch company"
+    },
+    "profile": {
+        "edit": "Edit profile",
+        "logout": "Logout"
+    },
+    "action": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "successfully-updated": "Successfully updated",
+        "error": "error"
+    },
+    "notifications": "Notifications",
+    "project": "project.",
+    "in": "in",
+    "notificationMessage": [
+        "to sync with back-end",
+        "has assign you the task",
+        "has assign you the deliverable",
+        "has completed assignment",
+        "has completed their part of the shared task",
+        "has completed the task",
+        "has completed their part of the shared deliverable",
+        "has completed the deliverable",
+        "cancelled the task",
+        "cancelled the deliverable",
+        "has removed your assignment from the task",
+        "has removed your assignment from the deliverable",
+        "has deleted your task",
+        "has deleted your deliverable",
+        "commented on",
+        "commented on",
+        "uploaded attachment(s) to the ",
+        "uploaded attachment(s) to the ",
+        "has invited you to join the",
+        "has completed your assignment"
+    ]
+}

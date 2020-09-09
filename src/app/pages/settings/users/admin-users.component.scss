@@ -1,0 +1,51 @@
+// TODO: Remove
+
+h1 {
+    margin-bottom: 30px;
+}
+
+th {
+    padding: 8px 0;
+}
+
+td {
+    padding: 5px 0;
+}
+
+button.create-user {
+    width: 200px;
+    margin-bottom: 40px;
+
+    .icon-plus {
+        font-size: 12px;
+    }
+}
+
+.custom-styles {
+    height: 100%;
+    min-height: 400px;
+}
+
+:host {
+    ag-grid-angular {
+        //max-width: 800px;
+        width: 100%;
+    }
+}
+
+//.container{
+//    position: relative;
+//}
+
+.admin-users-container {
+    position: relative;
+}
+
+.is-admin-checkbox-container {
+    display: flex;
+
+    input {
+        width: 15px;
+        height: 15px;
+    }
+}

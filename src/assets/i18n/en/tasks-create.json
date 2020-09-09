@@ -1,0 +1,38 @@
+{
+    "description-placeholder": "Enter description",
+    "start-date-placeholder": "Start date",
+    "end-date-placeholder": "End date",
+    "errors": {
+        "name": {
+            "required": "Name is required",
+            "minlength": "Minimum field length is 3 characters",
+            "maxlength": "Maximum field length is 256 characters"
+        },
+        "startDate": {
+            "required": "Start date is required",
+            "dateSequenceError": "Start date must be less than end date"
+        },
+        "endDate": {
+            "required": "End date is required"
+        },
+        "description": {
+            "maxlength": "Maximum field length is 2048 characters"
+        }
+    },
+    "task": {
+        "name": "New task",
+        "new-item": "Create a New Task",
+        "action": {
+            "successfully-created": "Task successfully created",
+            "create-error": "Failed to create task"
+        }
+    },
+    "deliverable": {
+        "name": "New deliverable",
+        "new-item": "Create a New Deliverable",
+        "action": {
+            "successfully-created": "Deliverable successfully created",
+            "create-error": "Failed to create deliverable"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<div class="addLink">
+
+    <div class="modal-header">
+        <h4 class="modal-title">{{'add-link.title' | translate}}</h4>
+
+        <i class="icon-close-button m-l-10 cursor-pointer" (click)="modal.dismiss('Cross click')"></i>
+
+    </div>
+    <form [formGroup]="form" class="modal-body">
+        <label>{{'add-link.title-field' | translate}}</label>
+        <app-form-control [hideError]="!showError('title')" [error]="getError('title')">
+            <input formControlName="title" type="text"
+                   [placeholder]="'add-link.title-field-placeholder' | translate"
+                   [(ngModel)]="title">
+        </app-form-control>
+        <label class="add-link-field">{{'add-link.file-field' | translate}}</label>
+        <app-form-control
+            [hideError]="!showError('url')"
+            [error]="getError('url')">
+            <input formControlName="url" type="text"
+
+                   [placeholder]="'add-link.file-field-placeholder' | translate"
+                   [(ngModel)]="url">
+        </app-form-control>
+
+    </form>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary cancel"
+                (click)="modal.dismiss('cancel click')">{{'add-link.cancel' | translate}}
+        </button>
+        <button type="button"
+                ngbAutofocus
+                [disabled]="form.invalid"
+                class="btn btn-primary add-file"
+                (click)="modal.close(newLink())">{{'add-link.add-file' | translate}}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<app-loader *ngIf="loading" class="absolute"></app-loader>
+<div>
+    <h1 class="f-w-600 m-b-35">{{ "profile-settings.title" | translate }}</h1>
+
+    <h3 class="f-w-700 m-b-20">{{ "profile-settings.subtitle" | translate }}</h3>
+
+    <div class="image-container m-b-8">
+        <app-cloud-upload *hasPermission="[permissionAction.ChangePhoto]"
+                          [showOverlay]="false"
+                          [acceptFile]="acceptFile">
+            <app-avatar
+                [acronym]="getAcronym()"
+                [avatarUrl]="avatar$ | async" size="120" class="cursor-pointer"></app-avatar>
+            <a class="change-btn">{{ "profile-settings.change" | translate }}</a>
+        </app-cloud-upload>
+
+        <app-avatar *hasNoPermission="[permissionAction.ChangePhoto]"
+                    [avatarUrl]="avatar$ | async"
+                    [acronym]="getAcronym()"
+                    size="120"
+        ></app-avatar>
+    </div>
+
+    <div>
+        <form class="profile-form" [formGroup]="form" (submit)="apply($event)"
+              [hasEditPermission]="permissionAction.UpdateProfile">
+            <app-form-control [title]="'profile-settings.first-name'" error="{{errors.firstName}}">
+                <input type="text" id="profile-settings.first-name" formControlName="firstName">
+            </app-form-control>
+
+            <app-form-control [title]="'profile-settings.last-name'" error="{{errors.lastName}}">
+                <input type="text" id="profile-settings.last-name" formControlName="lastName">
+            </app-form-control>
+
+            <app-form-control [title]="'profile-settings.email'" error="{{errors.email}}">
+                <input type="text" id="profile-settings.email" formControlName="email" readonly>
+            </app-form-control>
+
+            <app-form-control [title]="'profile-settings.phone'" error="{{errors.email}}">
+                <input type="text" id="phone" [placeholder]='"profile-settings.phone-placeholder" | translate'
+                       formControlName="phone">
+            </app-form-control>
+        </form>
+
+        <app-form-control [title]="'profile-settings.language-preferences'" error="{{errors.email}}">
+
+            <app-select
+                class="language-select"
+                [showCaret]="true"
+                [container]="null"
+                [value]="currentLang"
+                (itemSelect)="changeLang($event)"
+                [placement]="'bottom-left'"
+                [placeholder]="'Select...'"
+                [options]="langOptions$ | async">
+
+            </app-select>
+        </app-form-control>
+    </div>
+</div>

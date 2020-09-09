@@ -1,0 +1,62 @@
+<div class="company-settings-container d-flex flex-column h-100 position-relative">
+    <app-loader class="absolute" *ngIf="loading"></app-loader>
+
+    <ng-template #headerContainer></ng-template>
+
+    <ng-container *ngIf="!header">
+
+        <h1 class="">{{'company-settings' | translate}} / {{'title' | translate}}</h1>
+
+        <h2 *ngIf="('header.description' | translate).length" class="">{{'title' | translate}}</h2>
+
+        <div>
+            {{'header.description' | translate}}
+            <!--  -->
+            <!-- <a class="edit" routerLink="description">{{'edit' | translate}}</a> -->
+        </div>
+
+
+        <div class="d-block">
+            <button *hasPermission="permissions.create" class="create-item primary medium p-x-16 w-auto"
+                    (click)="showCreateForm()">
+                <span class="m-r-30">{{'add' | translate}}</span>
+                <i class="icon-plus"></i>
+            </button>
+
+            <span class="m-x-15"></span>
+
+            <!--        <span class="color-blue cursor-pointer">-->
+            <!--            <i class="icon-edit m-r-8 sz-13 l-h-13"></i>-->
+            <!--            <span class="sz-13 l-h-18 f-w-600">{{'importFromExcel' | translate}}</span>-->
+            <!--        </span>-->
+        </div>
+
+    </ng-container>
+
+    <form [formGroup]="formInstance?.form || fakeForm"
+          [ngClass]="{'hidden': !createFormShown}"
+          (submit)="apply($event)"
+          class="create-component w-100 m-b-10">
+        <div class="form">
+            <ng-template #container></ng-template>
+        </div>
+
+        <div [class.m-t-34]="isHolidayPage" class="form-actions">
+            <button class="button primary" type="submit">
+                {{(isEdit() ? 'action.save' : 'action.add')  | translate}}
+            </button>
+
+            <button class="button secondary cancel-button" (click)="hideCreateForm()" type="button">
+                {{'action.cancel' | translate}}
+            </button>
+        </div>
+    </form>
+
+    <div class="w-100 h-100">
+        <!--        <pre>-->
+        <!--            {{items | json}}-->
+        <!--        </pre>-->
+        <app-grid-container [rowData]="items" [colDefs]="colsDef"
+                            [redirectToDetails]="redirectToDetails"></app-grid-container>
+    </div>
+</div>

@@ -1,0 +1,531 @@
+@import '../../_shared/styles/scss/variables';
+@import '../../../../../styles/core/variables';
+
+:host {
+    height: 100%;
+}
+
+::ng-deep .main-content {
+    width: 100%;
+    margin-right: 45px;
+    padding: 16px 40px;
+    transition: margin-left 300ms cubic-bezier(0.2, 0, 0, 1) 0s;
+
+    .row-disabled {
+        pointer-events: none;
+        color: $color-text-grey;
+
+        .comments-button {
+            pointer-events: auto;
+        }
+
+        .datatable-row-title {
+            color: $color-text-grey;
+
+            &.fist-row {
+                background-color: #ffffff;
+
+                &:hover {
+                    background-color: $blue_selected;
+                }
+            }
+        }
+
+        .mat-input-element {
+            color: $color-text-grey;
+
+        }
+    }
+
+    h1 {
+        font-size: 28px;
+        line-height: 31px;
+        position: relative;
+        padding: 0 0 0 30px;
+        margin: 0 0 25px 0;
+
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 20px;
+        }
+    }
+
+    ::ng-deep .header-bottom {
+        .row {
+            align-items: flex-end;
+        }
+
+        .mat-form-field-infix {
+            line-height: 34px;
+        }
+
+        &-date {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: $grey_icon;
+        }
+
+        &-subdate {
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 33px;
+        }
+
+        &-open {
+            display: inline-block;
+            margin-left: 10px;
+            border: 1px solid $grey_border;
+            text-align: center;
+            line-height: 28px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: $grey_icon;
+        }
+
+        &-period {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            vertical-align: middle;
+
+            li {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        &-export {
+            color: $grey_icon;
+            display: inline-block;
+            margin: 0 30px;
+            vertical-align: middle;
+
+            i {
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 32px;
+                font-style: normal;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .icon-download {
+                font-size: 12px;
+            }
+        }
+
+        &-period {
+            li {
+                color: rgba(115, 140, 153, 0.7);
+                font-weight: bold;
+                font-size: 12px;
+                font-style: normal;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+
+                &.__active {
+                    color: $grey_icon;
+                }
+            }
+
+            .check-element {
+                margin: 0 10px;
+                top: 5px;
+            }
+        }
+    }
+
+    .mat-form-field-wrapper, .mat-form-field-infix {
+        padding: 0 !important;
+    }
+
+    .mat-form-field-infix {
+        width: 250px;
+        font-weight: 300;
+        font-size: 26px;
+
+        input {
+            font-family: $basicFont;
+        }
+    }
+
+    .header-week-view {
+        .mat-form-field-infix {
+            width: 322px;
+        }
+    }
+
+    .header-day-view {
+        .mat-form-field-infix {
+            width: 154px;
+        }
+    }
+
+    .mat-icon-button:focus, .mat-icon-button:active {
+        outline: none;
+    }
+
+    .header-bottom-subdate {
+        .mat-button-wrapper {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #D9E0E3;
+            position: relative;
+            vertical-align: bottom;
+
+            svg {
+                display: none;
+            }
+
+            //&:after {
+            //    content: '\e81e';
+            //    font-family: "timeapp";
+            //    position: absolute;
+            //    top: 5px;
+            //    left: 5px;
+            //    font-size: 17px;
+            //}
+        }
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-infix {
+        border-top: 0;
+        padding: 0;
+    }
+
+    .mat-form-field-infix {
+        border-top: 0;
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        display: none !important;
+    }
+
+    .mat-progress-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin: -50px 0 0 -50px;
+    }
+}
+
+::ng-deep .datatable {
+    margin: 15px 0;
+    height: calc(100% - 78px);
+
+    &-empty {
+        padding: 50px;
+        text-align: center;
+        font-size: 10px;
+        line-height: 14px;
+        color: $grey_icon;
+
+        &-icon {
+            height: 56px;
+            background: url('../../../../../assets/images/empty.svg') no-repeat center;
+            width: 66px;
+            display: inline-block;
+        }
+
+        p {
+            opacity: .7;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+            color: $grey_icon;
+        }
+    }
+
+    &-footer {
+        border-top: 1px solid $grey_border;
+        padding: 20px;
+
+        .row {
+            align-items: center;
+        }
+    }
+
+    &-desc {
+        span {
+            color: $grey_icon;
+        }
+
+        &.text-right {
+            span {
+                padding-right: 0;
+                font-family: 'Open Sans', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 18px;
+            }
+        }
+    }
+
+    &-summ {
+        text-align: center;
+    }
+
+    &-row {
+        padding: 15px 20px 15px 20px;
+        border-top: 1px solid rgba(196, 210, 221, 0.5);
+        border-radius: 3px;
+
+        &-title {
+            strong {
+                display: block;
+                font-weight: 600;
+                font-size: 13px;
+                letter-spacing: -0.0857143px;
+                line-height: 18px;
+            }
+        }
+
+        &-desc {
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 18px;
+            color: $grey_icon;
+        }
+
+        &-comment {
+            color: $grey_icon;
+            background: transparent;
+            border: none;
+            font-size: 15px;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.comment-day {
+                position: relative;
+                top: -1px;
+            }
+        }
+
+        &-info {
+            align-items: center;
+            height: 100%;
+
+            input[type="text"], .mat-input-element {
+                padding: 0 3px !important;
+                text-align: center;
+                margin-left: -9px;
+                width: 65px !important;
+                display: block;
+                max-width: 65px;
+            }
+        }
+
+        &-wrapper {
+            position: relative;
+
+            input[type="checkbox"], .mat-checkbox {
+                position: absolute;
+                top: 2px;
+                left: 0;
+                z-index: 2;
+            }
+        }
+
+        &-delete.mat-button {
+            color: $red;
+            font-size: 20px;
+            position: absolute;
+            right: -45px;
+            top: -8%;
+            display: none;
+            padding: 0;
+            min-width: 20px;
+            max-width: 20px;
+        }
+
+
+
+        &.__checked, &.__hovered, &:hover {
+            background: $blue_selected;
+            cursor: pointer;
+
+            .datatable-row-title strong, .datatable-row-desc, .datatable-row-time {
+                color: $blue;
+            }
+
+            .datatable-row-delete {
+                display: block;
+                right: -39px;
+                padding-left: 7px;
+            }
+            .datatable-row-comment{
+                display: inline-block;
+            }
+        }
+
+        input[type="text"] {
+            background: #FFFFFF;
+            border: 1px solid rgba(196, 210, 221, 0.5);
+            box-sizing: border-box;
+            border-radius: 4px;
+            height: 36px;
+            width: 100%;
+            line-height: 36px;
+            padding: 0 13px;
+            font-size: 13px;
+
+            &:focus, &:active {
+                border-color: $blue !important;
+                outline: none;
+            }
+        }
+
+        .text-center {
+            input[type="text"] {
+                text-align: center;
+            }
+
+            .row {
+                align-content: center;
+                height: 100%;
+            }
+        }
+    }
+}
+
+::ng-deep .popup {
+    &-wrapper {
+        background: #FFFFFF;
+        border: 1px solid rgba(49, 65, 73, 0.0001);
+        min-width: 410px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+        border-radius: 8px;
+        position: absolute;
+        padding: 20px;
+        z-index: 10;
+        display: none;
+
+        &.__rightpopup {
+            top: 100%;
+            right: 0;
+        }
+
+        &.__active {
+            display: block;
+        }
+
+        &.__smaller {
+            min-width: 10px;
+        }
+
+        .mat-form-field {
+            display: block;
+            width: 100%;
+
+            textarea.mat-input-element {
+                text-align: left;
+                font-family: $basicFont;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 18px;
+                margin: 10px 0 0 0;
+                resize: none;
+            }
+
+            input[type="text"] {
+                text-align: left;
+                padding: 0 13px !important;
+            }
+
+            .mat-form-field-infix {
+                padding-top: 35px !important;
+
+                .mat-form-field-label-wrapper {
+                    padding-top: 0;
+                    top: 0;
+                }
+
+                .mat-form-field-label {
+                    top: 9px;
+                    margin: 0;
+                    font-family: $basicFont;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 12px;
+                    line-height: 20px;
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    &-form-wrapper {
+        margin: 8px 0;
+
+        label {
+            font-size: 12px;
+            line-height: 20px;
+            color: $grey_icon;
+            margin: 0;
+        }
+
+        input[type="text"], textarea {
+            background: #FFFFFF;
+            border: 1px solid rgba(196, 210, 221, 0.5);
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 18px;
+            color: #485056;
+            padding: 15px 9px;
+            text-align: left;
+            resize: none;
+            width: 100%;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.invisible-border {
+                border: none;
+                max-height: 50px;
+            }
+        }
+    }
+
+    &-title-avatar {
+        i {
+            color: #485056;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 0 10px;
+            vertical-align: middle;
+            display: inline-block;
+            font-style: normal;
+        }
+    }
+
+    &-form-buttons {
+        text-align: right;
+        margin: 20px 0 0 0;
+
+        .btn-main {
+            margin-left: 10px;
+            font-size: 11px;
+            width: 100px;
+            padding: 8px 0;
+            line-height: 13px;
+        }
+    }
+
+}

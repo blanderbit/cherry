@@ -1,0 +1,132 @@
+@import "../../../styles/core/variables";
+
+$send-message-button-width: 80px;
+$comments-offset-x: 15px;
+
+:host {
+    display: block;
+}
+
+.comments {
+    position: relative;
+
+    button, material-menu{
+        border-radius: 4px;
+    }
+
+    button.attach-file {
+        width: 46px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: $control-color-blue;
+        align-items: center;
+        justify-content: center;
+
+        &.icon-container[_ngcontent-platform-v1-c27]:active, &.icon-container[aria-expanded=true][_ngcontent-platform-v1-c27] {
+            //background-color: $control-color-blue;
+        }
+
+        padding: 0;
+        color: white;
+
+
+        i {
+            font-size: 17px;
+
+            &[class^="icon-"] {
+                &:before {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    background-color: $body-color-bg;
+                    mask-repeat: no-repeat;
+                    mask-position: bottom;
+                    mask-size: contain;
+                }
+            }
+        }
+
+        .icon-attach-file-vector {
+            &:before {
+                -webkit-mask-image: url(#{$icon-path-images}+$attach-file-vector);
+                mask-image: url(#{$icon-path-images}+$attach-file-vector);
+            }
+        }
+
+
+    }
+}
+
+.divider {
+    position: relative;
+
+    span {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        color: $control-color-grey;
+    }
+}
+
+::ng-deep {
+    .cdk-overlay-connected-position-bounding-box .attachment-menu {
+        background-color: #fff;
+
+        .mat-menu-content {
+            width: 250px;
+
+            button {
+
+                &.mat-menu-item {
+                    border-radius: 3px;
+
+                    i {
+                        &[class^="icon-"] {
+                            &:before {
+                                content: "";
+                                width: 12px;
+                                height: 12px;
+                                display: block;
+                                background-color: $color-text-grey;
+                                mask-repeat: no-repeat;
+                                mask-position: bottom;
+                                mask-size: contain;
+                            }
+                        }
+                    }
+
+                    .icon- {
+                        &addLink {
+                            &:before {
+                                -webkit-mask-image: url(#{$icon-path-images}+$add-from-link);
+                                mask-image: url(#{$icon-path-images}+$add-from-link);
+                            }
+                        }
+
+                        &attach-file-menu {
+                            &:before {
+                                -webkit-mask-image: url(#{$icon-path-images}+$attach-file-vector);
+                                mask-image: url(#{$icon-path-images}+$attach-file-vector);
+                            }
+                        }
+
+
+                    }
+
+                    &:hover {
+                        i {
+                            &[class^="icon-"] {
+                                &:before {
+                                    background-color: $control-color-blue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

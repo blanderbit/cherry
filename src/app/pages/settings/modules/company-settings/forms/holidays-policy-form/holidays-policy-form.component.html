@@ -1,0 +1,20 @@
+<div class="d-flex form-container" [formGroup]="form">
+    <app-form-item class="item" label="{{'name' | translate}}">
+        <app-form-control [error]="errors.name">
+            <input class="p-y-9"
+                   type="text"
+                   placeholder="{{'name-placeholder' | translate}}"
+                   formControlName="name"
+            ></app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'country' | translate}}">
+        <app-form-control [error]="errors.countryId">
+            <app-autocomplete-control [provider]="countriesProvider"
+                                      class="w-100"
+                                      formControlName="countryId"
+                                      placeholder="select-country"
+            ></app-autocomplete-control>
+        </app-form-control>
+    </app-form-item>
+</div>

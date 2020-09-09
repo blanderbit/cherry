@@ -1,0 +1,105 @@
+@import "../../../styles/core/variables";
+
+$send-message-button-width: 80px;
+
+.wrapper {
+    position: relative;
+}
+
+.autocomplete {
+    width: auto;
+    height: auto;
+    max-height: 310px;
+    padding: 5px;
+    position: absolute;
+    bottom: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+
+    .resource-item {
+        min-width: 270px;
+        padding: 5px 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        font-family: 'Open Sans', sans-serif;
+
+        .email {
+            font-weight: normal;
+            font-size: 11px;
+        }
+
+        &:hover {
+            color: $control-color-blue;
+            background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+            border-radius: 4px;
+        }
+    }
+}
+
+.input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    line-height: 23px;
+    background-color: #ffffff;
+    padding: 6px $send-message-button-width + 16px 4px 16px;
+    min-height: 36px;
+    resize: none;
+    font-size: 13px;
+
+    &:disabled {
+        border: 1px solid $grey;
+        opacity: 0.7;
+    }
+}
+
+.send-message {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: linear-gradient(0deg, rgba(115, 140, 153, 0.4), rgba(115, 140, 153, 0.4)), #FFFFFF;
+    border-radius: 3px;
+    width: $send-message-button-width;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 18px;
+
+    &.send-message-active {
+        background-color: $control-color-blue;
+    }
+}
+
+.edit {
+    border: 1px solid $control-color-blue;
+    border-radius: 4px;
+    position: relative;
+
+    .edit-padding {
+        padding: 7px 12px 11px 12px;
+    }
+}
+.edit-input {
+    resize: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    line-height: 23px;
+}
+.edit-actions {
+    .edit-buttons {
+        display: flex;
+        button:first-child {
+            width: 80px;
+        }
+
+        button:nth-child {
+            width: 130px;
+        }
+    }
+}

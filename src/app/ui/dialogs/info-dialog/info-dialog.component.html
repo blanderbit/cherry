@@ -1,0 +1,8 @@
+<div class="d-flex flex-column info-modal">
+<img *ngIf="image" class="image" [src]="'../../../../assets/img/'+image">
+<span class="text" *ngIf="text">{{text | translate}}</span>
+  <button (click)="close()" class="close">
+    <i class="icon-close-button"></i>
+
+  </button>
+</div>

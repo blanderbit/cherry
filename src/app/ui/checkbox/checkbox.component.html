@@ -1,0 +1,13 @@
+<div [style.width.px]="size" [style.height.px]="size" [class.disabled]="disabled"
+     class="d-flex checkbox-wrapper">
+    <label class="position-relative cursor-pointer">
+        <input type="checkbox" [value]="checked" [checked]="checked">
+        <span class="checkmark"
+              [style.width.px]="size"
+              [style.height.px]="size"
+              [style.border-radius.%]="borderRadius"
+              (click)="check($event)">
+            <i class="icon-checkbox-check-mark" [style.font-size.px]="iconSize"></i>
+    </span>
+    </label>
+</div>

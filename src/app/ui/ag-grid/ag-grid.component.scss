@@ -1,0 +1,149 @@
+@import "../../../styles/core/variables";
+
+
+//::ng-deep.ng-star-inserted {
+//    text-align: left;
+//}
+
+.table-wrapper {
+    margin: 0 auto;
+}
+
+::ng-deep .ag-theme-material {
+    font-family: $default-font-family !important;
+    color: $color-text-black;
+
+    .ag-row-hover {
+        background-color: rgba(218, 239, 250, 0.6);
+
+        [col-id='name'],
+        [col-id='firstName'] {
+            color: #00A3FF;
+            cursor: pointer;
+        }
+    }
+
+    .ag-header-cell .ag-column-hover {
+        background-color: #F6F6F8;
+    }
+
+    .ag-header-row,
+    .ag-row {
+        height: 48px;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .ag-header {
+        border-bottom: 0 !important;
+
+        height: 45px;
+        min-height: 45px;
+    }
+
+    .ag-header,
+    .ag-center-cols-container,
+    .ag-header-container,
+    .ag-header-row,
+    .ag-row,
+    .ag-paging-panel {
+        width: 100%;
+    }
+
+    .ag-paging-panel {
+        border: none;
+    }
+
+    .ag-cell,
+    .ag-header-cell {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    [col-id='gannt'] {
+        cursor: pointer;
+    }
+
+    [col-id='project'] {
+        span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    [col-id='taskStatus'],
+    [col-id='progress'],
+        //[col-id='members'],
+    [col-id='assignee'] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    [col-id='status'] {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+
+    .ag-header-cell-label .ag-header-cell-text {
+        color: $color-text-grey;
+        line-height: 18px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .ag-filter .ag-filter-body {
+        margin-bottom: 0px;
+
+        .ag-input-wrapper {
+            padding-top: 10px;
+
+            input {
+                width: 100%;
+                border: 1px solid rgb(188, 190, 191);
+                border-radius: 4px;
+                padding: 8px;
+                color: rgb(188, 190, 191);
+
+                &::placeholder {
+                    color: rgb(188, 190, 191);
+                }
+            }
+        }
+    }
+
+    .ag-filter {
+
+        .ag-filter-select,
+        .ag-filter-condition,
+        .ag-filter-body-wrapper .ag-filter-body:last-child {
+            display: none;
+        }
+
+        .ag-filter-apply-panel {
+            padding-top: 0;
+
+            button {
+
+                width: 100%;
+                background-color: rgba(115, 140, 153, 0.4);
+                border-radius: 3px;
+                color: white;
+                font-size: 13px;
+            }
+        }
+
+        .ag-filter-select,
+        .ag-filter-condition,
+        .ag-filter-body-wrapper .ag-filter-body:last-child {
+            display: none;
+        }
+    }
+
+}
+
+

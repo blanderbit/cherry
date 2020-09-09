@@ -1,0 +1,50 @@
+<div class="wrapper w-100" appClickOutside (clickOutside)="showAutocomplete = false">
+    <div class="autocomplete" *ngIf="showAutocomplete">
+        <div *ngFor="let resource of foundResources; last as last">
+            <div (click)="selectMention(resource)"
+                 class="resource-item">
+                <app-avatar class="m-r-10" size="34" [resource]="resource"></app-avatar>
+                <div class="d-flex flex-column">
+                    <span>{{resource.name}}</span>
+                    <span class="email">{{resource.email}}</span>
+                </div>
+            </div>
+
+            <div class="divider" *ngIf="!last"></div>
+        </div>
+    </div>
+
+    <textarea class="input"
+              autosize
+              minRows="1"
+              maxRows="5"
+              [placeholder]="placeholder | translate"
+              (blur)="onTouched()"
+              [formControl]="control"
+              [value]="control.value"
+              [disabled]="control.disabled"
+              [class.edit-input]="edit"
+              #textareaInput
+    ></textarea>
+
+    <button [ngClass]="{'send-message-active': inputValue?.trim()}"
+            *ngIf="!edit && inputValue?.trim()"
+            (click)="sendMessage()"
+            type="button"
+            class="send-message default text-overflow-ellipsis"
+    >
+        {{'send' | translate}}
+    </button>
+
+    <div class="edit-actions d-flex align-items-end justify-content-between w-100 m-t-15" *ngIf="edit">
+                                <div class="color-blue">
+                                    {{'add-attachment' | translate}}
+                                </div>
+
+                                <div class="edit-buttons">
+                                    <button class="default medium m-r-10" type="button"
+                                            (click)="cancelEdit.emit()">{{'cancel' | translate}}</button>
+                                    <button class="primary medium" (click)="sendMessage()">{{'save' | translate}}</button>
+                                </div>
+                            </div>
+</div>

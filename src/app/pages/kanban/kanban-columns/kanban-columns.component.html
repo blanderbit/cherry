@@ -1,0 +1,72 @@
+<div class="d-flex" cdkDropList [cdkDropListData]="items"
+     (cdkDropListDropped)="betweenBoardsDrop($event)">
+    <app-kanban-column cdkDrag *ngFor="let column of items" [item]="column" class="m-r-16">
+        <div class="tasks" cdkDropList [id]="column?.id?.toString()" [cdkDropListData]="column.taskCards"
+             (cdkDropListDropped)="betweenBoardsDrop($event)" [cdkDropListConnectedTo]="getConnectedBoards(column)">
+
+            <!--            <button class="add-task color-blue text-center m-b-8" type="button" (click)="addTaskInProgress = true">-->
+            <!--                <i class="icon-plus d-block"></i>-->
+            <!--            </button>-->
+
+            <!--                        <app-kanban-column-task class="d-block" *ngIf="addTaskInProgress">-->
+            <!--                            <app-create-kanban-task (hide)="addTaskInProgress = false"></app-create-kanban-task>-->
+            <!--                        </app-kanban-column-task>-->
+
+            <!--                        <app-kanban-column-task *ngFor="let item of column.tasks" cdkDrag [item]="item" class="d-block">-->
+            <!--                        </app-kanban-column-task>-->
+
+            <app-kanban-column-tasks [items]="column.taskCards"
+                                     [itemTemplate]="columnTaskTemplate"
+
+            >
+            </app-kanban-column-tasks>
+
+            <ng-template let-item #columnTaskTemplate>
+                <app-kanban-column-task [item]="item"
+                                        cdkDrag
+                                        class="d-block"
+                ></app-kanban-column-task>
+            </ng-template>
+        </div>
+    </app-kanban-column>
+
+    <form class="kanban-column color-blue text-center align-self-start"
+          tabindex="1"
+          (ngSubmit)="showColumnAdd($event)"
+          (click)="showColumnAdd($event)"
+          *ngIf="!addColumnInProgress; else addColumn"
+    >
+        <button class="d-flex justify-content-center align-items-center" type="submit">
+            <i class="icon-plus d-inline-flex m-r-8 sz-12"></i>
+            <span class="f-w-600">Add Column</span>
+        </button>
+    </form>
+
+    <ng-template #addColumn>
+        <form class="kanban-column color-blue text-center align-self-start"
+              [formGroup]="addNewColumnForm"
+              (ngSubmit)="createColumn()">
+
+            <input #newColumnNameInput
+                   type="text"
+                   autofocus
+                   class="m-b-16"
+                   formControlName="name"
+            />
+
+            <div class="d-flex align-items-center">
+                <button class="add-column-btn medium primary sz-12 f-w-600 l-h-16 m-r-12" type="submit"
+                        [disabled]="addNewColumnForm.invalid">
+                    Add column
+                </button>
+
+                <button class="cancel-btn background-light medium color-grey sz-12 f-w-600 p-l-0 l-h-16 text-left"
+                        type="button"
+                        (click)="hideColumnAdd($event)">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+    </ng-template>
+</div>

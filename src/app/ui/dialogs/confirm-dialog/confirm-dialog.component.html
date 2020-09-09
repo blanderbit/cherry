@@ -1,0 +1,18 @@
+<app-dialog>
+    <div class="header">{{'confirm-dialog.title' | translate}} {{year}}</div>
+    <ng-container ngProjectAs=".body">
+        <div class="body text-center">
+            {{'confirm-dialog.description-first' | translate}}
+            {{year}}{{'confirm-dialog.description-second' | translate}}
+            {{destinationYear}}.
+        </div>
+    </ng-container>
+    <ng-container ngProjectAs=".actions">
+        <button class="button button-cancel" (click)="close()">
+            {{'confirm-dialog.reject' | translate}}
+        </button>
+        <button class="button button-confirm" (click)="submit()">
+            {{'confirm-dialog.confirm' | translate}}
+        </button>
+    </ng-container>
+</app-dialog>

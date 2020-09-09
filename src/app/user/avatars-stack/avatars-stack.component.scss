@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+
+// .avatar-stack-wrapper {
+//     .stack-item:not(:first-child) {
+//         margin-left: -3px !important;
+//     }
+// }
+
+.more {
+    z-index: 1;
+    border-radius: 50%;
+    border: 1px solid white;
+    background: #00A3FF;
+    color: #fff;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 100%;
+    //margin-left: -6px;
+
+    box-sizing: content-box;
+}

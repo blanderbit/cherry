@@ -1,0 +1,27 @@
+:host {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+app-kanban-column, .kanban-column {
+    min-width: 255px;
+    max-width: 255px;
+}
+
+app-kanban-column-task:not(:last-of-type) {
+    margin-bottom: 8px;
+}
+
+//.add-task {
+//    background: #FFFFFF;
+//    box-shadow: -5px -5px 25px rgba(206, 218, 228, 0.5);
+//    border-radius: 4px;
+//    height: 24px;
+//
+//    i {
+//        font-size: 14px;
+//        line-height: 14px;
+//    }
+//}

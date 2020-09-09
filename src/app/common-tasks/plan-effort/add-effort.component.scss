@@ -1,0 +1,112 @@
+//@import '../add-assignee/add-assignee.component';
+@import '../../../styles/core/variables';
+
+
+//.modal-wrapper {
+//    height: auto !important;
+//}
+
+:host {
+    .dialog-actions {
+        margin-top: 30px;
+
+        button {
+            width: 47%;
+        }
+    }
+}
+
+.head {
+    height: 70px;
+    background: #F6F6F8;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+
+
+
+.modal-container {
+    border-radius: 8px;
+}
+
+.head {
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    .close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        color: $color-text-grey;
+    }
+}
+
+.color-grey {
+    color: $color-text-grey;
+}
+
+::ng-deep .avatar-wrapper {
+    align-items: center;
+}
+
+table {
+    th {
+        padding: 25px 0;
+        text-align: center;
+
+        &:nth-child(2), &:nth-child(3) {
+            width: 90px;
+        }
+    }
+
+    tr:not(:first-of-type) {
+        margin-bottom: 25px;
+
+        td {
+            padding-bottom: 25px;
+        }
+
+        td:nth-child(2) {
+            text-align: center;
+        }
+    }
+}
+
+
+.user {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.planned-time, .reported-time {
+    width: 90px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.plan-effort-head {
+    width: 100%;
+    display: flex;
+
+    .planned-time {
+    }
+}
+
+.plan-effort-footer {
+
+}
+
+.status-wrapper {
+    width: 35px;
+    display: flex;
+    align-items: center;
+}
+
+//
+//::ng-deep app-time-input {
+//    margin-right: 30px;
+//}

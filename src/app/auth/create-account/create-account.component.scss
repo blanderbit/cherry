@@ -1,0 +1,21 @@
+:host {
+    ::ng-deep {
+        app-form-control {
+            width: 100%;
+        }
+    }
+}
+
+form {
+    width: 500px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.fake {
+    position: absolute;
+    left: -3000px;
+}
+

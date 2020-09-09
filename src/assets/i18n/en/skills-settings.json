@@ -1,0 +1,33 @@
+{
+    "company-settings": "Company Settings",
+    "title": "Skills",
+    "description": "Bushwick meh Blue Bottle pork belly mustache skateboard 3 wolf moon. Actually beard single-origin coffee, twee 90's PBR Echo Park sartorial try-hard freegan Portland ennui. Selvage jean shorts 90's,  Vice American Apparel try-hard food truck Shoreditch fap lomo Wes Anderson. Art party Thundercats High Life Tumblr, sartorial vinyl deep v fixie McSweeney's fap tousled Intelligentsia mumblecore. Deep  twee +1, roof party Thundercats PBR Etsy. Flexitarian Williamsburg tote bag iPhone American Apparel. Austin kitsch tofu chia, brunch hoodie Tonx semiotics trust fund kale chips.",
+    "edit": "Edit",
+    "add": "Add Skill",
+    "name": "Skills Name",
+    "name-placeholder": "Enter name",
+    "action": {
+        "successfully-created": "Skill successfully created",
+        "successfully-updated": "Skill successfully updated",
+        "successfully-deleted": "Skill successfully deleted",
+        "create-error": "Can't create skill",
+        "update-error": "Can't update skill",
+        "delete-error": "Can't delete skill",
+        "load-items-error": "Can't load skills",
+        "cancel": "Cancel",
+        "save": "Save",
+        "add": "Add"
+
+    },
+    "header": {
+        "description": ""
+    },
+    "errors": {
+        "name": {
+            "required": "Field is required",
+            "minlength": "Minimum field length is 2 characters",
+            "maxlength": "Maximum field length is 50 characters"
+        }
+    },
+    "details.no-rows": "No skills"
+}

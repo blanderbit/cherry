@@ -1,0 +1,21 @@
+<div class="avatar-stack-wrapper d-flex justify-content-start">
+    <ng-container *ngIf="ids?.length">
+        <app-avatar *ngFor="let item of ids.slice(0, showCount); let i = index; let f = first"
+                    class="position-relative stack-item"
+                    [ngStyle]="{'margin-left.px': f ? 0 : gutter}"
+                    [success]="successIds?.includes(item)"
+                    [resource]="item" size="{{avatarSize}}"></app-avatar>
+
+        <span class="more d-flex align-items-center justify-content-center position-relative stack-item"
+              [style.width.px]="avatarSize"
+              [style.height.px]="avatarSize"
+              [style.marginLeft.px]="gutter"
+              *ngIf="showRemainedUsersCount">
+        <span>+{{remainedUsersCount}}</span>
+    </span>
+    </ng-container>
+
+    <div class="position-relative" style="z-index: 1">
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "title": "Time",
+        "description": "Profile description"
+    },
+    "side.title": "time",
+    "side.subtitle": "Timesheets",
+    "confirm-dialog": {
+        "reject": "Cancel",
+        "confirm": "Save"
+    },
+    "comments-dialog": {
+        "reject": "Cancel",
+        "submit": "Post"
+    },
+    "actions": {
+        "add": "Add",
+        "assigned": "assigned to me",
+        "tasks": "tasks",
+        "new-row": "New Row"
+
+    },
+    "action": {
+        "successfully-created": "Task successfully created",
+        "successfully-deleted": "Task successfully deleted",
+        "create-error": "Can't create task",
+        "comments-success": "Successfully updated",
+        "comments-error": "Failed to update"
+    },
+    "add-task": {
+        "title": "New task",
+        "task-name": "Task name",
+        "project":"Project",
+        "placeholders": {
+            "name": "Add task name",
+            "project": "Select Project",
+            "startDate": "Start Date",
+            "endDate": "End Date"
+        }
+    },
+    "errors": {
+        "name": {
+            "required": "Name is required",
+            "minlength": "Minimum field length is 3 characters",
+            "maxlength": "Maximum field length is 256 characters"
+        },
+        "projectId": {
+            "required": "Project is required"
+        },
+        "currentStartDate": {
+            "required": "Start date is required",
+            "dateSequenceError": "Start date must be less than end date"
+        },
+        "currentEndDate": {
+            "required": "End date is required"
+        }
+    },
+    "change-status": {
+        "status-changed": "Status has been updated"
+    }
+}

@@ -1,0 +1,136 @@
+@import "../../../../styles/core/variables";
+
+::ng-deep.modal-preview-dialog {
+
+    .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+
+        .modal-content {
+            width: 100vw;
+            overflow-y: hidden;
+            height: 100vh;
+            background: $preview-background;
+            color: $body-color-bg;
+        }
+    }
+
+    .modal-title {
+        font-size: 16px;
+        line-height: 118%;
+        font-weight: 600;
+    }
+
+    .modal-header {
+        border-bottom: none;
+
+        .modal-actions {
+            display: flex;
+
+            i, a {
+                font-size: 18px;
+                &[class^="icon-"] {
+                    &:before {
+                        content: "";
+                        width: 1.2em;
+                        height: 1em;
+                        display: block;
+                        margin: 0 1rem;
+                        background-color: $body-color-bg;
+                        mask-repeat: no-repeat;
+                        mask-position: bottom;
+                        mask-size: contain;
+                    }
+                }
+            }
+
+            .icon- {
+                &download {
+                    &:before {
+                        color: $body-color-bg;
+                        background-color: $body-color-bg;
+                        -webkit-mask-image: url(#{$icon-path}+$download);
+                        mask-image: url(#{$icon-path}+$download);
+                    }
+                }
+
+                &delete {
+                    &:before {
+                        color: $body-color-bg;
+                        background-color: $body-color-bg;
+                        -webkit-mask-image: url(#{$icon-path}+$trash);
+                        mask-image: url(#{$icon-path}+$trash);
+                    }
+                }
+
+                &close {
+                    &:before {
+                        color: $body-color-bg;
+                        background-color: $body-color-bg;
+                        -webkit-mask-image: url(#{$icon-path}+$close);
+                        mask-image: url(#{$icon-path}+$close);
+                    }
+                }
+
+                &locate {
+                    &:before {
+                        color: $body-color-bg;
+                        background-color: $body-color-bg;
+                        -webkit-mask-image: url(#{$icon-path-images}+$locate-file);
+                        mask-image: url(#{$icon-path-images}+$locate-file);
+                    }
+                }
+            }
+
+        }
+    }
+
+    .modal-body {
+        height: 90vh;
+
+        img {
+            padding: 1em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+
+        .no-file-preview {
+            background: $body-color-bg;
+            color: $body-color-text;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 75vw;
+
+            img {
+                width: 10rem;
+                padding: 0;
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                -webkit-transform: none;
+                margin: 0 0 5rem;
+            }
+
+            button {
+                color: $body-color-text;
+                width: 15rem;
+                height: 3rem;
+                background: $control-color-blue;
+                border: none;
+
+                i {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}

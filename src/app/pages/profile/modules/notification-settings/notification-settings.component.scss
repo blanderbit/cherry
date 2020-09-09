@@ -1,0 +1,47 @@
+@import '../../profile.component';
+@import '../../../../../styles/core/variables';
+
+.settings-form {
+    width: 70%;
+    position: relative;
+}
+
+.notifications-table {
+    width: 80%;
+    font-size: 13px;
+
+    td, th {
+        padding: 8px 0;
+    }
+
+    input {
+        height: 15px;
+        width: 15px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+    .title-column {
+        font-size: 14px;
+    }
+
+    .checkbox-column {
+        width: 50px;
+        text-align: center;
+        font-weight: 600;
+        color: $color-text-grey;
+    }
+}
+
+.buttons-container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+
+    button {
+        width: 150px;
+        height: 30px;
+        margin: 0 5px;
+    }
+}

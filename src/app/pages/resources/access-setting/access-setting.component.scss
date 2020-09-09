@@ -1,0 +1,66 @@
+@import "../../../../styles/core/variables";
+@import "../../../../assets/svg/icons.css";
+
+:host {
+    min-width: 165px;
+    margin-left: auto;
+}
+
+.header {
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-text-black;
+    font-weight: 600;
+    margin-top: 65px;
+}
+
+.custom-control {
+    line-height: 120%;
+    margin-top: 16px;
+    display: flex;
+    padding-left: 0;
+    align-items: center;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    &.system {
+        line-height: 170%;
+    }
+
+}
+
+
+label {
+    text-transform: capitalize;
+    color: $color-text-black;
+}
+
+:host ::ng-deep {
+    app-checkbox {
+        input[value="true"] ~ .checkmark {
+            background-color: $control-color-blue;
+        }
+
+        i {
+            font-size: 10px !important;
+            line-height: 10px;
+            height: 10px;
+            top: 40% !important;
+            left: 50% !important;
+        }
+        .icon-checkbox-check-mark{
+            margin: 1px 1px;
+        }
+    }
+
+    app-item-component {
+        .icon-container.kanban {
+            i.icon-kanban-icon {
+                font-size: 25px !important;
+                line-height: 25px;
+            }
+        }
+    }
+}

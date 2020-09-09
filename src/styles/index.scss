@@ -1,0 +1,183 @@
+//Fonts
+//@import "fonts/font";
+// Resets
+@import 'resets/normalize';
+@import 'resets/print';
+
+@import './components';
+@import './directives';
+
+// Core
+@import 'core/variables';
+@import 'core/base';
+// Helpers
+@import 'helpers/index';
+@import "theme/index";
+@import "mixins/index";
+@import "bootstrap";
+
+// icons
+@import "icons/timeapp";
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+//@import '~ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material';
+//@import '~ag-grid-community/src/styles/ag-grid';
+
+* {
+    font-family: $default-font-family;
+}
+
+.ag-cell, .ag-header-cell {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    display: flex;
+    align-items: center !important;
+    font-family: $default-font-family;
+}
+
+.page-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.text-overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: 700 !important;
+}
+
+.color-grey {
+    color: $color-text-grey !important;
+}
+
+.color-grey-80 {
+    color: $color-text-grey-80 !important;
+}
+
+.color-green {
+    color: $control-color-green !important;
+}
+
+.color-black {
+    color: $color-text-black !important;
+}
+
+.color-dark {
+    color: $color-text-dark !important;
+}
+
+.color-blue {
+    color: $control-color-blue !important;
+}
+
+.color-red {
+    color: $control-color-red !important;
+}
+
+.divider {
+    border-top: 1px solid $control-color-grey;
+    opacity: 0.5;
+    width: 100%;
+
+    .vertical {
+        height: 100%;
+        width: 0;
+    }
+}
+
+.toast-close-button {
+    display: none;
+}
+
+.h-0 {
+    height: 0;
+}
+
+.text-overflow-clip {
+    text-overflow: clip !important;
+}
+
+.text-no-wrap {
+    white-space: nowrap;
+}
+
+.line-height-1 {
+    line-height: 1;
+}
+
+::ng-deep {
+    .svg path {
+        fill: none;
+    }
+
+    .svg {
+        fill: none;
+    }
+}
+
+.control-disabled {
+    @include disabled();
+}
+
+.control-disabled-grey {
+    @include disabled();
+    color: $control-color-grey !important;
+    opacity: 0.8;
+}
+
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.icon-deliverable {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    background: $control-color-blue;
+    transform: rotate(-45deg);
+}
+
+.background-grey {
+    background-color: $control-color-grey;
+}
+
+.background-blue {
+    background-color: $control-color-blue;
+}
+
+.background-green {
+    background-color: $control-color-green;
+}
+
+.background-red {
+    background-color: $control-color-red;
+}
+
+.background-orange {
+    background-color: $control-color-orange;
+}
+
+.login-dialog {
+    .modal-dialog {
+        width: 520px;
+        max-width: 100%;
+    }
+}
+
+.delete-column-dialog {
+    .modal-dialog {
+        width: 426px;
+        max-width: 100%;
+    }
+}

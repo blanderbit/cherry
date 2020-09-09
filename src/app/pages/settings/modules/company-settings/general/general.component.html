@@ -1,0 +1,45 @@
+<div class="company-settings-container d-flex flex-column h-100 position-relative">
+    <h1 class="">{{'company-settings' | translate}} / {{'title' | translate}}</h1>
+
+    <div *ngIf="isMyCompany; else createCompanyRef">
+            <div class="d-inline-block t-a-c">
+                <app-company-logo size="120"
+                                  #companyLogo
+                                  [companyId]="item.id"
+                                  [canLoad]="true"
+                                  [showLoadButton]="false"
+                ></app-company-logo>
+                <span class="color-blue m-t-5 f-z-13 cursor-pointer" (click)="companyLogo.loadImage()">
+                    {{'action.change' | translate}}
+                </span>
+            </div>
+
+        <form [formGroup]="form" (submit)="apply($event)" class="form">
+            <app-form-control [title]="'company-name' | translate" [titleSize]="14" error="{{errors.name}}">
+                <input type="text"
+                       placeholder='{{"company-name" | translate}}'
+                       class=""
+                       formControlName="name">
+            </app-form-control>
+
+            <button type="submit" class="primary medium m-t-40 w-auto p-l-40 p-r-40">
+                {{'action.save' | translate}}
+            </button>
+        </form>
+    </div>
+
+    <ng-template #createCompanyRef>
+        <div>
+            {{'description' | translate}}
+        </div>
+
+        <div class="d-block">
+            <button class="create-item primary medium p-x-16 w-auto" (click)="createCompany()">
+                <span class="m-r-30">{{'create-company' | translate}}</span>
+                <i class="icon-plus"></i>
+            </button>
+
+            <span class="m-x-15"></span>
+        </div>
+    </ng-template>
+</div>

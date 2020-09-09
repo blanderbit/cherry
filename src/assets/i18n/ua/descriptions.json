@@ -1,0 +1,9 @@
+{
+    "action": {
+        "successfully-updated": "Опис успішно оновлено",
+        "update-error": "Немодливо оновити опис",
+        "load-items-error": "Неможливо завантажити опис"
+    },
+    "save": "Зберегти",
+    "description": "Опис"
+}

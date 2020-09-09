@@ -1,0 +1,108 @@
+<app-auth-loader *ngIf="loading"></app-auth-loader>
+
+<form class="auth-form"
+      *ngIf="!showExpiredError && !showLoader && !loading"
+      [formGroup]="form"
+      (ngSubmit)="submitBtn.focus(); apply($event)">
+    <input class="fake" type="text">
+    <input class="fake" type="password">
+
+    <h2>Welcome to Cerri!</h2>
+
+    <h6>
+        You’re signing up as <span class="color-dark font-weight-bold">{{email}}</span>
+    </h6>
+
+    <div class="error-container" *ngIf="errors?.isTermOfUseAndPrivacyPolicyAccepted">
+        Please, accept Terms of Use and Privacy Policy
+    </div>
+
+    <app-form-control [title]="'First name'" [titleSize]="14" [error]="errors?.firstName">
+        <input type="text" formControlName="firstName" (focus)="resetControlStatus($event)">
+    </app-form-control>
+
+    <app-form-control [title]="'Last name'" [titleSize]="14" [error]="errors?.lastName">
+        <input type="text" formControlName="lastName" (focus)="resetControlStatus($event)">
+    </app-form-control>
+
+    <app-form-control [title]="'Password'" [titleSize]="14" [error]="errors?.password">
+        <input type="password"
+               inputTypeToggle
+               (focus)="resetControlStatus($event)"
+               formControlName="password">
+    </app-form-control>
+    <div class="text-left w-100">
+        <span class="color-grey sz-11 l-h-15" *ngIf="!errors?.password">
+            {{'resetPassword.password-hist' | translate}}
+        </span>
+    </div>
+
+    <app-form-control [title]="'Confirm password'" [titleSize]="14" [error]="errors?.confirmPassword">
+        <input type="password"
+               (focus)="resetControlStatus($event)"
+               formControlName="confirmPassword">
+    </app-form-control>
+
+    <div class="row w-100 pt-3">
+        <app-checkbox size="14"
+                      class="color-blue"
+                      (focus)="resetControlStatus($event)"
+                      formControlName="isTermOfUseAndPrivacyPolicyAccepted"
+                      [borderRadius]="12"
+                      [iconSize]="9"
+                      [disabled]="false"
+        ></app-checkbox>
+        <div class="pl-2 f-z-12">
+            {{"register.accept" | translate}}
+            <a class="reg-link" [href]="termsOfUseUrl" target="_blank">{{'register.terms-of-use' | translate}} </a>
+            {{'register.and' | translate}}
+            <a class="reg-link" [href]="privacyPolicyUrl" target="_blank">{{'register.privacy-policy' | translate}}</a>
+        </div>
+    </div>
+
+    <div class="row w-100 pt-2">
+        <app-checkbox size="14"
+                      class="color-blue"
+                      formControlName="subscribedToNewsletter"
+                      [borderRadius]="12"
+                      [iconSize]="9"
+                      [disabled]="false"
+        ></app-checkbox>
+        <span class="pl-2 f-z-12">{{"register.subscribe-text" | translate}}</span>
+    </div>
+
+    <button class="m-t-20 d-flex justify-content-center align-items-center"
+            [disabled]="loading" type="submit" #submitBtn>
+        <span class="loading-spinner" *ngIf="loading"></span>
+        <span class="m-l-10 m-r-10">Create account</span>
+    </button>
+
+</form>
+
+<ng-container *ngIf="showExpiredError">
+    <app-expired-link (onResend)="resendInstructions()" [loading]="loading"
+                      *ngIf="!companyId; else invitationLinkExpiredError">
+        <h2 class="title">Verification link has expired</h2>
+
+        <div class="f-z-14 t-a-c l-h-22">
+            Instructions for verification your account sent to
+            <span class="f-w-600">{{email}}</span>
+            has expired.
+        </div>
+    </app-expired-link>
+
+    <ng-template #invitationLinkExpiredError>
+        <app-expired-link (onResend)="resendInstructions()" [loading]="loading" [buttonText]="'Resend Invitation link'">
+                <h2 class="title">Invitation link has expired</h2>
+
+                <div class="f-z-14 t-a-c l-h-22">
+                    Your invitation link sent to
+                    <span class="f-w-600">{{email}}</span>
+                    has expired.
+                </div>
+        </app-expired-link>
+    </ng-template>
+</ng-container>
+
+
+<app-account-was-created-placeholder *ngIf="showLoader"></app-account-was-created-placeholder>

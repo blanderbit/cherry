@@ -1,0 +1,204 @@
+@import "../../../styles/core/_variables.scss";
+@import "../../../styles/mixins/disabled.mixin";
+
+
+.custom-1 {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+::ng-deep {
+    .edit-time-dialog {
+
+        .modal-dialog {;
+            max-width: 590px;
+        }
+    }
+}
+
+.add-time, .edit-time {
+    display: flex;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.summary-wrapper {
+    &:hover {
+        .add-time, .edit-time {
+            opacity: 1;
+        }
+    }
+}
+
+:host {
+    ::ng-deep {
+
+        app-user-summary {
+            .avatar-wrapper {
+                align-items: flex-start;
+                width: 230px;
+                flex-basis: 230px;
+
+                .remove {
+                    opacity: 0;
+                    transition: all 0.3s;
+
+                }
+            }
+        }
+
+        .summary-wrapper:hover {
+            .remove {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.add-assignee-dialog {
+    max-width: 600px;
+}
+
+.summary-wrapper {
+    margin-right: 20px;
+}
+
+.time-container {
+    height: 20px;
+}
+
+.assignee-list {
+    //max-height: 300px;
+    overflow: auto;
+    flex-flow: row wrap;
+
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.title {
+    font-size: 12px;
+    line-height: 16px;
+    color: #738C99;
+    // padding-top: 3px;
+    margin: 0 12px 0 0;
+}
+
+.plan-effort-btn {
+    padding-top: 1px;
+    position: relative;
+    top: -1px;
+}
+
+.add-assignee {
+    cursor: pointer;
+    color: rgba(119, 141, 161, 0.7);
+    width: 285px;
+    padding: 5px;
+    flex-basis: 285px;
+    margin-bottom: 20px;
+
+
+    .add-icon {
+
+        width: 35px;
+        height: 35px;
+
+        border-radius: 50%;
+        border: 1px dashed $color-text-grey;
+        color: $color-text-grey;
+        margin-right: 10px;
+        position: relative;
+
+        i {
+            font-weight: 600;
+            font-size: 14px;
+            margin: 2px 2px 0;
+        }
+    }
+
+    .title {
+        white-space: nowrap;
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    &:hover {
+        .add-icon {
+            color: $control-color-blue;
+            border: 1px dashed $control-color-blue;
+        }
+
+        .title {
+            color: $control-color-blue;
+        }
+    }
+
+    &.disabled {
+        //cursor: default;
+        //user-select: none;
+        @include disabled();
+
+        span.title {
+            color: $control-color-grey;
+        }
+
+        .add-icon {
+            color: $control-color-grey;
+        }
+    }
+}
+
+.wrapper {
+    margin: 30px 40px;
+}
+
+::ng-deep {
+    .plan-buttons {
+        color: $color-text-grey;
+    }
+
+    a {
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: $control-color-blue !important;
+
+            .icon-planner {
+                color: $control-color-blue;
+                display: inline;
+            }
+        }
+    }
+
+    .icon-planner {
+        font-size: 12px;
+        line-height: 12px;
+        display: none;
+    }
+}
+
+.color-red {
+    color: $control-color-red !important;
+}
+
+.add-time.disabled {
+    @include disabled();
+    color: $color-text-grey !important;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.team-title {
+    color: $color-text-dark;
+}

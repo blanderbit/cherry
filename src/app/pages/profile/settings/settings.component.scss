@@ -1,0 +1,77 @@
+@import '../profile.component';
+@import "../../../../styles/core/variables";
+
+.avatar-input {
+    display: none;
+}
+
+h3 {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.image-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 120px;
+    text-align: center;
+
+    .change-btn {
+        font-size: 13px;
+        line-height: 18px;
+        color: #00A3FF;
+        cursor: pointer;
+        font-weight: 600;
+        display: block;
+    }
+}
+
+.label {
+    letter-spacing: -0.0857143px;
+}
+
+.profile-form {
+    color: #485056;
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 300px;
+    width: 585px;
+    max-width: 100%;
+}
+
+.language-select {
+    width: 585px;
+    max-width: 100%;
+}
+
+#password,
+.submit-changes-btn {
+    width: 185px;
+}
+
+app-select {
+    border-radius: 4px;
+    height: auto;
+    border: 1px solid $grey;
+    background: #FFFFFF;
+    min-width: 95px;
+    min-height: 35px;
+
+}
+
+:host ::ng-deep {
+    .menu-value {
+        font-weight: normal;
+        color: $color-text-black;
+        padding-left: 15px;
+    }
+
+    .select-container {
+        outline: none;
+    }
+
+    .dropdown-menu {
+        margin-top: 7px;
+    }
+}

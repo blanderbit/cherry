@@ -1,0 +1,17 @@
+<div class="d-flex grid-cell-component align-items-center">
+    <div class="checkbox-container d-flex justify-content-center align-items-center"
+         *ngIf="preserveCheckboxSpace || showCheckbox">
+        <app-checkbox *ngIf="showCheckbox"
+                      [disabled]="disableCheckbox"
+                      [checked]="checkboxValue"
+                      (isChecked)="onCheckboxSelectChange($event)"
+                      size="20"></app-checkbox>
+    </div>
+
+    <div class="icon-deliverable m-r-8" *ngIf="params.showDeliverableIcon"></div>
+
+    <div class="grid-cell-value"
+         (click)="onClick($event)">
+        {{params?.value}}
+    </div>
+</div>

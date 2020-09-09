@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+    <app-form-control [title]="showDayName ? (item?.date | localDate : 'EEEE' | titlecase)  : ''">
+        <textarea
+            autosize
+            minRows="1"
+            maxRows="4"
+            [ngClass]="{'form-control': showDayName, 'border-0': !showDayName}"
+            formControlName="comment"
+        ></textarea>
+    </app-form-control>
+</div>

@@ -1,0 +1,50 @@
+@import "../../../../styles/core/variables";
+
+.header {
+    span {
+        color: $control-color-blue;
+    }
+}
+
+.body-title {
+    color: $color-text-black;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+
+    margin-bottom: 20px;
+}
+
+ul {
+    li {
+        padding-left: 35px;
+        position: relative;
+        color: $color-text-black;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+
+        border: 1px solid $color-text-grey;
+        opacity: 0.5;
+
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    li:not(:last-of-type) {
+        color: $color-text-black;
+        line-height: 120%;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+button {
+    width: 47%;
+}

@@ -1,0 +1,74 @@
+//@import '../add-assignee/add-assignee.component';
+
+:host {
+    ::ng-deep  {
+        .datepicker {
+            display: flex;
+            border: 1px solid #D4DDE2;
+            border-radius: 4px;
+            padding: 9px 10px;
+            width: 170px;
+            height: 37px;
+            justify-content: space-between;
+            color:  #485056;
+        }
+
+        .time-input {
+            color:  #485056;
+        }
+    }
+
+    .actions button {
+        width: 47%;
+    }
+}
+
+.plan-time {
+    border-right: 1px solid #D9E0E3;
+    width: 50%;
+}
+
+.remaining-time {
+    width: 50%;
+}
+
+.color-dark-grey {
+    color: #7696A0;
+}
+
+textarea {
+    border: 1px solid #D4DDE2;
+    border-radius: 4px;
+    resize: none;
+    padding: 10px 15px;
+    min-height: 100px;
+    color:  #485056;
+
+    &::placeholder {
+        font-size: 13px;
+        line-height: 18px;
+        color: #738C99;
+        opacity: 0.8;
+    }
+}
+
+
+.timeApp {
+    width: 20px;
+    height: 20px;
+    background-color: #EC374A;
+    color: white;
+    border: none;
+
+    i {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    &:hover,
+    &:active {
+        color: white;
+        background-color: #EC374A;
+        border: none;
+    }
+}

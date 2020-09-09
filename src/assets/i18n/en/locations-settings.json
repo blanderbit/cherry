@@ -1,0 +1,45 @@
+{
+    "company-settings": "Company Settings",
+    "title": "Locations",
+    "description": "Bushwick meh Blue Bottle pork belly mustache skateboard 3 wolf moon. Actually beard single-origin coffee, twee 90's PBR Echo Park sartorial try-hard freegan Portland ennui. Selvage jean shorts 90's,  Vice American Apparel try-hard food truck Shoreditch fap lomo Wes Anderson. Art party Thundercats High Life Tumblr, sartorial vinyl deep v fixie McSweeney's fap tousled Intelligentsia mumblecore. Deep  twee +1, roof party Thundercats PBR Etsy. Flexitarian Williamsburg tote bag iPhone American Apparel. Austin kitsch tofu chia, brunch hoodie Tonx semiotics trust fund kale chips.",
+    "edit": "Edit",
+    "add": "Add Location",
+    "name": "Locations Name",
+    "name-placeholder": "Enter name",
+    "address": "Address",
+    "address-placeholder": "Address",
+    "country": "Country",
+    "country-placeholder": "Country",
+    "holidays-policy": "Holidays policy",
+    "holidays-policy-placeholder": "Holidays policy",
+    "header": {
+        "description": "A specific branch, office, or local chapter of your organization can be set as a work location. Adding all your work locations to Cerri will help you reporting and managing your resources belonging to different offices or branches."
+    },
+    "action": {
+        "successfully-created": "Locations successfully created",
+        "successfully-updated": "Locations successfully updated",
+        "successfully-deleted": "Locations successfully deleted",
+        "create-error": "Can't create locations",
+        "update-error": "Can't update locations",
+        "delete-error": "Can't delete locations",
+        "load-items-error": "Can't load locations",
+        "cancel": "Cancel",
+        "save": "Save",
+        "add": "Add"
+
+    },
+    "errors": {
+        "name": {
+            "required": "Field is required",
+            "minlength": "Minimum field length is 2 characters",
+            "maxlength": "Maximum field length is 50 characters"
+        },
+        "address": {
+            "required": "Field is required"
+        },
+        "countryId": {
+            "required": "Field is required"
+        }
+    },
+    "details.no-rows": "No locations"
+}

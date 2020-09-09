@@ -1,0 +1,48 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+
+trigger:
+- develop
+- feature/config-ci
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+resources:
+  repositories:
+  - repository: Cloud_infrastructure
+    type: git
+    name: Cloud_infrastructure
+    ref: dev
+
+steps:
+
+- checkout: self
+  submodules: true
+
+- script: |
+    IMAGE_NAME=$(ACR_NAME)/frontend:$BUILD_SOURCEVERSION
+    docker build -t $IMAGE_NAME .
+    az login --service-principal --username $(ACR_USERNAME) --password $(ACR_PASSWORD) --tenant $(TENANT_ID)
+    az acr login --name $(REGISTRY_RESOURCE_NAME)
+    docker push $IMAGE_NAME
+  displayName: 'Build and push'
+
+- script: |
+    curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | sudo bash -x
+    az aks get-credentials --name $(CLUSTER_NAME) --resource-group $(CLUSTER_RESOURCE_GROUP)
+    cd Cloud_infrastructure && git checkout dev
+    sed -i "s/\ \ frontendtag:\ .*/\ \ frontendtag:\ $BUILD_SOURCEVERSION/" dev/cerri_dev/values.yaml
+    git add dev/cerri_dev/values.yaml
+    git config --global user.email "ci-cd@localhost"
+    git config --global user.name "CICD Pileline"
+    git commit -m "Frontend upgraded by commit: $BUILD_SOURCEVERSION"
+    git push  https://$(INFRASTRUCTURE_ACCESS_TOKEN):CerriDevOps@dev.azure.com/CerriDevOps/Cerri%20development/_git/Cloud_infrastructure
+    helm upgrade cerri-dev ./dev/cerri_dev  --namespace dev
+  displayName: 'Upgrade cluster'

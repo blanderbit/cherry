@@ -1,0 +1,21 @@
+{
+    "company-settings": "Company Settings",
+    "title": "General",
+    "description": "Since you do not have your own workspace/company yet, you can create it now. This workspace/company will appear in the list of companies you have already joined",
+    "create-company": "Create Your Own Company",
+    "company-name": "Company name",
+
+    "action": {
+        "save": "Save",
+        "change": "Change",
+        "successfully-updated": "Company successfully updated",
+        "update-error": "Failed to update company"
+    },
+
+    "errors": {
+        "name": {
+            "required": "Company name is required",
+            "minLength": "Company name must have minimum 1 symbol"
+        }
+    }
+}

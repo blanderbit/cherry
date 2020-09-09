@@ -1,0 +1,80 @@
+<app-loader *ngIf="loading || submitLoading"></app-loader>
+<div class="modal-wrapper position-relative">
+    <div class="head d-flex justify-content-center align-items-center position-relative">
+        <div>{{(!materialResources ? "assignee.add" : "assignee.add-resources") | translate }}</div>
+
+        <div class="close d-flex" (click)="cancel()">
+            <i class="icon-close-button cursor-pointer"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="input-wrapper">
+            <div class="input-title">
+                {{(!materialResources ? "assignee.email" : "assignee.resources") | translate }}
+            </div>
+            <div class="search">
+                <input class="m-t-8" type="text"
+                       (focus)="onSearchFocus()"
+                       [placeholder]="(!materialResources ? 'assignee.placeholder' : 'assignee.placeholder-resources') | translate"
+                       [formControl]="searchControl">
+                <div class="suggestions" *ngIf="!submitLoading && !loading">
+                    <div class="placeholder"
+                         *ngIf="!loading && !items?.length">{{"assignee.not-found" | translate }}</div>
+
+                    <div *ngFor="let user of items" (click)="onUserSelect(user)"
+                         class="suggestion-item d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="user-summary text-overflow-ellipsis p-r-15">
+                            <app-user-summary [user]="user"
+                                              gutter="16"
+                                              class=""
+                            >
+                                <div class="email color-grey sz-11 l-h-15">
+                                    {{user?.email}}
+                                </div>
+                                <div [class.d-flex]="selectedUsersIds.includes(user.id)"
+                                     class="d-none effort-container align-items-center">
+                                    <span
+                                        class="color-grey m-r-10 sz-13 l-h-18"
+                                        [class.d-none]="!isDeliverable"
+                                        [class.d-inline-block]="isDeliverable"
+                                    >{{'plan.effort' | translate}}</span>
+                                    <app-manual-time-input
+                                        (click)="$event.stopPropagation()"
+                                        [class.d-none]="!isDeliverable"
+                                        #input (mouseleave)="input.triggerBlur()"
+                                        [maxMinutes]="MAX_TIME_EFFORT" [(value)]="user.plannedEffort">
+                                    </app-manual-time-input>
+                                </div>
+                            </app-user-summary>
+                        </div>
+
+                        <!--                            Field to set effort on assignee add-->
+                        <!--                            <div class="effort d-flex align-items-center p-r-16">-->
+                        <!--                                <span class="color-grey p-r-10">Plan effort</span>-->
+                        <!--                                <app-time-input (click)="$event.preventDefault(); $event.stopPropagation();"-->
+                        <!--                                                [(ngModel)]="user.plannedEffort"-->
+                        <!--                                ></app-time-input>-->
+                        <!--                            </div>-->
+
+                        <div class="user-select" [class.selected]="selectedUsersIds.includes(user.id)">
+                            <i class="icon-check-mark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions d-flex justify-content-between">
+            <button class="default large" (click)="cancel()">{{"assignee.cancel" | translate }}</button>
+            <button class="primary large"
+                    (click)="apply()"
+                    [disabled]="!selectedResources?.length"
+            >
+                {{ isButtonAddAssignee | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+
+

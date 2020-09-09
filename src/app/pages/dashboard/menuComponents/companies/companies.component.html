@@ -1,0 +1,31 @@
+<app-loader *ngIf="loading"></app-loader>
+
+<div class="card-content overflow-auto">
+    <div class="go-back">
+        <span class="arrow" (click)="onHide()">
+            <i class="icon-arrow l-h-0"></i>
+        </span>
+        <span class="text-go-back">{{ "companies.switch-company" | translate }}</span>
+    </div>
+
+    <div class="card-menu companies-container">
+        <div class="company" *ngFor="let company of items">
+            <app-company-logo #companyLogoComponent [companyId]="company.id"
+                              [canLoad]="canUpdateCompany(company, companyLogoComponent?.logoUrl)"
+            ></app-company-logo>
+
+            <span class="m-l-10 f-z-16 f-w-600 overflow-hidden text-overflow-ellipsis">{{company.name}}</span>
+
+            <button class="company-arrow-btn" (click)="selectCompany(company)">
+                <i class="icon-navigation-arrow"></i>
+            </button>
+        </div>
+
+        <button class="primary large m-t-20 f-z-13 f-w-600 l-h-22 d-flex justify-content-start align-items-center"
+                *ngIf="canCreateCompany"
+                (click)="createCompany()">
+            {{ "companies.add" | translate }}
+            <i class="icon-plus f-z-12"></i>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="position-relative user-form-wrapper">
+    <app-loader class="absolute" *ngIf="loading"></app-loader>
+
+<div *ngIf="!initializing">
+    <h1 class="page-title">{{ (needCreate ? "user.create" : "user.edit") | translate }}</h1>
+
+        <h3 class="f-w-700">{{ "profile.subtitle" | translate }}</h3>
+
+        <form class="profile-form" [formGroup]="form" (submit)="submit($event)">
+            <ng-container>
+                <app-form-control title="profile.email" error="{{errors.email}}">
+                    <input type="text" id="profile.email" formControlName="email">
+                </app-form-control>
+
+                <app-form-control title="profile.userName" error="{{errors?.userName}}">
+                    <input type="text" id="profile.userName" formControlName="userName">
+                </app-form-control>
+            </ng-container>
+
+            <app-form-control title="profile.last-name" error="{{errors.lastName}}">
+                <input type="text" id="profile.last-name" formControlName="lastName">
+            </app-form-control>
+
+            <app-form-control title="profile.first-name" error="{{errors.firstName}}">
+                <input type="text" id="profile.first-name" formControlName="firstName">
+            </app-form-control>
+
+            <ng-container *ngIf="needCreate;">
+                <app-form-control title="profile.password" error="{{errors.password}}">
+                    <input type="password" id="profile.password" formControlName="password">
+                </app-form-control>
+
+                <app-form-control title="profile.confirmPassword" error="{{errors.confirmNewPassword}}">
+                    <input type="password" id="profile.confirmPassword" formControlName="confirmNewPassword">
+                </app-form-control>
+
+                <app-form-control hideError="true" title="profile.role" error="{{errors.role}}">
+                    <app-select class="input" [options]="roles$ | async" [translationPrefix]="'roles'"
+                                formControlName="role"></app-select>
+                    <!--                <select id="role" formControlName="role">-->
+                    <!--                    <option *ngFor="let role of roles$ | async"-->
+                    <!--                            [value]="role">{{('roles.' + role) | translate}}</option>-->
+                    <!--                </select>-->
+                </app-form-control>
+
+                <!--            <app-form-control>-->
+                <!--                <div ngbDropdown class="d-inline-block select-section">-->
+                <!--                    &lt;!&ndash;                [ngClass]="select ? 'show-select' : 'hide-select'"&ndash;&gt;-->
+                <!--                    <button type="button" class="btn btn-outline-primary" id="dropdownBasic1"-->
+                <!--                            ngbDropdownToggle>{{ "roles.Admin" | translate }}-->
+                <!--                        <i class="icon-arrow-down"></i>-->
+                <!--                    </button>-->
+                <!--                    &lt;!&ndash;                [ngClass]="select ? 'show' : ''"&ndash;&gt;-->
+                <!--                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
+                <!--                        <button ngbDropdownItem-->
+                <!--                                *ngFor="let item of roles$ | async">{{('roles.' + item) | translate}}</button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--            </app-form-control>-->
+
+            </ng-container>
+
+            <button type="submit"
+                    class="submit-changes-btn primary large">{{ (needCreate ? "profile.create" : "profile.save") | translate }} </button>
+        </form>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="track-new-task">
+    <app-autocomplete-control #autocompleteComponent
+                              [provider]="provider"
+                              [itemsFilter]="filteredItems"
+                              placeholder="add-task.placeholders.name"
+                              (onType)="setQuery($event)"
+                              [itemTemplate]="rt"
+                              [triggerOnClick]="false"
+                              (onSelect)="onSelect.emit($event)">
+
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title class="card-title m-b-0">
+                    <span class="d-inline-block overflow-hidden">No result for </span>
+                    <span class="search-query text-overflow-ellipsis" title="{{searchQuery}}">"{{searchQuery}}"</span>
+                </mat-card-title>
+            </mat-card-header>
+
+               <mat-card-content class="m-t-5">
+                   <mat-card-subtitle class="card-subtitle">
+                       <i class="icon-circle-checked mr-1"></i>
+                       <span>Create a</span>&nbsp;<a class="card-link" (click)="createNewTask($event)">new task</a>
+                   </mat-card-subtitle>
+               </mat-card-content>
+        </mat-card>
+    </app-autocomplete-control>
+
+</div>
+<ng-template #rt let-r="result" let-t="term">
+    <div class="d-flex justify-content-between result-container">
+    <div class="task-name "><ngb-highlight [result]="r.name" [term]="t"></ngb-highlight></div>
+    </div>
+</ng-template>

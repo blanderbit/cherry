@@ -1,0 +1,17 @@
+<app-dialog>
+    <div class="header">{{"archive.archive" | translate}}
+        <span>{{project?.name}}</span>&nbsp;{{"archive.project" | translate}}
+    </div>
+    <ng-container ngProjectAs=".body">
+        <div class="body-title">
+            {{"archive.title" | translate}}
+        </div>
+        <ul>
+            <li *ngFor="let i of [0,1,2]">{{("archive.tips." + i) | translate}}</li>
+        </ul>
+    </ng-container>
+    <ng-container ngProjectAs=".actions">
+        <button class="default large" (click)="close()">{{"archive.cancel" |translate}}</button>
+        <button class="primary large" (click)="submit()">{{"archive.confirm" |translate}}</button>
+    </ng-container>
+</app-dialog>

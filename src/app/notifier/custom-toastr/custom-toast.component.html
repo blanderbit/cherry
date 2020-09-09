@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center position-relative" [style.display]="state.value === 'inactive' ? 'none' : ''">
+    <div class="d-flex flex-grow-1 align-items-center w-100">
+        <div class="toast-icon m-r-16">
+            <i class="{{toastTypeConfig?.icon}}"></i>
+        </div>
+        <div class="message w-0 flex-grow-1 p-r-10" role="alert" aria-live="polite">
+            <div *ngIf="title" [class]="options.titleClass" [attr.aria-label]="title"
+                 class="text-overflow-ellipsis"
+                 title="{{title | translate}}">
+                <span class="color-black f-w-600 text-overflow-ellipsis w-100">
+                    {{title | translate}}
+                </span>
+            </div>
+            <div *ngIf="message && options.enableHtml"
+                 class="color-grey"
+                 [class]="options.messageClass" [innerHTML]="message">
+            </div>
+            <div *ngIf="message && !options.enableHtml"
+                 [class]="options.messageClass" [attr.aria-label]="message">
+                <span class="color-grey sz-13"> {{message}} </span>
+            </div>
+        </div>
+        <div class="text-right">
+            <a *ngIf="options.closeButton" (click)="remove()" class="btn btn-sm p-0">
+                <i class="icon-close-button color-grey sz-16"></i>
+            </a>
+        </div>
+    </div>
+</div>

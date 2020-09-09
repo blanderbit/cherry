@@ -1,0 +1,67 @@
+tag-input {
+    div.ng2-tag-input.ng2-tag-input--focused {
+        border: 1px solid #00A3FF !important;
+    }
+
+
+    div.ng2-tag-input {
+        border: 1px solid #e0e0e0 !important;
+        padding: 0 !important;
+        border-radius: 4px;
+    }
+
+    input.ng2-tag-input__text-input {
+        height: 37px;
+        outline: none;
+        font-family: 'Open Sans', sans-serif !important;
+        transition: 0.3s ease;
+        font-weight: 500;
+        &::placeholder {
+            font-weight: 500;
+            //color: #000;
+            //font-weight: 500;
+        }
+    }
+
+    .ng2-tags-container {
+        align-items: center;
+        padding: 0 0 0 15px;
+        //padding: 0;
+        font-family: 'Open Sans', sans-serif;
+
+        tag {
+            background: rgba(218, 239, 250, 0.6);
+            border-radius: 3px;
+            height: 22px;
+            line-height: 22px;
+            color: #00A3FF;
+
+            delete-icon svg {
+                height: 24px !important;
+            }
+
+            delete-icon path {
+                fill: #00A3FF !important;
+            }
+
+            delete-icon:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            &:hover,  &:active {
+                background: rgba(218, 239, 250, 0.6) !important;
+                color: #00A3FF !important;
+                box-shadow: none !important;
+            }
+
+            tag-ripple {
+                :focus {
+                    background: rgba(218, 239, 250, 0.6);
+                }
+            }
+        }
+
+
+    }
+}

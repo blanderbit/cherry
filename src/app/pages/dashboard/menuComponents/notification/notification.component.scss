@@ -1,0 +1,56 @@
+
+.card-content {
+    max-height: 100vh;
+    padding-bottom: 2rem;
+    width: 450px;
+
+    .go-back {
+        margin-bottom: 21px;
+        justify-content: space-between;
+        margin-right: 20px;
+
+        .arrow {
+            display: flex;
+            display: -webkit-box;
+            align-items: center;
+
+            .text-go-back {
+                display: flex;
+                align-items: center;
+                cursor: default;
+            }
+        }
+        .mark-all-as-read {
+            cursor: pointer;
+            font-weight: 600;
+        }
+    }
+
+    .container {
+        overflow: auto;
+        height: 100%;
+        padding: 0 0 3rem 0;
+
+        .content {
+            width: 410px;
+            min-height: 99px;
+            margin: 1px 20px;
+
+            &.isRead {
+                background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+                border-radius: 4px;
+            }
+
+            .notification-item {
+                display: flex;
+                align-items: flex-start;
+
+
+                app-link-task {
+                    display: flex;
+                }
+
+            }
+        }
+    }
+}

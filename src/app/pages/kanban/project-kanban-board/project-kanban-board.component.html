@@ -1,0 +1,63 @@
+<div class="project-details-container h-100" *ngIf="item">
+    <form [formGroup]="form" class="w-100">
+        <div class="header">
+
+            <!-- [hasEditPermission]="[permissionAction.UpdateProject]" -->
+            <div class="project-name text-overflow-ellipsis f-w-600 p-0 p-r-8 mr-1 my-1"
+                formControlName="name"
+                [contentEditable]="isProjectActive" #taskName
+                (keydown.enter)="taskName.blur()"
+            ></div>
+
+            <div class="project-id text-overflow-ellipsis"> #{{projectId}}</div>
+
+<!--            [hasEditPermission]="[permissionAction.UpdateProjectStatus]"-->
+<!--            [disableIf]="!statuses.length"-->
+            <app-project-status-dropdown class="change-state"
+                                         formControlName="status"
+                                         [project]="item"
+                                         [options]="statuses">
+            </app-project-status-dropdown>
+
+            <div class="d-flex justify-content-start align-items-center">
+                <!-- *hasPermission="permissionAction.ViewMembers" -->
+                <app-avatars-stack
+                    avatarSize="28"
+                    showCount="8"
+                    [ids]="membersIds"
+                    [gutter]="6"
+                    [hideRemainedAvatarsCount]="true"
+                ></app-avatars-stack>
+
+                <!-- *hasPermission="permissionAction.AddMember" -->
+                <span class="icon-cont size-xs cursor-pointer" [class.control-disabled-grey]="!isProjectActive"
+                    (click)="addMember()">
+                    <i class="icon-profile"></i>
+                </span>
+            </div>
+
+            <!-- <div class="cont">
+                <menu class="menu" [items]="menuItems" *ngIf="menuItems?.length">
+                    <ng-container>
+                        <i class="icon-vertical-dots"></i>
+                    </ng-container>
+                </menu>
+            </div> -->
+
+            <button class="material-menu-trigger ml-auto" [matMenuTriggerFor]="animals">
+                <i class="icon-vertical-dots"></i>
+            </button>
+
+            <mat-menu #animals="matMenu">
+                <button mat-menu-item (click)="delete()">
+                    {{'column.remove' | translate}}
+                </button>
+            </mat-menu>
+        </div>
+    </form>
+
+    <app-navigation-back class="m-t-5 m-b-25"></app-navigation-back>
+
+    <app-kanban-columns [items]="item?.columns"></app-kanban-columns>
+
+</div>

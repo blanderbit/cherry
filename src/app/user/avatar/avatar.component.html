@@ -1,0 +1,24 @@
+<div class="avatar-container d-flex"
+     [class.success]="success"
+     [style.width.px]="size"
+     [style.height.px]="size">
+     
+    <img *ngIf="avatarUrl; else textAvatar" [src]="avatarUrl" (error)="onImageError()" alt="avatar">
+
+
+    <div *ngIf="success && showSuccessCheckMark" class="success-mark"
+         [style.width.px]="size / 2"
+         [style.height.px]="size / 2"
+    >
+        <div class="success-check-mark"></div>
+    </div>
+
+    <ng-content select="img"></ng-content>
+
+    <ng-template #textAvatar>
+        <div *ngIf="acronym" class="avatar-content" [style.fontSize.px]="size * 0.4" colorize>
+            {{ acronym }}
+        </div>
+    </ng-template>
+</div>
+

@@ -1,0 +1,48 @@
+{
+    "send": "Send",
+    "comments": "Comments",
+    "add-attachment": "Add attachment",
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "edit": "Edit",
+    "delete": "Delete",
+    "preview": "Preview",
+    "download": "Download",
+    "form": {
+        "commentPlaceholder": "Write a comment...",
+        "errors": {
+            "text": {
+                "required": "Field is required"
+            },
+            "required": "Field is required",
+            "maxlength": "Field is too long"
+        }
+    },
+    "action": {
+        "create-error": "Failed to send message",
+        "update-error": "Failed to edit message",
+        "delete-error": "Failed to delete message",
+        "load-items-error": "Failed to load messages",
+        "successfully-deleted": "Successfully deleted",
+        "successfully-upload": "Successfully upload"
+    },
+    "action-attachments": {
+        "upload-error": "upload error",
+        "update-error": "Failed to edit",
+        "delete-error": "Failed to delete",
+        "load-items-error": "Failed to load",
+        "successfully-deleted": "Successfully deleted",
+        "successfully-upload": "Successfully upload"
+    },
+
+    "add-link": {
+        "title": "Add a file from a Link",
+        "title-field": "Title",
+        "title-field-placeholder": "Add file title",
+        "file-field": "File Link",
+        "file-field-placeholder": "Paste file URL",
+        "cancel": "Cancel",
+        "add-file": "Add File"
+    },
+    "attachments": "Attachments"
+}

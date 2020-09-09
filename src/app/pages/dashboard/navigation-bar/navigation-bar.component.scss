@@ -1,0 +1,237 @@
+@import '../../../../styles/core/variables';
+@import '../../../../styles/theme/index';
+
+.wrapper {
+    display: flex;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.image{
+    width: 24px;
+    height: 24px;
+    &.top{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.icon-logout {
+    font-size: 17px;
+}
+.logout{
+    margin-top: 4px;
+}
+.dropdown-menu {
+    border: none;
+    margin-left: 34px;
+    border-radius: 8px;
+    margin-bottom: 0;
+    .dropdown-item:focus, .dropdown-item:hover {
+        background: $body-color-bg;
+    }
+
+    .dropdown-item {
+        padding: 0 8px;
+
+        i {
+            margin-right: 8px;
+        }
+
+        span {
+            font-size: 14px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            padding: 4px 4px;
+        }
+
+        &.profile {
+            color: $color-text-grey;
+
+            :hover {
+                transition: 0.3s easy-in;
+                font-weight: 600;
+                color: $control-color-blue;
+                background: rgba(218, 239, 250, 0.6);
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .navigation-theme .avatar-container .avatar-content {
+        border: 1px solid $body-color-bg;
+    }
+}
+
+.navigation-theme {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 5px;
+    width: 60px;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+
+        .avatar {
+            margin-top: 20px;
+        }
+
+    .icon-top {
+        width: 34px;
+        height: 34px;
+        background-color: $body-color-bg;
+        border-radius: 50%;
+        position: relative;
+
+        i {
+            font-size: 17px;
+
+            &.icon-timeapp {
+                font-size: 20px;
+            }
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .icon-profile::before {
+            font-size: 24px;
+        }
+
+        .icon-settings {
+            font-size: 24px;
+        }
+
+        .icon-tasks {
+            color: $control-color-blue;
+        }
+    }
+}
+
+    .icon-menu {
+        display: block;
+        margin: 21px 0 0;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        position: relative;
+
+        .circle-icon {
+            border-radius: 50%;
+            width: 9px;
+            height: 9px;
+            position: absolute;
+            right: 3px;
+            top: -3px;
+
+            &.blue {
+                background: $control-color-blue;
+
+            }
+            &.red {
+                background: $color-red-dark;
+
+            }
+        }
+
+        .container-number-icon {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            color: $body-color-bg;
+            position: absolute;
+            bottom: 4px;
+            left: 21px;
+
+            .number-icon {
+                width: 20px;
+                text-align: center;
+            }
+        }
+
+        i {
+            font-size: 24px;
+            color: $body-color-bg;
+        }
+
+    }
+
+    .nav-icons {
+        margin: 5px 0;
+    }
+}
+
+.menu-wrapper {
+    background-color: $body-color-bg;
+    width: 100%;
+    max-width: 0;
+    position: fixed;
+    z-index: 111;
+    left: 0;
+    top: 0;
+    border-right: 1px solid rgba(196, 210, 221, 0.5);
+    height: 100vh;
+    // fix Safari shadow-container issue
+    //overflow-x: hidden;
+    transition-property: max-width, min-width, visibility;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    visibility: hidden;
+
+    &.visible {
+        max-width: 440px;
+        visibility: visible;
+
+        .shadow-container {
+            visibility: visible;
+        }
+    }
+
+    .shadow-container {
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        visibility: hidden;
+        background: rgba(0, 0, 0, 0.10);
+    }
+}
+
+.icon-menu {
+    margin-left: 3px;
+
+    .icon-notification {
+        font-size: 20px !important;
+    }
+}
+
+.company-logo-wrapper {
+    position: relative;
+    margin-top: 20px;
+
+    &:hover {
+        .tooltip_right {
+            visibility: visible;
+        }
+    }
+}

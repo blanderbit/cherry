@@ -1,0 +1,106 @@
+:host {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    .custom {
+        font-size: 12px;
+        margin-right: 7px;
+        margin-top: 4px;
+    }
+}
+
+#dropdown {
+    background: transparent;
+    text-align: center;
+    outline: none;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+    color: #738C99;
+
+    &:hover {
+        color: #00A3FF;
+    }
+
+    &:active,
+    &.open,
+    &:focus-within {
+        color: #00A3FF;
+        background-color: rgba(218, 239, 250, 0.6);
+    }
+
+    .select {
+        position: relative;
+        top: 2px;
+    }
+
+    ::ng-deep {
+        i.icon-vertical-dots {
+            display: flex;
+            font-size: 19px;
+            line-height: 19px;
+        }
+    }
+}
+
+.dropdown-toggle {
+    //margin-top: 17px;
+    margin-top: 0;
+
+    &:after {
+        display: none;
+    }
+
+}
+
+.dropdown-menu {
+    color: #738C99;
+    border: none;
+    background: #fff;
+    border-radius: 8px;
+    padding: 7px 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+    min-width: 160px !important;
+
+    .dropdown-item {
+        color: #738C99;
+        display: flex;
+        border-radius: 3px;
+        margin: 0 auto;
+        padding-left: 9px;
+        padding-right: 9px;
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        height: 30px;
+
+        &:hover {
+            background: rgba(218, 239, 250, 0.6);
+            color: #00A3FF;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(218, 239, 250, 0.6);
+        }
+
+        .icon {
+            font-size: 12px;
+            padding: 3px 8px 0 0;
+        }
+    }
+}
+
+button {
+    align-items: center;
+    padding: 0;
+}
+:host-context(app-select){
+    #dropdown{
+        background-color: transparent !important;
+    }
+}

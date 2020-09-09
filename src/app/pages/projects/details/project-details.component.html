@@ -1,0 +1,80 @@
+<form [formGroup]="form" [hasEditPermission]="[permissionAction.UpdateProject]" [disableIf]="!isProjectActive"
+      class="h-100 d-flex flex-column w-100">
+    <div class="section p-b-20">
+        <h3 class="section-header general">{{ "details.projectDetails" | translate}}</h3>
+
+        <div class="section-row d-flex flex-wrap justify-content-between">
+            <div class="user-details m-r-30 m-b-20">
+                <app-avatar [resource]="project?.creator" size="34"></app-avatar>
+                <p>{{project?.creator | userName}}</p>
+            </div>
+
+            <div class="selectors d-flex flex-wrap justify-content-between">
+                <!--                TODO: Implement-->
+                <!--                <div class="selector-item">-->
+                <!--                    <div>-->
+                <!--                        <span class="icon-cont size-s"><i class="icon-projects"></i></span>-->
+                <!--                    </div>-->
+                <!--                    <div class="value">-->
+                <!--                        <p>{{ "details.type" | translate}}</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <app-form-control [error]="errors.startDate" [hideError]="true">
+                    <div class="datepicker start-date m-b-20">
+                        <app-datepicker [showIcon]="false"
+                                        [maxDate]="formValue?.endDate"
+                                        [error]="errors.startDate"
+                                        formControlName="startDate">
+                            <p class="title">{{"details.start" | translate}}</p>
+                            <p class="text-date"
+                               [highlightEnabled]="false"
+                               [appHighlightOverdueDate]="formValue.endDate"
+                            >{{formValue.startDate | date}}</p>
+                        </app-datepicker>
+
+                    </div>
+                </app-form-control>
+
+                <app-form-control [hideError]="true">
+                    <div class="datepicker d-flex m-b-20">
+                        <app-datepicker [minDate]="formValue?.startDate"
+                                        [highlightEnabled]="isProjectInProgress"
+                                        [showIcon]="false"
+                                        [appHighlightOverdueDate]="formValue.endDate"
+                                        [error]="errors.endDate"
+                                        formControlName="endDate"
+                        >
+                            <p class="title">{{"details.end" | translate}}</p>
+
+                            <p class="text-date"
+                               [highlightEnabled]="isProjectInProgress"
+                               [appHighlightOverdueDate]="formValue.endDate"
+                            >{{formValue.endDate | date}}</p>
+                        </app-datepicker>
+
+                    </div>
+                </app-form-control>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="overflow-y-scroll">
+        <div class="section p-0">
+            <h3 class="section-header">{{ "details.description" | translate}}</h3>
+            <app-form-control [error]="errors.description" class="w-100 project-description">
+            <textarea style="box-sizing: border-box"
+                      autosize
+                      type="text"
+                      minRows="3"
+                      formControlName="description"
+                      [placeholder]='"details.no-description" | translate'>
+            </textarea>
+            </app-form-control>
+
+        </div>
+
+        <div class="divider m-t-20"></div>
+    </div>
+</form>

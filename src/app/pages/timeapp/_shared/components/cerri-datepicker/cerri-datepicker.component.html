@@ -1,0 +1,24 @@
+<div class="custom-datepicker" [class.open]="pickerDrop.isOpen()">
+
+  <div #pickerDrop="ngbDropdown" ngbDropdown class="d-flex justify-content-center align-items-center">
+    <button type="button" id="dropdown" class="m-0 " ngbDropdownToggle>
+      <i class="calendar-icon"></i>
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="dropdown p-y-5">
+      <div
+        class="custom-datepicker__calendar"
+      >
+        <cerri-datepicker-calendar
+          [selectWeekMode]="selectWeekMode"
+          [canChangeNavMonthLogic]="canNavigateMonth"
+          (emitSelectedDate)="onSelectDay($event);pickerDrop.close();"
+          [initialDate]="selectedDate"
+          [maxDate]="maxDate"
+          [date]="selectedDate"
+        ></cerri-datepicker-calendar>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+@import '../../../styles/core/variables';
+
+.kanban-column {
+    background: $background-light;
+    border-radius: 8px;
+    padding: 16px 12px;
+    width: 100%;
+}
+
+.background-light {
+    background: $background-light;
+}

@@ -1,0 +1,157 @@
+@import "../../../styles/core/variables";
+@import "../../../styles/mixins/text.mixins";
+
+:host {
+    ::ng-deep {
+        material-menu {
+            z-index: 1;
+            line-height: 0;
+            font-size: 14px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            //opacity: 0.7;
+            cursor: pointer;
+
+            i {
+                font-size: 12px;
+            }
+        }
+
+
+
+        button {
+
+            &:hover, &[aria-expanded=true] {
+                i {
+                    color: $control-color-blue;
+                }
+
+                &.icon-container {
+                    background-color: rgba(218, 239, 250, 0.6);
+
+                }
+            }
+
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding-right: 20px;
+        }
+    }
+}
+
+.divider {
+    position: relative;
+
+    span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        color: $color-text-grey;
+        background: #fff;
+        min-width: 90px;
+        max-width: 100%;
+        white-space: nowrap;
+        padding: 0 24px 3px 24px;
+
+        @include text-overflow-ellipsis();
+    }
+}
+
+.icon-vertical-dots {
+    display: none;
+    font-size: 20px;
+    line-height: 20px;
+    opacity: 0.8;
+}
+
+.menu-item{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.comment-actions {
+    position: absolute;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    border-radius: 3px;
+    background: transparent;
+    transform: translateY(-50%);
+    outline: none;
+
+    &.menu-active i {
+        color: $control-color-blue !important;
+    }
+
+    &:not(:empty):hover {
+        background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+        border-radius: 3px;
+
+        .icon-vertical-dots {
+            color: $control-color-blue;
+        }
+    }
+
+    &:focus {
+        color: $control-color-blue;
+
+        .icon-vertical-dots {
+            color: $control-color-blue;
+        }
+    }
+
+    .icon-vertical-dots {
+        display: inline-flex;
+        color: $color-text-black;
+        line-height: 20px;
+    }
+}
+
+::ng-deep {
+    .mat-menu-panel {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+        min-height: 0 !important;
+    }
+
+    .mat-menu-content {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    button.mat-menu-item {
+        background-color: #fff !important;
+        font-size: 12px;
+        color: $color-text-grey;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+        line-height: 35px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 6px;
+        margin-right: 6px;
+        height: 35px;
+        &:hover{
+            color: $control-color-blue;
+            background-color: $material-background !important;
+        }
+        i {
+            font-size: 12px;
+            line-height: 12px;
+
+        }
+
+        &:nth-of-type(2) {
+            margin-top: 1px;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import '../../../../styles/core/variables';
+
+.radio-button {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+
+    input:checked ~ .check-mark {
+        background-color: #fff;
+        border: 1px solid $control-color-blue;
+
+        &:after {
+            display: block;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .check-mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+
+        border-radius: 50%;
+        border: 1px solid $control-color-grey;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: $control-color-blue;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+

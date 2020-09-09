@@ -1,0 +1,76 @@
+<div class="d-flex flex-column position-relative">
+    <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+    <div class="modal-header">
+        {{"add-task.title" | translate}}
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <i class="icon-close-button"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <form [formGroup]="form" class="container" (submit)="submit($event)">
+
+            <div class="new-entity">
+                <div class="w-100 flex-grow-1 flex-shrink-2">
+                    <app-form-control [title]="'add-task.task-name'" error="{{errors.name}}" class="w-100">
+
+                        <input id="name" autofocus class="name" type="text"
+                               placeholder="{{'add-task.placeholders.name' |translate}}"
+                               formControlName="name">
+                    </app-form-control>
+                </div>
+
+
+            </div>
+            <div>
+                <app-form-control [title]="'add-task.project' | translate" error="{{errors.projectId }}">
+                    <app-autocomplete-control
+                        formControlName="projectId"
+                        placeholder="{{'add-task.placeholders.project' }}"
+                        id="projectId"
+                        [paramsFormatter]="projectProviderParamsFormatter"
+                        [loadingHandler]="this"
+                        [provider]="projectsProvider"
+                    ></app-autocomplete-control>
+                </app-form-control>
+
+            </div>
+            <div class="date-picker-container">
+
+                <app-form-control [error]="errors.currentStartDate || errors.currentEndDate">
+
+                    <div class="datepicker d-flex">
+                        <app-datepicker
+                            class="m-r-20"
+                            formControlName="currentStartDate"
+                            [error]="errors.currentStartDate"
+                            [maxDate]="formValue?.currentEndDate"
+                            placeholder="{{'add-task.placeholders.startDate'}}"
+                        ></app-datepicker>
+
+                        <app-datepicker formControlName="currentEndDate"
+                                        [error]="errors.currentEndDate"
+                                        [minDate]="formValue?.currentStartDate"
+                                        placeholder="{{'add-task.placeholders.endDate' }}"
+
+                        ></app-datepicker>
+                    </div>
+                </app-form-control>
+
+            </div>
+
+
+        </form>
+    </div>
+    <div class="actions">
+        <button class="default large" (click)="close()">
+            {{'confirm-dialog.reject' | translate}}
+        </button>
+        <button class="primary large" (click)="submit()">
+            {{'confirm-dialog.confirm' | translate}}
+        </button>
+    </div>
+
+
+</div>

@@ -1,0 +1,220 @@
+@import '../../styles/core/variables';
+@import '../../styles/components/select';
+
+:host {
+    .project-type-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: none;
+        margin-right: 8px;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+    .gantt {
+        background-color: #1174FF;
+
+        i::before {
+            font-size: 10px;
+        }
+    }
+
+    .kanban {
+        background-color: #fff;
+
+        i::before {
+            color: $control-color-purple;
+            font-size: 26px;
+        }
+    }
+}
+
+.project-details-container {
+    padding: 0 40px;
+}
+
+.avatars {
+    box-sizing: content-box;
+}
+
+
+.project-name {
+    max-width: 300px;
+    min-width: 70px;
+    font-size: 24px;
+    line-height: 34px;
+    color: $preview-background;
+}
+
+.project-id {
+    margin-right: 12px;
+    color: $color-text-grey;
+    max-width: 100px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+
+.icon-plus {
+    font-size: 11px;
+    line-height: 32px;
+    display: flex;
+}
+
+.container {
+    width: 100%;
+}
+
+.dropdown-toggle {
+    margin-top: 0 !important;
+}
+
+:host ::ng-deep {
+    menu.menu #dropdown {
+        height: 32px;
+        width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+:host .header {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 20px;
+    line-height: 27px;
+    align-items: center;
+
+    .add-team {
+        margin-right: auto;
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .cont {
+        margin-left: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    .gant-url {
+        margin-top: 0;
+        margin-right: 20px;
+    }
+
+    .change-state {
+        margin: 0 0 0 12px;
+    }
+}
+
+app-avatars-stack {
+    margin-left: 30px;
+}
+
+:host ::ng-deep {
+
+    app-navigation-back {
+        font-size: 12px;
+        line-height: 16px;
+
+        i {
+            top: 3px;
+        }
+    }
+}
+
+.status-dropdown {
+    height: 34px;
+
+    ::ng-deep #dropdown {
+        width: 100%;
+        color: white;
+        margin-top: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        position: relative;
+    }
+
+    i {
+        color: white;
+        position: absolute;
+        right: 15px;
+    }
+}
+
+::ng-deep .icon-arrow-down {
+    font-size: 13px;
+}
+
+
+.form-control[readonly] {
+    background-color: transparent;
+}
+
+// form {
+//     .form-control {
+//         width: auto;
+//         margin-right: 10px;
+//         font-size: 24px;
+//         font-weight: 600;
+//         border: none;
+//         //margin: 30px 0;
+
+//         &:active {
+//             outline: $control-color-blue;
+//         }
+//     }
+
+//     textarea.form-control {
+//         resize: none;
+//         width: 100%;
+//         height: auto;
+//         // color: rgba(115, 140, 153, 0.8);
+//         color: $color-text-black;
+//         font-weight: normal;
+//         font-size: 13px;
+//         line-height: 16px;
+//         margin: 0;
+
+//         &::placeholder {
+//             color: $color-grey-text-80;
+//         }
+//     }
+
+//     input.form-control {
+//         text-overflow: ellipsis;
+//         max-width: 300px;
+//     }
+// }
+
+.icon-cont {
+    margin-left: 10px;
+    background: $body-color-bg;
+    display: block;
+    width: 26px !important;
+    height: 26px !important;
+    box-sizing: content-box;
+    flex-shrink: 0;
+    border: 1px dashed $color-text-grey;
+
+    i {
+        color: $color-text-grey;
+        font-size: 11px;
+        line-height: 11px;
+    }
+
+    &:hover {
+        i {
+            color: $control-color-blue;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1300px;
+    }
+}

@@ -1,0 +1,319 @@
+@import '../../../_shared/styles/scss/variables';
+@import '../../../../../../styles/core/variables';
+
+$header-padding-left: 20px;
+
+:host {
+    ::ng-deep {
+
+        .datatable-row-comment {
+            padding-left: 0 !important;
+            width: fit-content;
+        }
+        .time-input{
+            border: none;
+        }
+        .isDisabled {
+            background: #e1e8ee !important;
+        }
+
+        .mat-header-cell {
+            padding: 10px 0 !important;
+            color: $grey_icon;
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 16px;
+
+            &.comment-header {
+                border-radius: 0 8px 0 0;
+            }
+            &.total-header{
+                font-weight: bold;
+
+            }
+
+            strong {
+                display: block;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 18px;
+                color: $grey_icon;
+            }
+
+            &.__active {
+                background: $blue;
+                color: #fff;
+                border-radius: 4px 4px 0 0;
+            }
+
+
+        }
+
+        thead tr {
+
+            &:nth-of-type(1) {
+                ::ng-deep {
+                    .mat-header-cell:nth-child(-n+8):not(:first-child) {
+                        border-right: 1px solid $grey-background !important;
+
+                        &.isDisabled {
+                            border-right: 1px solid $control-color-grey !important;
+
+                            &:last-child {
+                                border-right: none;
+                            }
+                        }
+                    }
+
+                    .mat-header-cell:nth-child(8):not(:first-child).isDisabled {
+                        border-right: none !important;
+                    }
+
+                }
+            }
+
+            &:nth-of-type(1) {
+                font-size: 12px;
+                line-height: 16px;
+
+                th {
+                    width: 100%;
+                    min-width: 85px;
+                    text-align: center;
+                    background: $grey_light;
+
+                    &:first-of-type {
+                        width: 40px;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                padding: 0 $header-padding-left !important;
+                text-align: left !important;
+
+                th {
+                    background: #fff;
+                }
+            }
+
+            &:nth-of-type(3) {
+                padding: 0 $header-padding-left !important;
+
+                th {
+                    // fix autocomplete z-index
+                    z-index: 2 !important;
+                }
+            }
+
+            th.isActive, th.isActive strong {
+                background: #00A3FF;
+                color: #fff;
+                border-radius: 4px 4px 0 0;
+            }
+        }
+
+        tbody tr td:nth-child(1) {
+            padding-left: 20px;
+            position: -webkit-sticky;
+        }
+
+        tfoot tr {
+            &:after {
+                height: 1px;
+                left: 0;
+                width: calc(100% - 26px);
+                display: block;
+                position: absolute;
+                background: $grey-background;
+                content: '';
+                z-index: 1;
+            }
+        }
+
+        tfoot tr td :nth-child(1) {
+            background: #ffffff;
+        }
+
+        .daily-totals {
+            padding-left: 20px;
+
+        }
+
+        td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+            padding-right: 0;
+        }
+
+        .mat-row {
+            position: relative !important;
+            height: 66px;
+
+            &:after {
+                height: 1px;
+                left: 0;
+                width: calc(100% - 26px);
+                display: block;
+                position: absolute;
+                background: $grey-background;
+                content: '';
+                z-index: 1;
+            }
+
+            &:hover {
+                background: $blue_selected !important;
+                cursor: pointer;
+                color: $blue;
+                border-radius: 3px;
+
+                .delete-column {
+                    background: white;
+                }
+
+                .datatable-row-desc {
+                    color: $control-color-blue;
+                }
+
+                &:after, & + .mat-row:after {
+
+                    background: transparent;
+
+                }
+
+            }
+
+            td {
+                font-size: 13px;
+            }
+
+            td:first-of-type {
+                border-top: none;
+                text-align: center;
+                background: #ffffff;
+
+                &:hover, &.hovered {
+                    border-radius: 3px;
+                    background: $blue_selected !important;
+
+                }
+            }
+
+
+            &.row-disabled:hover {
+                background: white !important;
+            }
+        }
+
+        mat-checkbox {
+            label {
+                margin-bottom: 0;
+            }
+        }
+
+        app-search-task .track-new-task {
+            position: sticky;
+            left: $header-padding-left;
+
+            z-index: 1;
+        }
+
+        app-add-tasks-row {
+            .datatable-additional {
+                padding: 10px 20px;
+                z-index: 2;
+            }
+        }
+    }
+}
+
+.table-overflow {
+    border-radius: 8px 8px 0 0;
+}
+
+table {
+    width: 100%;
+
+    td.mat-footer-cell {
+        &:first-of-type {
+            padding-left: 0;
+        }
+
+        &:not(:first-of-type) {
+            text-align: center;
+        }
+    }
+
+    td {
+        width: 100%;
+    }
+
+    th, td {
+        border: none;
+    }
+}
+
+.time-input {
+    width: 55px;
+    text-align: center;
+    display: block;
+}
+
+
+.table-overflow {
+    overflow: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hidden {
+    height: 0;
+
+    .datatable-empty {
+        display: none;
+    }
+
+    ::ng-deep * {
+        height: 0;
+        opacity: 0;
+        transition: 0.2s easy-in;
+    }
+}
+
+.datatable-empty {
+    text-align: center;
+}
+
+.row-disabled .datatable-row-comment {
+    pointer-events: none;
+}
+
+.delete-column-header {
+    background-color: white !important;
+}
+
+.comment-column-header {
+    border-top-right-radius: 8px;
+}
+
+.datatable-row-comment.mat-button {
+    min-width: 0px;
+    padding: 0 0 0 0;
+}
+
+.delete-row.mat-button {
+    min-width: 0px;
+    padding: 0;
+    padding-left: 5px !important;
+}
+
+
+.delete-row.mat-button {
+    color: $red;
+    width: 100%;
+    font-size: 20px;
+    padding: 0 0 0 10px;
+    min-width: 25px;
+    max-width: 20px;
+}

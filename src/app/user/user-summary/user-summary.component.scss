@@ -1,0 +1,58 @@
+@import "../../../styles/core/variables";
+@import "../../../styles/mixins/disabled.mixin";
+
+.avatar-wrapper {
+    position: relative;
+
+    .remove {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $control-color-red;
+
+        i {
+            line-height: 13px;
+            font-size: 13px;
+        }
+
+        &.disabled {
+            @include disabled();
+        }
+    }
+
+    &.removable {
+        padding-right: 20px;
+    }
+
+}
+
+.user-info {
+    .user-name {
+        display: block !important;
+    }
+    
+    .plan-buttons {
+        color: $color-text-grey;
+    }
+
+    a {
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: $control-color-blue;
+            .icon-planner {
+                color: $control-color-blue;
+                visibility: unset;
+            }
+        }
+    }
+
+    .icon-planner {
+        font-size: 12px;
+        line-height: 12px;
+        visibility: hidden;
+    }
+}

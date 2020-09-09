@@ -1,0 +1,15 @@
+<div class="auth-form text-center">
+        <div @slideInFromRight>
+            <img class="error-icon" src="../../../assets/img/error/access_denied.png" />
+
+            <div class="h-auto">
+                <h2 class="d-block">{{'Access denied' | translate}}</h2>
+                <h6>{{'Please contact your Cerri administrator.' | translate}}</h6>
+
+                <button class="button-back" type="submit" (click)="goBack($event)">
+                    <i class="icon-navigation-arrow f-z-12 m-r-10 d-flex"></i>
+                    {{'authError.goBack' | translate}}
+                </button>
+            </div>
+    </div>
+</div>

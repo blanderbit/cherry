@@ -1,0 +1,47 @@
+@import "../core/variables";
+
+@mixin background-color($color) {
+    background: $color;
+}
+
+@mixin control-blue() {
+    @include background-color($control-color-blue);
+}
+
+@mixin control-grey() {
+    @include background-color($control-color-grey)
+}
+
+@mixin control-red() {
+    @include background-color($control-color-red)
+}
+
+@mixin control-green() {
+    @include background-color($control-color-green)
+}
+
+@mixin control-orange() {
+    @include background-color($control-color-orange)
+}
+
+@mixin colorize() {
+    &.default {
+        @include control-grey();
+    }
+
+    &.primary {
+        @include control-blue();
+    }
+
+    &.success {
+        @include control-green();
+    }
+
+    &.danger {
+        @include control-red();
+    }
+
+    &.warning {
+        @include control-orange();
+    }
+}

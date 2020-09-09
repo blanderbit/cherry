@@ -1,0 +1,16 @@
+<app-sidebar titleUrl="/projects">
+    <ng-container ngProjectAs="'.create-button'">
+
+        <button class="add-project primary"
+                (click)="createBoard()"
+        >
+            {{"side.create-board" | translate}}
+            <i class="icon-plus"></i>
+        </button>
+    </ng-container>
+
+    <app-projects-list class="m-t-20 overflow-auto"
+                       [getRouterLink]="getRouterLink"
+                       [defaultParams]="projectListParams"
+    ></app-projects-list>
+</app-sidebar>

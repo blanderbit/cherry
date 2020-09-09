@@ -1,0 +1,38 @@
+@import "../../../../styles/core/variables";
+
+:host {
+    align-items: flex-start;
+    display: flex;
+}
+
+::ng-deep .members-dialog  .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+}
+
+::ng-deep  .members-dialog  .modal-content {
+    height: 100vh;
+}
+
+.team-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.modal-body {
+    margin: 0 auto;
+}
+.add-resources{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 16px;
+    margin-left: 8px;
+}
+.plus{
+    font-size: 12px;
+    margin-left: 12px;
+    transform: scale(1.5);
+}
+
+

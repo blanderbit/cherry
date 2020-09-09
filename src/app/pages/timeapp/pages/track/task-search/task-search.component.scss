@@ -1,0 +1,103 @@
+@import "../../../../../../styles/core/variables";
+
+.track-new-task{
+    background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6));
+    border-radius: 3px;
+    padding: 15px;
+
+    .mat-card-header {
+       justify-content: center;
+    }
+.search-query{
+    max-width: 15ch;
+
+}
+i.icon-circle-checked{
+    color: $control-color-blue;
+}
+.card{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), -5px -5px 25px rgba(206, 218, 228, 0.7);
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    top: 40px;
+    margin-left: 16px;
+    z-index: 4;
+    width: 100%;
+    max-width: 600px;
+
+    &-title{
+        text-align: center;
+        font-size: 14px;
+        line-height: 120%;
+        color: rgba(115, 140, 153, 0.8);
+    }
+
+    &-subtitle{
+        font-size: 12px;
+        line-height: 16px;
+        color: rgba(115, 140, 153, 0.8);
+        display: flex;
+        justify-content: center;
+
+    }
+
+    &-link{
+        cursor: pointer;
+        font-weight: 600;
+        color: $control-color-blue;
+        text-transform: capitalize;
+    }
+
+    i{
+        font-size: 16px;
+
+    }
+}
+
+}
+:host ::ng-deep app-autocomplete-control{
+    max-width: 600px;
+    width: 100%;
+    .dropdown-caret{
+        max-width: 600px;
+        margin-left: 8px;
+        input{
+            padding-left: 16px;
+
+        }
+        &:after{
+            content: none;
+        }
+    }
+    .dropdown-menu{
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    .dropdown-item{
+        font-size: 14px;
+        line-height: 16px;
+        padding: 8px 10px;
+
+        &:hover, &.active{
+            background: linear-gradient(0deg, rgba(218, 239, 250, 0.6), rgba(218, 239, 250, 0.6)) !important;
+            .task-name{
+                font-weight: 600;
+                color: $control-color-blue !important;
+            }
+        }
+    }
+}
+
+.task-name {
+    color: #485056;
+}
+.project-name {
+}
+.result-container {
+
+    border-radius: 3px;
+
+}

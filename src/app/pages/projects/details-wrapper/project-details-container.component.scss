@@ -1,0 +1,121 @@
+@import "../../../common-projects/common-projects.component.scss";
+
+
+.content {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.navigation {
+    min-width: 80px;
+    width: 20%;
+
+    .list-item {
+        padding: 11px 20px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 18px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;
+        text-transform: capitalize;
+        position: relative;
+    }
+
+    .active {
+        color: $control-color-blue;
+        background: $icon-bg-hover-blue;
+    }
+}
+
+.list-item.activity::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $control-color-red;
+    position: absolute;
+    top: 50%;
+    content: '';
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.details {
+    padding-left: 35px;
+    padding-right: 40px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+form {
+    .form-control {
+        width: auto;
+        margin-right: 10px;
+        font-size: 24px;
+        font-weight: 600;
+        border: none;
+        //margin: 30px 0;
+
+        &:active {
+            outline: $control-color-blue;
+        }
+    }
+
+    textarea.form-control {
+        resize: none;
+        width: 100%;
+        height: auto;
+        // color: rgba(115, 140, 153, 0.8);
+        color: $color-text-black;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+        margin: 0;
+
+        &::placeholder {
+            color: $color-grey-text-80;
+        }
+    }
+
+    input.form-control {
+        text-overflow: ellipsis;
+        max-width: 300px;
+    }
+}
+
+// .icon-cont {
+//     margin-left: 10px;
+//     background: $body-color-bg;
+//     display: block;
+//     width: 26px !important;
+//     height: 26px !important;
+//     box-sizing: content-box;
+//     flex-shrink: 0;
+//     border: 1px dashed $color-text-grey;
+
+//     i {
+//         color: $color-text-grey;
+//         font-size: 11px;
+//         line-height: 11px;
+//     }
+
+//     &:hover {
+//         i {
+//             color: $control-color-blue;
+//         }
+//     }
+// }
+
+
+// @media (min-width: 1400px) {
+//     .container {
+//         max-width: 1300px;
+//     }
+// }
+
+@media #{$small-down} {
+    .details {
+        padding-left: 15px;
+        padding-right: 20px;
+    }
+}

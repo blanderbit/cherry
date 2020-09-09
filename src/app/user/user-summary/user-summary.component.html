@@ -1,0 +1,23 @@
+<div class="d-flex avatar-wrapper align-items-center" *ngIf="item" [class.removable]="removable">
+
+    <div [style.margin-right.px]="gutter" *ngIf="showAvatar">
+        <app-avatar [size]="avatarSize"
+                    [resource]="item.id"
+                    [success]="success" showSuccessCheckMark="{{true}}"
+        ></app-avatar>
+    </div>
+
+    <div class="user-info position-relative text-overflow-ellipsis" [style.width]="">
+        <div class="f-z-14 l-h-20 user-name text-overflow-ellipsis"
+             title="{{item.name}}">
+            {{item.name}}
+        </div>
+
+        <ng-content></ng-content>
+
+    </div>
+
+    <div class="remove" [class.control-disabled-grey]="removeDisabled" *ngIf="removable" (click)="onRemove()">
+        <i class="icon-close-button"></i>
+    </div>
+</div>

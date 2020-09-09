@@ -1,0 +1,105 @@
+<form [formGroup]="form" (ngSubmit)="apply($event)">
+    <app-dialog class="position-relative" title="{{'plan.addTime'}}" [loading]="loading">
+        <div class="body">
+            <div class="d-flex justify-content-center align-items-start f-z-13 l-h-18 f-w-600">
+                <div class="plan-time p-r-30">
+                    <ng-container *ngIf="userAssignment.resourceId === resourceId; else notOwnTimes">
+                        <ng-template [noForbiddenPermission]="permissionAction.ViewAssignmentPlannedTime">
+                            <ng-container [ngTemplateOutlet]="plannedTime"></ng-container>
+                        </ng-template>
+
+                        <ng-template [noForbiddenPermission]="permissionAction.ViewAssignmentActualTime">
+                            <ng-container [ngTemplateOutlet]="actualTime"></ng-container>
+                        </ng-template>
+                    </ng-container>
+
+                    <ng-template #notOwnTimes>
+                        <ng-template [hasPermission]="permissionAction.ViewAssignmentPlannedTime"
+                                     [creatorId]="creatorId"
+                                     [membersIds]="membersIds">
+                            <ng-container [ngTemplateOutlet]="plannedTime"></ng-container>
+                        </ng-template>
+
+                        <ng-template [hasPermission]="permissionAction.ViewAssignmentActualTime"
+                                     [creatorId]="creatorId"
+                                     [membersIds]="membersIds">
+                            <ng-container [ngTemplateOutlet]="actualTime"></ng-container>
+                        </ng-template>
+                    </ng-template>
+
+                    <ng-template #plannedTime>
+                        <div class="d-flex justify-content-between ">
+                            <p>{{"plan.time" | translate}}</p>
+                            <p class="f-w-600 l-h-20 color-grey text-no-wrap">
+                                {{(userAssignment?.plannedTime | timeToString) || 'time'}}
+                            </p>
+                        </div>
+                    </ng-template>
+
+                    <ng-template #actualTime>
+                        <div class="d-flex justify-content-between ">
+                            <p>{{"plan.actual" | translate}}</p>
+                            <p class="f-w-600 l-h-20 color-grey text-no-wrap">
+                                {{(userAssignment?.actualTime | timeToString) || 'time'}}
+                            </p>
+                        </div>
+                    </ng-template>
+                </div>
+                <div class="remaining-time p-l-30">
+                    <div class="d-flex justify-content-between">
+                        <p>{{"plan.remaining" | translate}}</p>
+                        <p [class.color-red]="remainingTime < 0" [class.color-grey]="remainingTime > 0"
+                           class="f-w-600 l-h-20 text-no-wrap">
+                            {{remainingTime | timeToString : true : false}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-t-30">
+                <p class="f-z-12 l-h-15 f-w-700 color-dark-grey">{{"plan.addTime" | translate | uppercase}}</p>
+
+                <div class="d-flex p-y-15">
+                    <app-form-control class="">
+                        <app-datepicker formControlName="date"
+                                        maxDate="{{currentDate}}"
+                                        minDate="{{taskMinDate}}">
+                            <span class="m-l-5 l-h-18 f-z-14">
+                                {{ formValue?.date ? (formValue?.date | date) : ("plan.date" | translate)}}
+                            </span>
+                            <i class="icon-calendar-upcoming color-grey ml-auto"></i>
+                        </app-datepicker>
+                    </app-form-control>
+
+                    <app-form-control class="m-x-15" style="width: 80px">
+                        <app-manual-time-input #input (mouseleave)="input.triggerBlur()" formControlName="time"></app-manual-time-input>
+                    </app-form-control>
+                </div>
+                <app-form-control class="m-b-15">
+                <textarea formControlName="comment"
+                          [placeholder]='"plan.placeholder" | translate'>
+                </textarea>
+                </app-form-control>
+                <div class="d-flex align-items-center f-z-11 l-h-15 color-grey">
+                    <a class="d-inline-block" target="_blank" [routerLink]="['/timeapp/track']"
+                    >
+                    <span class="icon-cont timeApp m-r-10">
+                    <i class="icon-timesheet f-z-12"></i>
+                </span>
+                        {{"plan.timeApp" | translate}}
+                    </a>
+                </div>
+                <!-- </div> -->
+            </div>
+
+        </div>
+
+        <div class="actions d-flex justify-content-between w-100">
+            <button class="default large" type="button"
+                    (click)="cancel()">{{"assignee.cancel" | translate }}</button>
+            <button class="primary large" type="submit"
+                    [disabled]="form.invalid || !valueChanged">{{"plan.save" | translate}}</button>
+        </div>
+    </app-dialog>
+</form>
+

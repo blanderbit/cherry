@@ -1,0 +1,15 @@
+<div class="field w-100" [ngClass]="{'show-error': error}" >
+
+    <label *ngIf="title && !hideTitle"
+           [for]="title"
+           [style.font-size.px]="titleSize"
+           class="f-w-600 l-h-18 m-t-15">
+        {{title | translate }}
+    </label>
+
+    <div>
+        <ng-content></ng-content>
+    </div>
+
+    <span class="error" *ngIf="!hideError">{{error || '' | translate}}</span>
+</div>

@@ -1,0 +1,84 @@
+@import '../../../../../styles/core/variables';
+
+.card-menu {
+    margin-left: 70px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon-arrow {
+    line-height: 0;
+}
+
+.menu-item {
+    display: flex;
+    width: 50%;
+    margin: 5px 0;
+    align-items: center;
+
+    span {
+        background: #00A3FF;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        flex-shrink: 0;
+
+        i {
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 14px;
+        color: #314149;
+        margin: 15px;
+    }
+
+    .timesheet {
+        background-color: #EC374A;
+
+        i {
+            font-size: 18px;
+        }
+    }
+
+    .projects {
+        background-color: #37515E;
+    }
+
+    .calendar {
+        background-color: #00B48D;
+    }
+
+    .gantt {
+        background-color: #1174FF;
+    }
+
+    .kanban {
+        background-color: #643C93;
+    }
+
+    .resources {
+        background-color: #27AE60;
+    }
+}
+.menu-icon-home{
+    width: 100%;
+    margin-bottom: 15px;
+    .home{
+        background: $material-background;
+        color: $control-color-blue;
+
+    }
+}

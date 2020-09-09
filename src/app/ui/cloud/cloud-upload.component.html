@@ -1,0 +1,31 @@
+<input hidden type="file" #fileInput (change)="uploadFile($event.target.files)" accept='{{acceptString}}'>
+<ng-template #content let-modal>
+    <div class="cloud-wrapper" *ngIf="!files.length" (click)="fileInput.click()" appDragDrop
+         (onFileDropped)="uploadFile($event)">
+        <div class="drop-upload">
+            <img src="../../../assets/img/upload.svg">
+            <p>{{ "upload.drop" | translate }}</p>
+        </div>
+    </div>
+    <div class="upload-progress" *ngIf="files.length">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">{{ "upload.uploadProgress" | translate }}</h4>
+            <i class="icon-close m-l-10 cursor-pointer" (click)="modal.dismiss('Cross click'); closeModal()"></i>
+        </div>
+        <div class="modal-body">
+            <div class="files-list" *ngFor="let file of files;let i= index">
+                <p class="file-name">{{ file.file.name }}</p>
+                <div class="progress-custom">
+                    <ngb-progressbar [value]="!multipleLoaderFiles ? progressUpload : file.loader" [max]="100">
+                        {{ "upload.uploading" | translate }} <span class="cancel-progress" (click)="cancelDownload(i)">
+                        {{ "upload.cancel" | translate }}</span>
+                    </ngb-progressbar>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<div (click)="open(content)">
+    <ng-content></ng-content>
+</div>

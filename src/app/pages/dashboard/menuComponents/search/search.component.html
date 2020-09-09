@@ -1,0 +1,21 @@
+<div class="search-wrapper">
+    <div class="search">
+        <i class="icon-arrow" (click)="stateChange.emit()"></i>
+        <input type="text" [(ngModel)]="searched" [placeholder]=' "search.placeholder"  | translate ' class="input-search">
+    </div>
+
+    <div class="no-content"*ngIf="!searched">
+        <img src="../../../assets/img/search-null.png" alt="Search something">
+        <p class="text">{{ "search.text" | translate }}</p>
+    </div>
+
+    <div class="search-result" *ngIf="searched">
+        <div class="block">
+            <i class="material-icons">insert_drive_file</i>
+            <div class="result">
+                <p class="title">Administration</p>
+                <span class="type">Project</span>
+            </div>
+        </div>
+    </div>
+</div>

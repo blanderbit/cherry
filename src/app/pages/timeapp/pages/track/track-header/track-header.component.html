@@ -1,0 +1,60 @@
+<div class="header-bottom" [ngClass]="isWeekMode ? 'header-week-view': 'header-day-view'">
+    <div class="row text-center">
+        <div class="col">
+            <div class="header-bottom-date text-left sz-12 l-h-16 color-grey">
+                {{isWeekMode ? (date | weekAgo) : (date | daysAgo)}}
+            </div>
+
+            <div class="header-bottom-subdate">
+                <span class="current-date color-dark sz-20 l-h-27 f-w-600">
+                     <ng-container *ngIf="isWeekMode; else dayMode">
+                         {{params?.from | localDate : 'MMMM d'}} - {{params?.to | localDate : 'd, y'}}
+                     </ng-container>
+                    <ng-template #dayMode>
+                        {{(date | date:'MMMM dd, yyyy')}}
+                    </ng-template>
+                </span>
+
+                <div class="date-nav-buttons m-l-8 m-r-0">
+                    <button type="button" mat-icon-button class="prev-btn" (click)="toPrev()">
+                        <img src="assets/images/arrow_left.svg" alt="prev">
+                    </button>
+                    <button type="button"
+                            [disabled]="isTodayOrAfter()"
+                            mat-icon-button class="next-btn" routerLink="."  (click)="toNext()">
+                        <img src="assets/images/arrow_right.svg" alt="prev">
+                    </button>
+                </div>
+
+                <div class="picker-wrap">
+                    <cerri-datepicker [date]="datepickerDate"
+                                      [selectWeekMode]="isWeekMode"
+                                        [maxDate]="getToday()"
+                                      [canNavigateMonth]="canNavigateMonth"
+                                      (dateChange)="dateChange($event)">
+                    </cerri-datepicker>
+                </div>
+
+                <span class="switch-mode align-items-center">
+                    <span routerLink="./day"
+                          routerLinkActive="checked"
+                          [queryParams]="dayViewParams.params">
+                        Day
+                    </span>
+
+                    <label class="switch">
+                        <input type="checkbox" [checked]="isWeekMode" (change)="viewModeHandler.toggleViewMode()">
+                        <span class="slider round"></span>
+                    </label>
+
+                    <span routerLink="./week"
+                          routerLinkActive="checked"
+                          [queryParams]="weekViewParams.params">
+                        Week
+                    </span>
+                </span>
+
+            </div>
+        </div>
+    </div>
+</div>

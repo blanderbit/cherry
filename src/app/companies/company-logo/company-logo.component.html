@@ -1,0 +1,37 @@
+<div class="wrapper"
+     [ngClass]="{'cursor-pointer': this.canLoad}"
+     (click)="loadImage()"
+     [style.width.px]="size"
+     [style.height.px]="size">
+
+    <input type="file" class="d-none"
+           [accept]="accept" #fileInput (change)="onImageSelect($event)"
+    >
+
+    <ng-container *ngIf="logoUrl">
+        <ng-container *ngIf="!showLoadLogoButton; else loadLogoButton">
+            <img [src]="logoUrl"
+                 *ngIf="!errorLoad"
+                 alt="Company logo"
+                 class="company-logo"
+                 (error)="onLoadImageError()"
+            >
+
+            <div class="company-logo default-logo" *ngIf="errorLoad">
+                <img [src]="defaultLogo" alt="Company logo">
+            </div>
+        </ng-container>
+
+        <ng-template #loadLogoButton>
+            <button class="add-image p-0" type="button">
+                <div class="add-icon-container">
+                        <span class="icon-plus-box">
+                            <i class="icon-plus d-inline-flex f-z-12 l-h-12"></i>
+                        </span>
+
+                    <span class="hover-text f-z-8">Add logo</span>
+                </div>
+            </button>
+        </ng-template>
+    </ng-container>
+</div>

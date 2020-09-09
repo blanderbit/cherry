@@ -1,0 +1,55 @@
+{
+    "company-settings": "Налаштування компанії ",
+    "title": "Вихідні",
+    "description": "Bushwick meh Blue Bottle pork belly mustache skateboard 3 wolf moon. Actually beard single-origin coffee, twee 90's PBR Echo Park sartorial try-hard freegan Portland ennui. Selvage jean shorts 90's,  Vice American Apparel try-hard food truck Shoreditch fap lomo Wes Anderson. Art party Thundercats High Life Tumblr, sartorial vinyl deep v fixie McSweeney's fap tousled Intelligentsia mumblecore. Deep  twee +1, roof party Thundercats PBR Etsy. Flexitarian Williamsburg tote bag iPhone American Apparel. Austin kitsch tofu chia, brunch hoodie Tonx semiotics trust fund kale chips.",
+    "edit": "Редагувати",
+    "add": "Додати Вихідні",
+    "name": "Ім'я",
+    "name-placeholder": "Введіть ім'я",
+    "country": "Країна",
+    "date": "Дата",
+    "copy-from": "Копіювати з",
+    "new-holiday": "Новий вихідний",
+    "this-year": "Цей рік",
+    "header": {
+        "company-header": "Налаштування компанії / Відпускна політика / ",
+        "policy-name": "Назва відпускною політики",
+        "add-holidays": "Добавити вихідний",
+        "selected-year": "Вибраний рік: ",
+        "back-navigation": "Назад до списку відпускної політики",
+        "copy": "Копіювати цей список в ",
+        "description": ""
+
+    },
+    "action": {
+        "successfully-created": "Вихідні створено успішно",
+        "successfully-updated": "Вихідні оновлено успішно",
+        "successfully-deleted": "Вихідні видалено успішно",
+        "create-error": "Неможливо створити вихідні",
+        "update-error": "Неможливо оновити вихідні",
+        "delete-error": "Неможливо видалити вихідні",
+        "load-items-error": "Неможливо загрузити вихідні",
+        "save": "Зберегти",
+        "cancel": "Відмінити",
+        "add": "Додати"
+
+    },
+    "errors": {
+        "name": {
+            "required": "Обов'язкове поле",
+            "minlength": "Мінімальна довжина 2 символи",
+            "maxlength": "Максимальна довжина 50 символів"
+        },
+        "date": {
+            "required": "Обов'язкове поле"
+        }
+    },
+    "confirm-dialog": {
+        "title": "Підвердження копіюваня",
+        "description-first": "Ви впевнені, що хочете скоріювати дані з",
+        "description-second": "? Ця дія перепише всі додані свята з ",
+        "reject": "Ні",
+        "confirm": "Так"
+    },
+    "details.no-rows": "Вихідних немає"
+}

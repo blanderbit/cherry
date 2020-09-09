@@ -1,0 +1,74 @@
+@import '../../../_shared/styles/scss/variables';
+@import '../../../../../../styles/core/variables';
+
+.datatable {
+    &-total {
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    &-header {
+        background: $grey_light;
+        border-radius: 8px 8px 0 0;
+        font-size: 12px;
+        line-height: 16px;
+
+        .row {
+            align-items: center;
+            color: $grey_icon;
+        }
+
+        .col {
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            strong {
+                display: block;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 18px;
+                color: $grey_icon;
+            }
+
+            &.active {
+                background: $blue;
+                color: #fff;
+                border-radius: 4px 4px 0 0;
+                outline: none;
+
+                strong {
+                    color: #fff;
+
+                }
+            }
+        }
+    }
+
+    &-dates {
+        text-align: center;
+
+        .col {
+            border-right: 1px solid rgba(196, 210, 221, 0.5);
+
+            &:last-child {
+                border-right: none;
+                border-radius: 0 8px 0 0;
+            }
+            &.item-disabled{
+                border-right: 1px solid $control-color-grey;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+
+}
+.item-disabled{
+    pointer-events: none;
+    background: rgba(196, 210, 221, 0.5);
+}

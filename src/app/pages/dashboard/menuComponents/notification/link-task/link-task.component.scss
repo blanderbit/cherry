@@ -1,0 +1,37 @@
+@import '../../../../../../styles/core/variables';
+
+app-avatar {
+    width: 34px;
+    height: 34px;
+    margin: 12px 15px 0 48px;
+}
+
+.notification-text {
+    width: 301px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 12px 0;
+    color: $color-text-black;
+
+    .name {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .text-task, .text-source {
+        font-weight: 600;
+    }
+
+    .notification-date {
+        font-size: 12px;
+        font-weight: normal;
+        color: $color-text-grey;
+        margin: 11px 0 0;
+    }
+}
+

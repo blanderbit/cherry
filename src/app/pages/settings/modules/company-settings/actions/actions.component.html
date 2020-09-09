@@ -1,0 +1,11 @@
+<div class="w-100 h-100 d-flex p-l-15 justify-content-start align-items-center">
+    <i *hasPermission="permissions.update" class="icon-edit color-blue cursor-pointer m-r-8"
+       [class.control-disabled]="loading"
+       [class.d-none]="!params.showEdit"
+       (click)="edit()"
+    ></i>
+    <i *hasPermission="permissions.delete" class="timeapp-icon-trash color-red cursor-pointer"
+       [class.control-disabled]="loading"
+       (click)="delete()"
+    ></i>
+</div>

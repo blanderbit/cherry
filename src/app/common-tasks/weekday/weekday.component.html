@@ -1,0 +1,6 @@
+
+<div class="d-flex flex-column text-center sz-13 l-h-18 color-grey" [formGroup]="form">
+    <div class="f-w-600">{{item?.date | weekday | titlecase}}</div>
+    <div class="m-b-10">{{item?.date | moment : 'DD MMM'}}</div>
+    <app-manual-time-input #input (mouseleave)="input.triggerBlur()" formControlName="time" style="width: 65px"></app-manual-time-input>
+</div>

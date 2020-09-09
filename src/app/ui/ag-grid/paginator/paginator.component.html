@@ -1,0 +1,32 @@
+<div class="d-flex paginator">
+    <ng-container>
+        <span class="p-r-15 sz-13 l-h-18 color-dark text-no-wrap">Shown rows</span>
+        <app-select
+            [placement]="'top-left'"
+            [options]="pageSizeOptions" [value]="take" (itemSelect)="onPageSizeChange($event)">
+            <ng-template let-item>
+                <div class="d-flex align-items-center sz-13 f-w-600 l-h-18 color-dark" *ngIf="item">
+                    <span>{{item.title}}</span>
+                    <span><i class="icon-arrow-down d-flex"></i></span>
+                </div>
+            </ng-template>
+        </app-select>
+        <div class="items-data color-dark sz-13 l-h-18 text-no-wrap">
+            {{pageDescription}}
+        </div>
+        <div class="page-data d-flex align-items-center">
+            <button class="first prev" [disabled]="isFirstPage" (click)="goToFirstPage()">
+                <i class="icon-arrow-down"></i>
+            </button>
+            <button class="prev" [disabled]="isFirstPage" (click)="goToPrevPage()">
+                <i class="icon-arrow-down"></i>
+            </button>
+            <button [disabled]="isLastPage" (click)="goToNextPage()" class="next m-l-15">
+                <i class="icon-arrow-down"></i>
+            </button>
+            <button [disabled]="isLastPage" (click)="goToLastPage()" class="last next">
+                <i class="icon-arrow-down"></i>
+            </button>
+        </div>
+    </ng-container>
+</div>

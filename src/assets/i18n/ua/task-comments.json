@@ -1,0 +1,45 @@
+{
+    "send": "Надіслати",
+    "comments": "Коментарі",
+    "add-attachment": "Прикріпити",
+    "cancel": "Скасувати",
+    "save": "Зберегти зміни",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "preview": "Попередній перегляд",
+    "download": "Завантажити",
+    "form": {
+        "commentPlaceholder": "Напишіть коментарій...",
+        "errors": {
+            "required": "Поле обов'язкове",
+            "text": {
+                "required": "Поле обов'язкове",
+                "maxlength": "Поле занадно велике"
+            }
+        }
+    },
+    "action": {
+        "create-error": "Не вдалося надіслати повідомлення",
+        "update-error": "Не вдалося редагувати повідомлення",
+        "delete-error": "Не вдалося видалити повідомлення",
+        "load-items-error": "Не вдалося завантажити повідомлення"
+    },
+    "action-attachments": {
+        "upload-error": "Помилка завантаження",
+        "update-error": "Помилка редагування",
+        "delete-error": "Помилка видалення",
+        "load-items-error": "Помилка під час завантаження",
+        "successfully-deleted": "Успішно видалено",
+        "successfully-upload": "Успішно завантажено"
+    },
+    "add-link": {
+        "title": "Додати файл через посилання",
+        "title-field": "Назва",
+        "title-field-placeholder": "Додати назву файлу",
+        "file-field": "Посилання на файл",
+        "file-field-placeholder": "Вставити посилання на файл",
+        "cancel": "Відмінити",
+        "add-file": "Добавити файл"
+    },
+    "attachments": "Вкладення"
+}

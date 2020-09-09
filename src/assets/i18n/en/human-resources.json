@@ -1,0 +1,153 @@
+{
+    "list": {
+        "title": "Human resources",
+        "create": "New Human Resource",
+        "search": "Find resource..."
+    },
+    "modal": {
+        "yes": "Yes",
+        "no": "No",
+        "confirm": "Confirm",
+        "title": "Update rate depending on resource type?"
+    },
+    "table": {
+        "name": "Name",
+        "responsible": "Responsible",
+        "status": "Status",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "code": "Resource id"
+    },
+    "roles": {
+        "System Admin": "System Admin",
+        "Project Creator": "Project Creator",
+        "User": "User"
+    },
+    "apps": {
+        "access": "Apps Access",
+        "time": "Time",
+        "project": "Projects",
+        "gantt": "Gantt",
+        "kanban": "Kanban",
+        "resource": "Resource",
+        "calendar": "Calendar",
+        "task": "Task",
+        "system-permission": "System permissions",
+        "admin": "Admin",
+        "ability": "Ability to Create Projects"
+    },
+    "form": {
+        "title": "New Human Resource",
+        "remove": "Remove",
+        "cancel": "Cancel",
+        "submit": "Save",
+        "statusOptions": {
+            "0": "Pending",
+            "1": "Active",
+            "2": "Revoked"
+        },
+        "placeholder": {
+            "empty": "",
+            "select": "Select",
+            "startTyping": "Start typing...",
+            "skills": "Start typing skills...",
+            "mobile": "Add number",
+            "responsible":"Select the user..."
+        },
+        "selectPhoto": "Select Photo",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "systemRoleId": "Role",
+        "code": "Resource ID",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "location": "Location",
+        "phone": "Mobile phone",
+        "type": "Resource type",
+        "internalRate": "Cost (internal) rate",
+        "billableRate": "Billable rate (default)",
+        "skills": "Skills",
+        "skills-placeholder": "Start typing skills...",
+        "responsible": "Responsible",
+        "availability": "Availability",
+        "time-off": "Time-off allowance per year",
+        "day": {
+            "0": "Sunday",
+            "1": "Monday",
+            "2": "Tuesday",
+            "3": "Wednesday",
+            "4": "Thursday",
+            "5": "Friday",
+            "6": "Saturday"
+        },
+        "vacation": "Vacation",
+        "illness": "Illness",
+        "hrs": "hrs",
+        "days": "days",
+        "errors": {
+            "firstName": {
+                "required": "First name is required",
+                "minlength": "Minimum field length is 3 characters",
+                "maxlength": "Maximum field length is 50 characters"
+            },
+            "lastName": {
+                "required": "Last name is required",
+                "minlength": "Minimum field length is 3 characters",
+                "maxlength": "Maximum field length is 50 characters"
+            },
+            "systemRoleId": {
+                "required": "Role is required"
+            },
+            "locationId": {
+                "required": "Location is required"
+            },
+            "typeId": {
+                "required": "Type is required"
+            },
+            "billableRate": {
+                "required": "Billable rate is required"
+            },
+            "code": {
+                "required": "Resource ID is required",
+                "maxlength": "Maximum Resource ID length is 30 characters"
+            },
+            "email": {
+                "required": "Email is required",
+                "email": "Invalid email"
+            },
+            "password": {
+                "required": "Password is required",
+                "minlength": "Minimum password length is 6 characters",
+                "maxlength": "Maximum password length is 50 characters",
+                "pattern": "Password should include at least 1 upper case latter, one digits, one special characters"
+            },
+            "confirmPassword": {
+                "mustMatch": "Confirm password should match with password",
+                "required": "Password is required",
+                "minlength": "Minimum password length is 6 characters",
+                "maxlength": "Maximum password length is 50 characters",
+                "pattern": "Password should include at least 1 upper case latter, one digits, one special characters"
+            },
+            "phone": {
+                "plusFirstly": "Phone should start with + symbol",
+                "length": "Phone should include 12 digits",
+                "numbers": "Phone should contains only digits and plus symbol"
+            }
+        }
+    },
+    "action": {
+        "photo-error-updated": "Can't update photo",
+        "photo-successfully-updated": "Photo updated successfully",
+        "successfully-created": "Human resource successfully created",
+        "successfully-updated": "Human resource successfully updated",
+        "successfully-deleted": "Human resource successfully deleted",
+        "create-error": "Can't create human resource",
+        "update-error": "Can't update human resource",
+        "delete-error": "Can't delete human resource",
+        "load-items-error": "Can't load human resources"
+    },
+    "details.no-rows": "No human resources yet",
+    "navigation-back": "Back to resources list"
+}

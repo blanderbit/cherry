@@ -1,0 +1,45 @@
+{
+    "company-settings": "Налаштування компанії ",
+    "title": "Типи тесурсів і ціни",
+    "description": "Bushwick meh Blue Bottle pork belly mustache skateboard 3 wolf moon. Actually beard single-origin coffee, twee 90's PBR Echo Park sartorial try-hard freegan Portland ennui. Selvage jean shorts 90's,  Vice American Apparel try-hard food truck Shoreditch fap lomo Wes Anderson. Art party Thundercats High Life Tumblr, sartorial vinyl deep v fixie McSweeney's fap tousled Intelligentsia mumblecore. Deep  twee +1, roof party Thundercats PBR Etsy. Flexitarian Williamsburg tote bag iPhone American Apparel. Austin kitsch tofu chia, brunch hoodie Tonx semiotics trust fund kale chips.",
+    "edit": "Редагувати",
+    "add": "Додати типи тесурсів і ціни",
+    "name": "Тип тесурсів",
+    "name-placeholder": "Вкажіть тип",
+    "rate": "Ціна",
+    "rate-placeholder": "Вкажіть ціну",
+    "currency": "Валюта",
+    "currency-placeholder": "Виберіть валюту",
+    "action": {
+        "successfully-created": "Тип тесурсу і ціну створено успішно",
+        "successfully-updated": "Тип тесурсу і ціну оновлено успішно",
+        "successfully-deleted": "Тип тесурсу і ціну видалено успішно",
+        "create-error": "Неможливо створити тип тесурсу і ціну",
+        "update-error": "Неможливо оновити тип тесурсу і ціну",
+        "delete-error": "Неможливо видалити тип тесурсу і ціну",
+        "load-items-error": "Неможливо загрузити типи тесурсів і ціни",
+        "save": "Зберегти",
+        "cancel": "Відмінити",
+        "add": "Додати"
+
+    },
+    "header": {
+        "description": ""
+    },
+    "errors": {
+        "name": {
+            "required": "Обов'язкове поле",
+            "minlength": "Мінімальна довжина 2 символи",
+            "maxlength": "Максимальна довжина 50 символів"
+        },
+        "rate": {
+            "required": "Обов'язкове поле",
+            "min": "Мінімальне значення - 0",
+            "max": "Максимальне значення - 999999"
+        },
+        "currency": {
+            "required": "Обов'язкове поле"
+        }
+    },
+    "details.no-rows": "Ще немає типів ресурсів"
+}

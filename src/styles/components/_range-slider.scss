@@ -1,0 +1,45 @@
+@import "../core/variables";
+
+
+.slider.slider-horizontal .slider-track {
+    height: 8px;
+}
+
+.slider.slider-horizontal {
+    //width: 100%;
+}
+
+.slider-selection {
+    background: $control-color-blue;
+}
+
+.slider-track-high {
+    background: linear-gradient(0deg, rgba(0, 163, 255, 0.2), rgba(0, 163, 255, 0.2)), #FFFFFF;
+}
+
+.slider-handle {
+    top: -2px;
+
+    background: linear-gradient(180deg, #FFFFFF 2.45%, #F4F4F4 99.22%);
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 1px rgba(0, 0, 0, 0.16),
+    0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.slider-track {
+    .slider-track-low, .slider-track-high {
+        border-radius: 8px;
+    }
+}
+
+.slider.slider-disabled {
+    .slider-handle {
+        display: none;
+
+    }
+
+    .slider-selection, .slider-track-high {
+        cursor: default;
+    }
+}

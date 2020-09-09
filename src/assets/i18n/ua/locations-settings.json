@@ -1,0 +1,45 @@
+{
+    "company-settings": "Налаштування компанії ",
+    "title": "Розташування",
+    "description": "Bushwick meh Blue Bottle pork belly mustache skateboard 3 wolf moon. Actually beard single-origin coffee, twee 90's PBR Echo Park sartorial try-hard freegan Portland ennui. Selvage jean shorts 90's,  Vice American Apparel try-hard food truck Shoreditch fap lomo Wes Anderson. Art party Thundercats High Life Tumblr, sartorial vinyl deep v fixie McSweeney's fap tousled Intelligentsia mumblecore. Deep  twee +1, roof party Thundercats PBR Etsy. Flexitarian Williamsburg tote bag iPhone American Apparel. Austin kitsch tofu chia, brunch hoodie Tonx semiotics trust fund kale chips.",
+    "edit": "Редагувати",
+    "add": "Додати розташування",
+    "name": "Ім'я",
+    "name-placeholder": "Введіть ім'я",
+    "address": "Адреса",
+    "address-placeholder": "Адреса",
+    "country": "Країна",
+    "country-placeholder": "Країна",
+    "holidays-policy": "Відпускна політика",
+    "holidays-policy-placeholder": "Відпускна політика",
+    "action": {
+        "successfully-created": "Розташування створено успішно",
+        "successfully-updated": "Розташування оновлено успішно",
+        "successfully-deleted": "Розташування видалено успішно",
+        "create-error": "Неможливо створити розташування",
+        "update-error": "Неможливо оновити розташування",
+        "delete-error": "Неможливо видалити розташування",
+        "load-items-error": "Неможливо загрузити розташування",
+        "save": "Зберегти",
+        "cancel": "Відмінити",
+        "add": "Додати"
+
+    },
+    "header": {
+        "description": "A specific branch, office, or local chapter of your organization can be set as a work location. Adding all your work locations to Cerri will help you reporting and managing your resources belonging to different offices or branches."
+    },
+    "errors": {
+        "name": {
+            "required": "Обов'язкове поле",
+            "minlength": "Мінімальна довжина 2 символи",
+            "maxlength": "Максимальна довжина 50 символів"
+        },
+        "address": {
+            "required": "Обов'язкове поле"
+        },
+        "countryId": {
+            "required": "Обов'язкове поле"
+        }
+    },
+    "details.no-rows": "Ще немає розміщень"
+}

@@ -1,0 +1,20 @@
+<div *ngIf="selectedFiles?.length > 0 " class="w-100 position-relative ">
+    <div class="selected-files-footer-menu d-flex justify-content-center align-items-center position-absolute w-100">
+        <div class="footer-menu-counter d-flex justify-content-center align-items-center position-absolute">
+            <div class="d-flex justify-content-center">
+                {{selectedFiles.length}}
+            </div>
+            <p class="m-0 m-l-15">Documents selected</p>
+        </div>
+
+        <ng-container *ngIf="isProjectActive">
+            <div class="footer-menu-delete" *hasPermissions="permissionAction.DeleteAttachmentFromProject">
+                <i class="icon-delete m-l-10 cursor-pointer" (click)="deleteAllSelectedFiles()"></i>
+            </div>
+        </ng-container>
+
+        <div class="footer-menu-download" *hasPermissions="permissionAction.DownloadProjectAttachment">
+            <i class="icon-download m-l-10 cursor-pointer" (click)="downloadAllSelectedFiles()"></i>
+        </div>
+    </div>
+</div>

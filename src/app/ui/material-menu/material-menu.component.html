@@ -1,0 +1,16 @@
+<button class="icon-container" (onMenuClose)="onMenuClose();" (onMenuOpen)="onMenuOpen()" mat-button
+        [disabled]="disabled"
+        [matMenuTriggerFor]="menu">
+    <ng-content></ng-content>
+</button>
+
+<mat-menu #menu="matMenu" [backdropClass]="customizeClass">
+    <div class="menu-item">
+        <button mat-menu-item
+                *ngFor="let item of items"
+                (click)="item.action()"><i class="icon-{{item.icon}}"></i>&nbsp;{{ item.title | translate}}</button>
+    </div>
+</mat-menu>
+
+
+

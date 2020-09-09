@@ -1,0 +1,25 @@
+@import '../../../../styles/core/variables';
+
+
+.selected-files-footer-menu {
+    bottom: 0;
+    height: 78px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), -5px -5px 25px rgba(206, 218, 228, 0.7);
+    background: $body-color-bg;
+    left: 0;
+    z-index: 1;
+
+    .footer-menu-counter {
+        left: 40px;
+        div {
+            height: 20px;
+            width: 30px;
+            background: $control-color-blue;
+            color: $body-color-bg;
+            border-radius: 3px;
+        }
+    }
+    .footer-menu-delete {
+        margin-right: 26px;
+    }
+}

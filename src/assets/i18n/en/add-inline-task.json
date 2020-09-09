@@ -1,0 +1,20 @@
+{
+    "new-task": "Add task",
+    "new-deliverable":"Add deliverable name",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "add": "Add",
+    "addTaskName": "Add task name",
+    "task": "Task",
+    "delivery": "Deliverable",
+    "project": "Project",
+    "cancel": "Cancel",
+    "action": {
+        "successfully-created": "Successfully created",
+        "successfully-updated": "Successfully updated",
+        "successfully-deleted": "Successfully deleted",
+        "create-error": "Can't create",
+        "update-error": "Can't update",
+        "delete-error": "Can't delete"
+    }
+}

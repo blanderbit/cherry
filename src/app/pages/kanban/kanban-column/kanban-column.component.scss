@@ -1,0 +1,41 @@
+@import '../../../../styles/core/variables';
+
+//.kanban-column {
+//    background: $background-light;
+//    border-radius: 8px;
+//    padding: 16px 15px;
+//    width: 100%;
+//}
+
+input {
+    padding: 2px 8px;
+}
+
+.material-menu-trigger {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+        display: inline-flex;
+    }
+}
+
+.icon-add-time {
+    font-size: 17px;
+    line-height: 17px;
+}
+
+// .add-task {
+//     background: #FFFFFF;
+//     box-shadow: -5px -5px 25px rgba(206, 218, 228, 0.5);
+//     border-radius: 4px;
+//     height: 24px;
+
+//     i {
+//         font-size: 14px;
+//         line-height: 14px;
+//     }
+// }

@@ -1,0 +1,48 @@
+@import "../../../../../styles/core/variables";
+
+:host {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0 5px 5px !important;
+
+    .input-container {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    tag {
+        margin: 3px;
+    }
+
+    input {
+        flex-grow: 1;
+        border: none;
+        margin: 3px;
+        padding: 0;
+        background: transparent
+    }
+}
+:host ::ng-deep {
+    .dropdown-menu {
+        padding-left: 6px;
+        padding-right: 6px;
+
+        button.dropdown-item {
+
+            border-radius: 3px;
+            background: transparent;
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: normal;
+            height: 32px;
+
+            &:hover, &.active {
+                background-color: rgba(218, 239, 250, 0.6);
+                color: $control-color-blue;
+                font-weight: 600;
+            }
+        }
+    }
+}

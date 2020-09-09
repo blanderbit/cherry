@@ -1,0 +1,27 @@
+.info-modal {
+  padding: 0 63px 40px;
+  position: relative;
+
+  .close {
+    width: 30px;
+    padding: 0;
+    margin: 0;
+    color: rgba(115, 140, 153, 0.8);
+    outline: none;
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    background: transparent;  }
+
+ .image {
+    margin-top: 45px;
+  }
+
+  .text {
+    margin-top: 27px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 18px;
+    color: #485056;
+  }
+}

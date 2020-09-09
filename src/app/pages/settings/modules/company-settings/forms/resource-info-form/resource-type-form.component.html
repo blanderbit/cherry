@@ -1,0 +1,28 @@
+<div class="d-flex form-container" [formGroup]="form">
+
+    <app-form-item class="item" label="{{'name' | translate}}">
+        <app-form-control [error]="errors.name">
+            <input type="text"
+                   formControlName="name"
+                   placeholder="{{'name-placeholder' | translate}}">
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'rate' | translate}}">
+        <app-form-control [error]="errors.rate">
+            <input type="number"
+                   placeholder="{{'rate-placeholder' | translate}}"
+                   onlyNumber
+                   formControlName="rate">
+        </app-form-control>
+    </app-form-item>
+
+    <app-form-item class="item" label="{{'currency' | translate}}">
+        <app-form-control [error]="errors.currency">
+            <app-autocomplete-control [provider]="currencyProvider"
+                                      formControlName="currency"
+                                      placeholder="currency-placeholder"
+            ></app-autocomplete-control>
+        </app-form-control>
+    </app-form-item>
+</div>

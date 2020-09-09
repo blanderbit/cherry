@@ -1,0 +1,91 @@
+@import '../../ui/ag-grid/ag-grid.component';
+//@import '../projects/project-tasks/project-tasks.component';
+
+:host ::ng-deep {
+    .header-title {
+        font-size: 24px;
+        line-height: 34px;
+    }
+
+    menu.menu #dropdown {
+        height: 32px;
+        width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="checkbox"] {
+        width: 1.3em;
+        height: 1.3em;
+        background-color: white;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: gray;
+    }
+
+    app-add-task-inline {
+        margin-top: 40px;
+        display: block;
+    }
+}
+
+
+.wrapper {
+    padding: 30px 40px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content-list {
+        height: 100%;
+    }
+}
+
+.no-content {
+    margin-top: 50px;
+}
+
+.custom-style {
+    //height: calc(100% - 93px);
+    //width: 98%;
+    width: 100%;
+    height: 100%;
+}
+
+// .height-55 {
+//     height: 55px;
+// }
+
+// .h-100 {
+//     height: 100%;
+// }
+
+.header-text {
+    width: calc(100% - 100px);
+}
+
+.button-add {
+    width: 150px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: 'Open Sans', sans-serif;
+
+    .icon-plus {
+        font-size: 10px;
+    }
+}
+

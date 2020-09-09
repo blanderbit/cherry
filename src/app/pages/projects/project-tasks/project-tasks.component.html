@@ -1,0 +1,16 @@
+<div class="content h-100">
+    <div class="section-header">
+        <ng-template [hasPermission]="[permissionAction.CreateTask, permissionAction.CreateDeliverable]"
+                     [creatorId]="project?.creatorId">
+            <app-add-task-inline *ngIf="shouldShowCreateTask" [projectId]="project?.id"></app-add-task-inline>
+        </ng-template>
+    </div>
+    <ng-container *noSSR>
+        <div class="ag-theme-bootstrap table-wrapper">
+            <app-grid-container [colDefs]="columnDefs"
+                                [options]="gridOptions"
+                                [noRowsParams]="noRowsParams"
+                                [rowData]="items"></app-grid-container>
+        </div>
+    </ng-container>
+</div>

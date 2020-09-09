@@ -1,0 +1,84 @@
+<form class="modal-container position-relative" [formGroup]="form" (ngSubmit)="apply($event)">
+    <app-loader class="absolute" *ngIf="loading"></app-loader>
+    <div class="head d-flex justify-content-center align-items-center">
+        <div>{{"plan.effort" | translate }}</div>
+        <div class="close" (click)="cancel()">
+            <i class="icon-close-button cursor-pointer"></i>
+        </div>
+    </div>
+
+    <div class="p-30" *ngIf="assignments?.length">
+        <div class="plan-effort-head m-b-25 f-w-600 sz-13 l-h-18 color-grey">
+            <div class="user"></div>
+            <div class="reported-time">{{"plan.reported" | translate}}</div>
+            <div class="planned-time">{{"plan.planned" | translate}}</div>
+        </div>
+        <div class="plan-effort-row w-100 d-flex align-items-center justify-content-between m-b-25"
+             formArrayName="assignments"
+             *ngFor="let assignment of assignments; let i = index; trackBy: trackByResource"
+        >
+
+            <div class="status-wrapper" *ngIf="changeAssignmentStatusAvailable">
+                <ng-container *ngIf="assignment.resourceId === creatorId; else notOwnAssignmentStatus">
+                    <ng-template [noForbiddenPermission]="permissionAction.UpdateAssignmentStatus">
+                        <ng-template [ngTemplateOutlet]="assignmentStatusCheckboxRef"></ng-template>
+                    </ng-template>
+                </ng-container>
+
+                <ng-template #notOwnAssignmentStatus>
+                    <ng-template [hasPermission]="permissionAction.UpdateAssignmentStatus"
+                                 [creatorId]="creatorId"
+                                 [membersIds]="[assignment.resourceId]">
+                        <ng-template [ngTemplateOutlet]="assignmentStatusCheckboxRef"></ng-template>
+                    </ng-template>
+                </ng-template>
+
+                <ng-template #assignmentStatusCheckboxRef>
+                    <app-assignee-completed-status [assignment]="assignment"
+                                                   [task]="task"
+                                                   [projectStatus]="projectStatus"
+                                                   class="m-r-14">
+                    </app-assignee-completed-status>
+                </ng-template>
+            </div>
+
+            <div class="user text-overflow-ellipsis">
+                <app-user-summary [user]="assignment.resourceId"
+                                  [avatarSize]="35"
+                                  [success]="assignment.status === assignmentStatus.Completed"
+                ></app-user-summary>
+            </div>
+
+            <div class="reported-time color-grey"
+                 [appHighlight]="checkOverdue(assignment.actualTime, assignment.plannedTime)"
+            >{{assignment?.actualTime | timeToString}}</div>
+
+            <div class="planned-time">
+                <app-manual-time-input
+                    #manualTimeInputComponent
+                    (keydown.enter)="manualTimeInputComponent.onBlur();"
+                    [maxMinutes]="effortMaxMinutes"
+                    [formControlName]="i.toString()"
+                    [disabled]="assignment.status === assignmentStatus.Completed"
+                ></app-manual-time-input>
+            </div>
+        </div>
+
+        <div class="d-flex sz-13 l-h-18 f-w-600">
+            <div class="user t-a-r color-grey">{{"plan.total" | translate}}</div>
+            <div
+                [appHighlight]="checkOverdue(totalReportedTime, totalPlannedTime) "
+                class="reported-time color-dark  ">{{totalReportedTime | timeToString}}</div>
+            <div class="planned-time color-dark l-h-20 t-a-c">{{totalPlannedTime | timeToString}}</div>
+        </div>
+
+        <div class="dialog-actions d-flex justify-content-between">
+            <button class="default large" (click)="cancel()" type="button">
+                {{"assignee.cancel" | translate }}
+            </button>
+            <button class="primary large" [disabled]="form.invalid" type="submit">
+                {{"plan.save" | translate }}
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+@import "../ag-grid.component";
+
+:host {
+  height: 100%;
+}
+
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.54);
+  height: 56px;
+  padding: 0 24px;
+
+  border: none;
+  width: 100%;
+
+  .items-data {
+    margin-left: 32px;
+    display: flex;
+  }
+
+  .page-data {
+    margin-left: 32px;
+    white-space: nowrap;
+  }
+}
+
+:host ::ng-deep .ag-theme-material {
+
+  &.cursor {
+    .ag-center-cols-container {
+      .ag-row-hover {
+        .ag-column-hover {
+          cursor: pointer;
+
+          &:last-child {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep div [col-id="wbs"] {
+
+  display: flex;
+  align-items: center;
+}
+
+

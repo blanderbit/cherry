@@ -1,0 +1,43 @@
+<form class="message"
+      [formGroup]="form"
+      (ngSubmit)="apply($event)"
+      (mouseenter)="hover = true"
+      (mouseleave)="hover = false"
+      *ngIf="item"
+>
+    <div class="d-flex align-items-center">
+        <app-user-summary [user]="item?.resourceId"
+                          [avatarSize]="28"
+                          [gutter]="12"
+                          class="m-r-10"
+        ></app-user-summary>
+        <div class="color-grey sz-12">
+            {{item?.createdAt | localDate: 'shortTime'}}
+        </div>
+    </div>
+    <div class="message-body m-l-42">
+        <div class="color-black sz-13 l-h-23 m-t-2 text-break"
+             *ngIf="needCreate; else edit"
+             [innerHTML]="commentHtml">
+        </div>
+
+        <ng-template #edit>
+            <div class="edit w-100">
+                <div class="w-100 edit-padding">
+
+                    <app-mentions-input class="mentions-input"
+                                        formControlName="text"
+                                        [placeholder]="'form.commentPlaceholder'"
+                                        [edit]="true"
+                                        (send)="onSendMessage($event)"
+                                        [resources]="resources"
+                                        [editItem]="item?.text"
+                                        (cancelEdit)="cancelEdit()"
+                    >
+                    </app-mentions-input>
+
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</form>

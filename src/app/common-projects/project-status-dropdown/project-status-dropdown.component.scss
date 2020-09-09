@@ -1,0 +1,79 @@
+@import '../../../styles/core/variables';
+@import '../../../styles/components/select';
+
+::ng-deep {
+
+    app-select {
+        background-color: transparent !important;
+
+        #dropdown {
+            padding: 0;
+            &.open{
+                background: transparent !important;
+            }
+        }
+
+        .menu-disabled {
+            menu.dropdown-caret::after {
+                display: none !important;
+            }
+
+            .state {
+                justify-content: center !important;
+            }
+        }
+    }
+
+    menu.dropdown-caret::after {
+        background-image: none;
+        mask-image: $caret-url;
+        mask-size: 24px;
+        mask-repeat: no-repeat;
+        mask-position: top 50% right 0;
+    }
+
+    .project-status {
+        min-width: 107px;
+        height: 24px;
+        font-weight: 600;
+        justify-content: flex-start;
+        padding: 4px 12px;
+    }
+
+    .Draft,
+    .Archived {
+        background-color: rgba(196, 210, 221, 0.5);
+        color: $color-text-grey;
+
+        menu.dropdown-caret::after {
+            background-color: $color-text-grey;
+        }
+    }
+
+    .InProgress {
+        color: $control-color-blue;
+        background: #CCEDFF;
+
+        menu.dropdown-caret::after {
+            background-color: $control-color-blue;
+        }
+    }
+
+    .Canceled {
+        background-color: #FBD0D5;
+        color: $control-color-red;
+
+        menu.dropdown-caret::after {
+            background-color: $control-color-red;
+        }
+    }
+
+    &.Completed {
+        background-color: #CCF0E8;
+        color: $control-color-green;
+
+        menu.dropdown-caret::after {
+            background-color: $control-color-green;
+        }
+    }
+}

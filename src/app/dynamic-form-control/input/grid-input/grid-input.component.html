@@ -1,0 +1,7 @@
+<app-form-control [formGroup]="form" [title]="errors[field?.name]" hideError="true" hideTitle="true">
+    <input [type]="field?.type"
+           [placeholder]="(field?.placeholder || field?.name) | translate"
+           [formControlName]="field?.name"
+           (keydown.enter)="apply($event)"
+           #input>
+</app-form-control>

@@ -1,0 +1,6 @@
+<app-form-control [formGroup]="form" [title]="errors[field?.name]" hideError="true" hideTitle="true">
+    <app-autocomplete-control [placeholder]="(field?.placeholder || field?.name) | translate"
+                              [provider]="field?.provider"
+                              [emitNullValues]="emitNullValues"
+                              [formControlName]="field?.name"></app-autocomplete-control>
+</app-form-control>

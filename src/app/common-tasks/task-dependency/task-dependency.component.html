@@ -1,0 +1,17 @@
+<div class="m-b-0">
+    <div class="f-z-14 l-h-18 color-black d-flex flex-wrap">
+        <span class="d-inline-block">
+            {{'dependency.before.' + dependency?.type | translate}}
+            <span>
+                {{taskType != null ? ('dependency.type.' + taskType | translate) : ''}}
+            </span>
+        </span>
+
+        &nbsp;
+        <a [title]="taskName" [routerLink]="['../', dependency?.id || '']"
+           class="link text-overflow-ellipsis color-blue">{{taskName}}</a>
+        &nbsp;
+
+        <span class="d-inline-block">{{('dependency.after.' + dependency?.type)  | translate}}</span>
+    </div>
+</div>

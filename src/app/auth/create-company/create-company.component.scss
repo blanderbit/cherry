@@ -1,0 +1,125 @@
+@import "../../../styles/core/variables";
+
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    max-width: 540px;
+}
+
+.add-icon-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    width: 40px;
+    border-radius: 5px;
+    border: 1px dashed rgba(196, 210, 221, 0.5);
+    transition: all 0.3s;
+
+    &:hover {
+        border: 1px dashed $control-color-blue;
+
+        span {
+            background: $control-color-blue !important;
+        }
+    }
+}
+
+.create-company-form {
+    height: 80px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(72, 80, 86, 0.3);
+    border-radius: 4px;
+}
+
+.create-company {
+    background-color: #FFFFFF;
+    padding-top: 70px;
+
+    img {
+        width: 120px;
+        align-self: flex-start;
+    }
+
+    nav {
+        width: 80%;
+        max-width: 850px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .add-image {
+        position: relative;
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+
+            transform: translate(-50%, -50%);
+        }
+
+        i {
+            font-size: 12px;
+            line-height: 12px;
+            color: #fff;
+        }
+
+        span {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(0deg, rgba(196, 210, 221, 0.5), rgba(196, 210, 221, 0.5)), #FFFFFF;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    //.create-company-title {
+    //    color: lighten($color-text-grey, 20%);
+    //}
+
+    input {
+        &::placeholder {
+            color: $color-text-grey;
+        }
+    }
+
+    .company-name {
+
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+
+        input[type="checkbox"] {
+            height: 16px;
+            width: 16px;
+        }
+    }
+
+    button[type="submit"] {
+        width: auto;
+        min-width: 280px;
+    }
+}
+

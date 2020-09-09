@@ -1,0 +1,126 @@
+{
+    "meta": {
+        "title": "Tasks",
+        "description": "Tasks description",
+        "priority": "priority"
+    },
+    "side": {
+        "title": "task",
+        "all": "All tasks",
+        "by-project": "Tasks by project",
+        "my-tasks": "My tasks",
+        "favourites": "Favourites",
+        "on-track": "On track",
+        "late": "Late",
+        "draft": "Draft",
+        "active": "Active projects only",
+        "archives": "Archives only",
+        "new": "New Task",
+        "add": "Create New Task"
+    },
+    "details": {
+        "start": "Start Date",
+        "end": "End Date",
+        "no-description": "No description provided...",
+        "no-tasks": "Add tasks to get started on",
+        "no-tasks-display": "There are no task to display",
+        "no-rows": "Add tasks to get started on",
+        "exportCSV": "Export to CSV",
+        "hide": "Hide completed tasks",
+        "showAll": "Show all tasks"
+    },
+    "action": {
+        "successfully-created": "Task successfully created",
+        "successfully-updated": "Task successfully updated",
+        "successfully-deleted": "Task successfully deleted",
+        "create-error": "Can't create task",
+        "update-error": "Can't update task",
+        "delete-error": "Can't delete task",
+        "load-items-error": "Can't load tasks",
+        "not-found": "Task not found",
+        "no-project": "Project not found",
+        "project-delete-success": "Project successfully deleted",
+        "success-assignee": "Assignee successfully added",
+        "error-assignee": "Can't add assignee"
+    },
+    "action-attachments": {
+        "upload-error": "upload error",
+        "update-error": "Failed to edit",
+        "delete-error": "Failed to delete",
+        "load-items-error": "Failed to load",
+        "successfully-deleted": "Successfully deleted",
+        "successfully-upload": "Successfully upload"
+    },
+
+    "statusType": {
+        "0": "Draft",
+        "1": "Requested",
+        "2": "In Progress",
+        "3": "Completed",
+        "4": "Archived",
+        "5": "Cancelled"
+    },
+    "table": {
+        "status": "Status",
+        "creator": "Owner",
+        "currentStartDate": "Start date",
+        "currentEndDate": "Due date",
+        "name": "Task name",
+        "effort": "Effort",
+        "plannedTime": "Planned effort",
+        "actualTime": "Reported effort",
+        "project": "Project",
+        "assignments": "Assignee",
+        "priority" : "Priority",
+        "wbs": "WBS"
+    },
+    "list": {
+        "selectProject": "Please select project"
+    },
+    "taskPriority": {
+        "High": "High",
+        "Medium" : "Medium",
+        "Low": "Low",
+        "noValue" : "Not specified"
+    },
+    "filter": {
+        "all": "All projects",
+        "late": "Late",
+        "draft": "Draft",
+        "active": "Active",
+        "archives" : "Archives",
+        "completed": "Completed",
+        "canceled": "Canceled",
+        "new": "New Project",
+        "add": "Create New Project",
+        "null": "All projects"
+    },
+    "card": {
+        "project": "Project",
+        "detail": "Task detail",
+        "assignee": "Assignee",
+        "description": "Description",
+        "taskType": "Task type",
+        "taskPriority": "Task priority",
+        "owner": "Owner"
+    },
+    "new-task": "New task",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "add": "Add",
+    "task": "Task",
+    "delivery": "Delivery",
+    "project": "Project",
+    "createError": {
+        "required": "Required field",
+        "minlength": "Minimum field length is 3 characters",
+        "maxlength": "Maximum field length is 256 characters",
+        "maxlengthDEscription": "Maximum field length is 2048 characters",
+        "dateSequenceError": "Start date must be less than end date"
+    },
+    "headers": {
+        "my-tasks": "My tasks",
+        "allTasks": "All tasks"
+    },
+    "navigation-back": "Back to all tasks"
+}

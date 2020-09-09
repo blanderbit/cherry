@@ -1,0 +1,107 @@
+<div class="admin-subscription-container">
+    <app-loader class="absolute" *ngIf="loading"></app-loader>
+
+    <ng-template #headerContainer></ng-template>
+
+    <ng-container *ngIf="!header">
+        <ng-container *ngIf="!isUpgrade">
+            <div class="container">
+                <h1>{{'side.subscriptionAndLicenses' | translate}}</h1>
+
+                <div class="grid-table">
+                    <h2>{{'subscription.subscription-details' | translate}}</h2>
+                    <div class="row">
+        <!--                <div class="col-7">{{'subscription.status' | translate}}</div>-->
+                        <div class="col-7 d-flex">
+                            <p class="title p-t-0">{{'subscription.status' | translate}}:</p>
+                            <div class="item-cont d-flex ml-2" [ngClass]="statusClass(1)">
+                                 <p>{{statusClass(1) | translate}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-2 text-right">
+                            <button class="create-item primary medium w-auto" (click)="onUpgradeClick()">
+                                {{'subscription.upgrade' | translate}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">{{'subscription.license-usage' | translate}}</div>
+                        <div class="col-2 text-right">
+                            <a class="link px-1 color-blue" (click)="onUpgradeClick()">
+                                {{'subscription.manage-users' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">{{'subscription.expiration-date' | translate}}</div>
+                        <div class="col-2">&nbsp;</div>
+                    </div>
+                </div>
+
+                <div class="grid-table">
+                    <h2>{{'subscription.payment-method' | translate}}</h2>
+                    <div class="row">
+                        <div class="col-7">{{'subscription.payment-term' | translate}}<br>
+                        <span class="subtext">{{'subscription.no-payment-term' | translate}}</span></div>
+                        <div class="col-2">&nbsp;</div>
+                    </div>
+                </div>
+
+
+                <div class="grid-table">
+                    <h2>{{'subscription.billing-details' | translate}}</h2>
+                    <div class="row">
+                        <div class="col-7">{{'subscription.billing-information' | translate}}<br>
+                            <span class="subtext">{{'subscription.no-billing-information' | translate}}</span>
+                        </div>
+                        <div class="col-2 text-right">
+                            <a class="link px-1 color-blue" (click)="onUpgradeClick()">
+                                {{'subscription.add-billing' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">{{'subscription.billing-contact' | translate}}<br>
+                            <span class="subtext">{{'subscription.no-billing-contact' | translate}}</span>
+                        </div>
+                        <div class="col-2 text-right">
+                            <a class="link px-1 color-blue" (click)="onUpgradeClick()">
+                                {{'subscription.modify' | translate}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+       <ng-container *ngIf="isUpgrade">
+           <div class="container">
+               <h1>{{'subscription.choose-a-plan' | translate}}</h1>
+               <div class="grid-table">
+                   <div class="row">
+                       <a class="link px-1 color-blue" (click)="isUpgrade=false"> Go Back to Details</a>
+                   </div>
+               </div>
+
+               <div class="flex-row align-content-center">
+                   <div *ngFor="let item of plans">
+                       <div class="plan-card">
+                           <div class="plan-header">
+                               <span class="d-inline-block overflow-hidden">{{item.name}}</span>
+                               <span class="d-inline-block overflow-hidden">{{item.recurring_price}} per {{item.unit}}</span>
+                           </div>
+                           <div class="plan-content">
+                               <span class="d-inline-block overflow-hidden">{{item.description}}</span>
+                           </div>
+                           <div class="plan-button">
+
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+            </div>
+       </ng-container>
+    </ng-container>
+</div>

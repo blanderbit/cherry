@@ -1,0 +1,14 @@
+<div class=" h-100 team-wrapper">
+    <button [disabled]="!isProjectActive"
+            *hasPermission="permissionAction.AddMember"
+            (click)="addMember()"
+            class="primary large w-auto add-resources">{{'teamMemberAction.addResource' | translate}}
+        <span class="plus">+</span>
+    </button>
+
+    <app-resource-list *ngFor="let kind of [resourceKind.Human, resourceKind.Material, resourceKind.Generic ]"
+                       [project]="project"
+                       [roles]="roles"
+                       [title]="'resources.' + kind"
+                       [items]="getResourcesByKind(kind)"></app-resource-list>
+</div>

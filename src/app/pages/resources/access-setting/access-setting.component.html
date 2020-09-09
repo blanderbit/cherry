@@ -1,0 +1,43 @@
+<form [formGroup]="form" *ngIf="form">
+    <h5 class="header">{{'apps.access' | translate}}</h5>
+
+    <div *ngFor="let app of items" [formGroup]="appsFormGroup"
+         class="custom-control  color-blue custom-checkbox">
+
+        <app-checkbox size="16"
+                      #apps
+                      [formControlName]="app?.name"
+                      [borderRadius]="8"
+                      [disabled]="app?.isDefault || appFormControls[app.name].disabled"
+        ></app-checkbox>
+
+        <label class="">
+
+
+            <app-item-component translatePrefix="apps"
+                                [disabled]="appFormControls[app.name].disabled"
+                                [app]="app.name">
+
+            </app-item-component>
+
+        </label>
+    </div>
+
+    <h5 class="header">{{'apps.system-permission' | translate}}</h5>
+
+    <div class="custom-control color-blue system custom-checkbox" *ngFor="let role of roles$ | async">
+        <app-checkbox
+            [value]="role.id"
+            [borderRadius]="16"
+            [checked]="systemRoleId === role.id"
+            (isChecked)="onCheckboxCheck(role)"
+            style="margin-right: 16px"
+            size="16"
+            id="admin"
+        ></app-checkbox>
+
+        <label class="" for="admin">
+            {{('roles.' + role?.name | translate) | titlecase}}
+        </label>
+    </div>
+</form>

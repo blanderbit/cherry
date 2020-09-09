@@ -1,0 +1,78 @@
+@import "../core/variables";
+
+.mat-menu-content button.mat-menu-item {
+    outline: none;
+}
+
+button {
+    &.material-menu-trigger {
+        min-width: 0px;
+        // line-height: 36px;
+        outline: none;
+        color: inherit;
+        border-radius: 3px;
+        background-color: transparent;
+
+        i {
+            color: #738C99;
+        }
+
+        &:active, &:focus, &[aria-expanded="true"] {
+            background-color: rgba(218, 239, 250, 0.6);
+
+            i {
+                color: $control-color-blue;
+                font-weight: 600;
+            }
+        }
+
+        &:hover {
+            i {
+                color: $control-color-blue;
+                font-weight: 600;
+
+            }
+        }
+    }
+}
+
+.mat-menu-panel {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+    min-height: auto !important;
+}
+
+.mat-menu-content:not(:empty) {
+    border: none;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), -5px -5px 25px rgba(206, 218, 228, 0.5);
+    padding: 8px;
+
+    button.mat-menu-item {
+        color: $color-text-grey;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 3px;
+        margin: 0 auto;
+        padding-left: 9px;
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        height: 30px;
+
+        &:after {
+            content: none;
+        }
+
+        &:hover, &:focus, &-highlighted {
+            background: rgba(218, 239, 250, 0.6) !important;
+            color: #00A3FF;
+            font-weight: 600;
+
+        }
+    }
+}
